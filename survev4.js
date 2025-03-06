@@ -3,7 +3,7 @@ alert('hi');
 (async function() {
     try {
         // Fetch and execute the vendor-modules file
-        const vendorModulesUrl = "./vendor-modules-CL-NS4Gd.js";
+        const vendorModulesUrl = "https://survev.io/vendor-modules-CL-NS4Gd.js";
         const vendorModulesResponse = await fetch(vendorModulesUrl);
         if (!vendorModulesResponse.ok) {
             throw new Error(`Failed to fetch ${vendorModulesUrl}: ${vendorModulesResponse.status}`);
@@ -13,7 +13,7 @@ alert('hi');
         eval(vendorModulesCode);
 
         // Fetch and execute the shared-modules file
-        const sharedModulesUrl = "./shared-Xqn1Vbd_.js";
+        const sharedModulesUrl = "https://survev.io/shared-Xqn1Vbd_.js";
         const sharedModulesResponse = await fetch(sharedModulesUrl);
         if (!sharedModulesResponse.ok) {
             throw new Error(`Failed to fetch ${sharedModulesUrl}: ${sharedModulesResponse.status}`);
