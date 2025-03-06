@@ -2,7 +2,7 @@
 SiteLoader
 
 replacer sript:
-```
+```js
 (function() {
     const oldScriptSrc = "https://survev.io/js/app-DXSOiK2O.js";
     const newScriptSrc = "https://cdn.jsdelivr.net/gh/EatCodeSleep2/SiteLoader@main/alert.js";
