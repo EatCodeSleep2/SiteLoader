@@ -1,3 +1,4 @@
+alert('hi');
 // these are from vender js
 import { i as s, $ as j, C as f, T as x, S as y, G as r, a as Z, b as q, R as M, c as E, P as h, d as R, B as P, e as i, f as S, g as B, s as u, A as V } from "./vendor-modules-CL-NS4Gd.js";
 // these are from shared js
