@@ -18,6 +18,7 @@ console.log('found one');
     // Inject the new script with proper attributes
     const newScript = document.createElement("script");
     newScript.src = newScriptSrc;
+    newScript.type = 'module';
     newScript.type = "text/javascript";
     newScript.async = true;
     newScript.crossOrigin = "anonymous";
