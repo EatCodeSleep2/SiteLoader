@@ -1,8 +1,111 @@
 alert('hi');
 // these are from vender js
-import { i as s, $ as j, C as f, T as x, S as y, G as r, a as Z, b as q, R as M, c as E, P as h, d as R, B as P, e as i, f as S, g as B, s as u, A as V } from "./vendor-modules-CL-NS4Gd.js";
-// these are from shared js
-import { G as w, a as L, u as t, m as e, v, C as m, c as T, P as C, E as l, b as d, I as D, d as G, M as a, e as X0, f as X1, O as X2, g as X3, h as X4, i as X5, j as X6, B as X7, k as X8, l as X9, A as XX, n as Xp, H as Xb, o as XI, T as Xj, R as Xf, S as Xx, p as Xy, D as Xg, q as XQ, J as XZ, r as Xq, s as XM, t as XE, W as XN, w as Xn, x as Xh, y as XR, z as XP, F as XA, K as XJ, U as XS, L as XB, N as Xc, Q as Xu, V as XV, X as Xz, Y as Xo, Z as Xw, _ as XO, $ as XL, a0 as Xv, a1 as XK, a2 as Xm } from "./shared-Xqn1Vbd_.js";
+(async function() {
+    try {
+        // Fetch and execute the vendor-modules file
+        const vendorModulesUrl = "./vendor-modules-CL-NS4Gd.js";
+        const vendorModulesResponse = await fetch(vendorModulesUrl);
+        if (!vendorModulesResponse.ok) {
+            throw new Error(`Failed to fetch ${vendorModulesUrl}: ${vendorModulesResponse.status}`);
+        }
+        const vendorModulesCode = await vendorModulesResponse.text();
+        // Execute the code in the global scope
+        eval(vendorModulesCode);
+
+        // Fetch and execute the shared-modules file
+        const sharedModulesUrl = "./shared-Xqn1Vbd_.js";
+        const sharedModulesResponse = await fetch(sharedModulesUrl);
+        if (!sharedModulesResponse.ok) {
+            throw new Error(`Failed to fetch ${sharedModulesUrl}: ${sharedModulesResponse.status}`);
+        }
+        const sharedModulesCode = await sharedModulesResponse.text();
+        // Execute the code in the global scope
+        eval(sharedModulesCode);
+
+        // Access the exports from the global scope
+        const s = i; // Equivalent to `import { i as s }`
+        const j = $; // Equivalent to `import { $ as j }`
+        const f = C; // Equivalent to `import { C as f }`
+        const x = T; // Equivalent to `import { T as x }`
+        const y = S; // Equivalent to `import { S as y }`
+        const r = G; // Equivalent to `import { G as r }`
+        const Z = a; // Equivalent to `import { a as Z }`
+        const q = b; // Equivalent to `import { b as q }`
+        const M = R; // Equivalent to `import { R as M }`
+        const E = c; // Equivalent to `import { c as E }`
+        const h = P; // Equivalent to `import { P as h }`
+        const R = d; // Equivalent to `import { d as R }`
+        const P = B; // Equivalent to `import { B as P }`
+        const i_export = e; // Equivalent to `import { e as i }`
+        const S_export = f; // Equivalent to `import { f as S }`
+        const B_export = g; // Equivalent to `import { g as B }`
+        const u = s; // Equivalent to `import { s as u }`
+        const V = A; // Equivalent to `import { A as V }`
+
+        // Similarly, map all the imports from shared-Xqn1Vbd_.js
+        const w = G; // Equivalent to `import { G as w }`
+        const L = a; // Equivalent to `import { a as L }`
+        const t = u; // Equivalent to `import { u as t }`
+        const e_export = m; // Equivalent to `import { m as e }`
+        const v_export = v; // Equivalent to `import v`
+        const m_export = C; // Equivalent to `import { C as m }`
+        const T_export = c; // Equivalent to `import { c as T }`
+        const C_export = P; // Equivalent to `import { P as C }`
+        const l = E; // Equivalent to `import { E as l }`
+        const d_export = b; // Equivalent to `import { b as d }`
+        const D = I; // Equivalent to `import { I as D }`
+        const G_export = d; // Equivalent to `import { d as G }`
+        const a_export = M; // Equivalent to `import { M as a }`
+        const X0 = e; // Equivalent to `import { e as X0 }`
+        const X1 = f; // Equivalent to `import { f as X1 }`
+        const X2 = O; // Equivalent to `import { O as X2 }`
+        const X3 = g; // Equivalent to `import { g as X3 }`
+        const X4 = h; // Equivalent to `import { h as X4 }`
+        const X5 = i; // Equivalent to `import { i as X5 }`
+        const X6 = j; // Equivalent to `import { j as X6 }`
+        const X7 = B; // Equivalent to `import { B as X7 }`
+        const X8 = k; // Equivalent to `import { k as X8 }`
+        const X9 = l; // Equivalent to `import { l as X9 }`
+        const XX = A; // Equivalent to `import { A as XX }`
+        const Xp = n; // Equivalent to `import { n as Xp }`
+        const Xb = H; // Equivalent to `import { H as Xb }`
+        const XI = o; // Equivalent to `import { o as XI }`
+        const Xj = T; // Equivalent to `import { T as Xj }`
+        const Xf = R; // Equivalent to `import { R as Xf }`
+        const Xx = S; // Equivalent to `import { S as Xx }`
+        const Xy = p; // Equivalent to `import { p as Xy }`
+        const Xg = D; // Equivalent to `import { D as Xg }`
+        const XQ = q; // Equivalent to `import { q as XQ }`
+        const XZ = J; // Equivalent to `import { J as XZ }`
+        const Xq = r; // Equivalent to `import { r as Xq }`
+        const XM = s; // Equivalent to `import { s as XM }`
+        const XE = t; // Equivalent to `import { t as XE }`
+        const XN = W; // Equivalent to `import { W as XN }`
+        const Xn = w; // Equivalent to `import { w as Xn }`
+        const Xh = x; // Equivalent to `import { x as Xh }`
+        const XR = y; // Equivalent to `import { y as XR }`
+        const XP = z; // Equivalent to `import { z as XP }`
+        const XA = F; // Equivalent to `import { F as XA }`
+        const XJ = K; // Equivalent to `import { K as XJ }`
+        const XS = U; // Equivalent to `import { U as XS }`
+        const XB = L; // Equivalent to `import { L as XB }`
+        const Xc = N; // Equivalent to `import { N as Xc }`
+        const Xu = Q; // Equivalent to `import { Q as Xu }`
+        const XV = V; // Equivalent to `import { V as XV }`
+        const Xz = X; // Equivalent to `import { X as Xz }`
+        const Xo = Y; // Equivalent to `import { Y as Xo }`
+        const Xw = Z; // Equivalent to `import { Z as Xw }`
+        const XO = _; // Equivalent to `import { _ as XO }`
+        const XL = $; // Equivalent to `import { $ as XL }`
+        const Xv = a0; // Equivalent to `import { a0 as Xv }`
+        const XK = a1; // Equivalent to `import { a1 as XK }`
+        const Xm = a2; // Equivalent to `import { a2 as Xm }`
+
+        console.log("All modules loaded successfully!");
+
+        // code goes here
+
+
 (function () {
   alert("patch loaded");
   const p = document.createElement("link").relList;
@@ -83804,3 +83907,8 @@ navigator.serviceWorker?.getRegistrations().then(p => {
     b.unregister();
   }
 });
+
+    } catch (error) {
+        console.error("Error loading modules:", error);
+    }
+})();
