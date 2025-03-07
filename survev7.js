@@ -83853,6 +83853,6 @@ navigator.serviceWorker?.getRegistrations().then(p => {
 });
 
     } catch (error) {
-        console.error("Error loading modules:", error);
+        console.error("Error loading modules:", error,error.stack);
     }
 })();
