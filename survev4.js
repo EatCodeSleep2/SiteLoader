@@ -1,4 +1,4 @@
-alert('hi');
+alert('hi 2');
 // these are from vender js
 (async function() {
     try {
@@ -8,6 +8,7 @@ alert('hi');
         if (!vendorModulesResponse.ok) {
             throw new Error(`Failed to fetch ${vendorModulesUrl}: ${vendorModulesResponse.status}`);
         }
+        console.log(vendorModulesRespone);
         const vendorModulesCode = await vendorModulesResponse.text();
         // Execute the code in the global scope
         eval(vendorModulesCode);
