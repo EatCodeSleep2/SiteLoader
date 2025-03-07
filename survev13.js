@@ -8,13 +8,13 @@ alert("test");
         const sharedModulesUrl = "https://survev.io/shared-Xqn1Vbd_.js";
 
         // Import both modules dynamically
-        console.log(`Importing: ${vendorModulesUrl}`);
+        console.log("Importing:", vendorModulesUrl);
         const vendor = await import(vendorModulesUrl);
-        console.log(`✅ Imported: ${vendorModulesUrl}`);
+        console.log("Vendor Module Imported:", vendor);
 
-        console.log(`Importing: ${sharedModulesUrl}`);
+        console.log("Importing:", sharedModulesUrl);
         const shared = await import(sharedModulesUrl);
-        console.log(`✅ Imported: ${sharedModulesUrl}`);
+        console.log("Vendor Module Imported:", shared);
 
         // Assign variables from vendor-modules-CL-NS4Gd.js
         const {
