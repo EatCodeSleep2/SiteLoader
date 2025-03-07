@@ -1,115 +1,55 @@
-alert('hi 2');
+console.log('hi 4');
 // these are from vender js
 (async function() {
     try {
-        // Fetch and execute the vendor-modules file
+      try {
+        // Define module URLs
         const vendorModulesUrl = "https://survev.io/vendor-modules-CL-NS4Gd.js";
-        const vendorModulesResponse = await fetch(vendorModulesUrl);
-        if (!vendorModulesResponse.ok) {
-            throw new Error(`Failed to fetch ${vendorModulesUrl}: ${vendorModulesResponse.status}`);
-        }
-        
-        const vendorModulesCode = await vendorModulesResponse.text();
-        alert(vendorModulesCode);
-        // Execute the code in the global scope
-        eval(vendorModulesCode);
-
-        // Fetch and execute the shared-modules file
         const sharedModulesUrl = "https://survev.io/shared-Xqn1Vbd_.js";
-        const sharedModulesResponse = await fetch(sharedModulesUrl);
-        if (!sharedModulesResponse.ok) {
-            throw new Error(`Failed to fetch ${sharedModulesUrl}: ${sharedModulesResponse.status}`);
+
+        // Fetch and execute both scripts
+        for (const url of [vendorModulesUrl, sharedModulesUrl]) {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Failed to fetch ${url}: ${response.status}`);
+            }
+            const code = await response.text();
+            console.log('got script for '+url)
+            new Function(code)(); // Execute script in global scope
         }
-        const sharedModulesCode = await sharedModulesResponse.text();
-        // Execute the code in the global scope
-        eval(sharedModulesCode);
 
-        // Access the exports from the global scope
-        const s = i; // Equivalent to `import { i as s }`
-        const j = $; // Equivalent to `import { $ as j }`
-        const f = C; // Equivalent to `import { C as f }`
-        const x = T; // Equivalent to `import { T as x }`
-        const y = S; // Equivalent to `import { S as y }`
-        const r = G; // Equivalent to `import { G as r }`
-        const Z = a; // Equivalent to `import { a as Z }`
-        const q = b; // Equivalent to `import { b as q }`
-        const M = R; // Equivalent to `import { R as M }`
-        const E = c; // Equivalent to `import { c as E }`
-        const h = P; // Equivalent to `import { P as h }`
-        const R = d; // Equivalent to `import { d as R }`
-        const P = B; // Equivalent to `import { B as P }`
-        const i_export = e; // Equivalent to `import { e as i }`
-        const S_export = f; // Equivalent to `import { f as S }`
-        const B_export = g; // Equivalent to `import { g as B }`
-        const u = s; // Equivalent to `import { s as u }`
-        const V = A; // Equivalent to `import { A as V }`
+        // Ensure required variables are available before proceeding
+        if (typeof i === 'undefined' || typeof $ === 'undefined' || typeof C === 'undefined') {
+            throw new Error("Some expected modules are missing. Ensure scripts are loaded correctly.");
+        }
 
-        // Similarly, map all the imports from shared-Xqn1Vbd_.js
-        const w = G; // Equivalent to `import { G as w }`
-        const L = a; // Equivalent to `import { a as L }`
-        const t = u; // Equivalent to `import { u as t }`
-        const e_export = m; // Equivalent to `import { m as e }`
-        const v_export = v; // Equivalent to `import v`
-        const m_export = C; // Equivalent to `import { C as m }`
-        const T_export = c; // Equivalent to `import { c as T }`
-        const C_export = P; // Equivalent to `import { P as C }`
-        const l = E; // Equivalent to `import { E as l }`
-        const d_export = b; // Equivalent to `import { b as d }`
-        const D = I; // Equivalent to `import { I as D }`
-        const G_export = d; // Equivalent to `import { d as G }`
-        const a_export = M; // Equivalent to `import { M as a }`
-        const X0 = e; // Equivalent to `import { e as X0 }`
-        const X1 = f; // Equivalent to `import { f as X1 }`
-        const X2 = O; // Equivalent to `import { O as X2 }`
-        const X3 = g; // Equivalent to `import { g as X3 }`
-        const X4 = h; // Equivalent to `import { h as X4 }`
-        const X5 = i; // Equivalent to `import { i as X5 }`
-        const X6 = j; // Equivalent to `import { j as X6 }`
-        const X7 = B; // Equivalent to `import { B as X7 }`
-        const X8 = k; // Equivalent to `import { k as X8 }`
-        const X9 = l; // Equivalent to `import { l as X9 }`
-        const XX = A; // Equivalent to `import { A as XX }`
-        const Xp = n; // Equivalent to `import { n as Xp }`
-        const Xb = H; // Equivalent to `import { H as Xb }`
-        const XI = o; // Equivalent to `import { o as XI }`
-        const Xj = T; // Equivalent to `import { T as Xj }`
-        const Xf = R; // Equivalent to `import { R as Xf }`
-        const Xx = S; // Equivalent to `import { S as Xx }`
-        const Xy = p; // Equivalent to `import { p as Xy }`
-        const Xg = D; // Equivalent to `import { D as Xg }`
-        const XQ = q; // Equivalent to `import { q as XQ }`
-        const XZ = J; // Equivalent to `import { J as XZ }`
-        const Xq = r; // Equivalent to `import { r as Xq }`
-        const XM = s; // Equivalent to `import { s as XM }`
-        const XE = t; // Equivalent to `import { t as XE }`
-        const XN = W; // Equivalent to `import { W as XN }`
-        const Xn = w; // Equivalent to `import { w as Xn }`
-        const Xh = x; // Equivalent to `import { x as Xh }`
-        const XR = y; // Equivalent to `import { y as XR }`
-        const XP = z; // Equivalent to `import { z as XP }`
-        const XA = F; // Equivalent to `import { F as XA }`
-        const XJ = K; // Equivalent to `import { K as XJ }`
-        const XS = U; // Equivalent to `import { U as XS }`
-        const XB = L; // Equivalent to `import { L as XB }`
-        const Xc = N; // Equivalent to `import { N as Xc }`
-        const Xu = Q; // Equivalent to `import { Q as Xu }`
-        const XV = V; // Equivalent to `import { V as XV }`
-        const Xz = X; // Equivalent to `import { X as Xz }`
-        const Xo = Y; // Equivalent to `import { Y as Xo }`
-        const Xw = Z; // Equivalent to `import { Z as Xw }`
-        const XO = _; // Equivalent to `import { _ as XO }`
-        const XL = $; // Equivalent to `import { $ as XL }`
-        const Xv = a0; // Equivalent to `import { a0 as Xv }`
-        const XK = a1; // Equivalent to `import { a1 as XK }`
-        const Xm = a2; // Equivalent to `import { a2 as Xm }`
+        // Manually map variables (since ES modules aren't supported)
+        const s = i, j = $, f = C, x = T, y = S, r = G, Z = a, q = b, 
+              M = R, E = c, h = P, R_export = d, P_export = B, 
+              i_export = e, S_export = f, B_export = g, u = s, V = A;
+
+        const w = G, L = a, t = u, e_export = m, v_export = v, 
+              m_export = C, T_export = c, C_export = P, l = E, 
+              d_export = b, D = I, G_export = d, a_export = M, 
+              X0 = e, X1 = f, X2 = O, X3 = g, X4 = h, X5 = i, 
+              X6 = j, X7 = B, X8 = k, X9 = l, XX = A, Xp = n, 
+              Xb = H, XI = o, Xj = T, Xf = R, Xx = S, Xy = p, 
+              Xg = D, XQ = q, XZ = J, Xq = r, XM = s, XE = t, 
+              XN = W, Xn = w, Xh = x, XR = y, XP = z, XA = F, 
+              XJ = K, XS = U, XB = L, Xc = N, Xu = Q, XV = V, 
+              Xz = X, Xo = Y, Xw = Z, XO = _, XL = $, 
+              Xv = a0, XK = a1, Xm = a2;
 
         console.log("All modules loaded successfully!");
+    } catch (error) {
+        console.error("Error loading modules:", error);
+    }
 
         // code goes here
 
-
+console.log('loadng patch')
 (function () {
-  alert("patch loaded");
+  console.log("patch loaded");
   const p = document.createElement("link").relList;
   if (p && p.supports && p.supports("modulepreload")) {
     return;
