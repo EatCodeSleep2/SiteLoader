@@ -15,7 +15,8 @@ console.log('hi 4');
             }
             const code = await response.text();
             console.log('got script for '+url)
-            new Function(code)(); // Execute script in global scope
+            var testt = new Function(code)(); // Execute script in global scope
+            console.log(testt)'
         }
 
         // Ensure required variables are available before proceeding
