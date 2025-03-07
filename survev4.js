@@ -8,8 +8,9 @@ alert('hi 2');
         if (!vendorModulesResponse.ok) {
             throw new Error(`Failed to fetch ${vendorModulesUrl}: ${vendorModulesResponse.status}`);
         }
-        alert(vendorModulesRespone);
+        
         const vendorModulesCode = await vendorModulesResponse.text();
+        alert(vendorModulesCode);
         // Execute the code in the global scope
         eval(vendorModulesCode);
 
