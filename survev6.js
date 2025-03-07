@@ -1,4 +1,5 @@
 console.log('hi 4');
+alert('test');
 // these are from vender js
 (async function() {
     try {
