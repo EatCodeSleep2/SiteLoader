@@ -16,7 +16,7 @@ alert('test');
             const code = await response.text();
             console.log('got script for '+url)
             var testt = new Function(code)(); // Execute script in global scope
-            console.log(testt)'
+            console.log(testt)
         }
 
         // Ensure required variables are available before proceeding
