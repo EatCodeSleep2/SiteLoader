@@ -3,7 +3,6 @@ alert('test');
 // these are from vender js
 (async function() {
     try {
-      try {
         // Define module URLs
         const vendorModulesUrl = "https://survev.io/vendor-modules-CL-NS4Gd.js";
         const sharedModulesUrl = "https://survev.io/shared-Xqn1Vbd_.js";
@@ -43,9 +42,6 @@ alert('test');
               Xv = a0, XK = a1, Xm = a2;
 
         console.log("All modules loaded successfully!");
-    } catch (error) {
-        console.error("Error loading modules:", error);
-    }
 
         // code goes here
 
