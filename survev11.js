@@ -1,49 +1,41 @@
-console.log('hi 4');
-alert('test');
-// these are from vender js
+console.log("hi 4");
+alert("test");
+
 (async function() {
     try {
         // Define module URLs
         const vendorModulesUrl = "https://survev.io/vendor-modules-CL-NS4Gd.js";
         const sharedModulesUrl = "https://survev.io/shared-Xqn1Vbd_.js";
 
-        // Fetch and execute both scripts
-        for (const url of [vendorModulesUrl, sharedModulesUrl]) {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`Failed to fetch ${url}: ${response.status}`);
-            }
-            const code = await response.text();
-            console.log('got script for '+url)
-            var testt = new Function(code)(); // Execute script in global scope
-            console.log(testt)
-        }
+        // Import both modules dynamically
+        console.log(`Importing: ${vendorModulesUrl}`);
+        const vendor = await import(vendorModulesUrl);
+        console.log(`✅ Imported: ${vendorModulesUrl}`);
 
-        // Ensure required variables are available before proceeding
-        if (typeof i === 'undefined' || typeof $ === 'undefined' || typeof C === 'undefined') {
-            throw new Error("Some expected modules are missing. Ensure scripts are loaded correctly.");
-        }
+        console.log(`Importing: ${sharedModulesUrl}`);
+        const shared = await import(sharedModulesUrl);
+        console.log(`✅ Imported: ${sharedModulesUrl}`);
 
-        // Manually map variables (since ES modules aren't supported)
-        const s = i, j = $, f = C, x = T, y = S, r = G, Z = a, q = b, 
-              M = R, E = c, h = P, R_export = d, P_export = B, 
-              i_export = e, S_export = f, B_export = g, u = s, V = A;
+        // Assign variables from vendor-modules-CL-NS4Gd.js
+        const {
+            i: s, $: j, C: f, T: x, S: y, G: r, a: Z, b: q,
+            R: M, c: E, P: h, d: R_export, B: P_export, 
+            e: i, f: S_export, g: B_export, s: u, A: V
+        } = vendor;
 
-        const w = G, L = a, t = u, e_export = m, v_export = v, 
-              m_export = C, T_export = c, C_export = P, l = E, 
-              d_export = b, D = I, G_export = d, a_export = M, 
-              X0 = e, X1 = f, X2 = O, X3 = g, X4 = h, X5 = i, 
-              X6 = j, X7 = B, X8 = k, X9 = l, XX = A, Xp = n, 
-              Xb = H, XI = o, Xj = T, Xf = R, Xx = S, Xy = p, 
-              Xg = D, XQ = q, XZ = J, Xq = r, XM = s, XE = t, 
-              XN = W, Xn = w, Xh = x, XR = y, XP = z, XA = F, 
-              XJ = K, XS = U, XB = L, Xc = N, Xu = Q, XV = V, 
-              Xz = X, Xo = Y, Xw = Z, XO = _, XL = $, 
-              Xv = a0, XK = a1, Xm = a2;
+        // Assign variables from shared-Xqn1Vbd_.js
+        const {
+            G: w, a: L, u: t, m: e, v, C: m, c: T, P: C, E: l, b: d,
+            I: D, d: G_export, M: a, e: X0, f: X1, O: X2, g: X3, h: X4,
+            i: X5, j: X6, B: X7, k: X8, l: X9, A: XX, n: Xp, H: Xb,
+            o: XI, T: Xj, R: Xf, S: Xx, p: Xy, D: Xg, q: XQ, J: XZ,
+            r: Xq, s: XM, t: XE, W: XN, w: Xn, x: Xh, y: XR, z: XP,
+            F: XA, K: XJ, U: XS, L: XB, N: Xc, Q: Xu, V: XV, X: Xz,
+            Y: Xo, Z: Xw, _: XO, $: XL, a0: Xv, a1: XK, a2: Xm
+        } = shared;
 
-        console.log("All modules loaded successfully!");
-
-        // code goes here
+        console.log("✅ All modules loaded successfully!");
+// code goes here
 
 console.log('loadng patch')
 (function () {
