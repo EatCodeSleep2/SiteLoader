@@ -40,7 +40,6 @@ alert("test");
 
 console.log('loadng patch')
 (function () {
-  console.log("patch loaded");
   const p = document.createElement("link").relList;
   if (p && p.supports && p.supports("modulepreload")) {
     return;
