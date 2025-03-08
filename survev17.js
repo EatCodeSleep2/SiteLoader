@@ -1,5 +1,5 @@
 console.log("hi 4");
-alert("test");
+// alert("test");
 
 (async function() {
     try {
@@ -34,11 +34,7 @@ alert("test");
             F: XA, K: XJ, U: XS, L: XB, N: Xc, Q: Xu, V: XV, X: Xz,
             Y: Xo, Z: Xw, _: XO, $: XL, a0: Xv, a1: XK, a2: Xm
         } = shared;
-
-        console.log("✅ All modules loaded successfully!");
 // code goes here
-
-console.log('loadng patch')
 (function () {
   const p = document.createElement("link").relList;
   if (p && p.supports && p.supports("modulepreload")) {
@@ -83841,6 +83837,6 @@ navigator.serviceWorker?.getRegistrations().then(p => {
 });
 
     } catch (error) {
-        console.error("Error loading modules:", error,error.stack);
+        console.log("Error loading modules:", error,error.stack);
     }
 })();
