@@ -3,10 +3,10 @@ alert("test");
 
 (async function() {
     try {
-        /*
+        
         // Define module URLs
-        const vendorModulesUrl = "https://survev.io/vendor-modules-CL-NS4Gd.js";
-        const sharedModulesUrl = "https://survev.io/shared-Xqn1Vbd_.js";
+        const vendorModulesUrl = "https://cdn.jsdelivr.net/gh/EatCodeSleep2/SiteLoader@main/vendor.js";
+        const sharedModulesUrl = "https://cdn.jsdelivr.net/gh/EatCodeSleep2/SiteLoader@main/shared.js";
 
         // Import both modules dynamically
         console.log("Importing:", vendorModulesUrl);
@@ -34,7 +34,7 @@ alert("test");
             F: XA, K: XJ, U: XS, L: XB, N: Xc, Q: Xu, V: XV, X: Xz,
             Y: Xo, Z: Xw, _: XO, $: XL, a0: Xv, a1: XK, a2: Xm
         } = shared;
-*/
+
         console.log("✅ All modules loaded successfully!");
 // code goes here
 
