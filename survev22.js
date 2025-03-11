@@ -12980,6 +12980,7 @@ function se() {
 }
 const hs = Object.values(L.scopeZoomRadius.desktop);
 const cs = Object.values(L.scopeZoomRadius.mobile);
+    console.log('scopeZoomRadius: ',hs,cs)
 class pi {
   gunBarrel = se();
   gunMag = se();
