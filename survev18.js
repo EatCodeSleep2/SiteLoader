@@ -814,7 +814,7 @@ class Yr {
     }
   }
 }
-const Ve = window.navigator.userAgent.includes("iPod") || window.navigator.userAgent.includes("iPhone") || window.navigator.userAgent.includes("iPad");
+const Ve = false // ipad check window.navigator.userAgent.includes("iPod") || window.navigator.userAgent.includes("iPhone") || window.navigator.userAgent.includes("iPad");
 let qi = null;
 let ji = false;
 function Jr(p) {
