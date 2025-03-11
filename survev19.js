@@ -393,6 +393,7 @@ const le = {
     }
     return XC;
   },
+alert('le loaded')
   defaultLoadout: function () {
     return le.validate({});
   },
