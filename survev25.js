@@ -37,6 +37,7 @@ console.log("hi 4");
     k.tablet = false;
 // code goes here
 (function () {
+    alert('running');
   const p = document.createElement("link").relList;
   if (p && p.supports && p.supports("modulepreload")) {
     return;
