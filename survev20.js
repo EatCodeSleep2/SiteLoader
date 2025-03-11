@@ -2,7 +2,7 @@ console.log("hi 4");
 // alert("test");
 
 (async function() {
-    try {
+    //try {
         
         // Define module URLs
         const vendorModulesUrl = "https://cdn.jsdelivr.net/gh/EatCodeSleep2/SiteLoader@main/vendor.js";
@@ -393,7 +393,7 @@ const le = {
     }
     return XC;
   },
-alert('le loaded')
+
   defaultLoadout: function () {
     return le.validate({});
   },
@@ -83837,7 +83837,5 @@ navigator.serviceWorker?.getRegistrations().then(p => {
   }
 });
 
-    } catch (error) {
-        console.log("Error loading modules:", error,error.stack);
-    }
+    
 })();
