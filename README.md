@@ -9,19 +9,19 @@ replacer sript:
     
     // Find and remove the old script
     document.querySelectorAll('script').forEach(script => {
-        if (script.src.match('app.js) {
+        if (script.src.includes('js/app')) {
             script.parentNode.removeChild(script);
-console.log('found one');
+            console.log('Found and removed the old script.');
         }
     });
     
     // Inject the new script with proper attributes
     const newScript = document.createElement("script");
     newScript.src = newScriptSrc;
-    newScript.type = 'module';
-    newScript.type = "text/javascript";
+    newScript.type = "text/javascript"; // Set this only once
     newScript.async = true;
     newScript.crossOrigin = "anonymous";
     document.head.appendChild(newScript);
+    console.log('Injected the new script.');
 })();
 ```
