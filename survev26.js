@@ -83780,6 +83780,7 @@ class Ko {
     this.input.flush();
   }
 }
+    alert('code is above');
 const ze = new Ko();
 function cr() {
   ze.domContentLoaded = true;
