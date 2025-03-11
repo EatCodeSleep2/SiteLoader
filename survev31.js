@@ -36,7 +36,7 @@ console.log("hi 4");
         } = shared;
     k.tablet = false;
 // code goes here
-(function () {
+function () {
     alert('running');
   const p = document.createElement("link").relList;
   if (p && p.supports && p.supports("modulepreload")) {
@@ -5424,7 +5424,7 @@ class Ia {
       case 1:
         return this.keyPressed(p.code);
       case 2:
-        return this.mousePressed(p.code);
+        return this.mousePressed(p.);
       case 3:
         return this.mouseWheel() == p.code;
       default:
@@ -83420,7 +83420,7 @@ class Ko {
       this.config.addModifiedListener(this.onConfigModified.bind(this));
       Ms();
     }
-  })();
+  };
     
   onUnload() {
     this.teamMenu.leave();
@@ -83781,7 +83781,7 @@ class Ko {
     this.input.flush();
   }
 }
-    console.log('code is above');
+    
 const ze = new Ko();
 function cr() {
   ze.domContentLoaded = true;
