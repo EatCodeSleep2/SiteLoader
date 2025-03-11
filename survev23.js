@@ -12919,8 +12919,10 @@ class ls {
             }
             const XH = Xk.offhand || !XU.isDual;
             const p0 = !Xk.offhand || !XU.isDual;
-            XW.addRecoil(XU.worldImg.recoil, XH, p0);
-            XW.fireDelay = XU.fireDelay;
+            //XW.addRecoil(XU.worldImg.recoil, XH, p0);
+            XW.fireDelay = 0 // XU.fireDelay;
+                console.log('recoil spoof');
+              alert('recoil spoof');
           }
         }
         Xk.ticker += b;
