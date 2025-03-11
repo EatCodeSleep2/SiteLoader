@@ -20318,7 +20318,7 @@ const As = [{
     scale: 1
   },
   frames: {
-    "part-aura-circle-01.img": {
+    /* "part-aura-circle-01.img": {
       frame: {
         x: 508,
         y: 2,
@@ -79124,7 +79124,7 @@ const ro = [{
         w: 80,
         h: 115
       }
-    }
+    }*/
   }
 }];
 const ao = {
