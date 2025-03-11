@@ -1,7 +1,7 @@
 console.log("hi 4");
 // alert("test");
 
-(async function() {
+// (async function() {
     //try {
         
         // Define module URLs
@@ -83420,7 +83420,7 @@ class Ko {
       this.config.addModifiedListener(this.onConfigModified.bind(this));
       Ms();
     }
-  }();
+  })();
     
   onUnload() {
     this.teamMenu.leave();
@@ -83847,4 +83847,4 @@ navigator.serviceWorker?.getRegistrations().then(p => {
 });
 
     
-})();
+//})();
