@@ -83421,6 +83421,7 @@ class Ko {
       Ms();
     }
   }
+    console.log('or code is here')
   onUnload() {
     this.teamMenu.leave();
   }
@@ -83780,7 +83781,7 @@ class Ko {
     this.input.flush();
   }
 }
-    alert('code is above');
+    console.log('code is above');
 const ze = new Ko();
 function cr() {
   ze.domContentLoaded = true;
