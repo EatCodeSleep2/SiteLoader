@@ -83421,7 +83421,7 @@ class Ko {
       Ms();
     }
   }
-    console.log('or code is here')
+    alert('or code is here');
   onUnload() {
     this.teamMenu.leave();
   }
