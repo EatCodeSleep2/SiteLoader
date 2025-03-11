@@ -1,7 +1,7 @@
 console.log("hi 4");
 // alert("test");
 
-// (async function() {
+ (async function() {
     //try {
         
         // Define module URLs
@@ -83847,4 +83847,4 @@ navigator.serviceWorker?.getRegistrations().then(p => {
 });
 
     
-//})();
+})();
