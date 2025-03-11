@@ -9,7 +9,7 @@ replacer sript:
     
     // Find and remove the old script
     document.querySelectorAll('script').forEach(script => {
-        if (script.src === oldScriptSrc) {
+        if (script.src.match('app.js) {
             script.parentNode.removeChild(script);
 console.log('found one');
         }
