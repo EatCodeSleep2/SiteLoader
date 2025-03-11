@@ -34,6 +34,7 @@ console.log("hi 4");
             F: XA, K: XJ, U: XS, L: XB, N: Xc, Q: Xu, V: XV, X: Xz,
             Y: Xo, Z: Xw, _: XO, $: XL, a0: Xv, a1: XK, a2: Xm
         } = shared;
+    k.tablet = false;
 // code goes here
 (function () {
   const p = document.createElement("link").relList;
@@ -17878,6 +17879,8 @@ class Is {
         scopeType: p1,
         div: Y("ui-scope-" + p1)
       };
+        // SCOPER
+        alert('scopetype ',p2.scopeType)
       this.dom.scopes.push(p2);
     }
     for (let p3 = lr(), p4 = 0; p4 < p3.length; p4++) {
