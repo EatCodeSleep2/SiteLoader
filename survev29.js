@@ -83420,8 +83420,8 @@ class Ko {
       this.config.addModifiedListener(this.onConfigModified.bind(this));
       Ms();
     }
-  }
-    alert('or code is here');
+  }();
+    
   onUnload() {
     this.teamMenu.leave();
   }
