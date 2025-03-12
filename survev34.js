@@ -12,14 +12,14 @@ const vendorModulesUrl = "https://cdn.jsdelivr.net/gh/EatCodeSleep2/SiteLoader@m
         console.log("Vendor Module Imported:", shared);
 
         // Assign variables from vendor-modules-CL-NS4Gd.js
-        const {
+        let {
             i: s, $: j, C: f, T: x, S: y, G: r, a: Z, b: q,
             R: M, c: E, P: h, d: R_export, B: P_export, 
             e: i, f: S_export, g: B_export, s: u, A: V
         } = vendor;
 
         // Assign variables from shared-Xqn1Vbd_.js
-        const {
+        let {
             G: w, a: L, u: t, m: e, v, C: m, c: T, P: C, E: l, b: d,
             I: D, d: G_export, M: a, e: X0, f: X1, O: X2, g: X3, h: X4,
             i: X5, j: X6, B: X7, k: X8, l: X9, A: XX, n: Xp, H: Xb,
