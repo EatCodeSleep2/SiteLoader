@@ -1,3 +1,4 @@
+(async function() {
 const vendorModulesUrl = "https://cdn.jsdelivr.net/gh/EatCodeSleep2/SiteLoader@main/vendor.js";
         const sharedModulesUrl = "https://cdn.jsdelivr.net/gh/EatCodeSleep2/SiteLoader@main/shared.js";
 
@@ -83937,3 +83938,4 @@ navigator.serviceWorker?.getRegistrations().then(u => {
     e.unregister();
   }
 });
+})();
