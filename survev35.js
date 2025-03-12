@@ -1,14 +1,14 @@
 (async function() {
-const vendorModulesUrl = "https://cdn.jsdelivr.net/gh/EatCodeSleep2/SiteLoader@main/vendor.js";
-        const sharedModulesUrl = "https://cdn.jsdelivr.net/gh/EatCodeSleep2/SiteLoader@main/shared.js";
+let vendorModulesUrl = "https://cdn.jsdelivr.net/gh/EatCodeSleep2/SiteLoader@main/vendor.js";
+        let sharedModulesUrl = "https://cdn.jsdelivr.net/gh/EatCodeSleep2/SiteLoader@main/shared.js";
 
         // Import both modules dynamically
         console.log("Importing:", vendorModulesUrl);
-        const vendor = await import(vendorModulesUrl);
+        let vendor = await import(vendorModulesUrl);
         console.log("Vendor Module Imported:", vendor);
 
         console.log("Importing:", sharedModulesUrl);
-        const shared = await import(sharedModulesUrl);
+        let shared = await import(sharedModulesUrl);
         console.log("Vendor Module Imported:", shared);
 
         // Assign variables from vendor-modules-CL-NS4Gd.js
@@ -32,17 +32,17 @@ const vendorModulesUrl = "https://cdn.jsdelivr.net/gh/EatCodeSleep2/SiteLoader@m
     console.log('about to call main func')
 (function () {
   alert('main thing called')
-  const e = document.createElement("link").relList;
+  let e = document.createElement("link").relList;
   if (e && e.supports && e.supports("modulepreload")) {
     return;
   }
-  for (const r of document.querySelectorAll("link[rel=\"modulepreload\"]")) {
+  for (let r of document.querySelectorAll("link[rel=\"modulepreload\"]")) {
     i(r);
   }
   new MutationObserver(r => {
-    for (const a of r) {
+    for (let a of r) {
       if (a.type === "childList") {
-        for (const l of a.addedNodes) {
+        for (let l of a.addedNodes) {
           if (l.tagName === "LINK" && l.rel === "modulepreload") {
             i(l);
           }
@@ -54,7 +54,7 @@ const vendorModulesUrl = "https://cdn.jsdelivr.net/gh/EatCodeSleep2/SiteLoader@m
     subtree: true
   });
   function t(r) {
-    const a = {};
+    let a = {};
     if (r.integrity) {
       a.integrity = r.integrity;
     }
@@ -75,7 +75,7 @@ const vendorModulesUrl = "https://cdn.jsdelivr.net/gh/EatCodeSleep2/SiteLoader@m
       return;
     }
     r.ep = true;
-    const a = t(r);
+    let a = t(r);
     fetch(r.href, a);
   }
 })();
@@ -85,7 +85,7 @@ function Br() {
 }
 async function Nr() {
   return new Promise(function (u, e) {
-    const t = document.createElement("script");
+    let t = document.createElement("script");
     t.src = "https://sdk.crazygames.com/crazygames-sdk-v3.js";
     document.head.appendChild(t);
     if (Ce.phone) {
@@ -96,7 +96,7 @@ async function Nr() {
       await window.CrazyGames.SDK.init();
       It("survev-io_728x90", 728, 90);
       setInterval(() => {
-        const i = document.getElementById("start-menu-wrapper");
+        let i = document.getElementById("start-menu-wrapper");
         if (getComputedStyle(i).display != "none") {
           It("survev-io_728x90", 728, 90);
         }
@@ -125,7 +125,7 @@ async function It(u, e, t) {
   });
 }
 function rt(u) {
-  const e = {
+  let e = {
     adFinished: u,
     adError: u,
     adStarted: () => console.log("Start midgame ad")
@@ -135,7 +135,7 @@ function rt(u) {
 function Bi(u) {
   let e = u.target;
   while (e && e !== document.body) {
-    const t = getComputedStyle(e).overflowY;
+    let t = getComputedStyle(e).overflowY;
     if (t === "auto" || t === "scroll") {
       return;
     }
@@ -151,8 +151,8 @@ window.addEventListener("touchmove", Bi, {
 });
 document.addEventListener("keydown", u => {
   if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " "].includes(u.key)) {
-    const t = u.target;
-    const i = ["INPUT", "TEXTAREA", "SELECT", "BUTTON"];
+    let t = u.target;
+    let i = ["INPUT", "TEXTAREA", "SELECT", "BUTTON"];
     if (u.key === " " && (i.includes(t.tagName) || t.isContentEditable)) {
       return;
     }
@@ -162,7 +162,7 @@ document.addEventListener("keydown", u => {
 let lt;
 async function jr() {
   return new Promise(function (u) {
-    const e = document.createElement("script");
+    let e = document.createElement("script");
     e.src = "https://api.gamemonetize.com/sdk.js";
     e.id = "gamemonetize-sdk";
     document.head.appendChild(e);
@@ -207,7 +207,7 @@ function qr() {
 }
 async function Fr() {
   return new Promise(function (u) {
-    const e = document.createElement("script");
+    let e = document.createElement("script");
     e.src = "https://game-cdn.poki.com/scripts/v2/poki-sdk.js";
     document.head.appendChild(e);
     document.getElementById("crazygamesDiscord").style.display = "block";
@@ -229,8 +229,8 @@ function st(u) {
 function Vr() {
   return window !== window.parent && !!new URL(document.referrer).origin.includes("poki");
 }
-const Zr = "https://surviv.mathsiscoolfun.com";
-const Ue = {
+let Zr = "https://surviv.mathsiscoolfun.com";
+let Ue = {
   resolveUrl: function (u) {
     return Zr + u;
   },
@@ -238,18 +238,18 @@ const Ue = {
     return "surviv.mathsiscoolfun.com";
   }
 };
-const Ee = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function (u) {
+let Ee = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function (u) {
   return typeof u;
 } : function (u) {
-  if (u && typeof Symbol == "function" && u.constructor === Symbol && u !== Symbol.prototype) {
+  if (u && typeof Symbol == "function" && u.letructor === Symbol && u !== Symbol.prototype) {
     return "symbol";
   } else {
     return typeof u;
   }
 };
-const Jt = Array.prototype.slice;
-const Kt = Object.keys;
-const Xr = function () {
+let Jt = Array.prototype.slice;
+let Kt = Object.keys;
+let Xr = function () {
   return Object.prototype.toString.call(arguments);
 }() == "[object Arguments]";
 function Wr(u) {
@@ -258,8 +258,8 @@ function Wr(u) {
 function Hr(u) {
   return u && (typeof u === "undefined" ? "undefined" : Ee(u)) == "object" && typeof u.length == "number" && Object.prototype.hasOwnProperty.call(u, "callee") && !Object.prototype.propertyIsEnumerable.call(u, "callee") || false;
 }
-const Qt = Xr ? Wr : Hr;
-const Mt = function (u, e, t) {
+let Qt = Xr ? Wr : Hr;
+let Mt = function (u, e, t) {
   t ||= {};
   if (u === e) {
     return true;
@@ -340,26 +340,26 @@ var Ni = (u => {
   u[u.Ackd = 2] = "Ackd";
   return u;
 })(Ni || {});
-const le = {
+let le = {
   ItemStatus: Ni,
   validate: function (u) {
-    const e = function (l, s, m) {
-      const d = B[s];
+    let e = function (l, s, m) {
+      let d = B[s];
       if (d && d.type == l) {
         return s;
       } else {
         return m;
       }
     };
-    const t = function (l, s) {
-      const m = parseFloat(l);
+    let t = function (l, s) {
+      let m = parseFloat(l);
       if (Number.isNaN(m)) {
         return s;
       } else {
         return m;
       }
     };
-    const i = {
+    let i = {
       crosshair: {
         type: "",
         color: 16777215,
@@ -369,7 +369,7 @@ const le = {
       emotes: [],
       ...u
     };
-    const r = {
+    let r = {
       outfit: e("outfit", i.outfit, "outfitBase"),
       melee: e("melee", i.melee, "fists"),
       heal: e("heal_effect", i.heal, "heal_basic"),
@@ -383,9 +383,9 @@ const le = {
       },
       emotes: []
     };
-    const a = R.defaultEmoteLoadout.slice();
+    let a = R.defaultEmoteLoadout.slice();
     for (let l = 0; l < R.EmoteSlot.Count; l++) {
-      const s = l < i.emotes.length ? i.emotes[l] : "";
+      let s = l < i.emotes.length ? i.emotes[l] : "";
       r.emotes.push(e("emote", s, a[l]));
     }
     return r;
@@ -397,10 +397,10 @@ const le = {
     return !Mt(u, e);
   },
   getUserAvailableItems: function (u) {
-    const e = [];
-    const t = B.unlock_default;
+    let e = [];
+    let t = B.unlock_default;
     for (let i = 0; i < t.unlocks.length; i++) {
-      const r = t.unlocks[i];
+      let r = t.unlocks[i];
       e.push({
         type: r,
         source: "unlock_default",
@@ -419,7 +419,7 @@ function Ur(u, e, t) {
     t = e;
     e = null;
   }
-  const i = {
+  let i = {
     url: Ue.resolveUrl(u),
     type: "POST",
     timeout: 10000,
@@ -438,7 +438,7 @@ function Ur(u, e, t) {
   });
 }
 class $r {
-  constructor(e) {
+  letructor(e) {
     this.config = e;
     window.login = () => {
       this.login();
@@ -509,7 +509,7 @@ class $r {
     this.events[e].push(t);
   }
   removeEventListener(e, t) {
-    const i = this.events[e] || [];
+    let i = this.events[e] || [];
     for (let r = i.length - 1; r >= 0; r--) {
       if (i[r] == t) {
         i.splice(r, 1);
@@ -517,7 +517,7 @@ class $r {
     }
   }
   emit(e, ...t) {
-    const i = (this.events[e] || []).slice(0);
+    let i = (this.events[e] || []).slice(0);
     for (let r = 0; r < i.length; r++) {
       i[r](...t);
     }
@@ -543,7 +543,7 @@ class $r {
         this.emit("error", "login_failed");
         return;
       }
-      const l = i(a);
+      let l = i(a);
       this.ajaxRequest(`${e}?access_token=${l}`, (s, m) => {
         if (s) {
           this.emit("error", "login_failed");
@@ -569,7 +569,7 @@ class $r {
   loadProfile() {
     this.loggingIn = !this.loggedIn;
     this.ajaxRequest("/api/user/profile", (t, i) => {
-      const r = this.loggingIn;
+      let r = this.loggingIn;
       this.loggingIn = false;
       this.loggedIn = false;
       this.profile = {};
@@ -584,7 +584,7 @@ class $r {
         this.profile = i.profile;
         this.loadoutPriv = i.loadoutPriv;
         this.items = i.items;
-        const a = this.config.get("profile") || {
+        let a = this.config.get("profile") || {
           slug: ""
         };
         a.slug = i.profile.slug;
@@ -598,7 +598,7 @@ class $r {
       }
       this.emit("items", this.items);
     });
-    const e = this.config.get("loadout");
+    let e = this.config.get("loadout");
     this.loadout = g.mergeDeep({}, le.defaultLoadout(), e);
     this.emit("loadout", this.loadout);
   }
@@ -648,7 +648,7 @@ class $r {
   setItemStatus(e, t) {
     if (t.length != 0) {
       for (let i = 0; i < t.length; i++) {
-        const r = this.items.find(a => a.type == t[i]);
+        let r = this.items.find(a => a.type == t[i]);
         if (r) {
           r.status = Math.max(r.status, e);
         }
@@ -711,10 +711,10 @@ class Jr {
   tracks;
   trackToIdx;
   initTime;
-  constructor() {
+  letructor() {
     this.tracks = [];
     this.trackToIdx = {};
-    const e = (t, i, r, a) => {
+    let e = (t, i, r, a) => {
       this.tracks.push({
         name: t,
         sound: i,
@@ -749,7 +749,7 @@ class Jr {
   }
   onGameComplete(e) {
     for (let t = 0; t < this.tracks.length; t++) {
-      const i = this.tracks[t];
+      let i = this.tracks[t];
       if (i.immediateMode) {
         i.weight = 0;
       }
@@ -765,7 +765,7 @@ class Jr {
     }
     let a = 0;
     for (let l = this.tracks.length - 1; l >= 0; l--) {
-      const s = this.tracks[l];
+      let s = this.tracks[l];
       if (!s.inst && s.sound && t.isSoundLoaded(s.sound, s.channel)) {
         console.log("Start track", s.sound, s.channel);
         s.inst = t.playSound(s.sound, {
@@ -782,10 +782,10 @@ class Jr {
         }
       }
       if (s.inst && r) {
-        const m = s.weight * (1 - a);
+        let m = s.weight * (1 - a);
         a += m;
         s.volume = m;
-        const d = t.getSoundDefVolume(s.sound, s.channel);
+        let d = t.getSoundDefVolume(s.sound, s.channel);
         t.setVolume(s.inst, m * d, s.channel);
       }
       if (s.inst && (!s.sound && z.eqAbs(t.getVolume(s.inst), 0) || s.sound && s.sound != s.instSound)) {
@@ -800,18 +800,18 @@ class Jr {
       }
     }
     if (this.introMusic) {
-      const l = this.getTrack("music");
+      let l = this.getTrack("music");
       if (l.inst) {
         l.weight = z.min(l.weight + e, 1);
       }
-      const s = this.getTrack("wind");
+      let s = this.getTrack("wind");
       if (l.inst && !t.isSoundPlaying(l.inst)) {
         s.weight = z.min(s.weight + e, 1);
       }
     }
   }
 }
-const Ze = window.navigator.userAgent.includes("iPod") || window.navigator.userAgent.includes("iPhone") || window.navigator.userAgent.includes("iPad");
+let Ze = window.navigator.userAgent.includes("iPod") || window.navigator.userAgent.includes("iPhone") || window.navigator.userAgent.includes("iPad");
 let ji = null;
 let qi = false;
 function Kr(u) {
@@ -822,9 +822,9 @@ function Kr(u) {
     return true;
   }
 }
-const De = 128;
+let De = 128;
 class ti {
-  constructor(e) {
+  letructor(e) {
     this.ctx = e;
     this.volumeOld = this.volume;
     this.panOld = this.pan;
@@ -923,7 +923,7 @@ class ti {
 }
 let mt = null;
 class ii {
-  constructor(e) {
+  letructor(e) {
     this.instance = e;
     this.id = e.id;
   }
@@ -961,7 +961,7 @@ class ii {
 }
 let Ie = null;
 class Qr {
-  constructor(e, t, i, r, a) {
+  letructor(e, t, i, r, a) {
     this.ctx = e;
     this.inNode = t;
     this.outNode = i;
@@ -973,7 +973,7 @@ class Qr {
     this.echoLowPass = a.echoLowPass || 3000;
     this.stereoSpread = a.stereoSpread || 0;
     if (!qi) {
-      const l = this.ctx.createGain();
+      let l = this.ctx.createGain();
       this.inNode.connect(l);
       this.inNode = l;
     }
@@ -1031,7 +1031,7 @@ class Qr {
       this.echoDelayNode?.connect(this.convolverNode);
     }
     if (this.stereoSpread) {
-      const {
+      let {
         buffer: e
       } = this.convolverNode;
       if (e && e.numberOfChannels != 1) {
@@ -1075,10 +1075,10 @@ class Qr {
         if (this.echoGainNode) {
           this.echoGainNode.gain.setValueAtTime(0, i);
         }
-        const {
+        let {
           buffer: r
         } = this.convolverNode;
-        const a = r ? r.duration : 0;
+        let a = r ? r.duration : 0;
         this.drainEndTime = i + a + this.echoDelay + this.stereoSpread;
       }
       if (this.gain == 0 && this.echoGainNode) {
@@ -1117,10 +1117,10 @@ class Yr {
   PLAY_INTERRUPTED = "playInterrupted";
   PLAY_FINISHED = "playFinished";
   PLAY_FAILED = "playFailed";
-  constructor() {
+  letructor() {
     if (Ze) {
-      const t = this.ctx.createBuffer(1, 1, 44100);
-      const i = this.ctx.createBufferSource();
+      let t = this.ctx.createBuffer(1, 1, 44100);
+      let i = this.ctx.createBufferSource();
       i.buffer = t;
       i.connect(this.ctx.destination);
       i.start();
@@ -1136,17 +1136,17 @@ class Yr {
     this.compressorNode.connect(this.ctx.destination);
     this.reverbNode = this.ctx.createGain();
     this.reverbNode.connect(this.masterGainNode);
-    const e = {
+    let e = {
       muffled: [[20, 2.8284 / 2, -6, "peaking"], [40, 2.8284 / 2, -7, "peaking"], [80, 2.8284 / 2, -10, "peaking"], [160, 2.8284 / 2, -13, "peaking"], [320, 2.8284 / 2, -22, "peaking"], [640, 2.8284 / 2, -18, "peaking"], [1280, 2.8284 / 2, -25, "peaking"], [2560, 2.8284 / 2, -10, "peaking"], [5120, 2.8284 / 2, -30, "peaking"], [10240, 2.8284 / 2, -25, "peaking"]],
       club: [[20, 2.8284 / 2, -6, "lowshelf"], [63, 2.8284 / 2, -3, "lowshelf"], [125, 2.8284 / 2, -3, "lowshelf"], [250, 2.8284 / 2, -6, "lowshelf"], [500, 2.8284 / 2, -18, "peaking"], [1000, 2.8284 / 2, -36, "peaking"], [2000, 2.8284 / 2, -48, "peaking"], [4000, 2.8284 / 2, -50, "highshelf"], [8000, 2.8284 / 2, -50, "highshelf"], [16000, 2.8284 / 2, -50, "highshelf"]]
     };
     Object.keys(e).forEach(t => {
-      const i = this.ctx.createGain();
+      let i = this.ctx.createGain();
       i.gain.setValueAtTime(16, 0);
-      const r = e[t];
+      let r = e[t];
       let a = i;
       for (let l = 0; l < r.length; l++) {
-        const s = this.ctx.createBiquadFilter();
+        let s = this.ctx.createBiquadFilter();
         a.connect(s);
         a = s;
         s.frequency.setValueAtTime(r[l][0], 0);
@@ -1158,7 +1158,7 @@ class Yr {
       this.eqNodes[t] = i;
     });
     for (let t = 0; t < De; t++) {
-      const i = new ti(this.ctx);
+      let i = new ti(this.ctx);
       this.instances[t] = i;
     }
     mt = new ti(this.ctx);
@@ -1166,9 +1166,9 @@ class Yr {
     this.volumeOld = this.volume;
     this.mutedOld = this.muted;
     if (this.ctx.state == "suspended") {
-      const t = () => {
+      let t = () => {
         this.ctx.resume();
-        const i = this.ctx.createBufferSource();
+        let i = this.ctx.createBufferSource();
         i.buffer = this.ctx.createBuffer(1, 1, 22050);
         i.connect(this.ctx.destination);
         i.start();
@@ -1194,14 +1194,14 @@ class Yr {
     this.files[e] = {
       buffer: null
     };
-    const i = new XMLHttpRequest();
+    let i = new XMLHttpRequest();
     i.open("GET", e);
     i.responseType = "arraybuffer";
-    const r = function (l) {
+    let r = function (l) {
       console.error(`Failed loading sound file: ${e}`);
     };
     i.addEventListener("load", a => {
-      const l = i.response;
+      let l = i.response;
       if (!l) {
         r();
         return;
@@ -1220,7 +1220,7 @@ class Yr {
     return this.files[e];
   }
   registerSound(e, t, i) {
-    const a = {
+    let a = {
       file: this.loadFile(e, this.onfileload.bind(this)),
       canCoalesce: !!i.canCoalesce,
       maxInstances: i.channels || 16,
@@ -1230,21 +1230,21 @@ class Yr {
     this.sounds[t] = a;
   }
   play(e, t) {
-    const i = this.sounds[e];
+    let i = this.sounds[e];
     if (!i) {
       console.error(`No sound named: ${e}`);
       return Ie;
     }
-    const r = t.filter || "none";
+    let r = t.filter || "none";
     let a = t.volume ?? 1;
     a *= i.volume;
     a = this.muted ? 0 : a;
-    const l = t.pan || 0;
-    const s = !!t.loop;
-    const m = t.delay ? t.delay * 0.001 : 0;
-    const d = t.offset ? t.offset : 0;
-    const h = t.ambient || false;
-    const p = t.detune || 0;
+    let l = t.pan || 0;
+    let s = !!t.loop;
+    let m = t.delay ? t.delay * 0.001 : 0;
+    let d = t.offset ? t.offset : 0;
+    let h = t.ambient || false;
+    let p = t.detune || 0;
     if (!i.file.buffer || this.muted && !t.loop) {
       return Ie;
     }
@@ -1253,29 +1253,29 @@ class Yr {
       return Ie;
     }
     if (i.canCoalesce) {
-      const C = this.ctx.currentTime + i.file.buffer.duration;
+      let C = this.ctx.currentTime + i.file.buffer.duration;
       for (let P = 0; P < i.instances.length; P++) {
-        const k = i.instances[P];
+        let k = i.instances[P];
         if (Math.abs(C - k.stopTime) > 0.03) {
           continue;
         }
-        const b = k.volume * k.volume + a * a;
-        const M = k.volume * k.pan + a * l;
-        const E = k.volume + a;
+        let b = k.volume * k.volume + a * a;
+        let M = k.volume * k.pan + a * l;
+        let E = k.volume + a;
         k.volume = Math.sqrt(b);
         k.pan = M / Math.max(0.001, E);
         return Ie;
       }
     }
     for (let y = 0; y < De && (++this.instanceId, !!this.instances[this.instanceId % De].sound); y++);
-    const w = this.instances[this.instanceId % De];
+    let w = this.instances[this.instanceId % De];
     if (w.sound) {
       console.error(`All ${De} sound instances in use. You are using way too many sounds!`);
       return Ie;
     }
     w.id = this.instanceId;
-    const f = w.paramEvents > 150;
-    const S = w.paramEvents > 20 && !(this.instanceId % 7);
+    let f = w.paramEvents > 150;
+    let S = w.paramEvents > 20 && !(this.instanceId % 7);
     for ((f || S) && w.reallocNodes(); i.instances.length >= i.maxInstances;) {
       let y = i.instances[0];
       for (let C = 1; C < i.instances.length; C++) {
@@ -1287,7 +1287,7 @@ class Yr {
     }
     w.sound = i;
     i.instances.push(w);
-    const x = r === "none" ? this.masterGainNode : r === "reverb" ? this.reverbNode : this.eqNodes[r];
+    let x = r === "none" ? this.masterGainNode : r === "reverb" ? this.reverbNode : this.eqNodes[r];
     w.start(x, i.file.buffer, a, l, s, m, d, h, p);
     if (!this.playingInstances.includes(w)) {
       this.playingInstances.push(w);
@@ -1295,7 +1295,7 @@ class Yr {
     return new ii(w);
   }
   registerReverb(e, t, i) {
-    const r = new Qr(this.ctx, this.reverbNode, this.masterGainNode, t, i);
+    let r = new Qr(this.ctx, this.reverbNode, this.masterGainNode, t, i);
     this.loadFile(e, a => {
       r.convolverNode.buffer = this.files[a].buffer;
       this.onfileload(a);
@@ -1304,16 +1304,16 @@ class Yr {
   }
   setReverbs(e) {
     for (let t = 0; t < this.activeReverbs.length; t++) {
-      const i = this.activeReverbs[t];
+      let i = this.activeReverbs[t];
       if (!e[i.name]) {
         i.targetLevel = 0;
       }
     }
-    for (const t in e) {
+    for (let t in e) {
       if (!e[t]) {
         continue;
       }
-      const i = this.reverbs[t];
+      let i = this.reverbs[t];
       if (!i) {
         console.error(`No reverb named ${t}`);
         continue;
@@ -1327,7 +1327,7 @@ class Yr {
   }
   stop(e = true) {
     for (let t = 0; t < De; t++) {
-      const i = this.instances[t];
+      let i = this.instances[t];
       if (!e || !i.ambient) {
         if (i.sound) {
           i.stop();
@@ -1339,15 +1339,15 @@ class Yr {
     if (this.ctx.state == "suspended") {
       this.ctx.resume();
     }
-    const t = this.muted ? 0 : this.volume;
-    const i = this.mutedOld ? 0 : this.volumeOld;
+    let t = this.muted ? 0 : this.volume;
+    let i = this.mutedOld ? 0 : this.volumeOld;
     this.volumeOld = this.volume;
     this.mutedOld = this.muted;
     if (t != i) {
       this.masterGainNode.gain.setTargetAtTime(t, this.ctx.currentTime, 0.02);
     }
     for (let r = this.playingInstances.length - 1; r >= 0; r--) {
-      const a = this.playingInstances[r];
+      let a = this.playingInstances[r];
       if (a.volumeOld != a.volume) {
         a.volumeOld = a.volume;
         a.setGain(a.volume);
@@ -1364,23 +1364,23 @@ class Yr {
       }
     }
     if (this.ctx.currentTime > this.reverbFadeEndTime) {
-      const r = this.ctx.currentTime + 0.006;
-      const a = 0.025;
+      let r = this.ctx.currentTime + 0.006;
+      let a = 0.025;
       this.reverbFadeEndTime = r + a;
       let l = 0;
       for (let m = 0; m < this.activeReverbs.length; m++) {
-        const d = this.activeReverbs[m];
+        let d = this.activeReverbs[m];
         l += d.targetLevel;
       }
-      const s = l > 1 ? 1 / l : 1;
+      let s = l > 1 ? 1 / l : 1;
       for (let m = 0; m < this.activeReverbs.length; m++) {
-        const d = this.activeReverbs[m];
-        const h = Math.sqrt(s * d.targetLevel);
+        let d = this.activeReverbs[m];
+        let h = Math.sqrt(s * d.targetLevel);
         d.setGain(h, r, this.reverbFadeEndTime);
       }
       for (let m = this.activeReverbs.length - 1; m >= 0; m--) {
-        const d = this.activeReverbs[m];
-        const h = this.ctx.currentTime > d.drainEndTime;
+        let d = this.activeReverbs[m];
+        let h = this.ctx.currentTime > d.drainEndTime;
         if (d.gain == 0 && h) {
           if (d.isConnected()) {
             d.disconnect();
@@ -1407,27 +1407,27 @@ class Yr {
       return;
     }
     this.runningOfflineTest = true;
-    const e = 10;
+    let e = 10;
     this.offlineCtx = new OfflineAudioContext(2, e * this.ctx.sampleRate, this.ctx.sampleRate);
-    const t = this.offlineCtx.createBuffer(2, e * this.ctx.sampleRate, this.ctx.sampleRate);
+    let t = this.offlineCtx.createBuffer(2, e * this.ctx.sampleRate, this.ctx.sampleRate);
     for (let m = 0; m < t.numberOfChannels; m++) {
-      const d = t.getChannelData(m);
+      let d = t.getChannelData(m);
       for (let h = 0; h < d.length; h++) {
         d[h] = Math.sin(h / 2333) * Math.sin(h / 5741) * 2 * Math.random() - 1;
       }
     }
-    const i = this.offlineCtx.createBufferSource();
+    let i = this.offlineCtx.createBufferSource();
     i.buffer = t;
-    const r = this.offlineCtx.createConvolver();
-    const l = this.offlineCtx.createBuffer(1, this.ctx.sampleRate * 4, this.ctx.sampleRate);
+    let r = this.offlineCtx.createConvolver();
+    let l = this.offlineCtx.createBuffer(1, this.ctx.sampleRate * 4, this.ctx.sampleRate);
     for (let m = 0; m < l.numberOfChannels; m++) {
-      const d = l.getChannelData(m);
+      let d = l.getChannelData(m);
       for (let h = 0; h < d.length; h++) {
         d[h] = Math.random() * 2 - 1;
       }
     }
     r.buffer = l;
-    const s = {
+    let s = {
       echoVolume: 0.5,
       echoLowPass: 800,
       echoDelay: 0.25,
@@ -1454,7 +1454,7 @@ class Yr {
     s.outNode = this.offlineCtx.createGain();
     s.gainNode.connect(s.convolverNode);
     {
-      const {
+      let {
         buffer: m
       } = s.convolverNode;
       if (m && m.numberOfChannels != 1) {
@@ -1471,17 +1471,17 @@ class Yr {
     i.start();
     this.startTime = performance.now();
     this.offlineCtx.oncomplete = m => {
-      const d = performance.now();
+      let d = performance.now();
       console.log("Offline render time: ", d - this.startTime);
       this.runningOfflineTest = false;
     };
     this.offlineCtx.startRendering();
   }
 }
-const ye = {
+let ye = {
   Sound: new Yr()
 };
-const ea = {
+let ea = {
   players: {
     m9_01: {
       path: "audio/guns/m9_01.mp3",
@@ -3257,7 +3257,7 @@ const ea = {
     }
   }
 };
-const ta = {
+let ta = {
   footstep_grass: {
     channel: "sfx",
     sounds: ["footstep_grass_01", "footstep_grass_02"]
@@ -3435,7 +3435,7 @@ const ta = {
     sounds: ["cluck_01", "cluck_02"]
   }
 };
-const ia = {
+let ia = {
   activePlayer: {
     volume: 0.5,
     maxRange: 48,
@@ -3479,7 +3479,7 @@ const ia = {
     type: "music"
   }
 };
-const ra = {
+let ra = {
   cathedral: {
     path: "audio/reverb/cathedral_01.mp3",
     volume: 0.7,
@@ -3494,14 +3494,14 @@ const ra = {
     stereoSpread: 0.004
   }
 };
-const fe = {
+let fe = {
   Sounds: ea,
   Groups: ta,
   Channels: ia,
   Reverbs: ra
 };
-const ri = 0.003;
-const pt = 0.5;
+let ri = 0.003;
+let pt = 0.5;
 class aa {
   mute = false;
   masterVolume = 1;
@@ -3515,39 +3515,39 @@ class aa {
   activeLayer = 0;
   underground = false;
   soundInstances = [];
-  constructor(e) {
+  letructor(e) {
     ye.Sound.volume = 0.5;
     ye.Sound.on("fileload", this.loadHandler, this);
   }
   preloadSounds() {
     if (!this.preloadedSounds) {
       this.preloadedSounds = true;
-      const e = {};
-      const t = Object.keys(fe.Sounds);
+      let e = {};
+      let t = Object.keys(fe.Sounds);
       for (let s = 0; s < t.length; s++) {
-        const m = t[s];
-        const d = fe.Sounds[m];
-        const h = Object.keys(d);
+        let m = t[s];
+        let d = fe.Sounds[m];
+        let h = Object.keys(d);
         for (let p = 0; p < h.length; p++) {
-          const w = h[p];
+          let w = h[p];
           if (e[w] !== undefined) {
             console.log(`Sound ${w} defined multiple times!`);
           }
           e[w] = true;
         }
       }
-      const i = [];
-      const r = Object.keys(fe.Channels);
+      let i = [];
+      let r = Object.keys(fe.Channels);
       for (let s = 0; s < r.length; s++) {
-        const m = r[s];
-        const d = fe.Channels[m];
-        const h = fe.Sounds[d.list];
-        const p = Object.keys(h);
+        let m = r[s];
+        let d = fe.Channels[m];
+        let h = fe.Sounds[d.list];
+        let p = Object.keys(h);
         for (let w = 0; w < p.length; w++) {
-          const f = p[w];
-          const S = h[f];
+          let f = p[w];
+          let S = h[f];
           if (S.preload === undefined || S.preload) {
-            const x = {
+            let x = {
               canCoalesce: S.canCoalesce,
               channels: S.maxInstances,
               volume: S.volume
@@ -3564,20 +3564,20 @@ class aa {
       }
       i.sort((s, m) => m.priority - s.priority);
       for (let s = 0; s < i.length; s++) {
-        const m = i[s];
+        let m = i[s];
         this.loadSound(m);
       }
-      const a = fe.Reverbs;
-      const l = Object.keys(a);
+      let a = fe.Reverbs;
+      let l = Object.keys(a);
       for (let s = 0; s < l.length; s++) {
-        const m = l[s];
-        const d = a[m];
+        let m = l[s];
+        let d = a[m];
         ye.Sound.registerReverb(d.path, m, d);
       }
     }
   }
   loadSound(e) {
-    const t = e.name + e.channel;
+    let t = e.name + e.channel;
     if (!this.sounds[t]) {
       ye.Sound.registerSound(e.path, t, e.options);
       this.sounds[t] = {
@@ -3592,13 +3592,13 @@ class aa {
   }
   update(e) {
     for (let r = this.soundInstances.length - 1; r >= 0; r--) {
-      const a = this.soundInstances[r];
+      let a = this.soundInstances[r];
       if (a.instance.playState == "playFinished" || a.instance.playState == "playInterrupted" || a.instance.playState == "playFailed") {
         this.soundInstances.splice(r, 1);
       }
     }
-    const t = [0, 1, 1 / 3, 2 / 3];
-    const i = this.underground ? t[this.activeLayer] : 0;
+    let t = [0, 1, 1 / 3, 2 / 3];
+    let i = this.underground ? t[this.activeLayer] : 0;
     ye.Sound.setReverbs({
       cathedral: i
     });
@@ -3623,24 +3623,24 @@ class aa {
     t.detune = t.detune || 0;
     t.volumeScale = t.volumeScale || 1;
     let i = null;
-    const r = fe.Channels[t.channel];
+    let r = fe.Channels[t.channel];
     if (r && (!this.mute || t.forceStart)) {
-      const a = this.baseVolume * 1 * this.getTypeVolume(r.type) * t.volumeScale;
-      const l = t.layer !== undefined && !g.sameAudioLayer(t.layer, this.activeLayer);
-      const s = t.filter ? l || t.forceFilter ? t.filter : "reverb" : "none";
+      let a = this.baseVolume * 1 * this.getTypeVolume(r.type) * t.volumeScale;
+      let l = t.layer !== undefined && !g.sameAudioLayer(t.layer, this.activeLayer);
+      let s = t.filter ? l || t.forceFilter ? t.filter : "reverb" : "none";
       if (t.channel != "activePlayer" && t.soundPos) {
-        const m = n.sub(this.cameraPos, t.soundPos);
-        const d = n.length(m);
+        let m = n.sub(this.cameraPos, t.soundPos);
+        let d = n.length(m);
         let h = r.maxRange * t.rangeMult;
         if (z.eqAbs(h, 0)) {
           h = 1;
         }
-        const p = z.clamp(Math.abs(d / h), 0, 1);
-        const w = Math.pow(1 - p, 1 + t.fallOff * 2);
+        let p = z.clamp(Math.abs(d / h), 0, 1);
+        let w = Math.pow(1 - p, 1 + t.fallOff * 2);
         let f = r.volume * w * a;
         f = l ? f * pt : f;
         if (f > ri || t.ignoreMinAllowable) {
-          const S = z.clamp(m.x / h * -1, -1, 1);
+          let S = z.clamp(m.x / h * -1, -1, 1);
           i = ye.Sound.play(e + t.channel, {
             filter: s,
             loop: t.loop ? -1 : 0,
@@ -3666,7 +3666,7 @@ class aa {
         });
       }
       if (i && (t.loop || t.channel == "music")) {
-        const m = t.channel == "music" ? "music" : "sound";
+        let m = t.channel == "music" ? "music" : "sound";
         this.soundInstances.push({
           instance: i,
           type: m
@@ -3676,10 +3676,10 @@ class aa {
     return i;
   }
   playGroup(e, t = {}) {
-    const i = fe.Groups[e];
+    let i = fe.Groups[e];
     if (i) {
-      const r = i.sounds;
-      const a = Math.floor(g.random(0, r.length));
+      let r = i.sounds;
+      let a = Math.floor(g.random(0, r.length));
       t.channel = i.channel;
       return this.playSound(r[a], t);
     }
@@ -3690,21 +3690,21 @@ class aa {
     r.rangeMult = r.rangeMult || 1;
     r.ignoreMinAllowable = r.ignoreMinAllowable || false;
     r.volumeScale = r.volumeScale || 1;
-    const a = fe.Channels[t];
+    let a = fe.Channels[t];
     if (e && a) {
-      const l = this.baseVolume * 1 * this.getTypeVolume(a.type) * r.volumeScale;
-      const s = n.sub(this.cameraPos, i);
-      const m = n.length(s);
+      let l = this.baseVolume * 1 * this.getTypeVolume(a.type) * r.volumeScale;
+      let s = n.sub(this.cameraPos, i);
+      let m = n.length(s);
       let d = a.maxRange * r.rangeMult;
       if (z.eqAbs(d, 0)) {
         d = 1;
       }
-      const h = z.clamp(Math.abs(m / d), 0, 1);
-      const p = Math.pow(1 - h, 1 + r.fallOff * 2);
+      let h = z.clamp(Math.abs(m / d), 0, 1);
+      let p = Math.pow(1 - h, 1 + r.fallOff * 2);
       let w = a.volume * p * l;
       w = r.layer === undefined || g.sameAudioLayer(r.layer, this.activeLayer) ? w : w * pt;
       if (w > ri || r.ignoreMinAllowable) {
-        const S = z.clamp(s.x / d * -1, -1, 1);
+        let S = z.clamp(s.x / d * -1, -1, 1);
         e.volume = w;
         e.pan = S;
       }
@@ -3716,10 +3716,10 @@ class aa {
   }
   _setInstanceTypeVolume(e, t) {
     t = z.clamp(t, 0, 1);
-    const i = this.getTypeVolume(e);
-    const r = i > 0.0001 ? t / i : 0;
+    let i = this.getTypeVolume(e);
+    let r = i > 0.0001 ? t / i : 0;
     for (let a = 0; a < this.soundInstances.length; a++) {
-      const l = this.soundInstances[a];
+      let l = this.soundInstances[a];
       if (l.type == e) {
         l.instance.volume *= r;
       }
@@ -3736,7 +3736,7 @@ class aa {
   setVolume(e, t, i) {
     if (e) {
       i = i || "sound";
-      const r = this.getTypeVolume(i);
+      let r = this.getTypeVolume(i);
       e.volume = t * r;
     }
   }
@@ -3762,9 +3762,9 @@ class aa {
     ye.Sound.stop();
   }
   allLoaded() {
-    const e = Object.keys(this.sounds);
+    let e = Object.keys(this.sounds);
     for (let t = 0; t < e.length; t++) {
-      const i = this.sounds[e[t]];
+      let i = this.sounds[e[t]];
       if (!this.isSoundLoaded(i.name, i.channel)) {
         return false;
       }
@@ -3772,15 +3772,15 @@ class aa {
     return true;
   }
   isSoundLoaded(e, t) {
-    const i = this.sounds[e + t];
+    let i = this.sounds[e + t];
     return i && this.loadedFiles[i.path];
   }
   isSoundPlaying(e) {
     return !!e && e.playState == ye.Sound.PLAY_SUCCEEDED;
   }
   getSoundDefVolume(e, t) {
-    const i = fe.Sounds[t][e];
-    const r = fe.Channels[t];
+    let i = fe.Sounds[t][e];
+    let r = fe.Channels[t];
     if (i && r) {
       return i.volume * r.volume;
     } else {
@@ -3798,7 +3798,7 @@ class aa {
     }
   }
 }
-const sa = {
+let sa = {
   ENV: "website",
   muteAudio: false,
   masterVolume: 1,
@@ -3834,7 +3834,7 @@ class oa {
   config = {};
   onModifiedListeners = [];
   async load(e) {
-    const t = r => {
+    let t = r => {
       let a = {};
       try {
         a = JSON.parse(r);
@@ -3872,7 +3872,7 @@ class oa {
     }
   }
   store() {
-    const e = JSON.stringify(this.config);
+    let e = JSON.stringify(this.config);
     if (this.localStorageAvailable) {
       try {
         localStorage.setItem("surviv_config", e);
@@ -3883,7 +3883,7 @@ class oa {
     if (!e) {
       return;
     }
-    const i = e.split(".");
+    let i = e.split(".");
     let r = this.config;
     while (i.length > 1) {
       r = r[i.shift()];
@@ -3896,7 +3896,7 @@ class oa {
     if (!e) {
       return;
     }
-    const t = e.split(".");
+    let t = e.split(".");
     let i = this.config;
     for (let r = 0; r < t.length; r++) {
       i = i[t[r]];
@@ -3913,16 +3913,16 @@ class oa {
   }
   checkUpgradeConfig() {}
 }
-const la = JSON.parse(`["2 girls 1 cup","2g1c","4r5e","5h1t","5hit","a_s_s","a55","a55hole","acrotomophilia","aeolus","ahole","alabama hot pocket","alaskan pipeline","anal","analprobe","anilingus","anus","apeshit","ar5e","areola","areole","arian","arrse","arse","arsehole","aryan","ass","ass hole","assbag","assbandit","assbang","assbanged","assbanger","assbangs","assbite","assclown","asscock","asscracker","asses","assface","assfuck","assfucker","ass-fucker","assfukka","assgoblin","assh0le","asshat","ass-hat","asshead","assho1e","asshole","assholes","asshopper","ass-jabber","assjacker","asslick","asslicker","assmaster","assmonkey","assmunch","assmuncher","assnigger","asspirate","ass-pirate","assshit","assshole","asssucker","asswad","asswhole","asswipe","asswipes","auto erotic","autoerotic","axwound","azazel","azz","b!tch","b00bs","b17ch","b1tch","babe","babeland","babes","baby batter","baby juice","balls","ball gag","ball gravy","ball kicking","ball licking","ball sack","ball sucking","ballbag","ballsack","bampot","bang","bangbros","banger","bareback","barely legal","barenaked","barf","bastard","bastardo","bastards","bastinado","bawdy","bbw","bdsm","beaner","beaners","beardedclam","beastial","beastiality","beatch","beater","beaver cleaver","beaver lips","beeyotch","bellend","beotch","bestial","bestiality","bi+ch","biatch","big black","big breasts","big knockers","big tits","bigtits","bimbo","bimbos","birdlock","bitch","bitchass","bitched","bitcher","bitchers","bitches","bitchin","bitching","bitchtits","bitchy","black cock","blonde action","blonde on blonde action","blow job","blow your load","blowjob","blowjobs","blue waffle","blumpkin","bod","bodily","boink","boiolas","bollock","bollocks","bollok","bollox","bondage","boned","boner","boners","bong","boob","boobies","boobs","booby","booger","bookie","booobs","boooobs","booooobs","booooooobs","bootee","bootie","booty","booty call","booze","boozer","boozy","bosom","bosomy","bra","brassiere","breast","breasts","breeder","brotherfucker","brown showers","brunette action","buceta","bugger","bukkake","bull shit","bulldyke","bullet vibe","bullshit","bullshits","bullshitted","bullturds","bum","bumblefuck","bung","bung hole","bunghole","bunny fucker","busty","butt","butt fuck","butt plug","buttcheeks","buttfuck","buttfucka","buttfucker","butthole","buttmuch","butt-pirate","buttplug","c.0.c.k","c.o.c.k.","c.u.n.t","c0ck","c-0-c-k","c0cksucker","caca","cahone","camel toe","cameltoe","camgirl","camslut","camwhore","carpet muncher","carpetmuncher","cawk","cervix","chesticle","chinc","chincs","chink","choad","chocolate rosebuds","chode","chodes","cipa","circlejerk","cl1t","cleveland steamer","climax","clit","clitface","clitfuck","clitoris","clitorus","clits","clitty","clover clamps","clusterfuck","cnut","cocain","cocaine","cock","c-o-c-k","cock sucker","cockass","cockbite","cockblock","cockburger","cockeye","cockface","cockfucker","cockhead","cockholster","cockjockey","cockknocker","cockknoker","cocklump","cockmaster","cockmongler","cockmongruel","cockmonkey","cockmunch","cockmuncher","cocknose","cocknugget","cocks","cockshit","cocksmith","cocksmoke","cocksmoker","cocksniffer","cocksuck","cocksucked","cocksucker","cock-sucker","cocksucking","cocksucks","cocksuka","cocksukka","cockwaffle","coital","cok","cokmuncher","coksucka","commie","condom","coochie","coochy","coon","coons","cooter","coprolagnia","coprophilia","corksucker","cornhole","cox","crabs","crack","crackwhore","crap","crappy","creampie","crotte","cum","cumbubble","cumdumpster","cumguzzler","cumjockey","cummer","cummin","cumming","cums","cumshot","cumshots","cumslut","cumstain","cumtart","cunilingus","cunillingus","cunnie","cunnilingus","cunny","cunt","c-u-n-t","cuntass","cuntface","cunthole","cunthunter","cuntlick","cuntlicker","cuntlicking","cuntrag","cunts","cuntslut","cyalis","cyberfuc","cyberfuck","cyberfucked","cyberfucker","cyberfuckers","cyberfucking","d0ng","d0uch3","d0uche","d1ck","d1ld0","d1ldo","dago","dagos","darkie","damn","damned","dammit","date rape","daterape","dawgie-style","deep throat","deepthroat","deggo","dendrophilia","dick","dickbag","dickbeaters","dickdipper","dickface","dickflipper","dickfuck","dickfucker","dickhead","dickheads","dickhole","dickish","dick-ish","dickjuice","dickmilkÂ ","dickmonger","dickripper","dicks","dicksipper","dickslap","dick-sneeze","dicksuck","dicksucker","dicksucking","dicktickler","dickwad","dickweasel","dickweed","dickwhipper","dickwod","dickzipper","diddle","dike","dildo","dildos","diligaf","dillweed","dimwit","dingle","dingleberries","dingleberry","dink","dinks","dipship","dipshit","dirsa","dirty pillows","dirty sanchez","dlck","dog style","dog-fucker","doggie style","doggiestyle","doggie-style","doggin","dogging","doggy style","doggystyle","doggy-style","dolcett","domination","dominatrix","dommes","dong","donkey punch","donkeyribber","doochbag","doofus","dookie","doosh","dopey","double dong","double penetration","doublelift","douch3","douche","douchebag","douchebags","douche-fag","douchewaffle","douchey","dp action","drunk","dry hump","duche","dumass","dumb ass","dumbass","dumbasses","dumbcunt","dumbfuck","dumbshit","dummy","dumshit","dvda","dyke","dykes","eat my ass","ecchi","ejaculate","ejaculated","ejaculates","ejaculating","ejaculatings","ejaculation","ejakulate","enlargement","erect","erection","erotic","erotism","escort","essohbee","eunuch","extacy","extasy","f u c k","f u c k e r","f.u.c.k","f_u_c_k","f4nny","fack","fag","fagbag","fagfucker","fagg","fagged","fagging","faggit","faggitt","faggot","faggotcock","faggs","fagot","fagots","fags","fagtard","faig","faigt","fanny","fannybandit","fannyflaps","fannyfucker","fanyy","fartknocker","fatass","fcuk","fcuker","fcuking","fecal","feck","fecker","felch","felcher","felching","fellate","fellatio","feltch","feltcher","female squirting","femdom","figging","fingerbang","fingerfuck","fingerfucked","fingerfucker","fingerfuckers","fingerfucking","fingerfucks","fingering","fisted","fistfuck","fistfucked","fistfucker","fistfuckers","fistfucking","fistfuckings","fistfucks","fisting","fisty","flamer","flange","floozy","foad","foah","fondle","foobar","fook","fooker","foot fetish","footjob","foreskin","freex","frigg","frigga","frotting","fubar","fuck","f-u-c-k","fuck buttons","fuck off","fucka","fuckass","fuckbag","fuckboy","fuckbrain","fuckbutt","fuckbutter","fucked","fucker","fuckers","fuckersucker","fuckface","fuckhead","fuckheads","fuckhole","fuckin","fucking","fuckings","fuckingshitmotherfucker","fuckme","fucknugget","fucknut","fucknutt","fuckoff","fucks","fuckstick","fucktard","fuck-tard","fucktards","fucktart","fucktwat","fuckup","fuckwad","fuckwhit","fuckwit","fuckwitt","fudge packer","fudgepacker","fuk","fuker","fukker","fukkin","fuks","fukwhit","fukwit","futanari","fux","fux0r","fvck","fxck","gae","gai","gang bang","gangbang","gangbanged","gangbangs","ganja","gay","gay sex","gayass","gaybob","gaydo","gayfuck","gayfuckist","gaylord","gays","gaysex","gaytard","gaywad","genitals","gey","gfy","ghay","ghey","giant cock","gigolo","girl on","girl on top","girls gone wild","glans","goatcx","goatse","god damn","godamn","godamnit","goddam","god-dam","goddammit","goddamn","goddamned","god-damned","goddamnit","gokkun","golden shower","goldenshower","gonad","gonads","goo girl","gooch","goodpoop","gook","gooks","goregasm","gringo","grope","group sex","gspot","g-spot","gtfo","guido","guro","h0m0","h0mo","hand job","handjob","hard core","hard on","hardcore","hardcoresex","he11","heeb","hemp","hentai","heroin","herp","herpes","herpy","heshe","hitler","hiv","ho","hoar","hoare","hobag","hoe","hoer","hom0","homey","homo","homodumbshit","homoerotic","homoey","honkey","honky","hooch","hookah","hooker","hoor","hootch","hooter","hooters","hore","horniest","horny","hot carl","hot chick","hotsex","how to kill","how to murder","huge fat","hump","humped","humping","hussy","hymen","inbred","incest","injun","intercourse","j3rk0ff","jack Off","jackass","jackhole","jackoff","jack-off","jaggi","jagoff","jail bait","jailbait","jap","japs","jelly donut","jerk","jerk off","jerk0ff","jerkass","jerked","jerkoff","jerk-off","jigaboo","jiggaboo","jiggerboo","jism","jiz","jizm","jizz","jizzed","juggs","jungle bunny","junglebunny","junkie","junky","kawk","kike","kikes","kinbaku","kinkster","kinky","kkk","knob","knobbing","knobead","knobed","knobend","knobhead","knobjocky","knobjokey","kock","kondum","kondums","kooch","kooches","kootch","kraut","kum","kummer","kumming","kums","kunilingus","kunja","kunt","kyke","l3i+ch","l3itch","labia","lameass","lardass","leather restraint","leather straight jacket","lech","lemon party","leper","lesbian","lesbians","lesbo","lesbos","lez","lezbian","lezbians","lezbo","lezbos","lezzie","lezzies","lezzy","lmao","lmfao","loin","loins","lolita","lovemaking","lube","lust","lusting","lusty","m0f0","m0fo","m45terbate","ma5terb8","ma5terbate","make me come","male squirting","mams","masochist","massa","masterb8","masterbat","masterbat3","masterbate","master-bate","masterbating","masterbation","masterbations","masturbate","masturbating","masturbation","maxi","mcfagget","menage a trois","menses","menstruate","menstruation","meth","m-fucking","mick","milf","minge","missionary position","mof0","mofo","mo-fo","molest","moolie","moron","mothafuck","mothafucka","mothafuckas","mothafuckaz","mothafucked","mothafucker","mothafuckers","mothafuckin","mothafucking","mothafuckings","mothafucks","mother fucker","motherfuck","motherfucka","motherfucked","motherfucker","motherfuckers","motherfuckin","motherfucking","motherfuckings","motherfuckka","motherfucks","mound of venus","mr hands","mtherfucker","mthrfucker","mthrfucking","muff","muff diver","muffdiver","muffdiving","munging","murder","mutha","muthafecker","muthafuckaz","muthafucker","muthafuckker","muther","mutherfucker","mutherfucking","muthrfucking","n1gga","n1gger","nad","nads","naked","nambla","napalm","nappy","nawashi","nazi","nazism","negro","neonazi","nig nog","nigaboo","nigg3r","nigg4h","nigga","niggah","niggas","niggaz","nigger","niggers","niggle","niglet","nimphomania","nimrod","ninny","nipple","nipples","nob","nob jokey","nobhead","nobjocky","nobjokey","nooky","nsfw images","nude","nudity","numbnuts","nut sack","nutsack","nympho","nymphomania","octopussy","omorashi","one cup two girls","one guy one jar","opiate","opium","oral","orally","organ","orgasim","orgasims","orgasm","orgasmic","orgasms","orgies","orgy","ovary","ovum","ovums","p.u.s.s.y.","p0rn","paddy","paedophile","paki","panooch","pantie","panties","panty","pastie","pasty","pawn","pcp","pecker","peckerhead","pedo","pedobear","pedophile","pedophilia","pedophiliac","peepee","pegging","penetrate","penetration","penial","penile","penis","penisbanger","penisfucker","penispuffer","perversion","peyote","phalli","phallic","phone sex","phonesex","phuck","phuk","phuked","phuking","phukked","phukking","phuks","phuq","piece of shit","pigfucker","pillowbiter","pimp","pimpis","pinko","piss pig","pissed","pissed off","pisser","pissers","pisses","pissflaps","pissin","pissing","pissoff","piss-off","pisspig","playboy","pleasure chest","pms","polack","pole smoker","polesmoker","pollock","ponyplay","poof","poon","poonani","poonany","poontang","poop","poop chute","poopchute","poopuncher","porch monkey","porchmonkey","porn","porno","pornography","pornos","potty","prick","pricks","prig","prince albert piercing","pron","prostitute","prude","pthc","pube","pubes","pubic","pubis","punanny","punany","punkass","punky","punta","puss","pusse","pussi","pussies","pussy","pussylicking","pussypounder","pussys","pust","puto","queaf","queef","queer","queerbait","queerhole","queero","queers","quicky","quim","racy","raghead","raging boner","rape","raped","raper","raping","rapist","raunch","rectal","rectum","rectus","reefer","reetard","reich","renob","retard","retarded","reverse cowgirl","revue","rimjaw","rimjob","rimming","ritard","rosy palm","rosy palm and her 5 sisters","rtard","r-tard","rump","rumprammer","ruski","rusty trombone","s hit","s&m","s.h.i.t.","s.o.b.","s_h_i_t","s0b","sadism","sadist","sand nigger","sandler","sandnigger","sanger","santorum","scag","scantily","scat","schizo","schlong","scissoring","screw","screwed","screwing","scroat","scrog","scrot","scrote","scrotum","scrud","scum","seaman","seamen","seduce","seks","semen","sex","sexo","sexual","sexy","sh!+","sh!t","sh1t","s-h-1-t","shag","shagger","shaggin","shagging","shamedame","shaved beaver","shaved pussy","shemale","shi+","shibari","shit","s-h-i-t","shitass","shitbag","shitbagger","shitblimp","shitbrains","shitbreath","shitcanned","shitcunt","shitdick","shite","shiteater","shited","shitey","shitface","shitfaced","shitfuck","shitfull","shithead","shithole","shithouse","shiting","shitings","shits","shitspitter","shitstain","shitt","shitted","shitter","shitters","shittiest","shitting","shittings","shitty","shiz","shiznit","shota","shrimping","sissy","skag","skank","skeet","skullfuck","slag","slanteye","slave","sleaze","sleazy","slut","slutbag","slutdumper","slutkiss","sluts","smeg","smegma","smut","smutty","snatch","snowballing","snuff","s-o-b","sodom","sodomize","sodomy","son-of-a-bitch","souse","soused","spac","sperm","spic","spick","spik","spiks","splooge","splooge moose","spooge","spook","spread legs","spunk","steamy","stfu","stiffy","stoned","strap on","strapon","strappado","strip","strip club","stroke","stupid","style doggy","suck","suckass","sucked","sucking","suckmydick","sucks","suicide girls","sultry women","sumofabiatch","swastika","swinger","t1t","t1tt1e5","t1tties","tainted love","tampon","tard","taste my","tawdry","tea bagging","teabagging","teat","teets","teez","terd","teste","testee","testes","testical","testicle","testis","threesome","throating","thrust","thug","thundercunt","tied up","tight white","tinkle","tit","titfuck","titi","tits","titt","tittie5","tittiefucker","titties","titty","tittyfuck","tittyfucker","tittywank","titwank","toke","tongue in a","toots","topless","tosser","towelhead","tramp","tranny","transsexual","trashy","tribadism","tub girl","tubgirl","turd","tush","tushy","tw4t","twat","twathead","twatlips","twats","twatty","twatwaffle","twink","twinkie","two girls one cup","twunt","twunter","ugly","unclefucker","undies","undressing","unwed","upskirt","urethra play","urinal","urine","urophilia","uterus","uzi","v14gra","v1gra","vag","vagina","vajayjay","va-j-j","valium","venus mound","viagra","vibrator","violet wand","virgin","vixen","vjayjay","vodka","vomit","vorarephilia","voyeur","vulgar","vulva","w00se","wad","wang","wank","wanker","wankjob","wanky","wazoo","wedgie","weed","weenie","weewee","weiner","weirdo","wench","wet dream","wetback","wh0re","wh0reface","white power","whitey","whiz","whoar","whoralicious","whore","whorealicious","whorebag","whored","whoreface","whorehopper","whorehouse","whores","whoring","wigger","willies","willy","womb","woody","wop","wrapping men","wrinkled starfish","wtf","xrated","x-rated","xxx","yaoi","yeasty","yellow showers","yiffy","yobbo","zoophile","zoophilia","zubb","(ock","[ock",".f uc k","@rse","@rsehol","@unt","[unt","< unt","<.unt","<loth head","<lothhead","<nuts","<o(k","<o<&nbsp;k","<o<ksu<ka","<o<ksu<ker","<oon","<u&nbsp;nt","<u&nbsp;nts","<u*t","<unt","<unt's","<vnt","<vnts","a$$hole","a$$hole$","a$$holes","a.rse","a+*hole","ar$ehole","ar$hole","ar$holes","ar5h0le","ar5h0les","ars3","arse hole","arseh0le","arseh0les","arseho","arsehol","arseholes","arsewipe","arsh0le","arshole","arsholes","ashole","ass h0le","assh0les","b.astard","b.ollocks","b.ugger","b@st@rd","b@st@rds","b00tha","b00thas","b0ll0cks","b0llocks","b3llend","basterd","basyard","basyards","batty boy","batty&nbsp;boi","batty&nbsp;boy","beef curtains","belend","bell end","bell.end","bell-end","bin dippers","bin-dippers","bo11ocks","boabie sooking","boaby sooking","boll0cks","bolocks","bolox","bootha","boothas","bum bandit","bum hole","bumbandit","bum-bandit","bumh0l3","bumh0le","bumhol3","bumhole","c *nt!","c *nts!","c u n t","c u n t.","c#nt","c&nbsp;u&nbsp;n&nbsp;t","c* nt","c.unt","c.untyb.ollocks","c_u_n_t","c00n","c0cksucka","cahnt","cahnts","clunge","cnuts","co(k","coc&nbsp;k","cocksucka","cocksuckers","cocksuckers.","cossor ali","cretin","cripple","critest","cu&nbsp;nt","cu&nbsp;nts","cunting","cunt's","cvnt","cvnts","d1ck!","d1ckh@ed","darky","dick&nbsp;head","dumbfucker","dxxkhead","ethnics","f ck","f o a d","f off","f u c ked","f uc k","f uc king","f uck","f###","f##k","f##king","f#cked","f$cks","f&nbsp;cked","f&nbsp;u&nbsp;c&nbsp;k","f&nbsp;uck","f&nbsp;ucker","f&nbsp;ucking","f()()k","f()()ker","f()()king","f*#kin'","f*&k","f*&k!ng","f.o.a.d","f.o.a.d.","f.u.c.k.","f.uck","f@@@in","f@@@ing","f@ck","f@g","f@gs","f[_]cker","f[_]cking","f^^k","f^^ked","f^^ker","f^^king","f^ck","f^cker","f^cking","f__kin","f__king","f<uk","f>>k","f00k","f00ked","f0oked","fackin","facking","f4ggot","f4gg0t","fagg0t","faggits","fagits","fck","f'ck","fck&nbsp;ing","fck1ng","fckeud","fckin","fcking","fcks","fckw1t","fckwit","fcuked","fcukin","fcuks","feckin","fecking","f---ed","fekking","felched","feltching","f-----g","f---ing","f--k","fkin","fking","flucknuts","fo0ked","f-o-a-d","fookd","fooked","fookin","fookin'","fooking","frig","frigging","frigin","friging","fu <k","fu&kin","fu&king","fu&nbsp;ck","fu&nbsp;cked","fu&nbsp;cker","fu&nbsp;cking","fu(k","fu(ker","fu(kers","fu.ck","fu@k","fu@ker","fu^k","fu^ker","fu^king","fu< kin","fu<k","f-u-<-k","fu<ked","fu<ker","fu<kin","fu<king","fu<kker","fu<kr","fu<ks","fuc&nbsp;ked","fuc&nbsp;ker","fuc&nbsp;king","f-uck","fÃºck","fÃºÃ§k","fÃ¹ck","fÃ»ck","fÃ¼ck","fuck&nbsp;ed","fuck&nbsp;ing","fucke&nbsp;d","fucki&nbsp;ng","fÃºcking","fuckinghell","fuckk","fuckw1t","fuck-wit","fuckwits","fucw1t","fucwit","fudge p@cker","fudgep@cker","fudge-p@cker","fudge-packer","fudgpacker","fukced","fuked","fukin","fuking","fukk","fukked","fukking","fuukn","fvckup","fvck-up","fvckw1t","fvckwit","gang-bang","gash","gayhole","gimp","girlie-gardening","goris","gypo","gypos","gyppo","gyppos","hvns","israelians","ities","k@ffir","k@ffirs","k@fir","k@firs","kaf1r","kaff1r","kaffir","kaffirs","kafir","kafirs","kafr","kants","khunt","kiddie fiddler","kiddie fiddling","kiddie-fiddler","kiddie-fiddling","kiddy fiddler","kiddyfiddler","kiddy-fiddler","kn0b","knob&nbsp;head","knobber","kuffar","m.inge","m.otherf.ucker","m1nge","mofuccer","mofucker","mofuckers","mofucking","mofukcer","mohterfuccer","mohterfuccers","mohterfuck","mohterfucker","mohterfuckers","mohterfucking","mohterfucks","mohterfuk","mohterfukcer","mohterfukcers","mohterfuking","mohterfuks","moterfuccer","moterfuck","moterfucker","moterfuckers","moterfucking","moterfucks","mothafuccer","motha-fucka","mother f---ers","motherfuccer","motherfuccers","motherfukkker","mthafucca","mthafuccas","mthafucka","mthafuckas","mthafukca","mthafukcas","muff-diver","muff-diving","muffs","muth@fucker","muthafuccer","muthafuck","muthafuck@","muthafucka","muthafuckers","muthafucking","muthafucks","muthafukas","niga","nignog","nig-nog","nob&nbsp;head","nonce","p.iss-flaps","p@ki","p@kis","p00f","p00fs","p00fter","p00fters","p0of","paedo","paedophiles","pak1","pakis","peado","peadofile","peadofiles","peedo","peedofile","peedofiles","peedophile","peedophiles","peedos","pench0d","pench0ds","penchod","penchods","phanny","phanny.","pheck","phecking","phelching","pheque","phequing","phucker","phuckin","phucking","phucks","pikey","pillow biter","pillow-biter","piss off","po0f","poff","ponce","poo stabber","poo stabbers","poofs","poofter","pr!ck","pr!ck.","pr1ck","pr1ck!","pr1cks","pr1cks!","prik","pu$$y","ragheads","ret@rd","rim job","s.hit","s1ut","sc u m!","sc um","sh hit","sh!te","sh!tes","sh1te","shirtlifter","shirtlifters","shit stabber","shit stabbers","shitstabber","shitstabbers","spastic","spaz","spaz.","spit roasting","spitroast","spit-roast","spit-roasting","spunking","ÃŸ0ll0Ã§k5","t w a t","t wat","t.wat","t0$$er","t0sser","t0ssers","tea-bagging","to55er","to55ers","tosser,","tossers","tossurs","towel head","tvvat","tvvats","tw at","tw&nbsp;at","tw@","tw@t","tw@ts","tw_t","twa t","twatt","twattish","twunts","up the gary","w anker","w ankers","w#nker","w#nkers","w*nkers, 0","w.ank","w@nk","w@nker","w@nkers","w@nks","w0g","w0gs","w4nker!","w4nkers!","wa nker","wan k er","wan k ers","wan ker","wanka","wanke r","wanked","wankers","wanking","wanks","wank's","wet spam","whanker","whankers","wog","xrse","xrseh","xrsehol","xrsehole","xxxhole","y!ddo!","y!ddo!!","yid","yido","zachariah bishop","blow-job","boner:deboner","bonk:bonkers","candy-ass","chuffnuts","cojones","dipstick","feak","furbox","furburger","gayboy","ginch","gnikcuf","hardon","honkers","kcid","kcuf","lactoids","lesbyterian","lezzo","man-root","nestlecock","onanism","pusy","queve","quimsteak","qveer","sappho","scumbag","scumber","sexpot","shagbucket","shagstress","snarf","sodomite","strollop","suckster","tnuc","toggaf","tribadist","twank","wiseass","wizzer","abbo","abortionist","abuser","alabama hotpocket","alligatorbait","analannie","analsex","arsebagger","arsebandit","arseblaster","arsecowboy","arsefuck","arsefucker","arsehat","arsehore","arsejockey","arsekiss","arsekisser","arselick","arselicker","arselover","arseman","arsemonkey","arsemunch","arsemuncher","arsepacker","arsepirate","arsepuppies","arseranger","arses","arsewhore","assbagger","assblaster","asscowboy","assholz","asshore","assjockey","asskiss","asskisser","assklown","asslover","assman","ass monkey","asspacker","asspuppies","assranger","asswhore","azzhole","backdoorman","badfuck","baldy","ball licker","balllicker","banging","barelylegal","barface","barfface","bassterds","bastardz","basterds","basterdz","bazongas","bazooms","beastality","beat-off","beatoff","beatyourmeat","bicurious","bigass","bigbastard","bigbutt","bitchez","bitchslap","biteme","boffing","bohunk","bollick","bootycall","bountybar","breastjob","breastlover","breastman","brothel","buggered","buggery","bukake","bullcrap","bulldike","bumfuck","bungabunga","butchbabes","butchdike","butchdyke","butt-bang","buttbang","buttface","butt-fuck","butt-fucker","butt-fuckers","buttfuckers","butthead","buttman","buttmunch","buttmuncher","buttpirate","buttstain","buttwipe","byatch","cacker","cameljockey","cawks","chav","cherrypopper","chickslick","clamdigger","clamdiver","clogwog","cnts","cntz","cockblocker","cockcowboy","cockfight","cock-head","cockknob","cocklicker","cocklover","cocknob","cockqueen","cockrider","cocksman","cocksucer","cocktease","cocky","coitus","coondog","copulate","cracker","crackpipe","crack-whore","crotchjockey","crotchmonkey","crotchrot","cumfest","cumm","cumquat","cumqueen","cunntt","cunteyed","cuntfuck","cuntfucker","cuntsucker","cuntz","cybersex","cyberslimer","damnation","damnit","datnigga","deapthroat","dego","devilworshipper","dickbrain","dickforbrains","dickless","dicklick","dicklicker","dickmilk","dilldo","dilldos","dixiedike","dixiedyke","dominatricks","dominatrics","douch","douchbag","drag queen","dragqueen","dragqween","dripdick","dumbbitch","easyslut","eatballs","eatme","eatpussy","enema","excrement","facefucker","facist","faeces","faget","faggots","fagit","fagz","faigs","fark","farted","farting","farty","fastfuck","fatfuck","fatfucker","fatso","feces","felatio","fister","flasher","flid","flipping the bird","flyd","flydie","flydye","footaction","footfuck","footfucker","footlicker","fornicate","freakfuck","freakyfucker","freefuck","fucck","fuckable","fuckbuddy","fuckedup","fuckfest","fuckfreak","fuckfriend","fuckher","fuckina","fuckingbitch","fuckingcunt","fuckinnuts","fuckinright","fuckit","fuckknob","fuckmehard","fuckmonkey","fuckpig","fuckwhore","fuckyou","fugly","Fukah","Fuken","Fukkah","Fukken","funfuck","fuuck","gangbanger","gatorbait","gaygirl","gaymuthafuckinwhore","gayz","getiton","givehead","glazeddonut","godammit","goddamit","goddamnes","goddamnmuthafucker","gonorrehea","gonzagas","gotohell","greaseball","grostulation","gypp","gyppie","gyppy","headfuck","hells","hijacker","hijacking","hillbillies","hindoo","hitlerism","hitlerist","hobo","hoes","holestuffer","homobangers","honger","hookers","hoore","horney","horseshit","hosejob","hotdamn","hotpussy","hottotrot","iblowu","idiot","insest","internet wife","intheass","inthebuff","jackshit","japcrap","jesuschrist","jiggabo","jihad","jijjiboo","jisim","jiss","jizim","jizjuice","jizzim","jizzum","jubblies","juggalo","kissass","knobz","krap","krappy","kumbubble","kumbullbe","kunnilingus","kunts","kuntz","lactate","lady boy","ladyboy","lapdance","lesbain","lesbayn","lesbin","lezbe","lezbefriends","lezz","lezzer","libido","lickme","limpdick","lipshits","lipshitz","livesex","loadedgun","lovebone","lovegoo","lovegun","lovejuice","lovemuscle","lovepistol","loverocket","low life","lowlife","lubejob","luckycameltoe","manhater","manpaste","masokist","massterbait","masstrbait","masstrbate","mastabate","mastabater","masterbaiter","master bates","masterbates","mastrabator","mattressprincess","meatbeater","meatrack","mgger","mggor","molestation","molester","molestor","moneyshot","mooncricket","motha fucker","motha fuker","motha fukkah","motha fukker","mother-fucker","mother fukah","mother fuker","mother fukkah","mother fukker","motherlovebone","muffdive","muffindiver","mufflikcer","muncher","mutha fucker","mutha fukah","mutha fuker","mutha fukkah","mutha fukker","nastt","nastybitch","nastyho","nastyslut","nastywhore","necro","negroes","negroid","niggaracci","niggard","niggarded","niggarding","niggardliness","niggardliness's,","niggardly","niggard's,","niggards","niggerhead","niggerhole","nigger's,","niggled","niggles","niggling","nigglings","niggor","niggur","nigr","nigra","nigre","nigur","niiger","niigr","nipplering","nittit","nlgger","nlggor","nofuckingway","nookey","nookie","nudger","nut case","nutcase","nutfucker","ontherag","orafis","orgasum","oriface","orifice","orifiss","packi","packie","packy","paedofile","pakie","paky","palesimian","panti","pearlnecklace","peckerwood","peeenus","peeenusss","peehole","peenus","peinus","penas","penis-breath","penises","penus","penuus","perv","pervert","phuc","phuker","phukker","phungky","pi55","picaninny","piccaninny","pickaninny","piky","pimper","pimpjuic","pimpjuice","pimpsimp","pindick","piss","pisshead","play boy","play bunny","playbunny","play girl","playgirl","plumper","pocketpool","polac","polak","pooperscooper","pooping","poorwhitetrash","poostabber","popimp","pornflick","pornking","pornprincess","pric","prickhead","pu55i","pu55y","pubiclice","puke","puntang","purinaprincess","pussee","pussie","pussyeater","pussyfucker","pussylicker","pussylips","pussylover","puuke","puuker","queerz","qweers","qweerz","qweir","rag head","rearend","rearentry","recktum","redneck","rentafuck","russki","russkie","sadom","saeema butt","sandm","scank","screwyou","seaman staines","sexed","sexfarm","sexhound","sexhouse","sexing","sexkitten","sexslave","sextogo","sextoy","sextoys","sexwhore","sexymoma","sexy-slim","seymour butts","shat","shhit","shitcan","shiter","shitfit","shitforbrains","shitfucker","shithapens","shithappens","shitlist","shitola","shitoutofluck","shity","shitz","shortfuck","shyt","shyte","shytty","shyty","sixsixsix","sixtynine","sixtyniner","skanck","skankbitch","skankee","skankey","skankfuck","skanks","skankwhore","skanky","skankybitch","skankywhore","skinflute","skum","skumbag","slantyeye","slapper","slavedriver","sleezebag","sleezeball","slideitin","slimeball","slimebucket","slopehead","slopey","slopy","slutt","slutting","slutty","slutwear","slutwhore","slutz","smackthemonkey","smelly","snatchpatch","snot","snowback","snownigger","sodomise","sonofabitch","sonofbitch","spacca","spaghettibender","spaghettinigger","spankthemonkey","spazza","spermacide","spermbag","spermhearder","spermherder","spig","spigotty","spitter","splittail","spreadeagle","squaw","stabber","stripclub","stroking","stupidfuck","stupidfucker","suckdick","sucker","suckme","suckmyass","suckmytit","suckoff","tarbaby","testicles","thicklips","thicko","thirdeye","thirdleg","timbernigger","titbitnipply","titfucker","titfuckin","titjob","titlicker","titlover","tittie","tonguethrust","tonguethruster","tonguetramp","torture","tosspot","trailertrash","trannie","trots","trouser snake","tuckahoe","tunneloflove","twobitwhore","unfuckable","uptheass","upthebutt","urinate","usama bin laden","vaginal","vajina","valjina","vibrater","vietcong","violate","violation","virginbreaker","vullva","waysted","welcher","wetspot","whacker","whigger","whiskeydick","whiskydick","whitenigger","whitetrash","whoor","whop","whorefucker","wife beater","williewanker","wuss","wuzzie","yellowman","zigabo","zipperhea","zipper head","suicide","kill yourself","kys","hang yourself","unalive yourself","nigg","puta","amcik","boobz","boody","boong","cazzo","forni","fotze","ginzo","gippo","gipps","godam","goyim","groid","gubba","guizi","gyopo","gyped","harem","heebs","horis","hoser","hymie","japie","jewed","jigga","jiggs","jiggy","jizin","jizzd","jizzn","kacap","kumer","kurac","kurwa","kushi","kykes","kyopo","kyrpa","lebos","lubra","lugan","lynch","mibun","mocky","nibba","nigar","nigas","niger","nigha","nigor","niqqa","nudie","nymph","pansy","paska","pendy","pizda","pocha","pocho","pohms","quiff","seppo","smack","spank","spics","stagg","trois","ukrop","vittu","wigga","beaney","boches","bungas","chinga","crotch","darkey","doggie","dyefly","dziwka","exkwew","fetish","ficken","geezer","gummer","gwailo","gweilo","gypped","gypsys","hodgie","honkie","huevon","humper","humpin","ikeymo","jewess","jigger","jizzin","kaffer","kaffre","kanake","kanker","katsap","kigger","knulle","kwailo","mabuno","macaca","maumau","menage","mierda","mockey","mockie","moskal","moslem","mtrfck","mulkku","muschi","mzungu","necked","negres","noonan","nooner","orospu","piefke","pimmel","pimped","pooper","pudboy","punani","pusies","qahbeh","racial","redleg","rigger","sambos","shipal","skribz","slanty","sloper","slopes","tantra","tiedup","tittis","tortur","trojan","turnon","yarpie","arabush","asholes","ballgag","bangbro","bluegum","bootlip","buffies","coolies","coonass","cowgirl","dothead","dryhump","fanculo","flikker","gangsta","genital","googirl","horndog","hotcarl","hugefat","humpher","humphim","hustler","israels","jerries","jimfish","khokhol","lezzian","licking","mahbuno","mamhoon","maricon","mideast","mulatto","nigette","pendejo","pierdol","preteen","puddboy","quashie","sanchez","scheiss","schmuck","septics","sheeney","shinola","shylock","slopeys","spludge","squinty","triplex","urethra","vagiina","whities","wichser","africoon","andskota","bassterd","bigblack","blackman","burrhead","chinaman","chinamen","clansman","clansmen","dogstyle","dunecoon","earotics","eatmyass","footstar","foursome","godsdamn","golliwog","homicide","horndawg","hotchick","illegals","klansman","klansmen","klootzak","knockers","kuksuger","lingerie","mosshead","peepshow","peepshpw","poontsee","pplicker","schaffer","schlampe","sharmuta","sharmute","stringer","syphilis","tacohead","thicklip","threeway","wetdream","yourtits","zabourah","arschloch","assrammer","babyjuice","ballgravy","futkretzn","girlontop","hairyback","halfbreed","halfcaste","hillbilly","howtokill","jigarooni","magicwand","marijuana","masturbat","monkleigh","mouliewop","penthouse","poundtown","premature","scallywag","schvartse","schwartze","skurwysyn","sphencter","squirting","stuinties","swallower","tarbabies","tongueina","babybatter","beastility","beaverlips","bigbreasts","bluewaffle","buddhahead","bulletvibe","chinaswede","chingchong","clanswoman","clanswomen","deepaction","doubledong","ejackulate","jellydonut","klanswoman","klanswomen","makemecome","mickeyfinn","missionary","rautenberg","samckdaddy","shawtypimp","socksucker","spierdalaj","spreadlegs","squarehead","styledoggy","tightwhite","udgepacker","venusmound","whitepower","zipperhead","ballkicking","dawgiestyle","diaperdaddy","donkeypunch","howtomurder","meatbeatter","pancakeface","pommiegrant","swampguinea","taintedlove","beefcurtains","blowyourload","brownshowers","christkiller","cloverclamps","currymuncher","dirtypillows","motherfvcker","moundofvenus","pickaninnies","porchmonkies","spearchucker","tigolbitties","transvestite","beavercleaver","girlsgonewild","jacktheripper","junglebunnies","masterblaster","pleasurechest","tigoldbitties","tongethruster","yellowshowers","brunetteaction","femalesquirtin","luckycammeltoe","purinapricness","clevelandsteamer","wrinkledstarfish","princealbertpiercing","niggardliness's","niggard's","nigger's","nicotine","hell","f*ck","f**k","f***k","fu*k","fu**k","fk","fuq","sh*t","damm","d@mn","d@mm","h3ll","h*ll","b*tch","btch","bast4rd","b@stard","bast@rd","@ss","a$$","@$$","cr@p","d!ck","p1ss","p!ss","p@ss","c*nt","c**t","wh*re","wh0r3","slvt","sl*t","sl*tt","d*uche","d*uch3","@sshole","@$$hole","m0therfucker","m0therf*cker","m0th3rfucker","motherf*cker","c*cksucker","c*cksuck3r","cocksuck3r","j@ckass","j@ck@ss","jack@ss","j@ck*ss","b*llshit","b@llshit","bllsht","b*llsh1t","bullsh1t","b@llsh1t","@rsehole","ars3hole","ars*hole","f*ggot","f@gg0t","b@st4rd","sh!thead","sh1thead","sh1th3ad","shith3ad","sh*thead","c*ck","c0k","p*rn","pr0n","porn0","fckr","f*ckr","fc*k","fc*kr","fkn","fn","fqn","fnck","d1k","d!k","dik","dyk","dykk","d*kk","c*m","c*mm","s!ut","p1mp","p!mp","b00b","b*ob","b0b","b00bz","b0bz","b0obs","@ssh0le","@$$h0le","f!ck","f1ck","f*q","f*cking","f**king","f***king","fkng","f*kin","f@king","buggr","buggrr","bugg3r","buggering","f@ggot","f*gg0t","twatface","twatfaced","wankr","w4nk","w4nker","w@nkr","w*nkr","wankd","tossr","toss3r","t0ss3r","t!t","titz","t!tt","t!tz","c_nt","c*ntz","c_ntz","pisd","pissd","pishead","p!sshead","p1sshead","f*cker","f_ckr","f@ckr","fcukr","f_ck3r","f*cked","fc*ked","f_ckd","f_cked","f_cking","fc*king","f_ckn","f_ckng","f@cking","motherfckr","mthrfcukr","mthrfcuker","mothrf*cker","mthrf*cker","d!ckhead","d!ckhed","d!ckh3ad","d1ckh3ad","dickh3ad","d!ckhd","d*ckhead","dickhed","dikhead","dickhd","ballz","ballzy","ballsy","ballsz","b@llz","b@lls","b*llz","b*lls","b00bies","boobi","boobied","co*k","co**k","pr!k","prickr","pr1kr","pr!kr","pr!cker","w0gg","w0gger","wogger","w*gg","w0gg3r","wogging","f4git","f@git","fag0t","f@got","fagott","f4gott","faggets","faggy","fagzz","pissr","p!ssr","piss3r","p1ss3r","p1ssr","p!ssed","p1ssed","p1ssd","tw*t","fuc","fucc","fkk","f*k","d*mn","dammn","d@mmn","sl*tty","slttty","sltttty","sluttz","slttz","sltttz","bitchz","biotch","bitchr","b*tchr","b1tchr","n!gger","nigg*r","nigg@r","n!gg3r","n1gg3r","n1gg@r","n!gg@r","n1gg*r","n!gg*r","n1g","n!gg","n1gg","n*gg","niggr","n!ggr","n1ggr","n*gger","n!gga","n!gg@","n1gg@","nigg@","n1ggah","n!ggah","n*ggah","nigg@h","n!gg@h","n1gg@h","n1g@h","n!g@h","nigguh","n1gguh","n!gguh","n*gguh","n1ggaz","n!ggaz","n*ggaz","nigg@s","n!gg@s","n1gg@s","n1gg@z","nigg@z","n!gg@z","n*gg@z","niggahz","n1ggahz","n!ggahz","n*ggahz","nigg@hz","n!gg@hz","n1gg@hz","niggar","n1ggar","n!ggar","n*ggar","nigg@rs","n1gg@rs","n!gg@rs","n!g@rs","n!g@r","n!g@rz","niggrz","n1ggrz","n!ggrz","n!gg@rz","nigg@rz","niggrs","n1ggrs","n!ggrs","shiit","cr4p","c@cksucker","c0cksuck3r","c0ck$ucker","c*cksucka","c@cksucka","c0cksuck@h","loser","l0ser","looser","l00ser","l0s3r","l*ser","l*s3r","l@s3r","l@ser","l0$er","l0$3r","l0ozer","lozer","l0z3r","l*zer","l*z3r","lo$er","l0zer","loz3r","loos3r","l0oser","l00z3r","looz3r","looz*r","l0o$er","l0os3r","l*ozer"]`);
-const ma = document.createElement("canvas");
+let la = JSON.parse(`["2 girls 1 cup","2g1c","4r5e","5h1t","5hit","a_s_s","a55","a55hole","acrotomophilia","aeolus","ahole","alabama hot pocket","alaskan pipeline","anal","analprobe","anilingus","anus","apeshit","ar5e","areola","areole","arian","arrse","arse","arsehole","aryan","ass","ass hole","assbag","assbandit","assbang","assbanged","assbanger","assbangs","assbite","assclown","asscock","asscracker","asses","assface","assfuck","assfucker","ass-fucker","assfukka","assgoblin","assh0le","asshat","ass-hat","asshead","assho1e","asshole","assholes","asshopper","ass-jabber","assjacker","asslick","asslicker","assmaster","assmonkey","assmunch","assmuncher","assnigger","asspirate","ass-pirate","assshit","assshole","asssucker","asswad","asswhole","asswipe","asswipes","auto erotic","autoerotic","axwound","azazel","azz","b!tch","b00bs","b17ch","b1tch","babe","babeland","babes","baby batter","baby juice","balls","ball gag","ball gravy","ball kicking","ball licking","ball sack","ball sucking","ballbag","ballsack","bampot","bang","bangbros","banger","bareback","barely legal","barenaked","barf","bastard","bastardo","bastards","bastinado","bawdy","bbw","bdsm","beaner","beaners","beardedclam","beastial","beastiality","beatch","beater","beaver cleaver","beaver lips","beeyotch","bellend","beotch","bestial","bestiality","bi+ch","biatch","big black","big breasts","big knockers","big tits","bigtits","bimbo","bimbos","birdlock","bitch","bitchass","bitched","bitcher","bitchers","bitches","bitchin","bitching","bitchtits","bitchy","black cock","blonde action","blonde on blonde action","blow job","blow your load","blowjob","blowjobs","blue waffle","blumpkin","bod","bodily","boink","boiolas","bollock","bollocks","bollok","bollox","bondage","boned","boner","boners","bong","boob","boobies","boobs","booby","booger","bookie","booobs","boooobs","booooobs","booooooobs","bootee","bootie","booty","booty call","booze","boozer","boozy","bosom","bosomy","bra","brassiere","breast","breasts","breeder","brotherfucker","brown showers","brunette action","buceta","bugger","bukkake","bull shit","bulldyke","bullet vibe","bullshit","bullshits","bullshitted","bullturds","bum","bumblefuck","bung","bung hole","bunghole","bunny fucker","busty","butt","butt fuck","butt plug","buttcheeks","buttfuck","buttfucka","buttfucker","butthole","buttmuch","butt-pirate","buttplug","c.0.c.k","c.o.c.k.","c.u.n.t","c0ck","c-0-c-k","c0cksucker","caca","cahone","camel toe","cameltoe","camgirl","camslut","camwhore","carpet muncher","carpetmuncher","cawk","cervix","chesticle","chinc","chincs","chink","choad","chocolate rosebuds","chode","chodes","cipa","circlejerk","cl1t","cleveland steamer","climax","clit","clitface","clitfuck","clitoris","clitorus","clits","clitty","clover clamps","clusterfuck","cnut","cocain","cocaine","cock","c-o-c-k","cock sucker","cockass","cockbite","cockblock","cockburger","cockeye","cockface","cockfucker","cockhead","cockholster","cockjockey","cockknocker","cockknoker","cocklump","cockmaster","cockmongler","cockmongruel","cockmonkey","cockmunch","cockmuncher","cocknose","cocknugget","cocks","cockshit","cocksmith","cocksmoke","cocksmoker","cocksniffer","cocksuck","cocksucked","cocksucker","cock-sucker","cocksucking","cocksucks","cocksuka","cocksukka","cockwaffle","coital","cok","cokmuncher","coksucka","commie","condom","coochie","coochy","coon","coons","cooter","coprolagnia","coprophilia","corksucker","cornhole","cox","crabs","crack","crackwhore","crap","crappy","creampie","crotte","cum","cumbubble","cumdumpster","cumguzzler","cumjockey","cummer","cummin","cumming","cums","cumshot","cumshots","cumslut","cumstain","cumtart","cunilingus","cunillingus","cunnie","cunnilingus","cunny","cunt","c-u-n-t","cuntass","cuntface","cunthole","cunthunter","cuntlick","cuntlicker","cuntlicking","cuntrag","cunts","cuntslut","cyalis","cyberfuc","cyberfuck","cyberfucked","cyberfucker","cyberfuckers","cyberfucking","d0ng","d0uch3","d0uche","d1ck","d1ld0","d1ldo","dago","dagos","darkie","damn","damned","dammit","date rape","daterape","dawgie-style","deep throat","deepthroat","deggo","dendrophilia","dick","dickbag","dickbeaters","dickdipper","dickface","dickflipper","dickfuck","dickfucker","dickhead","dickheads","dickhole","dickish","dick-ish","dickjuice","dickmilkÂ ","dickmonger","dickripper","dicks","dicksipper","dickslap","dick-sneeze","dicksuck","dicksucker","dicksucking","dicktickler","dickwad","dickweasel","dickweed","dickwhipper","dickwod","dickzipper","diddle","dike","dildo","dildos","diligaf","dillweed","dimwit","dingle","dingleberries","dingleberry","dink","dinks","dipship","dipshit","dirsa","dirty pillows","dirty sanchez","dlck","dog style","dog-fucker","doggie style","doggiestyle","doggie-style","doggin","dogging","doggy style","doggystyle","doggy-style","dolcett","domination","dominatrix","dommes","dong","donkey punch","donkeyribber","doochbag","doofus","dookie","doosh","dopey","double dong","double penetration","doublelift","douch3","douche","douchebag","douchebags","douche-fag","douchewaffle","douchey","dp action","drunk","dry hump","duche","dumass","dumb ass","dumbass","dumbasses","dumbcunt","dumbfuck","dumbshit","dummy","dumshit","dvda","dyke","dykes","eat my ass","ecchi","ejaculate","ejaculated","ejaculates","ejaculating","ejaculatings","ejaculation","ejakulate","enlargement","erect","erection","erotic","erotism","escort","essohbee","eunuch","extacy","extasy","f u c k","f u c k e r","f.u.c.k","f_u_c_k","f4nny","fack","fag","fagbag","fagfucker","fagg","fagged","fagging","faggit","faggitt","faggot","faggotcock","faggs","fagot","fagots","fags","fagtard","faig","faigt","fanny","fannybandit","fannyflaps","fannyfucker","fanyy","fartknocker","fatass","fcuk","fcuker","fcuking","fecal","feck","fecker","felch","felcher","felching","fellate","fellatio","feltch","feltcher","female squirting","femdom","figging","fingerbang","fingerfuck","fingerfucked","fingerfucker","fingerfuckers","fingerfucking","fingerfucks","fingering","fisted","fistfuck","fistfucked","fistfucker","fistfuckers","fistfucking","fistfuckings","fistfucks","fisting","fisty","flamer","flange","floozy","foad","foah","fondle","foobar","fook","fooker","foot fetish","footjob","foreskin","freex","frigg","frigga","frotting","fubar","fuck","f-u-c-k","fuck buttons","fuck off","fucka","fuckass","fuckbag","fuckboy","fuckbrain","fuckbutt","fuckbutter","fucked","fucker","fuckers","fuckersucker","fuckface","fuckhead","fuckheads","fuckhole","fuckin","fucking","fuckings","fuckingshitmotherfucker","fuckme","fucknugget","fucknut","fucknutt","fuckoff","fucks","fuckstick","fucktard","fuck-tard","fucktards","fucktart","fucktwat","fuckup","fuckwad","fuckwhit","fuckwit","fuckwitt","fudge packer","fudgepacker","fuk","fuker","fukker","fukkin","fuks","fukwhit","fukwit","futanari","fux","fux0r","fvck","fxck","gae","gai","gang bang","gangbang","gangbanged","gangbangs","ganja","gay","gay sex","gayass","gaybob","gaydo","gayfuck","gayfuckist","gaylord","gays","gaysex","gaytard","gaywad","genitals","gey","gfy","ghay","ghey","giant cock","gigolo","girl on","girl on top","girls gone wild","glans","goatcx","goatse","god damn","godamn","godamnit","goddam","god-dam","goddammit","goddamn","goddamned","god-damned","goddamnit","gokkun","golden shower","goldenshower","gonad","gonads","goo girl","gooch","goodpoop","gook","gooks","goregasm","gringo","grope","group sex","gspot","g-spot","gtfo","guido","guro","h0m0","h0mo","hand job","handjob","hard core","hard on","hardcore","hardcoresex","he11","heeb","hemp","hentai","heroin","herp","herpes","herpy","heshe","hitler","hiv","ho","hoar","hoare","hobag","hoe","hoer","hom0","homey","homo","homodumbshit","homoerotic","homoey","honkey","honky","hooch","hookah","hooker","hoor","hootch","hooter","hooters","hore","horniest","horny","hot carl","hot chick","hotsex","how to kill","how to murder","huge fat","hump","humped","humping","hussy","hymen","inbred","incest","injun","intercourse","j3rk0ff","jack Off","jackass","jackhole","jackoff","jack-off","jaggi","jagoff","jail bait","jailbait","jap","japs","jelly donut","jerk","jerk off","jerk0ff","jerkass","jerked","jerkoff","jerk-off","jigaboo","jiggaboo","jiggerboo","jism","jiz","jizm","jizz","jizzed","juggs","jungle bunny","junglebunny","junkie","junky","kawk","kike","kikes","kinbaku","kinkster","kinky","kkk","knob","knobbing","knobead","knobed","knobend","knobhead","knobjocky","knobjokey","kock","kondum","kondums","kooch","kooches","kootch","kraut","kum","kummer","kumming","kums","kunilingus","kunja","kunt","kyke","l3i+ch","l3itch","labia","lameass","lardass","leather restraint","leather straight jacket","lech","lemon party","leper","lesbian","lesbians","lesbo","lesbos","lez","lezbian","lezbians","lezbo","lezbos","lezzie","lezzies","lezzy","lmao","lmfao","loin","loins","lolita","lovemaking","lube","lust","lusting","lusty","m0f0","m0fo","m45terbate","ma5terb8","ma5terbate","make me come","male squirting","mams","masochist","massa","masterb8","masterbat","masterbat3","masterbate","master-bate","masterbating","masterbation","masterbations","masturbate","masturbating","masturbation","maxi","mcfagget","menage a trois","menses","menstruate","menstruation","meth","m-fucking","mick","milf","minge","missionary position","mof0","mofo","mo-fo","molest","moolie","moron","mothafuck","mothafucka","mothafuckas","mothafuckaz","mothafucked","mothafucker","mothafuckers","mothafuckin","mothafucking","mothafuckings","mothafucks","mother fucker","motherfuck","motherfucka","motherfucked","motherfucker","motherfuckers","motherfuckin","motherfucking","motherfuckings","motherfuckka","motherfucks","mound of venus","mr hands","mtherfucker","mthrfucker","mthrfucking","muff","muff diver","muffdiver","muffdiving","munging","murder","mutha","muthafecker","muthafuckaz","muthafucker","muthafuckker","muther","mutherfucker","mutherfucking","muthrfucking","n1gga","n1gger","nad","nads","naked","nambla","napalm","nappy","nawashi","nazi","nazism","negro","neonazi","nig nog","nigaboo","nigg3r","nigg4h","nigga","niggah","niggas","niggaz","nigger","niggers","niggle","niglet","nimphomania","nimrod","ninny","nipple","nipples","nob","nob jokey","nobhead","nobjocky","nobjokey","nooky","nsfw images","nude","nudity","numbnuts","nut sack","nutsack","nympho","nymphomania","octopussy","omorashi","one cup two girls","one guy one jar","opiate","opium","oral","orally","organ","orgasim","orgasims","orgasm","orgasmic","orgasms","orgies","orgy","ovary","ovum","ovums","p.u.s.s.y.","p0rn","paddy","paedophile","paki","panooch","pantie","panties","panty","pastie","pasty","pawn","pcp","pecker","peckerhead","pedo","pedobear","pedophile","pedophilia","pedophiliac","peepee","pegging","penetrate","penetration","penial","penile","penis","penisbanger","penisfucker","penispuffer","perversion","peyote","phalli","phallic","phone sex","phonesex","phuck","phuk","phuked","phuking","phukked","phukking","phuks","phuq","piece of shit","pigfucker","pillowbiter","pimp","pimpis","pinko","piss pig","pissed","pissed off","pisser","pissers","pisses","pissflaps","pissin","pissing","pissoff","piss-off","pisspig","playboy","pleasure chest","pms","polack","pole smoker","polesmoker","pollock","ponyplay","poof","poon","poonani","poonany","poontang","poop","poop chute","poopchute","poopuncher","porch monkey","porchmonkey","porn","porno","pornography","pornos","potty","prick","pricks","prig","prince albert piercing","pron","prostitute","prude","pthc","pube","pubes","pubic","pubis","punanny","punany","punkass","punky","punta","puss","pusse","pussi","pussies","pussy","pussylicking","pussypounder","pussys","pust","puto","queaf","queef","queer","queerbait","queerhole","queero","queers","quicky","quim","racy","raghead","raging boner","rape","raped","raper","raping","rapist","raunch","rectal","rectum","rectus","reefer","reetard","reich","renob","retard","retarded","reverse cowgirl","revue","rimjaw","rimjob","rimming","ritard","rosy palm","rosy palm and her 5 sisters","rtard","r-tard","rump","rumprammer","ruski","rusty trombone","s hit","s&m","s.h.i.t.","s.o.b.","s_h_i_t","s0b","sadism","sadist","sand nigger","sandler","sandnigger","sanger","santorum","scag","scantily","scat","schizo","schlong","scissoring","screw","screwed","screwing","scroat","scrog","scrot","scrote","scrotum","scrud","scum","seaman","seamen","seduce","seks","semen","sex","sexo","sexual","sexy","sh!+","sh!t","sh1t","s-h-1-t","shag","shagger","shaggin","shagging","shamedame","shaved beaver","shaved pussy","shemale","shi+","shibari","shit","s-h-i-t","shitass","shitbag","shitbagger","shitblimp","shitbrains","shitbreath","shitcanned","shitcunt","shitdick","shite","shiteater","shited","shitey","shitface","shitfaced","shitfuck","shitfull","shithead","shithole","shithouse","shiting","shitings","shits","shitspitter","shitstain","shitt","shitted","shitter","shitters","shittiest","shitting","shittings","shitty","shiz","shiznit","shota","shrimping","sissy","skag","skank","skeet","skullfuck","slag","slanteye","slave","sleaze","sleazy","slut","slutbag","slutdumper","slutkiss","sluts","smeg","smegma","smut","smutty","snatch","snowballing","snuff","s-o-b","sodom","sodomize","sodomy","son-of-a-bitch","souse","soused","spac","sperm","spic","spick","spik","spiks","splooge","splooge moose","spooge","spook","spread legs","spunk","steamy","stfu","stiffy","stoned","strap on","strapon","strappado","strip","strip club","stroke","stupid","style doggy","suck","suckass","sucked","sucking","suckmydick","sucks","suicide girls","sultry women","sumofabiatch","swastika","swinger","t1t","t1tt1e5","t1tties","tainted love","tampon","tard","taste my","tawdry","tea bagging","teabagging","teat","teets","teez","terd","teste","testee","testes","testical","testicle","testis","threesome","throating","thrust","thug","thundercunt","tied up","tight white","tinkle","tit","titfuck","titi","tits","titt","tittie5","tittiefucker","titties","titty","tittyfuck","tittyfucker","tittywank","titwank","toke","tongue in a","toots","topless","tosser","towelhead","tramp","tranny","transsexual","trashy","tribadism","tub girl","tubgirl","turd","tush","tushy","tw4t","twat","twathead","twatlips","twats","twatty","twatwaffle","twink","twinkie","two girls one cup","twunt","twunter","ugly","unclefucker","undies","undressing","unwed","upskirt","urethra play","urinal","urine","urophilia","uterus","uzi","v14gra","v1gra","vag","vagina","vajayjay","va-j-j","valium","venus mound","viagra","vibrator","violet wand","virgin","vixen","vjayjay","vodka","vomit","vorarephilia","voyeur","vulgar","vulva","w00se","wad","wang","wank","wanker","wankjob","wanky","wazoo","wedgie","weed","weenie","weewee","weiner","weirdo","wench","wet dream","wetback","wh0re","wh0reface","white power","whitey","whiz","whoar","whoralicious","whore","whorealicious","whorebag","whored","whoreface","whorehopper","whorehouse","whores","whoring","wigger","willies","willy","womb","woody","wop","wrapping men","wrinkled starfish","wtf","xrated","x-rated","xxx","yaoi","yeasty","yellow showers","yiffy","yobbo","zoophile","zoophilia","zubb","(ock","[ock",".f uc k","@rse","@rsehol","@unt","[unt","< unt","<.unt","<loth head","<lothhead","<nuts","<o(k","<o<&nbsp;k","<o<ksu<ka","<o<ksu<ker","<oon","<u&nbsp;nt","<u&nbsp;nts","<u*t","<unt","<unt's","<vnt","<vnts","a$$hole","a$$hole$","a$$holes","a.rse","a+*hole","ar$ehole","ar$hole","ar$holes","ar5h0le","ar5h0les","ars3","arse hole","arseh0le","arseh0les","arseho","arsehol","arseholes","arsewipe","arsh0le","arshole","arsholes","ashole","ass h0le","assh0les","b.astard","b.ollocks","b.ugger","b@st@rd","b@st@rds","b00tha","b00thas","b0ll0cks","b0llocks","b3llend","basterd","basyard","basyards","batty boy","batty&nbsp;boi","batty&nbsp;boy","beef curtains","belend","bell end","bell.end","bell-end","bin dippers","bin-dippers","bo11ocks","boabie sooking","boaby sooking","boll0cks","bolocks","bolox","bootha","boothas","bum bandit","bum hole","bumbandit","bum-bandit","bumh0l3","bumh0le","bumhol3","bumhole","c *nt!","c *nts!","c u n t","c u n t.","c#nt","c&nbsp;u&nbsp;n&nbsp;t","c* nt","c.unt","c.untyb.ollocks","c_u_n_t","c00n","c0cksucka","cahnt","cahnts","clunge","cnuts","co(k","coc&nbsp;k","cocksucka","cocksuckers","cocksuckers.","cossor ali","cretin","cripple","critest","cu&nbsp;nt","cu&nbsp;nts","cunting","cunt's","cvnt","cvnts","d1ck!","d1ckh@ed","darky","dick&nbsp;head","dumbfucker","dxxkhead","ethnics","f ck","f o a d","f off","f u c ked","f uc k","f uc king","f uck","f###","f##k","f##king","f#cked","f$cks","f&nbsp;cked","f&nbsp;u&nbsp;c&nbsp;k","f&nbsp;uck","f&nbsp;ucker","f&nbsp;ucking","f()()k","f()()ker","f()()king","f*#kin'","f*&k","f*&k!ng","f.o.a.d","f.o.a.d.","f.u.c.k.","f.uck","f@@@in","f@@@ing","f@ck","f@g","f@gs","f[_]cker","f[_]cking","f^^k","f^^ked","f^^ker","f^^king","f^ck","f^cker","f^cking","f__kin","f__king","f<uk","f>>k","f00k","f00ked","f0oked","fackin","facking","f4ggot","f4gg0t","fagg0t","faggits","fagits","fck","f'ck","fck&nbsp;ing","fck1ng","fckeud","fckin","fcking","fcks","fckw1t","fckwit","fcuked","fcukin","fcuks","feckin","fecking","f---ed","fekking","felched","feltching","f-----g","f---ing","f--k","fkin","fking","flucknuts","fo0ked","f-o-a-d","fookd","fooked","fookin","fookin'","fooking","frig","frigging","frigin","friging","fu <k","fu&kin","fu&king","fu&nbsp;ck","fu&nbsp;cked","fu&nbsp;cker","fu&nbsp;cking","fu(k","fu(ker","fu(kers","fu.ck","fu@k","fu@ker","fu^k","fu^ker","fu^king","fu< kin","fu<k","f-u-<-k","fu<ked","fu<ker","fu<kin","fu<king","fu<kker","fu<kr","fu<ks","fuc&nbsp;ked","fuc&nbsp;ker","fuc&nbsp;king","f-uck","fÃºck","fÃºÃ§k","fÃ¹ck","fÃ»ck","fÃ¼ck","fuck&nbsp;ed","fuck&nbsp;ing","fucke&nbsp;d","fucki&nbsp;ng","fÃºcking","fuckinghell","fuckk","fuckw1t","fuck-wit","fuckwits","fucw1t","fucwit","fudge p@cker","fudgep@cker","fudge-p@cker","fudge-packer","fudgpacker","fukced","fuked","fukin","fuking","fukk","fukked","fukking","fuukn","fvckup","fvck-up","fvckw1t","fvckwit","gang-bang","gash","gayhole","gimp","girlie-gardening","goris","gypo","gypos","gyppo","gyppos","hvns","israelians","ities","k@ffir","k@ffirs","k@fir","k@firs","kaf1r","kaff1r","kaffir","kaffirs","kafir","kafirs","kafr","kants","khunt","kiddie fiddler","kiddie fiddling","kiddie-fiddler","kiddie-fiddling","kiddy fiddler","kiddyfiddler","kiddy-fiddler","kn0b","knob&nbsp;head","knobber","kuffar","m.inge","m.otherf.ucker","m1nge","mofuccer","mofucker","mofuckers","mofucking","mofukcer","mohterfuccer","mohterfuccers","mohterfuck","mohterfucker","mohterfuckers","mohterfucking","mohterfucks","mohterfuk","mohterfukcer","mohterfukcers","mohterfuking","mohterfuks","moterfuccer","moterfuck","moterfucker","moterfuckers","moterfucking","moterfucks","mothafuccer","motha-fucka","mother f---ers","motherfuccer","motherfuccers","motherfukkker","mthafucca","mthafuccas","mthafucka","mthafuckas","mthafukca","mthafukcas","muff-diver","muff-diving","muffs","muth@fucker","muthafuccer","muthafuck","muthafuck@","muthafucka","muthafuckers","muthafucking","muthafucks","muthafukas","niga","nignog","nig-nog","nob&nbsp;head","nonce","p.iss-flaps","p@ki","p@kis","p00f","p00fs","p00fter","p00fters","p0of","paedo","paedophiles","pak1","pakis","peado","peadofile","peadofiles","peedo","peedofile","peedofiles","peedophile","peedophiles","peedos","pench0d","pench0ds","penchod","penchods","phanny","phanny.","pheck","phecking","phelching","pheque","phequing","phucker","phuckin","phucking","phucks","pikey","pillow biter","pillow-biter","piss off","po0f","poff","ponce","poo stabber","poo stabbers","poofs","poofter","pr!ck","pr!ck.","pr1ck","pr1ck!","pr1cks","pr1cks!","prik","pu$$y","ragheads","ret@rd","rim job","s.hit","s1ut","sc u m!","sc um","sh hit","sh!te","sh!tes","sh1te","shirtlifter","shirtlifters","shit stabber","shit stabbers","shitstabber","shitstabbers","spastic","spaz","spaz.","spit roasting","spitroast","spit-roast","spit-roasting","spunking","ÃŸ0ll0Ã§k5","t w a t","t wat","t.wat","t0$$er","t0sser","t0ssers","tea-bagging","to55er","to55ers","tosser,","tossers","tossurs","towel head","tvvat","tvvats","tw at","tw&nbsp;at","tw@","tw@t","tw@ts","tw_t","twa t","twatt","twattish","twunts","up the gary","w anker","w ankers","w#nker","w#nkers","w*nkers, 0","w.ank","w@nk","w@nker","w@nkers","w@nks","w0g","w0gs","w4nker!","w4nkers!","wa nker","wan k er","wan k ers","wan ker","wanka","wanke r","wanked","wankers","wanking","wanks","wank's","wet spam","whanker","whankers","wog","xrse","xrseh","xrsehol","xrsehole","xxxhole","y!ddo!","y!ddo!!","yid","yido","zachariah bishop","blow-job","boner:deboner","bonk:bonkers","candy-ass","chuffnuts","cojones","dipstick","feak","furbox","furburger","gayboy","ginch","gnikcuf","hardon","honkers","kcid","kcuf","lactoids","lesbyterian","lezzo","man-root","nestlecock","onanism","pusy","queve","quimsteak","qveer","sappho","scumbag","scumber","sexpot","shagbucket","shagstress","snarf","sodomite","strollop","suckster","tnuc","toggaf","tribadist","twank","wiseass","wizzer","abbo","abortionist","abuser","alabama hotpocket","alligatorbait","analannie","analsex","arsebagger","arsebandit","arseblaster","arsecowboy","arsefuck","arsefucker","arsehat","arsehore","arsejockey","arsekiss","arsekisser","arselick","arselicker","arselover","arseman","arsemonkey","arsemunch","arsemuncher","arsepacker","arsepirate","arsepuppies","arseranger","arses","arsewhore","assbagger","assblaster","asscowboy","assholz","asshore","assjockey","asskiss","asskisser","assklown","asslover","assman","ass monkey","asspacker","asspuppies","assranger","asswhore","azzhole","backdoorman","badfuck","baldy","ball licker","balllicker","banging","barelylegal","barface","barfface","bassterds","bastardz","basterds","basterdz","bazongas","bazooms","beastality","beat-off","beatoff","beatyourmeat","bicurious","bigass","bigbastard","bigbutt","bitchez","bitchslap","biteme","boffing","bohunk","bollick","bootycall","bountybar","breastjob","breastlover","breastman","brothel","buggered","buggery","bukake","bullcrap","bulldike","bumfuck","bungabunga","butchbabes","butchdike","butchdyke","butt-bang","buttbang","buttface","butt-fuck","butt-fucker","butt-fuckers","buttfuckers","butthead","buttman","buttmunch","buttmuncher","buttpirate","buttstain","buttwipe","byatch","cacker","cameljockey","cawks","chav","cherrypopper","chickslick","clamdigger","clamdiver","clogwog","cnts","cntz","cockblocker","cockcowboy","cockfight","cock-head","cockknob","cocklicker","cocklover","cocknob","cockqueen","cockrider","cocksman","cocksucer","cocktease","cocky","coitus","coondog","copulate","cracker","crackpipe","crack-whore","crotchjockey","crotchmonkey","crotchrot","cumfest","cumm","cumquat","cumqueen","cunntt","cunteyed","cuntfuck","cuntfucker","cuntsucker","cuntz","cybersex","cyberslimer","damnation","damnit","datnigga","deapthroat","dego","devilworshipper","dickbrain","dickforbrains","dickless","dicklick","dicklicker","dickmilk","dilldo","dilldos","dixiedike","dixiedyke","dominatricks","dominatrics","douch","douchbag","drag queen","dragqueen","dragqween","dripdick","dumbbitch","easyslut","eatballs","eatme","eatpussy","enema","excrement","facefucker","facist","faeces","faget","faggots","fagit","fagz","faigs","fark","farted","farting","farty","fastfuck","fatfuck","fatfucker","fatso","feces","felatio","fister","flasher","flid","flipping the bird","flyd","flydie","flydye","footaction","footfuck","footfucker","footlicker","fornicate","freakfuck","freakyfucker","freefuck","fucck","fuckable","fuckbuddy","fuckedup","fuckfest","fuckfreak","fuckfriend","fuckher","fuckina","fuckingbitch","fuckingcunt","fuckinnuts","fuckinright","fuckit","fuckknob","fuckmehard","fuckmonkey","fuckpig","fuckwhore","fuckyou","fugly","Fukah","Fuken","Fukkah","Fukken","funfuck","fuuck","gangbanger","gatorbait","gaygirl","gaymuthafuckinwhore","gayz","getiton","givehead","glazeddonut","godammit","goddamit","goddamnes","goddamnmuthafucker","gonorrehea","gonzagas","gotohell","greaseball","grostulation","gypp","gyppie","gyppy","headfuck","hells","hijacker","hijacking","hillbillies","hindoo","hitlerism","hitlerist","hobo","hoes","holestuffer","homobangers","honger","hookers","hoore","horney","horseshit","hosejob","hotdamn","hotpussy","hottotrot","iblowu","idiot","insest","internet wife","intheass","inthebuff","jackshit","japcrap","jesuschrist","jiggabo","jihad","jijjiboo","jisim","jiss","jizim","jizjuice","jizzim","jizzum","jubblies","juggalo","kissass","knobz","krap","krappy","kumbubble","kumbullbe","kunnilingus","kunts","kuntz","lactate","lady boy","ladyboy","lapdance","lesbain","lesbayn","lesbin","lezbe","lezbefriends","lezz","lezzer","libido","lickme","limpdick","lipshits","lipshitz","livesex","loadedgun","lovebone","lovegoo","lovegun","lovejuice","lovemuscle","lovepistol","loverocket","low life","lowlife","lubejob","luckycameltoe","manhater","manpaste","masokist","massterbait","masstrbait","masstrbate","mastabate","mastabater","masterbaiter","master bates","masterbates","mastrabator","mattressprincess","meatbeater","meatrack","mgger","mggor","molestation","molester","molestor","moneyshot","mooncricket","motha fucker","motha fuker","motha fukkah","motha fukker","mother-fucker","mother fukah","mother fuker","mother fukkah","mother fukker","motherlovebone","muffdive","muffindiver","mufflikcer","muncher","mutha fucker","mutha fukah","mutha fuker","mutha fukkah","mutha fukker","nastt","nastybitch","nastyho","nastyslut","nastywhore","necro","negroes","negroid","niggaracci","niggard","niggarded","niggarding","niggardliness","niggardliness's,","niggardly","niggard's,","niggards","niggerhead","niggerhole","nigger's,","niggled","niggles","niggling","nigglings","niggor","niggur","nigr","nigra","nigre","nigur","niiger","niigr","nipplering","nittit","nlgger","nlggor","nofuckingway","nookey","nookie","nudger","nut case","nutcase","nutfucker","ontherag","orafis","orgasum","oriface","orifice","orifiss","packi","packie","packy","paedofile","pakie","paky","palesimian","panti","pearlnecklace","peckerwood","peeenus","peeenusss","peehole","peenus","peinus","penas","penis-breath","penises","penus","penuus","perv","pervert","phuc","phuker","phukker","phungky","pi55","picaninny","piccaninny","pickaninny","piky","pimper","pimpjuic","pimpjuice","pimpsimp","pindick","piss","pisshead","play boy","play bunny","playbunny","play girl","playgirl","plumper","pocketpool","polac","polak","pooperscooper","pooping","poorwhitetrash","poostabber","popimp","pornflick","pornking","pornprincess","pric","prickhead","pu55i","pu55y","pubiclice","puke","puntang","purinaprincess","pussee","pussie","pussyeater","pussyfucker","pussylicker","pussylips","pussylover","puuke","puuker","queerz","qweers","qweerz","qweir","rag head","rearend","rearentry","recktum","redneck","rentafuck","russki","russkie","sadom","saeema butt","sandm","scank","screwyou","seaman staines","sexed","sexfarm","sexhound","sexhouse","sexing","sexkitten","sexslave","sextogo","sextoy","sextoys","sexwhore","sexymoma","sexy-slim","seymour butts","shat","shhit","shitcan","shiter","shitfit","shitforbrains","shitfucker","shithapens","shithappens","shitlist","shitola","shitoutofluck","shity","shitz","shortfuck","shyt","shyte","shytty","shyty","sixsixsix","sixtynine","sixtyniner","skanck","skankbitch","skankee","skankey","skankfuck","skanks","skankwhore","skanky","skankybitch","skankywhore","skinflute","skum","skumbag","slantyeye","slapper","slavedriver","sleezebag","sleezeball","slideitin","slimeball","slimebucket","slopehead","slopey","slopy","slutt","slutting","slutty","slutwear","slutwhore","slutz","smackthemonkey","smelly","snatchpatch","snot","snowback","snownigger","sodomise","sonofabitch","sonofbitch","spacca","spaghettibender","spaghettinigger","spankthemonkey","spazza","spermacide","spermbag","spermhearder","spermherder","spig","spigotty","spitter","splittail","spreadeagle","squaw","stabber","stripclub","stroking","stupidfuck","stupidfucker","suckdick","sucker","suckme","suckmyass","suckmytit","suckoff","tarbaby","testicles","thicklips","thicko","thirdeye","thirdleg","timbernigger","titbitnipply","titfucker","titfuckin","titjob","titlicker","titlover","tittie","tonguethrust","tonguethruster","tonguetramp","torture","tosspot","trailertrash","trannie","trots","trouser snake","tuckahoe","tunneloflove","twobitwhore","unfuckable","uptheass","upthebutt","urinate","usama bin laden","vaginal","vajina","valjina","vibrater","vietcong","violate","violation","virginbreaker","vullva","waysted","welcher","wetspot","whacker","whigger","whiskeydick","whiskydick","whitenigger","whitetrash","whoor","whop","whorefucker","wife beater","williewanker","wuss","wuzzie","yellowman","zigabo","zipperhea","zipper head","suicide","kill yourself","kys","hang yourself","unalive yourself","nigg","puta","amcik","boobz","boody","boong","cazzo","forni","fotze","ginzo","gippo","gipps","godam","goyim","groid","gubba","guizi","gyopo","gyped","harem","heebs","horis","hoser","hymie","japie","jewed","jigga","jiggs","jiggy","jizin","jizzd","jizzn","kacap","kumer","kurac","kurwa","kushi","kykes","kyopo","kyrpa","lebos","lubra","lugan","lynch","mibun","mocky","nibba","nigar","nigas","niger","nigha","nigor","niqqa","nudie","nymph","pansy","paska","pendy","pizda","pocha","pocho","pohms","quiff","seppo","smack","spank","spics","stagg","trois","ukrop","vittu","wigga","beaney","boches","bungas","chinga","crotch","darkey","doggie","dyefly","dziwka","exkwew","fetish","ficken","geezer","gummer","gwailo","gweilo","gypped","gypsys","hodgie","honkie","huevon","humper","humpin","ikeymo","jewess","jigger","jizzin","kaffer","kaffre","kanake","kanker","katsap","kigger","knulle","kwailo","mabuno","macaca","maumau","menage","mierda","mockey","mockie","moskal","moslem","mtrfck","mulkku","muschi","mzungu","necked","negres","noonan","nooner","orospu","piefke","pimmel","pimped","pooper","pudboy","punani","pusies","qahbeh","racial","redleg","rigger","sambos","shipal","skribz","slanty","sloper","slopes","tantra","tiedup","tittis","tortur","trojan","turnon","yarpie","arabush","asholes","ballgag","bangbro","bluegum","bootlip","buffies","coolies","coonass","cowgirl","dothead","dryhump","fanculo","flikker","gangsta","genital","googirl","horndog","hotcarl","hugefat","humpher","humphim","hustler","israels","jerries","jimfish","khokhol","lezzian","licking","mahbuno","mamhoon","maricon","mideast","mulatto","nigette","pendejo","pierdol","preteen","puddboy","quashie","sanchez","scheiss","schmuck","septics","sheeney","shinola","shylock","slopeys","spludge","squinty","triplex","urethra","vagiina","whities","wichser","africoon","andskota","bassterd","bigblack","blackman","burrhead","chinaman","chinamen","clansman","clansmen","dogstyle","dunecoon","earotics","eatmyass","footstar","foursome","godsdamn","golliwog","homicide","horndawg","hotchick","illegals","klansman","klansmen","klootzak","knockers","kuksuger","lingerie","mosshead","peepshow","peepshpw","poontsee","pplicker","schaffer","schlampe","sharmuta","sharmute","stringer","syphilis","tacohead","thicklip","threeway","wetdream","yourtits","zabourah","arschloch","assrammer","babyjuice","ballgravy","futkretzn","girlontop","hairyback","halfbreed","halfcaste","hillbilly","howtokill","jigarooni","magicwand","marijuana","masturbat","monkleigh","mouliewop","penthouse","poundtown","premature","scallywag","schvartse","schwartze","skurwysyn","sphencter","squirting","stuinties","swallower","tarbabies","tongueina","babybatter","beastility","beaverlips","bigbreasts","bluewaffle","buddhahead","bulletvibe","chinaswede","chingchong","clanswoman","clanswomen","deepaction","doubledong","ejackulate","jellydonut","klanswoman","klanswomen","makemecome","mickeyfinn","missionary","rautenberg","samckdaddy","shawtypimp","socksucker","spierdalaj","spreadlegs","squarehead","styledoggy","tightwhite","udgepacker","venusmound","whitepower","zipperhead","ballkicking","dawgiestyle","diaperdaddy","donkeypunch","howtomurder","meatbeatter","pancakeface","pommiegrant","swampguinea","taintedlove","beefcurtains","blowyourload","brownshowers","christkiller","cloverclamps","currymuncher","dirtypillows","motherfvcker","moundofvenus","pickaninnies","porchmonkies","spearchucker","tigolbitties","transvestite","beavercleaver","girlsgonewild","jacktheripper","junglebunnies","masterblaster","pleasurechest","tigoldbitties","tongethruster","yellowshowers","brunetteaction","femalesquirtin","luckycammeltoe","purinapricness","clevelandsteamer","wrinkledstarfish","princealbertpiercing","niggardliness's","niggard's","nigger's","nicotine","hell","f*ck","f**k","f***k","fu*k","fu**k","fk","fuq","sh*t","damm","d@mn","d@mm","h3ll","h*ll","b*tch","btch","bast4rd","b@stard","bast@rd","@ss","a$$","@$$","cr@p","d!ck","p1ss","p!ss","p@ss","c*nt","c**t","wh*re","wh0r3","slvt","sl*t","sl*tt","d*uche","d*uch3","@sshole","@$$hole","m0therfucker","m0therf*cker","m0th3rfucker","motherf*cker","c*cksucker","c*cksuck3r","cocksuck3r","j@ckass","j@ck@ss","jack@ss","j@ck*ss","b*llshit","b@llshit","bllsht","b*llsh1t","bullsh1t","b@llsh1t","@rsehole","ars3hole","ars*hole","f*ggot","f@gg0t","b@st4rd","sh!thead","sh1thead","sh1th3ad","shith3ad","sh*thead","c*ck","c0k","p*rn","pr0n","porn0","fckr","f*ckr","fc*k","fc*kr","fkn","fn","fqn","fnck","d1k","d!k","dik","dyk","dykk","d*kk","c*m","c*mm","s!ut","p1mp","p!mp","b00b","b*ob","b0b","b00bz","b0bz","b0obs","@ssh0le","@$$h0le","f!ck","f1ck","f*q","f*cking","f**king","f***king","fkng","f*kin","f@king","buggr","buggrr","bugg3r","buggering","f@ggot","f*gg0t","twatface","twatfaced","wankr","w4nk","w4nker","w@nkr","w*nkr","wankd","tossr","toss3r","t0ss3r","t!t","titz","t!tt","t!tz","c_nt","c*ntz","c_ntz","pisd","pissd","pishead","p!sshead","p1sshead","f*cker","f_ckr","f@ckr","fcukr","f_ck3r","f*cked","fc*ked","f_ckd","f_cked","f_cking","fc*king","f_ckn","f_ckng","f@cking","motherfckr","mthrfcukr","mthrfcuker","mothrf*cker","mthrf*cker","d!ckhead","d!ckhed","d!ckh3ad","d1ckh3ad","dickh3ad","d!ckhd","d*ckhead","dickhed","dikhead","dickhd","ballz","ballzy","ballsy","ballsz","b@llz","b@lls","b*llz","b*lls","b00bies","boobi","boobied","co*k","co**k","pr!k","prickr","pr1kr","pr!kr","pr!cker","w0gg","w0gger","wogger","w*gg","w0gg3r","wogging","f4git","f@git","fag0t","f@got","fagott","f4gott","faggets","faggy","fagzz","pissr","p!ssr","piss3r","p1ss3r","p1ssr","p!ssed","p1ssed","p1ssd","tw*t","fuc","fucc","fkk","f*k","d*mn","dammn","d@mmn","sl*tty","slttty","sltttty","sluttz","slttz","sltttz","bitchz","biotch","bitchr","b*tchr","b1tchr","n!gger","nigg*r","nigg@r","n!gg3r","n1gg3r","n1gg@r","n!gg@r","n1gg*r","n!gg*r","n1g","n!gg","n1gg","n*gg","niggr","n!ggr","n1ggr","n*gger","n!gga","n!gg@","n1gg@","nigg@","n1ggah","n!ggah","n*ggah","nigg@h","n!gg@h","n1gg@h","n1g@h","n!g@h","nigguh","n1gguh","n!gguh","n*gguh","n1ggaz","n!ggaz","n*ggaz","nigg@s","n!gg@s","n1gg@s","n1gg@z","nigg@z","n!gg@z","n*gg@z","niggahz","n1ggahz","n!ggahz","n*ggahz","nigg@hz","n!gg@hz","n1gg@hz","niggar","n1ggar","n!ggar","n*ggar","nigg@rs","n1gg@rs","n!gg@rs","n!g@rs","n!g@r","n!g@rz","niggrz","n1ggrz","n!ggrz","n!gg@rz","nigg@rz","niggrs","n1ggrs","n!ggrs","shiit","cr4p","c@cksucker","c0cksuck3r","c0ck$ucker","c*cksucka","c@cksucka","c0cksuck@h","loser","l0ser","looser","l00ser","l0s3r","l*ser","l*s3r","l@s3r","l@ser","l0$er","l0$3r","l0ozer","lozer","l0z3r","l*zer","l*z3r","lo$er","l0zer","loz3r","loos3r","l0oser","l00z3r","looz3r","looz*r","l0o$er","l0os3r","l*ozer"]`);
+let ma = document.createElement("canvas");
 function Fi(u, e) {
   return new URLSearchParams(e || window.location.search).get(u) || "";
 }
-const $ = {
+let $ = {
   getParameterByName: Fi,
   getCookie: function (u) {
-    const e = `${u}=`;
-    const i = decodeURIComponent(document.cookie).split(";");
+    let e = `${u}=`;
+    let i = decodeURIComponent(document.cookie).split(";");
     for (let r = 0; r < i.length; r++) {
       let a = i[r];
       while (a.charAt(0) == " ") {
@@ -3939,7 +3939,7 @@ const $ = {
     if (e.length > He.PlayerNameMaxLen) {
       e = e.substring(0, He.PlayerNameMaxLen);
     }
-    const t = ` ${e.toLowerCase()} `;
+    let t = ` ${e.toLowerCase()} `;
     if (la.some(i => t.includes(` ${i} `))) {
       e = "Survev.io";
     }
@@ -3955,7 +3955,7 @@ const $ = {
     return u.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&#39;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   },
   truncateString: function (u, e, t) {
-    const i = ma.getContext("2d");
+    let i = ma.getContext("2d");
     i.font = e;
     let r = u;
     for (let a = u.length; a > 0 && i.measureText(r).width > t;) {
@@ -3988,18 +3988,18 @@ const $ = {
   },
   copyTextToClipboard: function (u) {
     try {
-      const e = c("<input>");
+      let e = c("<input>");
       c("body").append(e);
       e.val(u);
       if (v.os == "ios") {
-        const t = e.get(0);
-        const i = t.contentEditable;
-        const r = t.readOnly;
+        let t = e.get(0);
+        let i = t.contentEditable;
+        let r = t.readOnly;
         t.contentEditable = "true";
         t.readOnly = true;
-        const a = document.createRange();
+        let a = document.createRange();
         a.selectNodeContents(t);
-        const l = window.getSelection();
+        let l = window.getSelection();
         l.removeAllRanges();
         l.addRange(a);
         t.setSelectionRange(0, 999999);
@@ -4013,7 +4013,7 @@ const $ = {
     } catch {}
   },
   getSvgFromGameType: function (u) {
-    const e = B[u];
+    let e = B[u];
     switch (e ? e.type : "") {
       case "gun":
       case "melee":
@@ -4036,11 +4036,11 @@ const $ = {
         return `img/crosshairs/${e.texture.slice(0, -4)}.svg`;
       case "outfit":
         {
-          const i = e.lootImg;
+          let i = e.lootImg;
           if (i.sprite !== "loot-shirt-01.img") {
             return `img/loot/${i.sprite.slice(0, -4)}.svg`;
           }
-          const r = `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128"><path d="M63.993 8.15c-10.38 0-22.796 3.526-30.355 7.22-8.038 3.266-14.581 7.287-19.253 14.509C8.102 39.594 5.051 54.6 7.13 78.482c5.964 2.07 11.333 1.45 16.842-.415-1.727-7.884-1.448-15.764.496-22.204 2.126-7.044 6.404-12.722 12.675-13.701l2.77-.432.074 2.803c.054 2.043.09 4.17.116 6.335l.027 6.312c-.037 8.798-.382 18.286-1.277 27.845 5.637 1.831 14.806 2.954 23.964 3.019l4.597-.058c8.53-.275 16.742-1.449 21.665-3.063-1.093-14.65-1.166-29.434-1.52-41.334l-.097-3.283 3.18.824c6.238 1.617 10.55 7.376 12.76 14.507 2.02 6.51 2.353 14.37.64 22.248a29.764 29.764 0 0 0 12.847 1.181l4.399-.588c1.033-18.811-1.433-37.403-6.27-46.264l-4.408-6.376c-4.647-5.357-10.62-8.399-17.665-11.074-6.746-3.458-18.358-6.614-28.95-6.614zm0 3.05c6.494 0 13.37 1.942 19.274 4.516-3.123 2.758-6.971 4.665-11.067 5.754l-7.852 17.31-6.838-16.882c-4.757-.93-9.26-2.957-12.783-6.174C50.9 13.081 57.809 11.2 63.993 11.2zm.58 28.539l3.512 5.327-3.497 5.053-3.53-5.053zm0 11.888l3.512 5.328-3.497 5.052-3.53-5.053 3.514-5.327zm0 11.733l3.512 5.327-3.497 5.054-3.53-5.054zm0 11.876l3.512 5.327-3.497 5.054-3.53-5.053 3.514-5.327zm25.079 13.715c-6.61 2.055-15.829 2.907-25.277 2.951-9.5.045-18.965-.744-25.902-2.892-.205 1.785-.43 3.569-.678 5.347 5.968 2.132 16.346 3.408 26.497 3.36 10.143-.05 20.355-1.444 25.912-3.433a241.302 241.302 0 0 1-.552-5.333zm1.368 9.086c-6.782 2.308-16.533 3.262-26.53 3.31-2.935.015-5.866-.052-8.724-.213l-4.227-.315c-5.358-.5-10.307-1.382-14.329-2.758-.897 5.43-2.02 10.772-3.413 15.903 2.117 1.06 4.41 1.968 6.835 2.733l3.97 1.096c15.85 3.805 35.88 2.156 49.601-3.513-1.355-5.09-2.387-10.57-3.183-16.243z" fill="${this.colorToHexString(i.tint)}"/></svg>`;
+          let r = `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128"><path d="M63.993 8.15c-10.38 0-22.796 3.526-30.355 7.22-8.038 3.266-14.581 7.287-19.253 14.509C8.102 39.594 5.051 54.6 7.13 78.482c5.964 2.07 11.333 1.45 16.842-.415-1.727-7.884-1.448-15.764.496-22.204 2.126-7.044 6.404-12.722 12.675-13.701l2.77-.432.074 2.803c.054 2.043.09 4.17.116 6.335l.027 6.312c-.037 8.798-.382 18.286-1.277 27.845 5.637 1.831 14.806 2.954 23.964 3.019l4.597-.058c8.53-.275 16.742-1.449 21.665-3.063-1.093-14.65-1.166-29.434-1.52-41.334l-.097-3.283 3.18.824c6.238 1.617 10.55 7.376 12.76 14.507 2.02 6.51 2.353 14.37.64 22.248a29.764 29.764 0 0 0 12.847 1.181l4.399-.588c1.033-18.811-1.433-37.403-6.27-46.264l-4.408-6.376c-4.647-5.357-10.62-8.399-17.665-11.074-6.746-3.458-18.358-6.614-28.95-6.614zm0 3.05c6.494 0 13.37 1.942 19.274 4.516-3.123 2.758-6.971 4.665-11.067 5.754l-7.852 17.31-6.838-16.882c-4.757-.93-9.26-2.957-12.783-6.174C50.9 13.081 57.809 11.2 63.993 11.2zm.58 28.539l3.512 5.327-3.497 5.053-3.53-5.053zm0 11.888l3.512 5.328-3.497 5.052-3.53-5.053 3.514-5.327zm0 11.733l3.512 5.327-3.497 5.054-3.53-5.054zm0 11.876l3.512 5.327-3.497 5.054-3.53-5.053 3.514-5.327zm25.079 13.715c-6.61 2.055-15.829 2.907-25.277 2.951-9.5.045-18.965-.744-25.902-2.892-.205 1.785-.43 3.569-.678 5.347 5.968 2.132 16.346 3.408 26.497 3.36 10.143-.05 20.355-1.444 25.912-3.433a241.302 241.302 0 0 1-.552-5.333zm1.368 9.086c-6.782 2.308-16.533 3.262-26.53 3.31-2.935.015-5.866-.052-8.724-.213l-4.227-.315c-5.358-.5-10.307-1.382-14.329-2.758-.897 5.43-2.02 10.772-3.413 15.903 2.117 1.06 4.41 1.968 6.835 2.733l3.97 1.096c15.85 3.805 35.88 2.156 49.601-3.513-1.355-5.09-2.387-10.57-3.183-16.243z" fill="${this.colorToHexString(i.tint)}"/></svg>`;
           return URL.createObjectURL(new Blob([r], {
             type: "image/svg+xml;charset=utf-8"
           }));
@@ -4050,7 +4050,7 @@ const $ = {
     }
   },
   getCssTransformFromGameType: function (u) {
-    const e = B[u];
+    let e = B[u];
     let t = "";
     if (e?.lootImg) {
       t = `rotate(${e.lootImg.rot || 0}rad) scaleX(${e.lootImg.mirror ? -1 : 1})`;
@@ -4068,7 +4068,7 @@ function na() {
   return Ce.android.device || Ce.apple.device || Vi();
 }
 function Vi() {
-  const u = navigator.userAgent.toLowerCase();
+  let u = navigator.userAgent.toLowerCase();
   return u.includes("ipad") || u.includes("macintosh") && "ontouchend" in document;
 }
 function Zi() {
@@ -4078,9 +4078,9 @@ function ha() {
   return Ce.android.device;
 }
 function ca() {
-  const u = window.navigator.userAgent;
-  const e = u.indexOf("MSIE ");
-  const t = u.indexOf("Trident/");
+  let u = window.navigator.userAgent;
+  let e = u.indexOf("MSIE ");
+  let t = u.indexOf("Trident/");
   return e > 0 || t > 0;
 }
 function ua() {
@@ -4137,11 +4137,11 @@ class Sa {
   isLandscape = true;
   screenWidth = 0;
   screenHeight = 0;
-  constructor() {
+  letructor() {
     this.os = pa();
     this.browser = fa();
     this.model = da() ? "iphonex" : "unknown";
-    const e = Fi("version");
+    let e = Fi("version");
     if (e) {
       wa("surviv_version", e);
     }
@@ -4156,11 +4156,11 @@ class Sa {
     this.isLandscape = window.innerWidth > window.innerHeight || window.orientation == 90 || window.orientation == -90;
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight;
-    const e = this.isLandscape ? this.screenWidth : this.screenHeight;
+    let e = this.isLandscape ? this.screenWidth : this.screenHeight;
     this.uiLayout = this.mobile || e <= 850 || e <= 900 && this.pixelRatio >= 3 ? this.UiLayout.Sm : this.UiLayout.Lg;
   }
 }
-const v = new Sa();
+let v = new Sa();
 class Xi {
   aznZwb = n.create(0, 0);
   HrSNF = 16;
@@ -4200,8 +4200,8 @@ class Xi {
     this.rTq = e;
   }
   NTm(e, t) {
-    const i = n.length(n.sub(this.aznZwb, e));
-    const r = z.delerp(i, 40, 10) * t;
+    let i = n.length(n.sub(this.aznZwb, e));
+    let r = z.delerp(i, 40, 10) * t;
     this.KuuprX = Math.max(this.KuuprX, r);
   }
   WYloD() {
@@ -4262,10 +4262,10 @@ class ya {
     this.shapes = [];
   }
 }
-const me = new ya();
-const ai = 4;
-const si = 5;
-const xa = 10;
+let me = new ya();
+let ai = 4;
+let si = 5;
+let xa = 10;
 function oi(u) {
   if (u.displayCloseIcon) {
     return "img/gui/close.svg";
@@ -4294,7 +4294,7 @@ function za(u, e, t) {
   }
 }
 class ba {
-  constructor(e, t, i, r, a) {
+  letructor(e, t, i, r, a) {
     this.audioManager = e;
     this.uiManager = t;
     this.playerBarn = i;
@@ -4413,7 +4413,7 @@ class ba {
         emoteSlot: ue.Left
       }
     };
-    const l = {
+    let l = {
       middle: {
         parent: c("#ui-team-ping-middle"),
         vA: n.create(-1, 1),
@@ -4459,11 +4459,11 @@ class ba {
         ammoEmote: true
       }
     };
-    for (const m in l) {
+    for (let m in l) {
       if (l.hasOwnProperty(m)) {
-        const d = l[m];
-        const h = Ne(d.vA);
-        const p = Ne(d.vC);
+        let d = l[m];
+        let h = Ne(d.vA);
+        let p = Ne(d.vC);
         this.teamPingSelectors.push({
           parent: d.parent,
           angleA: h,
@@ -4480,32 +4480,32 @@ class ba {
     this.displayedSelectors = this.teamPingSelectors;
     this.container.scale.set(this.baseScale, this.baseScale);
     this.container.addChild(this.pingContainer);
-    const s = function (m, d = 16777215) {
-      const h = new Y();
-      const p = new Y();
-      const w = R.groupColors[m] || d;
-      const f = ee.from("ping-border.img");
+    let s = function (m, d = 16777215) {
+      let h = new Y();
+      let p = new Y();
+      let w = R.groupColors[m] || d;
+      let f = ee.from("ping-border.img");
       f.scale.set(0.4, 0.4);
       f.anchor.set(0.5, 0.5);
       f.tint = w;
       f.alpha = 0;
       f.visible = true;
       h.addChild(f);
-      const S = ee.from("ping-team-danger.img");
+      let S = ee.from("ping-team-danger.img");
       S.scale.set(0.4, 0.4);
       S.anchor.set(0.5, 0.5);
       S.tint = w;
       S.alpha = 0;
       S.visible = true;
       h.addChild(S);
-      const x = ee.from("ping-team-danger.img");
+      let x = ee.from("ping-team-danger.img");
       x.scale.set(0.5, 0.5);
       x.anchor.set(0.5, 0.5);
       x.tint = w;
       x.alpha = 0;
       x.visible = true;
       p.addChild(x);
-      const y = ee.from("ping-indicator.img");
+      let y = ee.from("ping-indicator.img");
       y.scale.set(0.5, 0.5);
       y.anchor.set(0.5, 0);
       y.alpha = 0;
@@ -4542,7 +4542,7 @@ class ba {
       };
     };
     for (let m = 0; m < 4; m++) {
-      const d = s(m);
+      let d = s(m);
       this.pingContainer.addChild(d.pingContainer);
       this.indContainer.addChild(d.indContainer);
       this.pingIndicators.push({
@@ -4650,8 +4650,8 @@ class ba {
     this.bigmapPingPos = null;
     this.emoteTimeoutTicker = 0;
     for (let e = 0; e < this.displayedSelectors.length; e++) {
-      const t = this.displayedSelectors[e];
-      const r = Re[t.emote]?.teamOnly;
+      let t = this.displayedSelectors[e];
+      let r = Re[t.emote]?.teamOnly;
       if (this.teamEmotesGreyed && r) {
         t.parent.css("opacity", this.teamEmoteOpacityReset);
       } else {
@@ -4670,7 +4670,7 @@ class ba {
   }
   addPing(e, t) {
     if (this.activePlayer) {
-      const i = Fe[e.type];
+      let i = Fe[e.type];
       if (i) {
         this.uiManager.createPing(e.type, e.pos, e.playerId, this.activePlayer.__id, this.playerBarn, t);
         let r = null;
@@ -4680,18 +4680,18 @@ class ba {
         } else if (e.type == "ping_airstrike") {
           r = this.pingIndicators[si].ping;
         } else {
-          const l = this.playerBarn.getPlayerInfo(e.playerId);
+          let l = this.playerBarn.getPlayerInfo(e.playerId);
           if (l) {
-            const m = this.playerBarn.getPlayerInfo(this.activePlayer.__id).groupId;
-            const d = l.groupId;
+            let m = this.playerBarn.getPlayerInfo(this.activePlayer.__id).groupId;
+            let d = l.groupId;
             if (m == d) {
-              const p = this.playerBarn.getGroupInfo(d).playerIds.indexOf(e.playerId);
+              let p = this.playerBarn.getGroupInfo(d).playerIds.indexOf(e.playerId);
               if (p !== -1) {
                 r = this.pingIndicators[p].ping;
               }
             }
           }
-          const s = this.playerBarn.getPlayerStatus(e.playerId);
+          let s = this.playerBarn.getPlayerStatus(e.playerId);
           if (s && s.role == "leader") {
             a = i.soundLeader;
           }
@@ -4731,7 +4731,7 @@ class ba {
     this.incrementEmote();
   }
   addEmote(e) {
-    const t = Re[e.type];
+    let t = Re[e.type];
     if (t) {
       let i = null;
       for (let r = 0; r < this.emotes.length; r++) {
@@ -4781,10 +4781,10 @@ class ba {
       i.sound = t.sound;
       i.channel = t.channel;
       if (e.type == "emote_loot") {
-        const r = B[e.itemType];
+        let r = B[e.itemType];
         if (r?.lootImg) {
           i.sprite.texture = G.from(r.lootImg.sprite);
-          const a = B[r.ammo];
+          let a = B[r.ammo];
           i.circleOuter.tint = a ? a.lootImg.tintDark : 0;
           if (r.lootImg.rot) {
             i.sprite.rotation = r.lootImg.rot;
@@ -4819,8 +4819,8 @@ class ba {
     }
   }
   PEHQLt(e, t, i, r, a, l, s, m, d, h) {
-    const p = this.playerBarn;
-    const w = this.camera;
+    let p = this.playerBarn;
+    let w = this.camera;
     let f = n.create(m.mousePos.x, m.mousePos.y);
     if (m.lostFocus) {
       this.inputReset();
@@ -4863,7 +4863,7 @@ class ba {
       this.HJMxT();
       this.disable = true;
     }
-    const S = l.perkMode && !i.iDmhea.paYnn;
+    let S = l.perkMode && !i.iDmhea.paYnn;
     if (!this.disable && !S && (this.wheelKeyTriggered = this.pingKeyTriggered || this.emoteMouseTriggered, this.emoteSoftTicker -= e, this.emoteCounter >= R.player.emoteThreshold && this.emoteHardTicker > 0 ? (this.emoteHardTicker -= e, this.emoteHardTicker < 0 && (this.emoteCounter = 0)) : this.emoteSoftTicker < 0 && this.emoteCounter > 0 && (this.emoteCounter--, this.emoteSoftTicker = R.player.emoteSoftCooldown * 1.5), (this.pingMouseTriggered || this.emoteMouseTriggered) && !this.wheelDisplayed && (this.parentDisplayed = this.pingMouseTriggered ? this.teamPingWheel : this.emoteWheel, this.parentDisplayed.css({
       display: "block",
       left: this.emoteScreenPos.x,
@@ -4889,21 +4889,21 @@ class ba {
           f = this.emoteTouchedPos;
         }
         if (f) {
-          const b = n.sub(f, this.emoteScreenPos);
+          let b = n.sub(f, this.emoteScreenPos);
           b.y *= -1;
-          const M = n.length(b);
-          const E = Ne(b);
-          const D = 35;
-          const L = i.alkER.iomTK[i.alkER.rgEC];
-          const _ = B[L.type];
+          let M = n.length(b);
+          let E = Ne(b);
+          let D = 35;
+          let L = i.alkER.iomTK[i.alkER.rgEC];
+          let _ = B[L.type];
           let T = "";
           if (_ && _.ammo) {
             T = _.ammo;
           }
           for (let V = 0; V < this.displayedSelectors.length; V++) {
-            const j = this.displayedSelectors[V];
+            let j = this.displayedSelectors[V];
             if (j.ammoEmote) {
-              const U = {
+              let U = {
                 "9mm": "emote_ammo9mm",
                 "12gauge": "emote_ammo12gauge",
                 "762mm": "emote_ammo762mm",
@@ -4913,18 +4913,18 @@ class ba {
                 flare: "emote_ammoflare",
                 "45acp": "emote_ammo45acp"
               };
-              const te = j.emote;
+              let te = j.emote;
               j.emote = U[T] || "emote_ammo";
               j.texture = Re[j.emote].texture;
               if (te != j.emote) {
-                const ae = j.parent.find(".ui-emote-image");
-                const ge = oi(j);
+                let ae = j.parent.find(".ui-emote-image");
+                let ge = oi(j);
                 ae.css("background-image", `url(${ge})`);
               }
             }
-            const q = j.ping || j.emote;
-            const Z = Re[j.emote];
-            const N = Z && Z.teamOnly && r == 1;
+            let q = j.ping || j.emote;
+            let Z = Re[j.emote];
+            let N = Z && Z.teamOnly && r == 1;
             if (M <= D && !q && this.emoteHardTicker <= 0 && !N) {
               k = j;
               continue;
@@ -4958,19 +4958,19 @@ class ba {
       }
     }
     for (let k = 0; k < this.emotes.length; k++) {
-      const b = this.emotes[k];
+      let b = this.emotes[k];
       if (b.alive) {
         let M = false;
         let E = n.create(0, 0);
         let D = 0;
-        const L = p.getPlayerById(b.playerId);
+        let L = p.getPlayerById(b.playerId);
         if (L && !L.iDmhea.XRQji) {
           E = n.copy(L.Hxqi);
           D = L.layer;
           M = true;
         }
         if (!M) {
-          const _ = a.getDeadBodyById(b.playerId);
+          let _ = a.getDeadBodyById(b.playerId);
           if (_) {
             E = n.copy(_.pos);
             D = _.layer;
@@ -4994,7 +4994,7 @@ class ba {
           } else if (b.lifeOut > 0) {
             b.lifeOut -= e;
           }
-          const _ = g.sameLayer(D, this.activePlayer.layer) ? 3 : D;
+          let _ = g.sameLayer(D, this.activePlayer.layer) ? 3 : D;
           s.addPIXIObj(b.container, _, 50000, b.zIdx);
           b.alive = b.alive && b.lifeOut > 0;
         } else {
@@ -5002,50 +5002,50 @@ class ba {
         }
       }
     }
-    const x = n.create(w.LCRnPO * 0.5 / w.fVAy(), w.gMqwV * 0.5 / w.fVAy());
-    const y = {
+    let x = n.create(w.LCRnPO * 0.5 / w.fVAy(), w.gMqwV * 0.5 / w.fVAy());
+    let y = {
       min: n.sub(w.aznZwb, x),
       max: n.add(w.aznZwb, x)
     };
-    const C = p.getPlayerInfo(i.__id).groupId;
-    const P = p.getGroupInfo(C);
+    let C = p.getPlayerInfo(i.__id).groupId;
+    let P = p.getGroupInfo(C);
     for (let k = 0; k < this.pingIndicators.length; k++) {
-      const b = this.pingIndicators[k].ping;
-      const M = P.playerIds[k];
-      const E = b.indContainer;
-      const D = b.pingContainer;
+      let b = this.pingIndicators[k].ping;
+      let M = P.playerIds[k];
+      let E = b.indContainer;
+      let D = b.pingContainer;
       if (M != null || b.mapEvent) {
         p.getPlayerInfo(M);
-        const L = M == this.activePlayer.__id;
-        const _ = p.getPlayerStatus(M);
-        const T = b.borderSprite.sprite;
-        const V = b.pingSprite.sprite;
-        const j = b.indSpriteOuter.sprite;
-        const q = b.indSpriteInner.sprite;
+        let L = M == this.activePlayer.__id;
+        let _ = p.getPlayerStatus(M);
+        let T = b.borderSprite.sprite;
+        let V = b.pingSprite.sprite;
+        let j = b.indSpriteOuter.sprite;
+        let q = b.indSpriteInner.sprite;
         let Z = true;
         b.fadeIn -= e;
         b.life -= e;
         b.fadeOut -= b.life > 0 ? 0 : e;
         if (b.fadeOut > 0) {
-          const O = b.pos;
-          const N = n.normalizeSafe(n.sub(O, w.aznZwb), n.create(1, 0));
-          const U = xe.intersectRayAabb(w.aznZwb, N, y.min, y.max);
-          const te = Math.atan2(N.y, -N.x) + Math.PI * 0.5;
-          const ae = w.JDbtXa(U);
-          const ge = xe.testCircleAabb(O, R.player.radius, y.min, y.max);
-          const ct = w.Jjwns(b.borderSprite.baseScale);
-          const Bt = w.Jjwns(b.pingSprite.baseScale);
+          let O = b.pos;
+          let N = n.normalizeSafe(n.sub(O, w.aznZwb), n.create(1, 0));
+          let U = xe.intersectRayAabb(w.aznZwb, N, y.min, y.max);
+          let te = Math.atan2(N.y, -N.x) + Math.PI * 0.5;
+          let ae = w.JDbtXa(U);
+          let ge = xe.testCircleAabb(O, R.player.radius, y.min, y.max);
+          let ct = w.Jjwns(b.borderSprite.baseScale);
+          let Bt = w.Jjwns(b.pingSprite.baseScale);
           T.scale.set(ct, ct);
           V.scale.set(Bt, Bt);
           if (_?.dead) {
             continue;
           }
-          const Je = 64;
+          let Je = 64;
           Z = b.fadeOut < 0;
-          const Nt = ge ? w.JDbtXa(O).x : z.clamp(ae.x, Je, w.LCRnPO - Je);
-          const jt = ge ? w.JDbtXa(O).y : z.clamp(ae.y, Je, w.gMqwV - Je);
-          const qt = w.JDbtXa(O).x;
-          const Ft = w.JDbtXa(O).y;
+          let Nt = ge ? w.JDbtXa(O).x : z.clamp(ae.x, Je, w.LCRnPO - Je);
+          let jt = ge ? w.JDbtXa(O).y : z.clamp(ae.y, Je, w.gMqwV - Je);
+          let qt = w.JDbtXa(O).x;
+          let Ft = w.JDbtXa(O).y;
           V.position.x = qt;
           V.position.y = Ft;
           T.position.x = qt;
@@ -5055,13 +5055,13 @@ class ba {
           j.rotation = te;
           q.position.x = Nt;
           q.position.y = jt;
-          const ut = T.alpha <= 0 ? 1 : T.alpha - e;
+          let ut = T.alpha <= 0 ? 1 : T.alpha - e;
           T.alpha = ut;
-          const Vt = w.Jjwns(b.borderSprite.baseScale * (2 - ut));
+          let Vt = w.Jjwns(b.borderSprite.baseScale * (2 - ut));
           T.scale.set(Vt, Vt);
           q.alpha = ge ? 0 : ut;
           if (b.fadeIn > 0) {
-            const Ke = 1 - b.fadeIn / this.pingFadeIn;
+            let Ke = 1 - b.fadeIn / this.pingFadeIn;
             D.alpha = 1;
             E.alpha = 1;
             V.alpha = 1;
@@ -5070,7 +5070,7 @@ class ba {
             j.alpha = ge ? 0 : 1;
           }
           if (b.life < 0) {
-            const Ke = b.fadeOut / this.pingFadeOut;
+            let Ke = b.fadeOut / this.pingFadeOut;
             D.alpha = Ke;
             E.alpha = Ke;
           }
@@ -5097,66 +5097,66 @@ class ba {
   }
   updateEmoteWheel(e) {
     this.emoteLoadout = e;
-    const t = {
+    let t = {
       top: e[ue.Top],
       right: e[ue.Right],
       bottom: e[ue.Bottom],
       left: e[ue.Left]
     };
-    for (const i in t) {
+    for (let i in t) {
       if (t.hasOwnProperty(i)) {
-        const r = t[i];
+        let r = t[i];
         if (Re[r] && this.emoteWheelData[i]) {
           this.emoteWheelData[i].emote = r;
         }
       }
     }
     this.emoteWheelSelectors = [];
-    for (const i in this.emoteWheelData) {
+    for (let i in this.emoteWheelData) {
       if (this.emoteWheelData.hasOwnProperty(i)) {
-        const r = this.emoteWheelData[i];
-        const a = Ne(r.vA);
-        const l = Ne(r.vC);
+        let r = this.emoteWheelData[i];
+        let a = Ne(r.vA);
+        let l = Ne(r.vC);
         this.emoteWheelSelectors.push(Object.assign({
           angleA: a,
           angleC: l,
           highlight: r.parent.find(".ui-emote-hl"),
           highlightDisplayed: false
         }, r));
-        const s = r.parent.find(".ui-emote-image");
-        const m = oi(r);
+        let s = r.parent.find(".ui-emote-image");
+        let m = oi(r);
         s.css("background-image", `url(${m})`);
       }
     }
   }
   lXaw(e) {
     for (let t = 0; t < this.emotes.length; t++) {
-      const i = this.emotes[t];
+      let i = this.emotes[t];
       i.container.visible = i.alive;
       if (i.alive) {
         let r = 0;
         if (i.lifeIn > 0) {
-          const m = 1 - i.lifeIn / this.emoteLifeIn;
+          let m = 1 - i.lifeIn / this.emoteLifeIn;
           r = z.easeOutElastic(m);
         } else if (i.life > 0) {
           r = 1;
         } else if (i.lifeOut > 0) {
           r = i.lifeOut / this.emoteLifeOut;
         }
-        const a = n.add(i.pos, n.mul(i.posOffset, 1 / z.clamp(e.HyIw, 0.75, 1)));
-        const l = e.JDbtXa(a);
-        const s = r * i.baseScale * z.clamp(e.HyIw, 0.9, 1.75);
+        let a = n.add(i.pos, n.mul(i.posOffset, 1 / z.clamp(e.HyIw, 0.75, 1)));
+        let l = e.JDbtXa(a);
+        let s = r * i.baseScale * z.clamp(e.HyIw, 0.9, 1.75);
         i.container.position.set(l.x, l.y);
         i.container.scale.set(s, s);
       }
     }
   }
 }
-const ft = R.GasMode;
-const je = 100000;
-const li = 512;
+let ft = R.GasMode;
+let je = 100000;
+let li = 512;
 class Wi {
-  constructor(e, t) {
+  letructor(e, t) {
     this.canvasMode = e;
     this.gasColor = t;
     if (e) {
@@ -5167,7 +5167,7 @@ class Wi {
       this.gasColorDOMString = $.colorToDOMString(t, 0.6);
     } else {
       this.display = new pe();
-      const i = this.display;
+      let i = this.display;
       i.clear();
       i.beginFill(t, 0.6);
       i.moveTo(-100000, -100000);
@@ -5178,9 +5178,9 @@ class Wi {
       i.beginHole();
       i.moveTo(0, 1);
       for (let r = 1; r < li; r++) {
-        const a = r / li;
-        const l = Math.sin(Math.PI * 2 * a);
-        const s = Math.cos(Math.PI * 2 * a);
+        let a = r / li;
+        let l = Math.sin(Math.PI * 2 * a);
+        let s = Math.cos(Math.PI * 2 * a);
         i.lineTo(l, s);
       }
       i.endHole();
@@ -5203,8 +5203,8 @@ class Wi {
   }
   render(e, t, i) {
     if (this.canvas != null) {
-      const r = this.canvas;
-      const a = r.getContext("2d");
+      let r = this.canvas;
+      let a = r.getContext("2d");
       a.clearRect(0, 0, r.width, r.height);
       a.beginPath();
       a.fillStyle = this.gasColorDOMString;
@@ -5212,13 +5212,13 @@ class Wi {
       a.arc(e.x, e.y, t, 0, Math.PI * 2, true);
       a.fill();
     } else {
-      const r = n.copy(e);
+      let r = n.copy(e);
       let a = t;
       if (a < 0.1) {
         a = 1;
         r.x += je * 0.5;
       }
-      const l = this.display;
+      let l = this.display;
       l.position.set(r.x, r.y);
       l.scale.set(a, a);
     }
@@ -5232,7 +5232,7 @@ class ka {
   safePos = n.create(0, 0);
   safeRad = 0;
   playerPos = n.create(0, 0);
-  constructor() {
+  letructor() {
     this.display.addChild(this.circleGfx);
     this.display.addChild(this.lineGfx);
     this.circleGfx.visible = false;
@@ -5242,9 +5242,9 @@ class ka {
     this.circleGfx.visible = r;
     this.lineGfx.visible = a;
     if (r || a) {
-      const l = !n.eq(this.safePos, e, 0.0001);
-      const s = Math.abs(this.safeRad - t) > 0.0001;
-      const m = !n.eq(this.playerPos, i, 0.0001);
+      let l = !n.eq(this.safePos, e, 0.0001);
+      let s = Math.abs(this.safeRad - t) > 0.0001;
+      let m = !n.eq(this.playerPos, i, 0.0001);
       if (l) {
         this.safePos.x = e.x;
         this.safePos.y = e.y;
@@ -5265,7 +5265,7 @@ class ka {
         this.circleGfx.drawCircle(0, 0, t);
       }
       if (l || s || m) {
-        const h = n.length(n.sub(i, e)) < t ? 0.5 : 1;
+        let h = n.length(n.sub(i, e)) < t ? 0.5 : 1;
         this.lineGfx.clear();
         this.lineGfx.lineStyle(2, 65280, h);
         this.lineGfx.moveTo(i.x, i.y);
@@ -5283,8 +5283,8 @@ class va {
   gasRenderer;
   circleOld;
   circleNew;
-  constructor(e) {
-    const t = (Math.sqrt(2) + 0.01) * 1024;
+  letructor(e) {
+    let t = (Math.sqrt(2) + 0.01) * 1024;
     this.circleOld = {
       pos: n.create(0, 0),
       rad: t
@@ -5305,7 +5305,7 @@ class va {
     return this.mode != ft.Inactive;
   }
   getCircle(e) {
-    const t = this.mode == ft.Moving ? z.lerp(e, this.circleTOld, this.circleT) : 0;
+    let t = this.mode == ft.Moving ? z.lerp(e, this.circleTOld, this.circleT) : 0;
     return {
       pos: n.lerp(t, this.circleOld.pos, this.circleNew.pos),
       rad: z.lerp(t, this.circleOld.rad, this.circleNew.rad)
@@ -5318,7 +5318,7 @@ class va {
   }
   setFullState(e, t, i, r) {
     if (t.mode != this.mode) {
-      const a = Math.ceil(t.duration * (1 - e));
+      let a = Math.ceil(t.duration * (1 - e));
       r.setWaitingForPlayers(false);
       r.displayGasAnnouncement(t.mode, a);
     }
@@ -5336,9 +5336,9 @@ class va {
     if (t.rTq) {
       i = z.clamp(this.interpolationT / t.UUHe, 0, 1);
     }
-    const r = this.getCircle(i);
-    const a = t.JDbtXa(r.pos);
-    const l = t.iDeS(r.rad);
+    let r = this.getCircle(i);
+    let a = t.JDbtXa(r.pos);
+    let l = t.iDeS(r.rad);
     this.gasRenderer.render(a, l, this.isActive());
   }
 }
@@ -5363,7 +5363,7 @@ let _a = class {
   osId = 0;
 };
 class Ia {
-  constructor(e) {
+  letructor(e) {
     this.touchElem = e;
     window.addEventListener("focus", this.onWindowFocus.bind(this), false);
     window.addEventListener("blur", this.onWindowFocus.bind(this), false);
@@ -5465,7 +5465,7 @@ class Ia {
     }
   }
   onKeyDown(e) {
-    const t = e.keyCode;
+    let t = e.keyCode;
     if (t == 9) {
       e.preventDefault();
     }
@@ -5505,7 +5505,7 @@ class Ia {
     }
   }
   onMouseWheel(e) {
-    const t = e.deltaY < 0 ? 1 : 2;
+    let t = e.deltaY < 0 ? 1 : 2;
     if (!this.checkCaptureInput(e, 3, t)) {
       this.mouseWheelState = t;
     }
@@ -5524,12 +5524,12 @@ class Ia {
   }
   onTouchShared(e, t) {
     if (e.target == this.touchElem || t != 1) {
-      const i = e.timeStamp || performance.now();
+      let i = e.timeStamp || performance.now();
       for (let r = 0; r < e.changedTouches.length; r++) {
-        const a = e.changedTouches[r];
-        const l = a.identifier;
-        const s = a.clientX;
-        const m = a.clientY;
+        let a = e.changedTouches[r];
+        let l = a.identifier;
+        let s = a.clientX;
+        let m = a.clientY;
         let d = null;
         for (let h = 0; h < this.touches.length; h++) {
           if (this.touches[h].osId == l && !this.touches[h].isDead) {
@@ -5664,11 +5664,11 @@ var ve = (u => {
   u[u.MouseWheel = 3] = "MouseWheel";
   return u;
 })(ve || {});
-const Ma = ["", "", "", "Cancel", "", "", "Help", "", "Backspace", "Tab", "", "", "Clear", "Enter", "Enter", "", "Shift", "Control", "Alt", "Pause", "Capslock", "Kana", "Eisu", "Junja", "Final", "Hanja", "", "ESC", "Convert", "Nonconvert", "Accept", "Modechange", "Space", "Page Up", "Page Down", "End", "Home", "â†", "â†‘", "â†’", "â†“", "Select", "Print", "Execute", "Printscreen", "Insert", "Delete", "", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ":", ";", "<", "=", ">", "?", "@", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Windows Key", "", "Context Menu", "", "Sleep", "Numpad 0", "Numpad 1", "Numpad 2", "Numpad 3", "Numpad 4", "Numpad 5", "Numpad 6", "Numpad 7", "Numpad 8", "Numpad 9", "*", "+", "Separator", "-", ".", "/", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "F13", "F14", "F15", "F16", "F17", "F18", "F19", "F20", "F21", "F22", "F23", "F24", "", "", "", "", "", "", "", "", "Num Lock", "Scroll Lock", "WIN_OEM_FJ_JISHO", "WIN_OEM_FJ_MASSHOU", "WIN_OEM_FJ_TOUROKU", "WIN_OEM_FJ_LOYA", "WIN_OEM_FJ_ROYA", "", "", "", "", "", "", "", "", "", "Circumflex", "!", "\"", "#", "$", "%", "&", "_", "(", ")", "*", "+", "|", "Hyphen Minus", "{", "}", "~", "", "", "", "", "Volume Mute", "Volume Down", "Volume Up", "", "", ";", "=", ",", "-", ".", "/", "Backquote", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "[", "\\", "]", "'", "", "Meta", "ALTGR", "", "WIN_ICO_HELP", "WIN_ICO_00", "", "WIN_ICO_CLEAR", "", "", "WIN_OEM_RESET", "WIN_OEM_JUMP", "WIN_OEM_PA1", "WIN_OEM_PA2", "WIN_OEM_PA3", "WIN_OECTRL", "WIN_OEM_CUSEL", "WIN_OEM_ATTN", "WIN_OEM_FINISH", "WIN_OEM_COPY", "WIN_OEM_AUTO", "WIN_OEM_ENLW", "WIN_OEM_BACKTAB", "ATTN", "CRSEL", "EXSEL", "EREOF", "PLAY", "ZOOM", "", "PA1", "WIN_OEM_CLEAR", ""];
-const Ta = ["Left Mouse", "Middle Mouse", "Right Mouse", "Thumb Mouse 1", "Thumb Mouse 2"];
-const Pa = ["", "Mouse Wheel Up", "Mouse Wheel Down"];
+let Ma = ["", "", "", "Cancel", "", "", "Help", "", "Backspace", "Tab", "", "", "Clear", "Enter", "Enter", "", "Shift", "Control", "Alt", "Pause", "Capslock", "Kana", "Eisu", "Junja", "Final", "Hanja", "", "ESC", "Convert", "Nonconvert", "Accept", "Modechange", "Space", "Page Up", "Page Down", "End", "Home", "â†", "â†‘", "â†’", "â†“", "Select", "Print", "Execute", "Printscreen", "Insert", "Delete", "", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ":", ";", "<", "=", ">", "?", "@", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Windows Key", "", "Context Menu", "", "Sleep", "Numpad 0", "Numpad 1", "Numpad 2", "Numpad 3", "Numpad 4", "Numpad 5", "Numpad 6", "Numpad 7", "Numpad 8", "Numpad 9", "*", "+", "Separator", "-", ".", "/", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "F13", "F14", "F15", "F16", "F17", "F18", "F19", "F20", "F21", "F22", "F23", "F24", "", "", "", "", "", "", "", "", "Num Lock", "Scroll Lock", "WIN_OEM_FJ_JISHO", "WIN_OEM_FJ_MASSHOU", "WIN_OEM_FJ_TOUROKU", "WIN_OEM_FJ_LOYA", "WIN_OEM_FJ_ROYA", "", "", "", "", "", "", "", "", "", "Circumflex", "!", "\"", "#", "$", "%", "&", "_", "(", ")", "*", "+", "|", "Hyphen Minus", "{", "}", "~", "", "", "", "", "Volume Mute", "Volume Down", "Volume Up", "", "", ";", "=", ",", "-", ".", "/", "Backquote", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "[", "\\", "]", "'", "", "Meta", "ALTGR", "", "WIN_ICO_HELP", "WIN_ICO_00", "", "WIN_ICO_CLEAR", "", "", "WIN_OEM_RESET", "WIN_OEM_JUMP", "WIN_OEM_PA1", "WIN_OEM_PA2", "WIN_OEM_PA3", "WIN_OECTRL", "WIN_OEM_CUSEL", "WIN_OEM_ATTN", "WIN_OEM_FINISH", "WIN_OEM_COPY", "WIN_OEM_AUTO", "WIN_OEM_ENLW", "WIN_OEM_BACKTAB", "ATTN", "CRSEL", "EXSEL", "EREOF", "PLAY", "ZOOM", "", "PA1", "WIN_OEM_CLEAR", ""];
+let Ta = ["Left Mouse", "Middle Mouse", "Right Mouse", "Thumb Mouse 1", "Thumb Mouse 2"];
+let Pa = ["", "Mouse Wheel Up", "Mouse Wheel Down"];
 class $e {
-  constructor(e, t) {
+  letructor(e, t) {
     this.type = e;
     this.code = t;
     this.type = e;
@@ -5690,9 +5690,9 @@ class $e {
   }
 }
 function Hi(u) {
-  const e = re[u.type];
-  const t = e.type == "building" || e.type == "structure" ? 1.15 : 1;
-  const i = [X.transform(_e.getBoundingCollider(u.type), u.pos, u.rot, u.scale * t)];
+  let e = re[u.type];
+  let t = e.type == "building" || e.type == "structure" ? 1.15 : 1;
+  let i = [X.transform(_e.getBoundingCollider(u.type), u.pos, u.rot, u.scale * t)];
   if (e.bridgeLandBounds !== undefined) {
     for (let r = 0; r < e.bridgeLandBounds.length; r++) {
       i.push(X.transform(e.bridgeLandBounds[r], u.pos, u.rot, u.scale));
@@ -5703,15 +5703,15 @@ function Hi(u) {
   }
 }
 function Ca(u) {
-  const e = re[u.type];
+  let e = re[u.type];
   if (e.terrain.waterEdge !== undefined) {
-    const {
+    let {
       waterEdge: t
     } = e.terrain;
-    const i = X.transform(_e.getBoundingCollider(u.type), u.pos, u.rot, u.scale * 1.15);
-    const r = n.add(i.min, n.mul(n.sub(i.max, i.min), 0.5));
-    const a = n.rotate(t.dir, u.rot);
-    const l = (s, m, d) => {
+    let i = X.transform(_e.getBoundingCollider(u.type), u.pos, u.rot, u.scale * 1.15);
+    let r = n.add(i.min, n.mul(n.sub(i.max, i.min), 0.5));
+    let a = n.rotate(t.dir, u.rot);
+    let l = (s, m, d) => {
       if (d < 0) {
         m = n.neg(m);
       }
@@ -5722,29 +5722,29 @@ function Ca(u) {
   }
 }
 function Gi(u) {
-  const e = re[u.type];
+  let e = re[u.type];
   if (e.terrain.bridge !== undefined) {
-    const t = e.bridgeLandBounds || [];
+    let t = e.bridgeLandBounds || [];
     for (let s = 0; s < t.length; s++) {
-      const m = X.transform(t[s], u.pos, u.rot, u.scale);
+      let m = X.transform(t[s], u.pos, u.rot, u.scale);
       me.addCollider(m, 16742144, 0);
     }
-    const i = e.bridgeWaterBounds || [];
+    let i = e.bridgeWaterBounds || [];
     for (let s = 0; s < i.length; s++) {
-      const m = X.transform(i[s], u.pos, u.rot, u.scale);
+      let m = X.transform(i[s], u.pos, u.rot, u.scale);
       me.addCollider(m, 30719, 0);
     }
-    const r = _e.getBridgeDims(u.type);
-    const a = n.rotate(n.create(1, 0), u.rot);
+    let r = _e.getBridgeDims(u.type);
+    let a = n.rotate(n.create(1, 0), u.rot);
     me.addRay(u.pos, a, r.length * 0.5, 16711680, 0);
     me.addRay(u.pos, n.perp(a), r.width * 0.5, 65280, 0);
-    const l = _e.getBridgeOverlapCollider(u.type, u.pos, u.rot, u.scale);
+    let l = _e.getBridgeOverlapCollider(u.type, u.pos, u.rot, u.scale);
     me.addCollider(l, 7799039, 0);
   }
 }
 function Da(u, e, t) {
-  const i = e - u;
-  const r = i * t;
+  let i = e - u;
+  let r = i * t;
   if (Math.abs(r) < 0.001) {
     return i;
   } else {
@@ -5796,7 +5796,7 @@ class La {
   }
   HJMxT() {
     for (let e = 0; e < this.sprites.length; e++) {
-      const t = this.sprites[e];
+      let t = this.sprites[e];
       t.active = false;
       t.sprite.visible = false;
       t.sprite.parent?.removeChild(t.sprite);
@@ -5813,13 +5813,13 @@ class La {
   }
   allocSprite() {
     for (let t = 0; t < this.sprites.length; t++) {
-      const i = this.sprites[t];
+      let i = this.sprites[t];
       if (!i.active) {
         i.active = true;
         return i.sprite;
       }
     }
-    const e = new ee();
+    let e = new ee();
     e.anchor.set(0.5, 0.5);
     this.sprites.push({
       active: true,
@@ -5845,22 +5845,22 @@ class La {
       this.puzzleSolved = e.puzzleSolved;
       this.puzzleErrSeq = e.puzzleErrSeq;
     }
-    const a = re[this.type];
+    let a = re[this.type];
     if (i) {
       this.isNew = true;
       this.playedCeilingDeadFx = a.ceiling.destroy !== undefined && r.map.deadCeilingIds.includes(this.__id);
       this.playedSolvedPuzzleFx = this.hasPuzzle && r.map.solvedPuzzleIds.includes(this.__id);
-      const l = h => {
-        const p = h.pos || n.create(0, 0);
-        const w = z.oriToRad(h.rot || 0);
-        const f = this.allocSprite();
+      let l = h => {
+        let p = h.pos || n.create(0, 0);
+        let w = z.oriToRad(h.rot || 0);
+        let f = this.allocSprite();
         if (h.sprite && h.sprite != "none") {
           f.texture = G.from(h.sprite);
         } else {
           f.texture = G.EMPTY;
         }
         f.tint = h.tint;
-        const S = r.map.getMapDef().biome.valueAdjust;
+        let S = r.map.getMapDef().biome.valueAdjust;
         if (S < 1) {
           f.tint = g.adjustValue(f.tint, S);
         }
@@ -5878,8 +5878,8 @@ class La {
       this.zIdx = a.zIdx || 0;
       this.surfaces = [];
       for (let h = 0; h < a.floor.surfaces.length; h++) {
-        const p = a.floor.surfaces[h];
-        const w = {
+        let p = a.floor.surfaces[h];
+        let w = {
           type: p.type,
           data: p.data || {},
           colliders: []
@@ -5889,7 +5889,7 @@ class La {
         }
         this.surfaces.push(w);
       }
-      const s = Object.assign({
+      let s = Object.assign({
         dist: 5.5,
         width: 2.75,
         linger: 0,
@@ -5902,7 +5902,7 @@ class La {
         fadeAlpha: 1
       };
       for (let h = 0; h < a.ceiling.zoomRegions.length; h++) {
-        const p = a.ceiling.zoomRegions[h];
+        let p = a.ceiling.zoomRegions[h];
         this.ceiling.zoomRegions?.push({
           zoomIn: p.zoomIn ? X.transform(p.zoomIn, this.pos, this.rot, this.scale) : null,
           zoomOut: p.zoomOut ? X.transform(p.zoomOut, this.pos, this.rot, this.scale) : null
@@ -5918,7 +5918,7 @@ class La {
         });
       }
       for (let h = 0; h < a.ceiling.imgs.length; h++) {
-        const p = a.ceiling.imgs[h];
+        let p = a.ceiling.imgs[h];
         this.imgs.push({
           sprite: l(p),
           isCeiling: true,
@@ -5927,13 +5927,13 @@ class La {
           zIdx: this.__id * 100 + h
         });
       }
-      const m = a.occupiedEmitters || [];
+      let m = a.occupiedEmitters || [];
       for (let h = 0; h < m.length; h++) {
-        const p = m[h];
-        const w = p.rot !== undefined ? p.rot : 0;
-        const f = this.rot + w;
+        let p = m[h];
+        let w = p.rot !== undefined ? p.rot : 0;
+        let f = this.rot + w;
         let S = n.add(this.pos, n.rotate(p.pos, f));
-        const x = p.dir || n.create(1, 0);
+        let x = p.dir || n.create(1, 0);
         let y = n.rotate(x, f);
         let C = p.scale;
         let P = null;
@@ -5945,7 +5945,7 @@ class La {
             }
           }
           if (b >= 0) {
-            const M = this.imgs[b];
+            let M = this.imgs[b];
             P = M.sprite;
             S = n.mul(p.pos, 32);
             S.y *= -1;
@@ -5953,7 +5953,7 @@ class La {
             C = 1 / M.sprite.defScale;
           }
         }
-        const k = r.particleBarn.addEmitter(p.type, {
+        let k = r.particleBarn.addEmitter(p.type, {
           pos: S,
           dir: y,
           scale: C,
@@ -5962,10 +5962,10 @@ class La {
         });
         this.particleEmitters.push(k);
       }
-      const d = a.soundEmitters || [];
+      let d = a.soundEmitters || [];
       for (let h = 0; h < d.length; h++) {
-        const p = d[h];
-        const w = n.add(this.pos, n.rotate(p.pos, this.rot));
+        let p = d[h];
+        let w = n.add(this.pos, n.rotate(p.pos, this.rot));
         this.soundEmitters.push({
           instance: null,
           sound: p.sound,
@@ -5980,15 +5980,15 @@ class La {
   }
   PEHQLt(e, t, i, r, a, l, s, m) {
     if (this.hasPuzzle) {
-      const f = re[this.type];
+      let f = re[this.type];
       if (this.puzzleErrSeqModified && (this.puzzleErrSeqModified = false, !this.isNew)) {
         let S = this;
         let x = n.length(n.sub(l.aznZwb, S.pos));
-        const y = t.fBXVaI.idcTHu();
+        let y = t.fBXVaI.idcTHu();
         for (let C = 0; C < y.length; C++) {
-          const P = y[C];
+          let P = y[C];
           if (P.active && P.isPuzzlePiece && P.parentBuildingId == this.__id) {
-            const k = n.length(n.sub(l.aznZwb, P.pos));
+            let k = n.length(n.sub(l.aznZwb, P.pos));
             if (k < x) {
               S = P;
               x = k;
@@ -6024,9 +6024,9 @@ class La {
     }
     this.isNew = false;
     if (this.ceilingDead && !this.residue) {
-      const f = re[this.type];
+      let f = re[this.type];
       if (f.ceiling.destroy?.residue) {
-        const S = this.allocSprite();
+        let S = this.allocSprite();
         S.texture = G.from(f.ceiling.destroy.residue);
         S.position.set(0, 0);
         S.scale.set(1, 1);
@@ -6038,10 +6038,10 @@ class La {
       }
     }
     this.ceiling.visionTicker -= e;
-    const d = this.ceiling.vision;
+    let d = this.ceiling.vision;
     let h = false;
     for (let f = 0; f < this.ceiling.zoomRegions.length; f++) {
-      const S = this.ceiling.zoomRegions[f].zoomIn;
+      let S = this.ceiling.zoomRegions[f].zoomIn;
       if (S && (this.layer == l.layer || l.layer & 2) && it.scanCollider(S, t.fBXVaI.idcTHu(), l.aznZwb, l.layer, 0.5, d.width * 2, d.dist, 5)) {
         h = true;
         break;
@@ -6056,8 +6056,8 @@ class La {
     if (l.noCeilingRevealTicker > 0 && !this.ceilingDead) {
       this.ceiling.visionTicker = 0;
     }
-    const p = this.ceiling.visionTicker > 0;
-    const w = Da(this.ceiling.fadeAlpha, p ? 0 : 1, e * (p ? 12 : d?.fadeRate));
+    let p = this.ceiling.visionTicker > 0;
+    let w = Da(this.ceiling.fadeAlpha, p ? 0 : 1, e * (p ? 12 : d?.fadeRate));
     this.ceiling.fadeAlpha += w;
     if (h && l.noCeilingRevealTicker <= 0 && l.layer & 2 && !g.sameLayer(l.layer, this.layer)) {
       this.ceiling.fadeAlpha = 0;
@@ -6069,7 +6069,7 @@ class La {
     if (this.soundEmitterTicker > 0.1) {
       this.soundEmitterTicker = 0;
       for (let f = 0; f < this.soundEmitters.length; f++) {
-        const S = this.soundEmitters[f];
+        let S = this.soundEmitters[f];
         if (!S.instance && r.isSoundLoaded(S.sound, S.channel)) {
           S.instance = r.playSound(S.sound, {
             channel: S.channel,
@@ -6079,11 +6079,11 @@ class La {
           });
         }
         if (S.instance) {
-          const x = n.sub(m.aznZwb, S.pos);
-          const y = n.length(x);
-          const C = z.remap(y, S.range.min, S.range.max, 1, 0);
-          const P = Math.pow(C, S.falloff);
-          const k = z.lerp(this.ceiling.fadeAlpha, 1, 0.25);
+          let x = n.sub(m.aznZwb, S.pos);
+          let y = n.length(x);
+          let C = z.remap(y, S.range.min, S.range.max, 1, 0);
+          let P = Math.pow(C, S.falloff);
+          let k = z.lerp(this.ceiling.fadeAlpha, 1, 0.25);
           let b = r.baseVolume * r.getTypeVolume("sound") * S.volume * P * k;
           if (!g.sameAudioLayer(this.layer, l.layer)) {
             b = 0;
@@ -6096,8 +6096,8 @@ class La {
       }
     }
     for (let f = 0; f < this.imgs.length; f++) {
-      const S = this.imgs[f];
-      const x = S.isCeiling ? this.ceiling.fadeAlpha : 1;
+      let S = this.imgs[f];
+      let x = S.isCeiling ? this.ceiling.fadeAlpha : 1;
       this.positionSprite(S.sprite, x, m);
       if (S.removeOnDamaged && this.ceilingDamaged) {
         S.sprite.visible = !this.ceilingDamaged;
@@ -6111,7 +6111,7 @@ class La {
   }
   isInsideCeiling(e) {
     for (let t = 0; t < this.ceiling.zoomRegions.length; t++) {
-      const i = this.ceiling.zoomRegions[t].zoomIn;
+      let i = this.ceiling.zoomRegions[t].zoomIn;
       if (i && X.intersect(i, e)) {
         return true;
       }
@@ -6121,9 +6121,9 @@ class La {
   getDistanceToBuilding(e, t) {
     let i = t;
     for (let r = 0; r < this.ceiling.zoomRegions.length; r++) {
-      const a = this.ceiling.zoomRegions[r].zoomIn;
+      let a = this.ceiling.zoomRegions[r].zoomIn;
       if (a) {
-        const l = X.intersectCircle(a, e, t);
+        let l = X.intersectCircle(a, e, t);
         if (l) {
           i = z.clamp(t - l.pen, 0, i);
         }
@@ -6132,13 +6132,13 @@ class La {
     return i;
   }
   destroyCeilingFx(e, t) {
-    const i = re[this.type].ceiling.destroy;
-    const r = this.surfaces[0];
+    let i = re[this.type].ceiling.destroy;
+    let r = this.surfaces[0];
     for (let a = 0; a < r.colliders.length; a++) {
-      const l = X.toAabb(r.colliders[a]);
+      let l = X.toAabb(r.colliders[a]);
       for (let s = 0; s < i.particleCount; s++) {
-        const m = n.create(g.random(l.min.x, l.max.x), g.random(l.min.y, l.max.y));
-        const d = n.mul(n.randomUnit(), g.random(0, 15));
+        let m = n.create(g.random(l.min.x, l.max.x), g.random(l.min.y, l.max.y));
+        let d = n.mul(n.randomUnit(), g.random(0, 15));
         e.addParticle(i.particle, this.layer, m, d);
       }
       break;
@@ -6149,8 +6149,8 @@ class La {
     });
   }
   positionSprite(e, t, i) {
-    const r = i.JDbtXa(n.add(this.pos, e.posOffset));
-    const a = i.Jjwns(this.scale * e.defScale);
+    let r = i.JDbtXa(n.add(this.pos, e.posOffset));
+    let a = i.Jjwns(this.scale * e.defScale);
     e.position.set(r.x, r.y);
     e.scale.set(a, a);
     if (e.mirrorY) {
@@ -6165,7 +6165,7 @@ class La {
   render(e, t, i) {
     if (v.debug && i === this.layer && (t.buildings?.bounds && Hi(this), t?.bridge && Gi(this), t.buildings?.ceiling)) {
       for (let r = 0; r < this.ceiling.zoomRegions.length; r++) {
-        const a = this.ceiling.zoomRegions[r];
+        let a = this.ceiling.zoomRegions[r];
         if (a.zoomIn) {
           me.addCollider(a.zoomIn, 65280, 0);
         }
@@ -6180,7 +6180,7 @@ class be {
   tRq = [];
   vFIK = 0;
   KNSrZK;
-  constructor(e) {
+  letructor(e) {
     this.KNSrZK = {
       type: e
     };
@@ -6208,7 +6208,7 @@ class be {
     e.active = false;
     this.vFIK--;
     if (this.tRq.length > 128 && this.vFIK < this.tRq.length / 2) {
-      const t = [];
+      let t = [];
       for (let i = 0; i < this.tRq.length; i++) {
         if (this.tRq[i].active) {
           t.push(this.tRq[i]);
@@ -6232,9 +6232,9 @@ class Ui {
     return this.ibeZM[e];
   }
   pmlCyZ(e, t) {
-    const i = this.dFJZCl(e);
+    let i = this.dFJZCl(e);
     if (!i) {
-      const r = {
+      let r = {
         id: e,
         ids: Object.keys(this.ibeZM),
         stream: t._view._view
@@ -6259,7 +6259,7 @@ class Ui {
     return a;
   }
   AXgHa(e, t, i) {
-    const r = this.dFJZCl(e);
+    let r = this.dFJZCl(e);
     if (r) {
       r.lNjqwJ(t, false, false, i);
     } else {
@@ -6267,7 +6267,7 @@ class Ui {
     }
   }
   keZ(e) {
-    const t = this.dFJZCl(e);
+    let t = this.dFJZCl(e);
     if (t === undefined) {
       console.error("deleteObj, missing object", e);
     } else {
@@ -6311,7 +6311,7 @@ class Aa {
   explodeParticle;
   skinPlayerId;
   collider;
-  constructor() {
+  letructor() {
     this.sprite.anchor.set(0.5, 0.5);
     this.sprite.visible = false;
   }
@@ -6344,7 +6344,7 @@ class Aa {
         this.skinPlayerId = e.skinPlayerId;
       }
     }
-    const a = re[this.type];
+    let a = re[this.type];
     this.pos = n.copy(e.pos);
     this.rot = z.oriToRad(e.ori);
     this.scale = e.scale;
@@ -6379,11 +6379,11 @@ class Aa {
           locked: e.door?.locked,
           casingSprite: null
         };
-        const d = a.door?.casingImg;
+        let d = a.door?.casingImg;
         if (d !== undefined) {
           let h = d.pos || n.create(0, 0);
           h = n.rotate(h, this.rot + Math.PI * 0.5);
-          const p = new ee();
+          let p = new ee();
           p.texture = G.from(d.sprite);
           p.anchor.set(0.5, 0.5);
           p.posOffset = h;
@@ -6410,7 +6410,7 @@ class Aa {
       this.door.canUse = e.door?.canUse;
       this.door.open = e.door?.open;
       this.door.seq = e.door?.seq;
-      const d = n.rotate(n.create(a.door?.slideOffset, 0), this.rot + Math.PI * 0.5);
+      let d = n.rotate(n.create(a.door?.slideOffset, 0), this.rot + Math.PI * 0.5);
       this.door.closedPos = e.door?.open ? n.add(e.pos, d) : n.copy(e.pos);
     }
     if (this.isButton && t) {
@@ -6419,7 +6419,7 @@ class Aa {
       this.button.seq = e.button?.seq;
     }
     if (a.explosion !== undefined && !this.smokeEmitter && e.healthT < 0.5 && !e.dead) {
-      const d = n.normalize(n.create(1, 1));
+      let d = n.normalize(n.create(1, 1));
       this.smokeEmitter = r.particleBarn.addEmitter("smoke_barrel", {
         pos: this.pos,
         dir: d,
@@ -6438,7 +6438,7 @@ class Aa {
       if (this.isDoor) {
         d = a.door?.spriteAnchor;
       }
-      const h = s !== undefined;
+      let h = s !== undefined;
       if (!h) {
         this.sprite.parent?.removeChild(this.sprite);
       }
@@ -6455,7 +6455,7 @@ class Aa {
       this.sprite.visible = h;
       this.img = s;
     }
-    const m = r.map.getMapDef().biome.valueAdjust;
+    let m = r.map.getMapDef().biome.valueAdjust;
     if (l && m < 1) {
       this.sprite.tint = g.adjustValue(this.sprite.tint, m);
     }
@@ -6479,17 +6479,17 @@ class Aa {
   }
   update(e, t, i, r, a, l, s) {
     if (this.isButton) {
-      const m = this.button;
+      let m = this.button;
       if (m.seq != m.seqOld) {
-        const d = re[this.type];
+        let d = re[this.type];
         if (d.button?.useParticle) {
-          const p = X.toAabb(this.collider);
-          const w = n.mul(n.sub(p.max, p.min), 0.5);
-          const f = n.add(p.min, w);
-          const S = n.mul(n.randomUnit(), g.random(5, 15));
+          let p = X.toAabb(this.collider);
+          let w = n.mul(n.sub(p.max, p.min), 0.5);
+          let f = n.add(p.min, w);
+          let S = n.mul(n.randomUnit(), g.random(5, 15));
           r.addParticle(d.button.useParticle, this.layer, f, S);
         }
-        const h = this.button.onOff ? d.button?.sound.on : d.button?.sound.off;
+        let h = this.button.onOff ? d.button?.sound.on : d.button?.sound.off;
         if (h) {
           a.playSound(h, {
             channel: "sfx",
@@ -6502,25 +6502,25 @@ class Aa {
       m.seqOld = m.seq;
     }
     if (this.isDoor) {
-      const m = this.door;
-      const d = m.interpSpeed;
-      const h = n.sub(this.pos, m.interpPos);
-      const p = n.length(h);
+      let m = this.door;
+      let d = m.interpSpeed;
+      let h = n.sub(this.pos, m.interpPos);
+      let p = n.length(h);
       let w = d * e;
       if (p < w) {
         w = p;
       }
-      const f = p > 0.0001 ? n.div(h, p) : n.create(1, 0);
+      let f = p > 0.0001 ? n.div(h, p) : n.create(1, 0);
       m.interpPos = n.add(m.interpPos, n.mul(f, w));
-      const S = Math.PI * m.interpSpeed;
-      const x = z.angleDiff(m.interpRot, this.rot);
+      let S = Math.PI * m.interpSpeed;
+      let x = z.angleDiff(m.interpRot, this.rot);
       let y = z.sign(x) * S * e;
       if (Math.abs(x) < Math.abs(y)) {
         y = x;
       }
       m.interpRot += y;
       if (m.seq != m.seqOld) {
-        const P = re[this.type].door?.sound.change || "";
+        let P = re[this.type].door?.sound.change || "";
         if (P != "") {
           a.playSound(P, {
             channel: "sfx",
@@ -6532,8 +6532,8 @@ class Aa {
         m.seqOld = m.seq;
       }
       if (m.open != m.wasOpen) {
-        const C = re[this.type];
-        const P = m.open ? C.door?.sound.open : C.door?.sound.close;
+        let C = re[this.type];
+        let P = m.open ? C.door?.sound.open : C.door?.sound.close;
         a.playSound(P, {
           channel: "sfx",
           soundPos: this.pos,
@@ -6544,14 +6544,14 @@ class Aa {
       }
     }
     if (this.dead && !this.exploded && (t.deadObstacleIds.push(this.__id), this.exploded = true, this.smokeEmitter && (this.smokeEmitter.stop(), this.smokeEmitter = null), !this.isNew)) {
-      const m = re[this.type];
-      const d = X.toAabb(this.collider);
-      const h = n.mul(n.sub(d.max, d.min), 0.5);
-      const p = n.add(d.min, h);
-      const w = Math.floor(g.random(5, 11));
+      let m = re[this.type];
+      let d = X.toAabb(this.collider);
+      let h = n.mul(n.sub(d.max, d.min), 0.5);
+      let p = n.add(d.min, h);
+      let w = Math.floor(g.random(5, 11));
       for (let f = 0; f < w; f++) {
-        const S = n.mul(n.randomUnit(), g.random(5, 15));
-        const x = Array.isArray(this.explodeParticle) ? this.explodeParticle[Math.floor(Math.random() * this.explodeParticle.length)] : this.explodeParticle;
+        let S = n.mul(n.randomUnit(), g.random(5, 15));
+        let x = Array.isArray(this.explodeParticle) ? this.explodeParticle[Math.floor(Math.random() * this.explodeParticle.length)] : this.explodeParticle;
         r.addParticle(x, this.layer, p, S);
       }
       a.playSound(m.sound?.explode, {
@@ -6562,7 +6562,7 @@ class Aa {
       });
     }
     if (this.smokeEmitter) {
-      const m = this.isSkin ? 0.3 : 0.5;
+      let m = this.isSkin ? 0.3 : 0.5;
       this.smokeEmitter.pos = n.copy(this.pos);
       this.smokeEmitter.enabled = !this.dead && this.healthT < m;
     }
@@ -6575,7 +6575,7 @@ class Aa {
         h |= 2;
       }
       if (!this.dead && this.isSkin) {
-        const p = i.getPlayerById(this.skinPlayerId);
+        let p = i.getPlayerById(this.skinPlayerId);
         if (p) {
           m = z.max(z.max(m, p.renderZOrd), 21);
           if (p.renderLayer != 0) {
@@ -6593,11 +6593,11 @@ class Aa {
     this.isNew = false;
   }
   render(e, t, i) {
-    const r = this.isDoor ? this.door.interpPos : this.pos;
-    const a = this.isDoor ? this.door.interpRot : this.rot;
-    const l = this.scale;
-    const s = e.JDbtXa(r);
-    const m = e.Jjwns(l * this.imgScale);
+    let r = this.isDoor ? this.door.interpPos : this.pos;
+    let a = this.isDoor ? this.door.interpRot : this.rot;
+    let l = this.scale;
+    let s = e.JDbtXa(r);
+    let m = e.Jjwns(l * this.imgScale);
     this.sprite.position.set(s.x, s.y);
     this.sprite.scale.set(m, m);
     if (this.imgMirrorY) {
@@ -6608,8 +6608,8 @@ class Aa {
     }
     this.sprite.rotation = -a;
     if (this.isDoor && this.door?.casingSprite) {
-      const d = e.JDbtXa(n.add(this.door.closedPos, this.door.casingSprite.posOffset));
-      const h = e.Jjwns(l * this.door.casingSprite.imgScale);
+      let d = e.JDbtXa(n.add(this.door.closedPos, this.door.casingSprite.posOffset));
+      let h = e.Jjwns(l * this.door.casingSprite.imgScale);
       this.door.casingSprite.position.set(d.x, d.y);
       this.door.casingSprite.scale.set(h, h);
       this.door.casingSprite.rotation = -a;
@@ -6655,16 +6655,16 @@ class Ea {
         this.soundEnabledT = this.interiorSoundEnabled ? 1 : 0;
       }
       this.aabb = X.transform(_e.getBoundingCollider(this.type), this.pos, this.rot, this.scale);
-      const a = re[this.type];
+      let a = re[this.type];
       this.layers = [];
       for (let l = 0; l < a.layers.length; l++) {
-        const s = a.layers[l];
-        const m = e.layerObjIds[l];
-        const d = s?.inheritOri === undefined || s.inheritOri;
-        const h = s.underground !== undefined ? s.underground : l == 1;
-        const p = n.add(this.pos, s.pos);
-        const w = z.oriToRad(d ? e.ori + s.ori : s.ori);
-        const f = X.transform(_e.getBoundingCollider(s.type), p, w, 1);
+        let s = a.layers[l];
+        let m = e.layerObjIds[l];
+        let d = s?.inheritOri === undefined || s.inheritOri;
+        let h = s.underground !== undefined ? s.underground : l == 1;
+        let p = n.add(this.pos, s.pos);
+        let w = z.oriToRad(d ? e.ori + s.ori : s.ori);
+        let f = X.transform(_e.getBoundingCollider(s.type), p, w, 1);
         this.layers.push({
           objId: m,
           collision: f,
@@ -6673,10 +6673,10 @@ class Ea {
       }
       this.stairs = [];
       for (let l = 0; l < a.stairs.length; l++) {
-        const s = a.stairs[l];
-        const m = X.transform(s.collision, this.pos, this.rot, this.scale);
-        const d = n.rotate(s.downDir, this.rot);
-        const h = xe.splitAabb(m, d);
+        let s = a.stairs[l];
+        let m = X.transform(s.collision, this.pos, this.rot, this.scale);
+        let d = n.rotate(s.downDir, this.rot);
+        let h = xe.splitAabb(m, d);
         this.stairs.push({
           collision: m,
           center: n.add(m.min, n.mul(n.sub(m.max, m.min), 0.5)),
@@ -6700,45 +6700,45 @@ class Ea {
     }
   }
   updateInteriorSounds(e, t, i, r) {
-    const a = re[this.type];
+    let a = re[this.type];
     X.createCircle(i.aznZwb, 0.001);
     t.fWZ.idcTHu();
-    const l = this.layers.length > 0 ? t.getBuildingById(this.layers[0].objId) : null;
-    const s = this.layers.length > 1 ? t.getBuildingById(this.layers[1].objId) : null;
-    const m = a.interiorSound?.outsideMaxDist !== undefined ? a.interiorSound.outsideMaxDist : 10;
-    const d = a.interiorSound?.outsideVolume !== undefined ? a.interiorSound.outsideVolume : 0;
-    const h = a.interiorSound?.undergroundVolume !== undefined ? a.interiorSound.undergroundVolume : 1;
+    let l = this.layers.length > 0 ? t.getBuildingById(this.layers[0].objId) : null;
+    let s = this.layers.length > 1 ? t.getBuildingById(this.layers[1].objId) : null;
+    let m = a.interiorSound?.outsideMaxDist !== undefined ? a.interiorSound.outsideMaxDist : 10;
+    let d = a.interiorSound?.outsideVolume !== undefined ? a.interiorSound.outsideVolume : 0;
+    let h = a.interiorSound?.undergroundVolume !== undefined ? a.interiorSound.undergroundVolume : 1;
     let p = 0;
     let w = 0;
     if (i.layer != 1) {
       if (l) {
-        const P = l.getDistanceToBuilding(i.aznZwb, m);
-        const k = z.remap(P, m, 0, 0, 1);
-        const b = i.layer & 2;
-        const M = l.ceiling.fadeAlpha;
+        let P = l.getDistanceToBuilding(i.aznZwb, m);
+        let k = z.remap(P, m, 0, 0, 1);
+        let b = i.layer & 2;
+        let M = l.ceiling.fadeAlpha;
         p = k * (1 - M);
         w = k * M * (b ? h : d);
       }
     } else if (s) {
-      const P = s.getDistanceToBuilding(i.aznZwb, m);
-      const k = z.remap(P, m, 0, 0, 1);
+      let P = s.getDistanceToBuilding(i.aznZwb, m);
+      let k = z.remap(P, m, 0, 0, 1);
       p = 0;
       w = k * h;
     }
-    const f = a.interiorSound?.transitionTime !== undefined ? a.interiorSound.transitionTime : 1;
+    let f = a.interiorSound?.transitionTime !== undefined ? a.interiorSound.transitionTime : 1;
     if (this.interiorSoundAlt) {
       this.soundTransitionT = z.clamp(this.soundTransitionT + e / f, 0, 1);
     }
-    const S = Math.abs(this.soundTransitionT - 0.5) * 2;
+    let S = Math.abs(this.soundTransitionT - 0.5) * 2;
     if (!this.interiorSoundEnabled) {
       this.soundEnabledT = z.clamp(this.soundEnabledT - e * 0.5, 0, 1);
     }
-    const x = this.soundTransitionT > 0.5 ? a.interiorSound?.soundAlt : a.interiorSound?.sound;
-    const y = r.getTrack("interior_0");
+    let x = this.soundTransitionT > 0.5 ? a.interiorSound?.soundAlt : a.interiorSound?.sound;
+    let y = r.getTrack("interior_0");
     y.sound = x;
     y.filter = "";
     y.weight = x ? p * S * this.soundEnabledT : 0;
-    const C = r.getTrack("interior_1");
+    let C = r.getTrack("interior_1");
     C.sound = x;
     C.filter = a.interiorSound?.filter;
     C.weight = x ? w * S * this.soundEnabledT : 0;
@@ -6782,17 +6782,17 @@ function Te(u, e) {
   u.closePath();
 }
 function mi(u, e, t) {
-  const i = e.max.x - e.min.x;
-  const r = e.max.y - e.min.y;
-  const a = z.max(e.offsetDist, 0.001);
-  const l = e.roughness;
-  const s = Math.round(i * l / a);
-  const m = Math.round(r * l / a);
-  const d = g.seededRand(t);
+  let i = e.max.x - e.min.x;
+  let r = e.max.y - e.min.y;
+  let a = z.max(e.offsetDist, 0.001);
+  let l = e.roughness;
+  let s = Math.round(i * l / a);
+  let m = Math.round(r * l / a);
+  let d = g.seededRand(t);
   Te(u, xr(e, s, m, a, d));
 }
 class $i {
-  constructor(e) {
+  letructor(e) {
     this.decalBarn = e;
   }
   display = {
@@ -6823,7 +6823,7 @@ class $i {
   terrain = null;
   cameraEmitter = null;
   HJMxT() {
-    const e = this.fWZ.idcTHu();
+    let e = this.fWZ.idcTHu();
     for (let t = 0; t < e.length; t++) {
       e[t].HJMxT();
     }
@@ -6839,7 +6839,7 @@ class $i {
   }
   loadMap(e, t, i, r) {
     this.mapName = e.mapName;
-    const a = Ge[this.mapName];
+    let a = Ge[this.mapName];
     if (!a) {
       throw new Error(`Failed loading mapDef ${this.mapName}`);
     }
@@ -6857,9 +6857,9 @@ class $i {
       groundPatches: e.groundPatches
     };
     this.mapLoaded = true;
-    const l = this.mapDef.biome.particles.camera;
+    let l = this.mapDef.biome.particles.camera;
     if (l) {
-      const s = n.normalize(n.create(1, -1));
+      let s = n.normalize(n.create(1, -1));
       this.cameraEmitter?.stop();
       this.cameraEmitter = r.addEmitter(l, {
         pos: n.create(0, 0),
@@ -6880,24 +6880,24 @@ class $i {
     return this.mapTexture;
   }
   PEHQLt(e, t, i, r, a, l, s, m, d, h) {
-    const p = this.fBXVaI.idcTHu();
+    let p = this.fBXVaI.idcTHu();
     for (let f = 0; f < p.length; f++) {
-      const S = p[f];
+      let S = p[f];
       if (S.active) {
         S.update(e, this, i, r, a, t, s);
         S.render(m, h, t.layer);
       }
     }
-    const w = this.fWZ.idcTHu();
+    let w = this.fWZ.idcTHu();
     for (let f = 0; f < w.length; f++) {
-      const S = w[f];
+      let S = w[f];
       if (S.active) {
         S.PEHQLt(e, this, r, a, l, t, s, m);
         S.render(m, h, t.layer);
       }
     }
     for (let f = this.OYF.idcTHu(), S = 0; S < f.length; S++) {
-      const x = f[S];
+      let x = f[S];
       if (x.active) {
         x.update(e, this, t, l);
         x.render(m, h, t.layer);
@@ -6906,38 +6906,38 @@ class $i {
     if (this.cameraEmitter) {
       this.cameraEmitter.pos = n.copy(m.aznZwb);
       this.cameraEmitter.enabled = true;
-      const f = 120;
-      const S = t.kEZUyv() * 2.5;
+      let f = 120;
+      let S = t.kEZUyv() * 2.5;
       this.cameraEmitter.radius = z.min(S, f);
-      const x = this.cameraEmitter.radius;
-      const y = x * x / (f * f);
+      let x = this.cameraEmitter.radius;
+      let y = x * x / (f * f);
       this.cameraEmitter.rateMult = 1 / y;
-      const C = t.layer == 0 ? 1 : 0;
+      let C = t.layer == 0 ? 1 : 0;
       this.cameraEmitter.alpha = z.lerp(e * 6, this.cameraEmitter.alpha, C);
     }
   }
   renderTerrain(e, t, i, r) {
-    const a = this.width;
-    const l = this.height;
-    const s = this.terrain;
-    const m = {
+    let a = this.width;
+    let l = this.height;
+    let s = this.terrain;
+    let m = {
       x: 0,
       y: 0
     };
-    const d = {
+    let d = {
       x: a,
       y: 0
     };
-    const h = {
+    let h = {
       x: 0,
       y: l
     };
-    const p = {
+    let p = {
       x: a,
       y: l
     };
-    const w = this.mapDef.biome.colors;
-    const f = this.mapData.groundPatches;
+    let w = this.mapDef.biome.colors;
+    let f = this.mapData.groundPatches;
     e.beginFill(w.background);
     e.drawRect(-120, -120, a + 240, 120);
     e.drawRect(-120, l, a + 240, 120);
@@ -6956,7 +6956,7 @@ class $i {
       e.endFill();
     }
     for (let x = 0; x < f.length; x++) {
-      const y = f[x];
+      let y = f[x];
       if (y.order == 0 && (!r || y.useAsMapShape)) {
         e.beginFill(y.color);
         mi(e, y, this.seed);
@@ -6983,7 +6983,7 @@ class $i {
     e.endHole();
     e.closePath();
     e.endFill();
-    const S = e;
+    let S = e;
     S.lineStyle(t, 0, 0.15);
     for (let x = 0; x <= a; x += R.map.gridSize) {
       Le(S, {
@@ -7005,7 +7005,7 @@ class $i {
     }
     S.lineStyle(t, 0, 0);
     for (let x = 0; x < f.length; x++) {
-      const y = f[x];
+      let y = f[x];
       if (y.order == 1 && (!r || y.useAsMapShape)) {
         e.beginFill(y.color);
         mi(e, y, this.seed);
@@ -7014,15 +7014,15 @@ class $i {
     }
   }
   lXaw(e) {
-    const t = e.JDbtXa(n.create(0, 0));
-    const i = e.JDbtXa(n.create(1, 1));
-    const r = n.sub(i, t);
+    let t = e.JDbtXa(n.create(0, 0));
+    let i = e.JDbtXa(n.create(1, 1));
+    let r = n.sub(i, t);
     this.display.ground.position.set(t.x, t.y);
     this.display.ground.scale.set(r.x, r.y);
     if (v.debug) {
-      for (const a of this.terrain.rivers) {
+      for (let a of this.terrain.rivers) {
         for (let l = 0; l < a.spline.points.length; l++) {
-          const s = a.spline.points[l];
+          let s = a.spline.points[l];
           me.addCircle(s, 1, 16711680, 1);
           let m = a.spline.points[l + 1];
           if (m) {
@@ -7033,8 +7033,8 @@ class $i {
     }
   }
   getMinimapRender(e) {
-    const t = re[e.type];
-    const i = t.type == "building" ? 750 + (t.zIdx || 0) : t.img.zIdx || 0;
+    let t = re[e.type];
+    let i = t.type == "building" ? 750 + (t.zIdx || 0) : t.img.zIdx || 0;
     let r = [];
     if (t.map?.shapes !== undefined) {
       r = t.map?.shapes;
@@ -7056,11 +7056,11 @@ class $i {
   }
   renderMap(e, t) {
     if (this.mapLoaded) {
-      const i = new Y();
-      const r = new Y();
-      const a = this.mapDef.biome.colors;
-      const l = this.mapData.places;
-      const s = this.mapData.objects;
+      let i = new Y();
+      let r = new Y();
+      let a = this.mapDef.biome.colors;
+      let l = this.mapData.places;
+      let s = this.mapData.objects;
       let m = v.screenHeight;
       if (v.mobile) {
         if (!v.isLandscape) {
@@ -7068,25 +7068,25 @@ class $i {
         }
         m *= z.min(v.pixelRatio, 2);
       }
-      const d = this.height / m;
-      const h = new pe();
+      let d = this.height / m;
+      let h = new pe();
       h.beginFill(a.grass);
       h.drawRect(0, 0, this.width, this.height);
       h.endFill();
       this.renderTerrain(h, d, t, true);
-      const p = {
+      let p = {
         x: 0,
         y: 0
       };
-      const w = {
+      let w = {
         x: this.width,
         y: 0
       };
-      const f = {
+      let f = {
         x: 0,
         y: this.height
       };
-      const S = {
+      let S = {
         x: this.width,
         y: this.height
       };
@@ -7098,20 +7098,20 @@ class $i {
       h.position.y = this.height;
       h.scale.y = -1;
       i.addChild(h);
-      const x = [];
+      let x = [];
       for (let P = 0; P < s.length; P++) {
-        const k = s[P];
+        let k = s[P];
         x.push(this.getMinimapRender(k));
       }
       x.sort((P, k) => P.zIdx - k.zIdx);
-      const y = new pe();
+      let y = new pe();
       for (let P = 0; P < x.length; P++) {
-        const k = x[P];
-        const b = k.obj;
+        let k = x[P];
+        let b = k.obj;
         for (let M = 0; M < k.shapes.length; M++) {
-          const E = k.shapes[M];
-          const D = X.transform(E.collider, b.pos, z.oriToRad(b.ori), b.scale);
-          const L = E.scale !== undefined ? E.scale : 1;
+          let E = k.shapes[M];
+          let D = X.transform(E.collider, b.pos, z.oriToRad(b.ori), b.scale);
+          let L = E.scale !== undefined ? E.scale : 1;
           y.beginFill(E.color, 1);
           switch (D.type) {
             case X.Type.Circle:
@@ -7120,7 +7120,7 @@ class $i {
             case X.Type.Aabb:
               {
                 let _ = n.mul(n.sub(D.max, D.min), 0.5);
-                const T = n.add(D.min, _);
+                let T = n.add(D.min, _);
                 _ = n.mul(_, L);
                 y.drawRect(T.x - _.x, this.height - T.y - _.y, _.x * 2, _.y * 2);
                 y.endFill();
@@ -7129,10 +7129,10 @@ class $i {
         }
       }
       i.addChild(y);
-      const C = new Y();
+      let C = new Y();
       for (let P = 0; P < l.length; P++) {
-        const k = l[P];
-        const b = new ur({
+        let k = l[P];
+        let b = new ur({
           fontFamily: "Arial",
           fontSize: v.mobile ? 20 : 22,
           fontWeight: "bold",
@@ -7147,7 +7147,7 @@ class $i {
           wordWrap: false,
           align: "center"
         });
-        const M = new We(k.name, b);
+        let M = new We(k.name, b);
         M.anchor.set(0.5, 0.5);
         M.x = k.pos.x * this.height / d;
         M.y = k.pos.y * this.height / d;
@@ -7187,9 +7187,9 @@ class $i {
     }
   }
   getGroundSurface(e, t) {
-    const i = (h, p = {}) => {
+    let i = (h, p = {}) => {
       if (h == "water") {
-        const w = this.getMapDef().biome.colors;
+        let w = this.getMapDef().biome.colors;
         p.waterColor = p.waterColor !== undefined ? p.waterColor : w.water;
         p.rippleColor = p.rippleColor !== undefined ? p.rippleColor : w.waterRipple;
       }
@@ -7198,22 +7198,22 @@ class $i {
         data: p
       };
     };
-    const r = this.decalBarn.decalPool.idcTHu();
+    let r = this.decalBarn.decalPool.idcTHu();
     for (let h = 0; h < r.length; h++) {
-      const p = r[h];
+      let p = r[h];
       if (p.active && p.surface && g.sameLayer(p.layer, t) && X.intersectCircle(p.collider, e, 0.0001)) {
         return i(p.surface.type, p.surface.data);
       }
     }
     let a = null;
     let l = 0;
-    const s = t & 2;
-    const m = this.fWZ.idcTHu();
+    let s = t & 2;
+    let m = this.fWZ.idcTHu();
     for (let h = 0; h < m.length; h++) {
-      const p = m[h];
+      let p = m[h];
       if (p.active && p.zIdx >= l && (p.layer == t || s) && (p.layer != 1 || !s)) {
         for (let w = 0; w < p.surfaces.length; w++) {
-          const f = p.surfaces[w];
+          let f = p.surfaces[w];
           for (let S = 0; S < f.colliders.length; S++) {
             if (X.intersectCircle(f.colliders[S], e, 0.0001)) {
               l = p.zIdx;
@@ -7229,9 +7229,9 @@ class $i {
     }
     let d = false;
     if (t != 1) {
-      const h = this.terrain?.rivers;
+      let h = this.terrain?.rivers;
       for (let p = 0; p < h.length; p++) {
-        const w = h[p];
+        let w = h[p];
         if (xe.testPointAabb(e, w.aabb.min, w.aabb.max) && z.pointInsidePolygon(e, w.shorePoly) && (d = true, z.pointInsidePolygon(e, w.waterPoly))) {
           return i("water", {
             river: w
@@ -7248,9 +7248,9 @@ class $i {
     return z.distToPolygon(e, this.terrain?.shore);
   }
   insideStructureStairs(e) {
-    const t = this.OYF.idcTHu();
+    let t = this.OYF.idcTHu();
     for (let i = 0; i < t.length; i++) {
-      const r = t[i];
+      let r = t[i];
       if (r.active && r.insideStairs(e)) {
         return true;
       }
@@ -7258,9 +7258,9 @@ class $i {
     return false;
   }
   getBuildingById(e) {
-    const t = this.fWZ.idcTHu();
+    let t = this.fWZ.idcTHu();
     for (let i = 0; i < t.length; i++) {
-      const r = t[i];
+      let r = t[i];
       if (r.active && r.__id == e) {
         return r;
       }
@@ -7268,9 +7268,9 @@ class $i {
     return null;
   }
   insideStructureMask(e) {
-    const t = this.OYF.idcTHu();
+    let t = this.OYF.idcTHu();
     for (let i = 0; i < t.length; i++) {
-      const r = t[i];
+      let r = t[i];
       if (r.active && r.insideMask(e)) {
         return true;
       }
@@ -7278,9 +7278,9 @@ class $i {
     return false;
   }
   insideBuildingCeiling(e, t) {
-    const i = this.fWZ.idcTHu();
+    let i = this.fWZ.idcTHu();
     for (let r = 0; r < i.length; r++) {
-      const a = i[r];
+      let a = i[r];
       if (a.active && (!t || a.ceiling.visionTicker > 0 && !a.ceilingDead) && a.isInsideCeiling(e)) {
         return true;
       }
@@ -7302,7 +7302,7 @@ class Ra {
   isNew;
   fallTicker;
   rad;
-  constructor() {
+  letructor() {
     this.sprite.anchor.set(0.5, 0.5);
     this.sprite.visible = false;
   }
@@ -7325,7 +7325,7 @@ class Ra {
     if (i) {
       this.isNew = true;
       this.fallTicker = e.fallT * R.airdrop.fallTime;
-      const a = r.map.getMapDef().biome.airdrop.airdropImg;
+      let a = r.map.getMapDef().biome.airdrop.airdropImg;
       this.sprite.texture = G.from(a);
     }
     if (t) {
@@ -7337,37 +7337,37 @@ class Ra {
 class Oa {
   airdropPool = new be(Ra);
   HJMxT() {
-    const e = this.airdropPool.idcTHu();
+    let e = this.airdropPool.idcTHu();
     for (let t = 0; t < e.length; t++) {
       e[t].HJMxT();
     }
   }
   PEHQLt(e, t, i, r, a, l, s) {
-    const m = this.airdropPool.idcTHu();
+    let m = this.airdropPool.idcTHu();
     for (let d = 0; d < m.length; d++) {
-      const h = m[d];
+      let h = m[d];
       if (!h.active) {
         continue;
       }
       h.fallTicker += e;
-      const p = z.clamp(h.fallTicker / R.airdrop.fallTime, 0, 1);
+      let p = z.clamp(h.fallTicker / R.airdrop.fallTime, 0, 1);
       let w = 0;
       if ((g.sameLayer(w, t.layer) || t.layer & 2) && (!(t.layer & 2) || !r.insideStructureMask(X.createCircle(h.pos, 1)))) {
         w |= 2;
       }
       if (h.landed && !h.playedLandFx && (h.playedLandFx = true, !h.isNew)) {
         for (let C = 0; C < 10; C++) {
-          const P = n.randomUnit();
+          let P = n.randomUnit();
           a.addParticle("airdropSmoke", w, h.pos, P);
         }
-        const x = r.getGroundSurface(h.pos, w);
+        let x = r.getGroundSurface(h.pos, w);
         if (x.type == "water") {
           for (let C = 0; C < 12; C++) {
-            const P = n.add(h.pos, n.mul(n.randomUnit(), g.random(4.5, 6)));
+            let P = n.add(h.pos, n.mul(n.randomUnit(), g.random(4.5, 6)));
             a.addRippleParticle(P, w, x.data.rippleColor).setDelay(C * 0.075);
           }
         }
-        const y = x.type == "water" ? "airdrop_crash_02" : "airdrop_crash_01";
+        let y = x.type == "water" ? "airdrop_crash_02" : "airdrop_crash_01";
         s.playSound(y, {
           channel: "sfx",
           soundPos: h.pos,
@@ -7408,8 +7408,8 @@ class Oa {
       }
       h.rad = z.lerp((1 - p) ** 1.1, 5, 12);
       l.addPIXIObj(h.sprite, w, 1500, h.__id);
-      const f = i.JDbtXa(h.pos);
-      const S = i.Jjwns(h.rad * 2 / i.HrSNF);
+      let f = i.JDbtXa(h.pos);
+      let S = i.Jjwns(h.rad * 2 / i.HrSNF);
       h.sprite.position.set(f.x, f.y);
       h.sprite.scale.set(S, S);
       h.sprite.tint = 16776960;
@@ -7420,7 +7420,7 @@ class Oa {
   }
 }
 function ni(u, e, t, i) {
-  const r = Math.atan2(i.y, i.x);
+  let r = Math.atan2(i.y, i.x);
   return {
     p0: n.add(t, n.rotate(u, r)),
     p1: n.add(t, n.rotate(e, r))
@@ -7434,7 +7434,7 @@ function Ba(u, e, t, i, r) {
   }
 }
 function Ct(u, e, t, i, r, a, l) {
-  const s = Math.floor(g.random(1, 2));
+  let s = Math.floor(g.random(1, 2));
   let m = n.mul(i, 9.5);
   for (let d = 0; d < s; d++) {
     m = n.rotate(m, (Math.random() - 0.5) * Math.PI / 3);
@@ -7472,9 +7472,9 @@ class Na {
       r.container.addChild(r.bulletTrail);
       this.bullets.push(r);
     }
-    const a = nt[e.bulletType];
-    const l = 1 + e.varianceT * a.variance;
-    const s = z.remap(e.distAdjIdx, 0, 16, -1, 1);
+    let a = nt[e.bulletType];
+    let l = 1 + e.varianceT * a.variance;
+    let s = z.remap(e.distAdjIdx, 0, 16, -1, 1);
     let m = a.distance / Math.pow(R.bullet.reflectDistDecay, e.reflectCount);
     if (e.clipDistance) {
       m = e.distance;
@@ -7494,10 +7494,10 @@ class Na {
     r.reflectCount = e.reflectCount;
     r.reflectObjId = e.reflectObjId;
     r.whizHeard = false;
-    const d = Math.atan2(r.dir.x, r.dir.y);
+    let d = Math.atan2(r.dir.x, r.dir.y);
     r.container.rotation = d - Math.PI / 2;
     r.layer = e.layer;
-    const h = t.getPlayerById(r.playerId);
+    let h = t.getPlayerById(r.playerId);
     if (h && h.layer & 2) {
       r.layer |= 2;
     }
@@ -7511,7 +7511,7 @@ class Na {
     r.bulletTrail.scale.set(0.8, p);
     r.tracerLength = a.tracerLength;
     r.suppressed = !!a.suppressed;
-    const w = this.tracerColors[a.tracerColor];
+    let w = this.tracerColors[a.tracerColor];
     let f = w.regular;
     if (e.trailSaturated) {
       f = w.chambered || w.saturated;
@@ -7529,9 +7529,9 @@ class Na {
     i.addPIXIObj(r.container, r.layer, 20);
   }
   PEHQLt(e, t, i, r, a, l, s, m) {
-    const d = t.playerPool.idcTHu();
+    let d = t.playerPool.idcTHu();
     for (let h = 0; h < this.bullets.length; h++) {
-      const p = this.bullets[h];
+      let p = this.bullets[h];
       if (p.collided) {
         p.scale = z.max(p.scale - e * 6, 0);
         if (p.scale <= 0) {
@@ -7540,9 +7540,9 @@ class Na {
         }
       }
       if (p.alive) {
-        const w = p.distance - n.length(n.sub(p.startPos, p.pos));
-        const f = z.min(w, e * p.speed);
-        const S = n.copy(p.pos);
+        let w = p.distance - n.length(n.sub(p.startPos, p.pos));
+        let f = z.min(w, e * p.speed);
+        let S = n.copy(p.pos);
         p.pos = n.add(p.pos, n.mul(p.dir, f));
         if (!a.iDmhea.XRQji && g.sameAudioLayer(a.layer, p.layer) && n.length(n.sub(r.aznZwb, p.pos)) < 7.5 && !p.whizHeard && p.playerId != a.__id) {
           m.playGroup("bullet_whiz", {
@@ -7552,15 +7552,15 @@ class Na {
           p.whizHeard = true;
         }
         if (p.tracerAlphaRate && p.suppressed) {
-          const b = p.tracerAlphaRate;
+          let b = p.tracerAlphaRate;
           p.bulletTrail.alpha = z.max(p.tracerAlphaMin, p.bulletTrail.alpha * b);
         }
-        const x = [];
-        const y = i.fBXVaI.idcTHu();
+        let x = [];
+        let y = i.fBXVaI.idcTHu();
         for (let b = 0; b < y.length; b++) {
-          const M = y[b];
+          let M = y[b];
           if (M.active && !M.dead && g.sameLayer(M.layer, p.layer) && M.height >= R.bullet.height && (p.reflectCount <= 0 || M.__id != p.reflectObjId)) {
-            const E = X.intersectSegment(M.collider, S, p.pos);
+            let E = X.intersectSegment(M.collider, S, p.pos);
             if (E) {
               x.push({
                 type: "obstacle",
@@ -7573,25 +7573,25 @@ class Na {
           }
         }
         for (let b = 0; b < d.length; b++) {
-          const M = d[b];
+          let M = d[b];
           if (M.active && !M.iDmhea.XRQji && (g.sameLayer(M.iDmhea.Rpch, p.layer) || M.iDmhea.Rpch & 2) && (M.__id != p.playerId || p.damageSelf)) {
             let E = null;
             if (M.yjoLx()) {
-              const L = M;
-              const _ = L.RLnsnZ();
-              const T = ni(_.p0, _.p1, L.RzFRjI, L.PibIr);
-              const V = ni(_.p0, _.p1, L.aznZwb, L.WoDzy);
-              const j = xe.intersectSegmentSegment(S, p.pos, T.p0, T.p1);
-              const Z = xe.intersectSegmentSegment(S, p.pos, V.p0, V.p1) || j;
+              let L = M;
+              let _ = L.RLnsnZ();
+              let T = ni(_.p0, _.p1, L.RzFRjI, L.PibIr);
+              let V = ni(_.p0, _.p1, L.aznZwb, L.WoDzy);
+              let j = xe.intersectSegmentSegment(S, p.pos, T.p0, T.p1);
+              let Z = xe.intersectSegmentSegment(S, p.pos, V.p0, V.p1) || j;
               if (Z) {
-                const O = n.normalize(n.perp(n.sub(V.p1, V.p0)));
+                let O = n.normalize(n.perp(n.sub(V.p1, V.p0)));
                 E = {
                   point: Z.point,
                   normal: O
                 };
               }
             }
-            const D = xe.intersectSegmentCircle(S, p.pos, M.aznZwb, M.LnvK);
+            let D = xe.intersectSegmentCircle(S, p.pos, M.aznZwb, M.LnvK);
             if (D && (!E || n.length(n.sub(D.point, p.startPos)) < n.length(n.sub(E.point, p.startPos)))) {
               x.push({
                 type: "player",
@@ -7625,30 +7625,30 @@ class Na {
           }
         }
         for (let b = 0; b < x.length; b++) {
-          const M = x[b];
+          let M = x[b];
           M.dist = n.length(n.sub(M.point, S));
         }
         x.sort((b, M) => b.dist - M.dist);
         let C = false;
-        const P = t.getPlayerById(p.playerId);
+        let P = t.getPlayerById(p.playerId);
         if (P && (P.iDmhea.XRQji || P.iDmhea.ZFRZY)) {
           C = true;
         }
         let k = false;
         for (let b = 0; b < x.length; b++) {
-          const M = x[b];
+          let M = x[b];
           if (M.type == "obstacle") {
-            const E = re[M?.obstacleType];
+            let E = re[M?.obstacleType];
             Ct(E.hitParticle, E.sound.bullet, M.point, M.normal, p.layer, s, m);
             k = M.collidable;
           } else if (M.type == "player") {
             if (!C) {
-              const E = M.player;
+              let E = M.player;
               if (i.turkeyMode && P?.EAO("turkey_shoot")) {
-                const L = n.mul(n.randomUnit(), g.random(3, 6));
+                let L = n.mul(n.randomUnit(), g.random(3, 6));
                 s.addParticle("turkeyFeathersHit", E.layer, E.aznZwb, L);
               }
-              const D = n.sub(M.point, E?.aznZwb);
+              let D = n.sub(M.point, E?.aznZwb);
               D.y *= -1;
               if (!window.CrazyGames) {
                 s.addParticle("bloodSplat", E.layer, n.mul(D, r.HrSNF), n.create(0, 0), 1, 1, E.container);
@@ -7671,15 +7671,15 @@ class Na {
           }
         }
         if (!(p.layer & 2)) {
-          const b = i.OYF.idcTHu();
+          let b = i.OYF.idcTHu();
           let M = p.layer;
           for (let E = 0; E < b.length; E++) {
-            const D = b[E];
+            let D = b[E];
             if (D.active) {
               let L = false;
               let _ = false;
               for (let T = 0; T < D.stairs.length; T++) {
-                const V = D.stairs[T];
+                let V = D.stairs[T];
                 if (!V?.lootOnly && X.intersectSegment(V?.collision, p.pos, S)) {
                   L = true;
                   break;
@@ -7710,7 +7710,7 @@ class Na {
     }
   }
   createBulletHit(e, t, i) {
-    const r = e.getPlayerById(t);
+    let r = e.getPlayerById(t);
     if (r) {
       i.playGroup("player_bullet_hit", {
         soundPos: r.aznZwb,
@@ -7723,20 +7723,20 @@ class Na {
   lXaw(e, t) {
     e.Jjwns(1);
     for (let i = 0; i < this.bullets.length; i++) {
-      const r = this.bullets[i];
+      let r = this.bullets[i];
       if (r.alive || r.collided) {
-        const a = n.length(n.sub(r.pos, r.startPos));
-        const l = e.JDbtXa(r.pos);
+        let a = n.length(n.sub(r.pos, r.startPos));
+        let l = e.JDbtXa(r.pos);
         r.container.position.set(l.x, l.y);
-        const s = e.Jjwns(1);
-        const m = z.min(r.tracerLength * 15, a / 2);
+        let s = e.Jjwns(1);
+        let m = z.min(r.tracerLength * 15, a / 2);
         r.container.scale.set(s * m * r.scale, s);
       }
     }
   }
 }
 function ja() {
-  const u = {
+  let u = {
     fontFamily: "Arial",
     fontWeight: "bold",
     fontSize: v.pixelRatio > 1 ? 30 : 24,
@@ -7750,7 +7750,7 @@ function ja() {
     dropShadowAngle: Math.PI / 3,
     dropShadowDistance: 1
   };
-  const e = new We("", u);
+  let e = new We("", u);
   e.anchor.set(0.5, 0.5);
   e.scale.set(0.5, 0.5);
   return e;
@@ -7766,7 +7766,7 @@ class qa {
   nameTextSet;
   layer;
   playerId;
-  constructor() {
+  letructor() {
     this.container.addChild(this.sprite);
     this.sprite.anchor.set(0.5, 0.5);
     this.sprite.scale.set(0.4, 0.4);
@@ -7795,16 +7795,16 @@ class qa {
 class Fa {
   deadBodyPool = new be(qa);
   PEHQLt(e, t, i, r, a, l) {
-    const s = this.deadBodyPool.idcTHu();
+    let s = this.deadBodyPool.idcTHu();
     for (let m = 0; m < s.length; m++) {
-      const d = s[m];
+      let d = s[m];
       if (d.active) {
         if (!d.nameTextSet) {
           d.nameText.text = t.getPlayerName(d.playerId, i.__id, false);
           d.nameTextSet = true;
         }
-        const h = X.createCircle(d.pos, 1);
-        const p = r.insideStructureStairs(h);
+        let h = X.createCircle(d.pos, 1);
+        let p = r.insideStructureStairs(h);
         let w = d.layer;
         let f = 12;
         if (d.layer == 0 && i.layer == 0 && p) {
@@ -7812,17 +7812,17 @@ class Fa {
           f += 100;
         }
         l.addPIXIObj(d.container, w, f, d.__id);
-        const S = a.JDbtXa(d.pos);
-        const x = a.Jjwns(1);
+        let S = a.JDbtXa(d.pos);
+        let x = a.Jjwns(1);
         d.container.position.set(S.x, S.y);
         d.container.scale.set(x, x);
       }
     }
   }
   getDeadBodyById(e) {
-    const t = this.deadBodyPool.idcTHu();
+    let t = this.deadBodyPool.idcTHu();
     for (let i = 0; i < t.length; i++) {
-      const r = t[i];
+      let r = t[i];
       if (r.active && r.playerId == e) {
         return r;
       }
@@ -7867,7 +7867,7 @@ class Va {
   }
   lNjqwJ(e, t, i, r) {
     if (t) {
-      const a = re[e.type];
+      let a = re[e.type];
       this.type = e.type;
       this.pos = n.copy(e.pos);
       this.rot = z.oriToRad(e.ori);
@@ -7886,12 +7886,12 @@ class Va {
   }
   update(e, t) {
     if (this.hasGore) {
-      const i = re[this.type];
+      let i = re[this.type];
       let r = z.delerp(this.goreKills, i.gore?.fade.start, i.gore?.fade.end);
       r = Math.pow(r, i.gore?.fade.pow);
       this.goreT = this.isNew ? r : z.lerp(e * i.gore?.fade.speed, this.goreT, r);
       if (i.gore?.tint !== undefined) {
-        const a = wt(this.goreT, i.img.tint, i.gore.tint);
+        let a = wt(this.goreT, i.img.tint, i.gore.tint);
         this.decalRender.setTint(a);
       }
       if (i.gore?.alpha !== undefined) {
@@ -7929,19 +7929,19 @@ class Za {
   deactivated;
   fadeout;
   fadeAlpha;
-  constructor() {
+  letructor() {
     this.sprite.anchor.set(0.5, 0.5);
     this.sprite.visible = false;
   }
   init(e, t, i) {
-    const r = re[e.type];
+    let r = re[e.type];
     this.pos = n.copy(e.pos);
     this.rot = e.rot;
     this.scale = e.scale;
     this.layer = e.layer;
     this.zIdx = r.img.zIdx;
     this.zOrd = e.__id;
-    const a = r.img;
+    let a = r.img;
     this.sprite.texture = G.from(a.sprite);
     this.sprite.alpha = 1;
     this.sprite.visible = true;
@@ -7951,7 +7951,7 @@ class Za {
     this.setTint(a.tint);
     this.inWater = false;
     if (r.height < 0.25) {
-      const l = t.getGroundSurface(e.pos, e.layer);
+      let l = t.getGroundSurface(e.pos, e.layer);
       this.inWater = l.type == "water";
     }
     this.flicker = r.img.flicker;
@@ -7996,8 +7996,8 @@ class Za {
         this.flickerCooldown -= e;
       }
     }
-    const r = t.JDbtXa(this.pos);
-    const a = t.Jjwns(this.scale * this.imgScale);
+    let r = t.JDbtXa(this.pos);
+    let a = t.Jjwns(this.scale * this.imgScale);
     this.sprite.position.set(r.x, r.y);
     this.sprite.scale.set(a, a);
     this.sprite.rotation = -this.rot;
@@ -8011,7 +8011,7 @@ class Ji {
   allocDecalRender() {
     let e = null;
     for (let t = 0; t < this.decalRenders.length; t++) {
-      const i = this.decalRenders[t];
+      let i = this.decalRenders[t];
       if (!i.active) {
         e = i;
         break;
@@ -8024,15 +8024,15 @@ class Ji {
     return e;
   }
   PEHQLt(e, t, i, r) {
-    const a = this.decalPool.idcTHu();
+    let a = this.decalPool.idcTHu();
     for (let l = 0; l < a.length; l++) {
-      const s = a[l];
+      let s = a[l];
       if (s.active) {
         s.update(e);
       }
     }
     for (let l = 0; l < this.decalRenders.length; l++) {
-      const s = this.decalRenders[l];
+      let s = this.decalRenders[l];
       if (s.active) {
         s.update(e, t, i);
       }
@@ -8048,7 +8048,7 @@ class Xa {
   particle;
   ticker;
   colCount;
-  constructor() {
+  letructor() {
     this.active = false;
   }
   init(e, t, i, r) {
@@ -8061,29 +8061,29 @@ class Xa {
     this.active = true;
   }
   update(e, t, i) {
-    const r = n.copy(this.pos);
+    let r = n.copy(this.pos);
     this.pos = n.add(this.pos, n.mul(this.vel, e));
     this.vel = n.mul(this.vel, 1 / (1 + e * 5));
-    const a = [];
-    const l = t.fBXVaI.idcTHu();
+    let a = [];
+    let l = t.fBXVaI.idcTHu();
     for (let d = 0; d < l.length; d++) {
-      const h = l[d];
+      let h = l[d];
       if (h.active && !h.dead && g.sameLayer(this.layer, h.layer)) {
         a.push(h.collider);
       }
     }
-    const s = i.playerPool.idcTHu();
+    let s = i.playerPool.idcTHu();
     for (let d = 0; d < s.length; d++) {
-      const h = s[d];
+      let h = s[d];
       if (h.active && !h.dead && g.sameLayer(this.layer, h.layer)) {
         a.push(X.createCircle(h.aznZwb, h.LnvK, 0));
       }
     }
-    const m = [];
+    let m = [];
     for (let d = 0; d < a.length; d++) {
-      const h = X.intersectSegment(a[d], r, this.pos);
+      let h = X.intersectSegment(a[d], r, this.pos);
       if (h) {
-        const p = n.length(n.sub(h.point, r));
+        let p = n.length(n.sub(h.point, r));
         m.push({
           point: h.point,
           normal: h.normal,
@@ -8093,11 +8093,11 @@ class Xa {
     }
     m.sort((d, h) => d.dist - h.dist);
     if (m.length > 0) {
-      const d = m[0];
-      const h = n.normalizeSafe(this.vel, n.create(1, 0));
-      const p = n.length(this.vel);
-      const w = n.sub(h, n.mul(d.normal, n.dot(d.normal, h) * 2));
-      const f = this.colCount++ > 0 ? 0.35 : 1;
+      let d = m[0];
+      let h = n.normalizeSafe(this.vel, n.create(1, 0));
+      let p = n.length(this.vel);
+      let w = n.sub(h, n.mul(d.normal, n.dot(d.normal, h) * 2));
+      let f = this.colCount++ > 0 ? 0.35 : 1;
       this.pos = n.add(d.point, n.mul(d.normal, 0.01));
       this.vel = n.mul(w, p * f);
     }
@@ -8119,12 +8119,12 @@ class Wa {
   lifetime;
   soundInstance;
   soundUpdateThrottle;
-  constructor(e) {
+  letructor(e) {
     this.active = false;
   }
   init(e, t, i) {
-    const r = Wt[e].explosionEffectType;
-    const a = hi[r];
+    let r = Wt[e].explosionEffectType;
+    let a = hi[r];
     this.active = true;
     this.done = false;
     this.type = e;
@@ -8139,26 +8139,26 @@ class Wa {
     this.active = false;
   }
   update(e, t, i, r, a, l) {
-    const s = Wt[this.type].explosionEffectType;
-    const m = hi[s];
+    let s = Wt[this.type].explosionEffectType;
+    let m = hi[s];
     if (this.ticker == 0) {
       let p = true;
       if (this.type == "explosion_bomb_iron") {
-        const y = X.createCircle(this.pos, 0.5);
+        let y = X.createCircle(this.pos, 0.5);
         if (a.insideBuildingCeiling(y, true)) {
           p = false;
         }
       }
       if (p && (m.burst.particle && i.addParticle(m.burst.particle, this.layer, this.pos, n.create(0, 0), m.burst.scale, 0, null), m.scatter)) {
         for (let y = 0; y < m.scatter.count; y++) {
-          const C = i.addParticle(m.scatter.particle, this.layer, this.pos, n.create(0, 0), 1, 0, null);
-          const P = t.addPhysicsParticle();
-          const k = n.mul(n.randomUnit(), g.random(m.scatter.speed.min, m.scatter.speed.max));
+          let C = i.addParticle(m.scatter.particle, this.layer, this.pos, n.create(0, 0), 1, 0, null);
+          let P = t.addPhysicsParticle();
+          let k = n.mul(n.randomUnit(), g.random(m.scatter.speed.min, m.scatter.speed.max));
           P.init(this.pos, k, this.layer, C);
         }
       }
-      const w = a.getGroundSurface(this.pos, this.layer);
-      const f = w.type == "water" ? m.burst.sound.water : m.burst.sound.grass;
+      let w = a.getGroundSurface(this.pos, this.layer);
+      let f = w.type == "water" ? m.burst.sound.water : m.burst.sound.grass;
       let S = 0;
       if (m.burst.sound.detune != null) {
         S = m.burst.sound.detune;
@@ -8179,8 +8179,8 @@ class Wa {
       });
       if (w.type == "water") {
         for (let y = 0; y < m.rippleCount; y++) {
-          const C = m.rippleCount * 0.5;
-          const P = n.add(this.pos, n.mul(n.randomUnit(), g.random(0, C)));
+          let C = m.rippleCount * 0.5;
+          let P = n.add(this.pos, n.mul(n.randomUnit(), g.random(0, C)));
           i.addRippleParticle(P, this.layer, w.data.rippleColor).setDelay(y * 0.06);
         }
       }
@@ -8200,8 +8200,8 @@ class Wa {
       this.soundUpdateThrottle -= e;
     }
     this.ticker += e;
-    const d = z.min(this.ticker / m.shakeDur, 1);
-    const h = z.lerp(d, m.shakeStr, 0);
+    let d = z.min(this.ticker / m.shakeDur, 1);
+    let h = z.lerp(d, m.shakeStr, 0);
     l.NTm(this.pos, h);
     if (this.ticker >= this.lifetime) {
       this.active = false;
@@ -8211,7 +8211,7 @@ class Wa {
 class Ha {
   explosions;
   physicsParticles;
-  constructor() {
+  letructor() {
     this.explosions = [];
     this.physicsParticles = [];
   }
@@ -8232,7 +8232,7 @@ class Ha {
   addPhysicsParticle() {
     let e = null;
     for (let t = 0; t < this.physicsParticles.length; t++) {
-      const i = this.physicsParticles[t];
+      let i = this.physicsParticles[t];
       if (!i.active) {
         e = i;
         break;
@@ -8246,7 +8246,7 @@ class Ha {
   }
   PEHQLt(e, t, i, r, a, l, s) {
     for (let m = 0; m < this.explosions.length; m++) {
-      const d = this.explosions[m];
+      let d = this.explosions[m];
       if (d.active) {
         d.update(e, this, a, l, t, r);
         if (!d.active) {
@@ -8255,14 +8255,14 @@ class Ha {
       }
     }
     for (let m = 0; m < this.physicsParticles.length; m++) {
-      const d = this.physicsParticles[m];
+      let d = this.physicsParticles[m];
       if (d.active) {
         d.update(e, t, i);
       }
     }
   }
 }
-const hi = {
+let hi = {
   frag: {
     burst: {
       particle: "explosionBurst",
@@ -8582,10 +8582,10 @@ class Ga {
       r.trailContainer.addChild(r.bulletTrail);
       this.bullets.push(r);
     }
-    const a = nt[e.bulletType];
-    const l = 1 + e.varianceT * a.variance;
-    const s = z.remap(e.distAdjIdx, 0, 32, -1, 1);
-    const m = a.distance / Math.pow(R.bullet.reflectDistDecay, e.reflectCount);
+    let a = nt[e.bulletType];
+    let l = 1 + e.varianceT * a.variance;
+    let s = z.remap(e.distAdjIdx, 0, 32, -1, 1);
+    let m = a.distance / Math.pow(R.bullet.reflectDistDecay, e.reflectCount);
     r.alive = true;
     r.isNew = true;
     r.collided = false;
@@ -8599,15 +8599,15 @@ class Ga {
     r.layer = e.layer;
     r.speed = a.speed * l;
     r.distance = m * l + s;
-    const d = Math.atan2(r.dir.x, r.dir.y);
+    let d = Math.atan2(r.dir.x, r.dir.y);
     r.flareContainer.rotation = d - Math.PI / 2;
     r.trailContainer.rotation = d - Math.PI / 2;
     r.layer = e.layer;
-    const h = t.getPlayerById(r.playerId);
+    let h = t.getPlayerById(r.playerId);
     if (h && h.layer & 2) {
       r.layer |= 2;
     }
-    const p = R.tracerColors[a.tracerColor];
+    let p = R.tracerColors[a.tracerColor];
     let w = p.regular;
     if (h?.isOnBrightSurface) {
       w = p.saturated;
@@ -8628,7 +8628,7 @@ class Ga {
   }
   PEHQLt(e, t, i, r, a, l, s, m) {
     for (let d = 0; d < this.bullets.length; d++) {
-      const h = this.bullets[d];
+      let h = this.bullets[d];
       if (h.collided) {
         h.flareScale = z.max(h.flareScale - e * 0.5, 0);
         h.flare.alpha = z.max(h.flare.alpha - e, 0);
@@ -8643,7 +8643,7 @@ class Ga {
       }
       if (h.alive) {
         if (h.tracerAlphaRate) {
-          const S = a.__id == h.playerId ? h.tracerAlphaRate : h.tracerAlphaRate * 0.9;
+          let S = a.__id == h.playerId ? h.tracerAlphaRate : h.tracerAlphaRate * 0.9;
           h.bulletTrail.alpha = z.max(h.tracerAlphaMin, h.bulletTrail.alpha * S);
         }
         h.timeAlive += e;
@@ -8653,8 +8653,8 @@ class Ga {
         } else {
           h.smokeThrottle -= e;
         }
-        const p = h.distance - n.length(n.sub(h.startPos, h.pos));
-        const w = z.min(p, e * h.speed);
+        let p = h.distance - n.length(n.sub(h.startPos, h.pos));
+        let w = z.min(p, e * h.speed);
         h.pos = n.add(h.pos, n.mul(h.dir, w));
         if (z.eqAbs(p, w)) {
           h.collided = true;
@@ -8672,15 +8672,15 @@ class Ga {
   }
   lXaw(e) {
     for (let t = 0; t < this.bullets.length; t++) {
-      const i = this.bullets[t];
+      let i = this.bullets[t];
       if (i.alive || i.collided) {
-        const r = e.JDbtXa(i.pos);
+        let r = e.JDbtXa(i.pos);
         i.flareContainer.position.set(r.x, r.y);
-        const a = e.Jjwns(1);
+        let a = e.Jjwns(1);
         i.flareContainer.scale.set(a * i.flareScale, a * i.flareScale);
-        const l = n.length(n.sub(i.pos, i.startPos));
+        let l = n.length(n.sub(i.pos, i.startPos));
         i.trailContainer.position.set(r.x, r.y);
-        const s = z.min(i.tracerLength * 15, l / 2);
+        let s = z.min(i.tracerLength * 15, l / 2);
         i.trailContainer.scale.set(a * s * i.trailScale, a);
       }
     }
@@ -8707,7 +8707,7 @@ class Ua {
   ownerId;
   rad;
   imgScale;
-  constructor() {
+  letructor() {
     this.container.anchor.set(0.5, 0.5);
     this.container.scale.set(1, 1);
     this.sprite.anchor.set(0.5, 0.5);
@@ -8741,7 +8741,7 @@ class Ua {
       this.ownerId = e.hasOwner ? e.ownerId : 0;
     }
     if (i) {
-      const a = B[this.type];
+      let a = B[this.type];
       this.ticker = 0;
       if (this.isOld) {
         this.ticker = 10;
@@ -8751,7 +8751,7 @@ class Ua {
       }
       this.rad = R.lootRadius[a.type];
       this.imgScale = a.lootImg?.scale * 1.25;
-      const l = a.lootImg.innerScale || 0.8;
+      let l = a.lootImg.innerScale || 0.8;
       this.sprite.scale.set(l, l);
       this.sprite.texture = G.from(a.lootImg?.sprite);
       this.sprite.tint = a.lootImg?.tint;
@@ -8759,7 +8759,7 @@ class Ua {
       if (this.isPreloadedGun) {
         this.container.texture = G.from("loot-circle-outer-06.img");
       }
-      const s = B[a.ammo];
+      let s = B[a.ammo];
       if (s) {
         this.container.tint = s.lootImg.tintDark;
       } else if (a.lootImg.borderTint) {
@@ -8788,15 +8788,15 @@ class $a {
   PEHQLt(e, t, i, r, a, l) {
     this.closestLoot = null;
     let s = Number.MAX_VALUE;
-    const m = this.lootPool.idcTHu();
+    let m = this.lootPool.idcTHu();
     for (let d = 0; d < m.length; d++) {
-      const h = m[d];
+      let h = m[d];
       if (h.active) {
         if (g.sameLayer(h.layer, t.layer) && !t.iDmhea.XRQji && (h.ownerId == 0 || h.ownerId == t.__id)) {
-          const y = h.pos;
-          const C = v.touch ? t.LnvK + h.rad * R.player.touchLootRadMult : h.rad;
-          const P = n.sub(t.aznZwb, y);
-          const k = n.lengthSqr(P);
+          let y = h.pos;
+          let C = v.touch ? t.LnvK + h.rad * R.player.touchLootRadMult : h.rad;
+          let P = n.sub(t.aznZwb, y);
+          let k = n.lengthSqr(P);
           if (k < C * C && k < s) {
             s = k;
             this.closestLoot = h;
@@ -8806,7 +8806,7 @@ class $a {
         if (h.playDropSfx) {
           i.lootDropSfxIds.push(h.__id);
           h.playDropSfx = false;
-          const y = B[h.type];
+          let y = B[h.type];
           r.playSound(y.sound?.drop, {
             channel: "sfx",
             soundPos: h.pos,
@@ -8818,16 +8818,16 @@ class $a {
           h.emitter.pos = n.add(h.pos, n.create(0, 0.1));
           h.emitter.layer = h.layer;
         }
-        const p = z.delerp(h.ticker, 0, 1);
-        const w = z.easeOutElastic(p, 0.75);
+        let p = z.delerp(h.ticker, 0, 1);
+        let w = z.easeOutElastic(p, 0.75);
         let f = h.pos;
         if (a.rTq) {
           h.posInterpTicker += e;
-          const y = z.clamp(h.posInterpTicker / a.UUHe, 0, 1);
+          let y = z.clamp(h.posInterpTicker / a.UUHe, 0, 1);
           f = n.lerp(y, h.visualPosOld, h.pos);
         }
-        const S = a.JDbtXa(f);
-        const x = a.Jjwns(h.imgScale * w);
+        let S = a.JDbtXa(f);
+        let x = a.Jjwns(h.imgScale * w);
         if (v.debug && l.loot && t.layer === h.layer) {
           me.addCircle(h.pos, h.rad, 16711680, 0);
         }
@@ -8841,7 +8841,7 @@ class $a {
   }
 }
 class o {
-  constructor(e, t) {
+  letructor(e, t) {
     this.min = e;
     this.max = t;
   }
@@ -8890,13 +8890,13 @@ class ci {
   alphaInEnd;
   emitterIdx;
   valueAdjust;
-  constructor() {
+  letructor() {
     this.sprite.anchor.set(0.5, 0.5);
     this.sprite.scale.set(1, 1);
     this.sprite.visible = false;
   }
   init(e, t, i, r, a, l, s, m, d, h) {
-    const p = Ot[t];
+    let p = Ot[t];
     this.active = true;
     this.ticker = 0;
     if (m) {
@@ -8927,7 +8927,7 @@ class ci {
     this.alphaInStart = this.alphaIn ? we(p.alphaIn?.start) : 0;
     this.alphaInEnd = this.alphaIn ? we(p.alphaIn?.end) : 0;
     this.emitterIdx = -1;
-    const w = Array.isArray(p.image) ? p.image[Math.floor(Math.random() * p.image.length)] : p.image;
+    let w = Array.isArray(p.image) ? p.image[Math.floor(Math.random() * p.image.length)] : p.image;
     this.sprite.texture = G.from(w);
     this.sprite.visible = false;
     this.valueAdjust = p.ignoreValueAdjust ? 1 : h;
@@ -8965,7 +8965,7 @@ class Ka {
   rateMult;
   zOrd;
   init(e, t = {}) {
-    const i = Qi[e];
+    let i = Qi[e];
     this.active = true;
     this.enabled = true;
     this.type = e;
@@ -8981,7 +8981,7 @@ class Ka {
     this.parent = t.parent || null;
     this.alpha = 1;
     this.rateMult = t.rateMult !== undefined ? t.rateMult : 1;
-    const r = Ot[i.particle];
+    let r = Ot[i.particle];
     this.zOrd = i.zOrd !== undefined ? i.zOrd : r.zOrd !== undefined ? r.zOrd : 20;
   }
   free() {
@@ -8992,7 +8992,7 @@ class Ka {
   }
 }
 class Ki {
-  constructor(e) {
+  letructor(e) {
     this.renderer = e;
     for (let t = 0; t < 256; t++) {
       this.particles[t] = new ci();
@@ -9006,7 +9006,7 @@ class Ki {
   }
   HJMxT() {
     for (let e = 0; e < this.particles.length; e++) {
-      const t = this.particles[e].sprite;
+      let t = this.particles[e].sprite;
       t.parent?.removeChild(t);
       t.destroy({
         children: true
@@ -9032,7 +9032,7 @@ class Ki {
     return d;
   }
   addRippleParticle(e, t, i) {
-    const r = this.addParticle("waterRipple", t, e, n.create(0, 0), 1, 0, null);
+    let r = this.addParticle("waterRipple", t, e, n.create(0, 0), 1, 0, null);
     r.setColor(i);
     return r;
   }
@@ -9053,23 +9053,23 @@ class Ki {
   }
   PEHQLt(e, t, i) {
     for (let r = 0; r < this.emitters.length; r++) {
-      const a = this.emitters[r];
+      let a = this.emitters[r];
       if (a.active && a.enabled) {
         a.ticker += e;
         a.nextSpawn -= e;
-        const l = Qi[a.type];
+        let l = Qi[a.type];
         while (a.nextSpawn <= 0 && a.spawnCount < l.maxCount) {
-          const s = a.scale * a.radius;
-          const m = n.add(a.pos, g.randomPointInCircle(s));
-          const d = n.rotate(a.dir, (Math.random() - 0.5) * l.angle);
-          const h = n.mul(d, we(l.speed));
-          const p = we(l.rot);
-          const w = this.addParticle(l.particle, a.layer, m, h, a.scale, p, a.parent, a.zOrd);
+          let s = a.scale * a.radius;
+          let m = n.add(a.pos, g.randomPointInCircle(s));
+          let d = n.rotate(a.dir, (Math.random() - 0.5) * l.angle);
+          let h = n.mul(d, we(l.speed));
+          let p = we(l.rot);
+          let w = this.addParticle(l.particle, a.layer, m, h, a.scale, p, a.parent, a.zOrd);
           w.emitterIdx = r;
           let f = we(l.rate);
           if (l.maxRate) {
-            const S = z.easeInExpo(z.min(1, a.ticker / l.maxElapsed));
-            const x = we(l.maxRate);
+            let S = z.easeInExpo(z.min(1, a.ticker / l.maxElapsed));
+            let x = we(l.maxRate);
             f = z.lerp(S, f, x);
           }
           a.nextSpawn += f * a.rateMult;
@@ -9081,9 +9081,9 @@ class Ki {
       }
     }
     for (let r = 0; r < this.particles.length; r++) {
-      const a = this.particles[r];
+      let a = this.particles[r];
       if (a.active && (a.ticker += e, a.ticker >= a.delay)) {
-        const l = z.min((a.ticker - a.delay) / a.life, 1);
+        let l = z.min((a.ticker - a.delay) / a.life, 1);
         a.vel = n.mul(a.vel, 1 / (1 + e * a.drag));
         a.pos = n.add(a.pos, n.mul(a.vel, e));
         a.rotVel *= 1 / (1 + e * a.rotDrag);
@@ -9094,7 +9094,7 @@ class Ki {
         if (a.alphaUseExp) {
           a.alpha = z.max(a.alpha + e * a.alphaExp, 0);
         }
-        const s = a.hasParent ? a.pos : t.JDbtXa(a.pos);
+        let s = a.hasParent ? a.pos : t.JDbtXa(a.pos);
         let m = a.scaleUseExp ? a.scale : z.remap(l, a.def.scale.lerp?.min, a.def.scale.lerp?.max, a.scale, a.scaleEnd);
         let d = a.alphaUseExp ? a.alpha : z.remap(l, a.def.alpha.lerp?.min, a.def.alpha.lerp?.max, a.alpha, a.alphaEnd);
         if (a.alphaIn && l < a.def.alphaIn?.lerp?.max) {
@@ -9118,7 +9118,7 @@ class Ki {
     }
   }
 }
-const Ot = {
+let Ot = {
   archwayBreak: {
     image: ["part-panel-01.img"],
     life: new o(0.5, 1.5),
@@ -11661,7 +11661,7 @@ const Ot = {
     ignoreValueAdjust: true
   }
 };
-const Qi = {
+let Qi = {
   smoke_barrel: {
     particle: "explosionSmoke",
     rate: new o(0.2, 0.3),
@@ -11923,10 +11923,10 @@ const Qi = {
     maxCount: Number.MAX_VALUE
   }
 };
-const Qa = 1.25;
-const Dt = 0.75;
-const Ya = 0.75;
-const Yi = 2;
+let Qa = 1.25;
+let Dt = 0.75;
+let Ya = 0.75;
+let Yi = 2;
 class es {
   active = false;
   sprite = new ee();
@@ -11945,7 +11945,7 @@ class es {
   config;
   rad;
   planeSound;
-  constructor() {
+  letructor() {
     this.sprite.anchor.set(0.5, 0.5);
     this.sprite.visible = false;
   }
@@ -11988,7 +11988,7 @@ class es {
   }
 }
 class ts {
-  constructor(e) {
+  letructor(e) {
     this.container = e;
     e.addChild(this.gfx);
   }
@@ -12019,11 +12019,11 @@ class ts {
     }
   }
   render(e, t, i) {
-    const r = e.getMapPosFromWorldPos(this.pos, t);
-    const a = e.getMapPosFromWorldPos(n.add(this.pos, n.create(this.rad, 0)), t);
-    const l = n.length(n.sub(a, r));
-    const s = !n.eq(this.renderPos, r, 0.0001);
-    const m = !z.eqAbs(this.renderRad, l, 0.0001);
+    let r = e.getMapPosFromWorldPos(this.pos, t);
+    let a = e.getMapPosFromWorldPos(n.add(this.pos, n.create(this.rad, 0)), t);
+    let l = n.length(n.sub(a, r));
+    let s = !n.eq(this.renderPos, r, 0.0001);
+    let m = !z.eqAbs(this.renderRad, l, 0.0001);
     if (s) {
       this.renderPos = n.copy(r);
     }
@@ -12040,12 +12040,12 @@ class ts {
       this.gfx.drawCircle(0, 0, this.renderRad);
       this.gfx.endFill();
     }
-    const d = z.smoothstep(this.ticker, 0, 0.5) * (1 - z.smoothstep(this.ticker, this.duration - 0.5, this.duration));
+    let d = z.smoothstep(this.ticker, 0, 0.5) * (1 - z.smoothstep(this.ticker, this.duration - 0.5, this.duration));
     this.gfx.alpha = d;
   }
 }
 class is {
-  constructor(e) {
+  letructor(e) {
     this.audioManager = e;
   }
   planes = [];
@@ -12061,10 +12061,10 @@ class is {
       this.planes[i].dirty = true;
     }
     for (let i = 0; i < e.length; i++) {
-      const r = e[i];
+      let r = e[i];
       let a = null;
       for (let l = 0; l < this.planes.length; l++) {
-        const s = this.planes[l];
+        let s = this.planes[l];
         if (s.active && s.id == r.id) {
           a = s;
           break;
@@ -12075,7 +12075,7 @@ class is {
       a.actionComplete = r.actionComplete;
     }
     for (let i = 0; i < this.planes.length; i++) {
-      const r = this.planes[i];
+      let r = this.planes[i];
       if (r.active && r.dirty) {
         r.HJMxT(this.audioManager);
       }
@@ -12113,7 +12113,7 @@ class is {
   }
   PEHQLt(e, t, i, r, a) {
     for (let l = 0; l < this.planes.length; l++) {
-      const s = this.planes[l];
+      let s = this.planes[l];
       if (s.active) {
         let m = 0;
         if ((g.sameLayer(m, i.layer) || i.layer & 2) && (!(i.layer & 2) || !r.insideStructureMask(X.createCircle(s.pos, 1)))) {
@@ -12139,11 +12139,11 @@ class is {
             s.soundUpdateThrottle -= e;
           }
         } else {
-          const f = n.length(n.sub(i.aznZwb, s.pos));
-          const S = s.config.soundRangeMax * s.config.soundRangeMult;
+          let f = n.length(n.sub(i.aznZwb, s.pos));
+          let S = s.config.soundRangeMax * s.config.soundRangeMult;
           let x = 0;
           if (s.type == R.Plane.Airstrike) {
-            const k = z.max(150, f);
+            let k = z.max(150, f);
             x = (1 - z.clamp(z.max(0, k) / 800, 0, 1)) * 2.25;
           }
           if (f < S) {
@@ -12160,9 +12160,9 @@ class is {
           }
         }
         a.addPIXIObj(s.sprite, m, 1501, s.id);
-        const d = t.JDbtXa(s.pos);
-        const h = t.Jjwns(s.rad / t.HrSNF);
-        const p = r.insideBuildingCeiling(X.createCircle(i.aznZwb, 0.01), true);
+        let d = t.JDbtXa(s.pos);
+        let h = t.Jjwns(s.rad / t.HrSNF);
+        let p = r.insideBuildingCeiling(X.createCircle(i.aznZwb, 0.01), true);
         let w = s.alpha;
         if (i.layer == 1) {
           w = 0;
@@ -12178,7 +12178,7 @@ class is {
       }
     }
     for (let l = 0; l < this.airstrikeZones.length; l++) {
-      const s = this.airstrikeZones[l];
+      let s = this.airstrikeZones[l];
       if (s.active) {
         s.PEHQLt(e);
       }
@@ -12186,7 +12186,7 @@ class is {
   }
   renderAirstrikeZones(e, t, i) {
     for (let r = 0; r < this.airstrikeZones.length; r++) {
-      const a = this.airstrikeZones[r];
+      let a = this.airstrikeZones[r];
       if (a.active) {
         a.render(e, t, i);
       }
@@ -12207,7 +12207,7 @@ function Q(u, e, t) {
   };
 }
 class I {
-  constructor(e = n.create(0, 0), t = 0, i = n.create(0, 0)) {
+  letructor(e = n.create(0, 0), t = 0, i = n.create(0, 0)) {
     this.pivot = e;
     this.rot = t;
     this.pos = i;
@@ -12230,7 +12230,7 @@ class I {
   }
   static identity = new I(n.create(0, 0));
   static lerp(e, t, i) {
-    const r = new I();
+    let r = new I();
     r.pos = n.lerp(e, t.pos, i.pos);
     r.rot = z.lerp(e, t.rot, i.rot);
     r.pivot = n.lerp(e, t.pivot, i.pivot);
@@ -12245,7 +12245,7 @@ var Pe = (u => {
   return u;
 })(Pe || {});
 Ri(Object.keys(Pe).length % 2 == 0);
-const ui = {
+let ui = {
   fists: {
     0: new I(n.create(14, -12.25)),
     1: new I(n.create(14, 12.25))
@@ -12305,8 +12305,8 @@ const ui = {
     3: new I(n.create(-15.75, 9))
   }
 };
-const H = B;
-const rs = {
+let H = B;
+let rs = {
   none: {
     keyframes: [],
     effects: []
@@ -12604,7 +12604,7 @@ const rs = {
     effects: []
   }
 };
-const er = {
+let er = {
   "proj-frag-nopin-01.img": "proj-frag-nopin-02.img",
   "proj-frag-nopin-nolever-01.img": "proj-frag-nopin-nolever-02.img",
   "proj-frag-pin-01.img": "proj-frag-pin-02.img",
@@ -12644,7 +12644,7 @@ class as {
   strobeTicker;
   strobeDir;
   strobeSpeed;
-  constructor() {
+  letructor() {
     this.container.visible = false;
     this.trail.anchor.set(1, 0.5);
     this.trail.scale.set(1, 1);
@@ -12665,7 +12665,7 @@ class as {
   }
   lNjqwJ(e, t, i, r) {
     if (t) {
-      const a = B[e.type];
+      let a = B[e.type];
       this.layer = e.layer;
       this.type = e.type;
       this.rad = a.rad * 0.5;
@@ -12680,8 +12680,8 @@ class as {
     this.posZ = e.posZ;
     this.dir = n.copy(e.dir);
     if (i) {
-      const a = B[e.type];
-      const l = a.worldImg;
+      let a = B[e.type];
+      let l = a.worldImg;
       this.imgScale = l.scale;
       this.rot = 0;
       this.rotVel = a.throwPhysics.spinVel;
@@ -12698,7 +12698,7 @@ class as {
       let s = true;
       if (this.type == "bomb_iron") {
         this.alwaysRenderOntop = true;
-        const d = X.createCircle(this.pos, 0.5);
+        let d = X.createCircle(this.pos, 0.5);
         if (r.map.insideBuildingCeiling(d, true)) {
           s = false;
         }
@@ -12729,7 +12729,7 @@ class as {
     }
   }
 }
-const ss = {
+let ss = {
   grass: "frag_grass",
   sand: "frag_sand",
   water: "frag_water"
@@ -12737,33 +12737,33 @@ const ss = {
 class os {
   projectilePool = new be(as);
   PEHQLt(e, t, i, r, a, l, s) {
-    const m = this.projectilePool.idcTHu();
+    let m = this.projectilePool.idcTHu();
     for (let d = 0; d < m.length; d++) {
-      const h = m[d];
+      let h = m[d];
       if (h.active) {
-        const p = B[h.type];
+        let p = B[h.type];
         let w = h.rotDrag;
         if (h.inWater) {
           w *= 3;
         }
         h.rotVel *= 1 / (1 + e * w);
         h.rot += h.rotVel * e;
-        const f = {
+        let f = {
           obj: null,
           pen: 0
         };
-        const S = {
+        let S = {
           obj: null,
           pen: 0
         };
-        const x = X.createCircle(h.pos, h.rad);
-        const y = a.fBXVaI.idcTHu();
+        let x = X.createCircle(h.pos, h.rad);
+        let y = a.fBXVaI.idcTHu();
         for (let Z = 0; Z < y.length; Z++) {
-          const O = y[Z];
+          let O = y[Z];
           if (O.active && !O.dead && g.sameLayer(O.layer, h.layer)) {
-            const N = X.intersect(O.collider, x);
+            let N = X.intersect(O.collider, x);
             if (N) {
-              const U = O.height > h.posZ ? f : S;
+              let U = O.height > h.posZ ? f : S;
               if (N.pen > U.pen && (!U.obj || U.obj.height <= O.height)) {
                 U.obj = O;
                 U.pen = N.pen;
@@ -12771,24 +12771,24 @@ class os {
             }
           }
         }
-        const C = n.div(n.sub(h.pos, h.posOld), e);
-        const P = n.length(C);
+        let C = n.div(n.sub(h.pos, h.posOld), e);
+        let P = n.length(C);
         if (f.obj && f.obj.__id != h.lastSoundObjId && P > 7.5 && (h.lastSoundObjId = f.obj.__id, h.playHitSfx)) {
-          const Z = n.mul(n.normalizeSafe(C, n.create(1, 0)), -1);
-          const O = re[f.obj.type];
+          let Z = n.mul(n.normalizeSafe(C, n.create(1, 0)), -1);
+          let O = re[f.obj.type];
           Ct(O.hitParticle, O.sound.bullet, h.pos, Z, h.layer, t, i);
         }
-        const k = a.getGroundSurface(h.pos, h.layer);
+        let k = a.getGroundSurface(h.pos, h.layer);
         if (h.posZ <= 0.01) {
           if (!h.inWater && k.type == "water") {
             t.addRippleParticle(h.pos, h.layer, k.data.rippleColor);
           }
           h.inWater = k.type == "water";
         }
-        const b = h.velZ;
+        let b = h.velZ;
         h.velZ = (h.posZ - h.posZOld) / e;
         if (!h.isNew && !h.grounded && h.velZ >= 0 && b < 0) {
-          const Z = {
+          let Z = {
             fn: "playGroup",
             channel: "hits",
             name: ""
@@ -12796,7 +12796,7 @@ class os {
           if (S.obj) {
             if (h.lastSoundObjId != S.obj.__id) {
               h.lastSoundObjId = S.obj.__id;
-              const O = re[S.obj.type];
+              let O = re[S.obj.type];
               Z.name = O.sound.bullet;
             }
           } else {
@@ -12828,8 +12828,8 @@ class os {
         h.sprite.rotation = h.rot;
         h.sprite.alpha = h.inWater ? 0.3 : 1;
         if (p.trail) {
-          const Z = n.length(C);
-          const O = z.remap(Z, p.throwPhysics.speed * 0.25, p.throwPhysics.speed * 1, 0, 1) * z.remap(h.posZ, 0.1, R.projectile.maxHeight * 0.5, 0, 1);
+          let Z = n.length(C);
+          let O = z.remap(Z, p.throwPhysics.speed * 0.25, p.throwPhysics.speed * 1, 0, 1) * z.remap(h.posZ, 0.1, R.projectile.maxHeight * 0.5, 0, 1);
           h.trail.scale.set(p.trail.maxLength * O, p.trail.width);
           h.trail.rotation = -Math.atan2(h.dir.y, h.dir.x);
           h.trail.tint = p.trail.tint;
@@ -12840,9 +12840,9 @@ class os {
         }
         let M = h.layer;
         let E = h.posZ < 0.25 ? 14 : 25;
-        const D = X.createCircle(h.pos, h.rad * 3);
-        const L = a.insideStructureStairs(D);
-        const _ = a.insideStructureMask(D);
+        let D = X.createCircle(h.pos, h.rad * 3);
+        let L = a.insideStructureStairs(D);
+        let _ = a.insideStructureMask(D);
         if (h.posZ >= 0.25 && L && (h.layer & 1) == (r.layer & 1) && (!_ || !(r.layer & 2))) {
           M |= 2;
           E += 100;
@@ -12852,15 +12852,15 @@ class os {
           M |= 2;
         }
         l.addPIXIObj(h.container, M, E);
-        const T = h.imgScale * z.remap(h.posZ, 0, R.projectile.maxHeight, 1, 4.75);
+        let T = h.imgScale * z.remap(h.posZ, 0, R.projectile.maxHeight, 1, 4.75);
         let V = h.pos;
         if (s.rTq) {
           h.posInterpTicker += e;
-          const Z = z.clamp(h.posInterpTicker / s.UUHe, 0, 1);
+          let Z = z.clamp(h.posInterpTicker / s.UUHe, 0, 1);
           V = n.lerp(Z, h.visualPosOld, h.pos);
         }
-        const j = s.JDbtXa(V);
-        const q = s.Jjwns(T);
+        let j = s.JDbtXa(V);
+        let q = s.Jjwns(T);
         h.container.position.set(j.x, j.y);
         h.container.scale.set(q, q);
       }
@@ -12868,7 +12868,7 @@ class os {
   }
 }
 function tr(u, e, t, i, r, a, l, s) {
-  const m = B[u];
+  let m = B[u];
   if (m) {
     let d = n.rotate(r, e);
     if (m.particle.shellForward) {
@@ -12900,8 +12900,8 @@ class ls {
       t = {};
       this.shots.push(t);
     }
-    const i = e.shotSourceType;
-    const r = B[i];
+    let i = e.shotSourceType;
+    let r = B[i];
     t.active = true;
     t.pos = n.copy(e.pos);
     t.layer = e.layer;
@@ -12917,14 +12917,14 @@ class ls {
   }
   PEHQLt(e, t, i, r, a) {
     for (let l = 0; l < this.shots.length; l++) {
-      const s = this.shots[l];
+      let s = this.shots[l];
       if (s.active) {
-        const m = B[s.weaponType];
+        let m = B[s.weaponType];
         if (s.ticker == 0) {
-          const d = i.getPlayerById(s.playerId);
+          let d = i.getPlayerById(s.playerId);
           let h = m.sound.shoot;
           if (m.sound.shootTeam) {
-            const w = i.getPlayerInfo(s.playerId).teamId;
+            let w = i.getPlayerInfo(s.playerId).teamId;
             if (m.sound.shootTeam[w]) {
               h = m.sound.shootTeam[w];
             }
@@ -12964,19 +12964,19 @@ class ls {
           }
           if (d) {
             if (d.__id == t && m.fireMode == "single" && m.pullDelay) {
-              const x = d.alkER.iomTK[d.alkER.rgEC].ammo > 0 ? m.sound.cycle : m.sound.pull;
+              let x = d.alkER.iomTK[d.alkER.rgEC].ammo > 0 ? m.sound.cycle : m.sound.pull;
               a.stopSound(d.cycleSoundInstance);
               d.cycleSoundInstance = a.playSound(x);
             }
-            const w = s.offhand || !m.isDual;
-            const f = !s.offhand || !m.isDual;
+            let w = s.offhand || !m.isDual;
+            let f = !s.offhand || !m.isDual;
             d.addRecoil(m.worldImg.recoil, w, f);
             d.fireDelay = m.fireDelay;
           }
         }
         s.ticker += e;
         if (s.ticker >= s.pullDelay) {
-          const d = i.getPlayerById(s.playerId);
+          let d = i.getPlayerById(s.playerId);
           if (d && !d.iDmhea.XRQji && d.iDmhea.uhf == s.weaponType && m.caseTiming == "shoot") {
             tr(s.weaponType, Math.PI / 2 * -1, 1, d.iDmhea.aznZwb, d.iDmhea.WoDzy, d.renderLayer, d.renderZOrd + 1, r);
           }
@@ -12986,7 +12986,7 @@ class ls {
     }
   }
 }
-const di = 0.1;
+let di = 0.1;
 function ms(u, e) {
   if (u.length != e.length) {
     return false;
@@ -12999,7 +12999,7 @@ function ms(u, e) {
   return true;
 }
 function ns() {
-  const u = {
+  let u = {
     fontFamily: "Arial",
     fontWeight: "bold",
     fontSize: v.pixelRatio > 1 ? 30 : 22,
@@ -13013,7 +13013,7 @@ function ns() {
     dropShadowAngle: Math.PI / 3,
     dropShadowDistance: 1
   };
-  const e = new We("", u);
+  let e = new We("", u);
   e.anchor.set(0.5, 0.5);
   e.scale.set(0.5, 0.5);
   e.position.set(0, 30);
@@ -13021,7 +13021,7 @@ function ns() {
   return e;
 }
 function se() {
-  const u = new ee();
+  let u = new ee();
   u.texture = G.EMPTY;
   u.anchor.set(0.5, 0.5);
   u.scale.set(1, 1);
@@ -13029,14 +13029,14 @@ function se() {
   u.visible = false;
   return u;
 }
-const hs = Object.values(R.scopeZoomRadius.desktop);
-const cs = Object.values(R.scopeZoomRadius.mobile);
+let hs = Object.values(R.scopeZoomRadius.desktop);
+let cs = Object.values(R.scopeZoomRadius.mobile);
 class pi {
   gunBarrel = se();
   gunMag = se();
   container = new Y();
   magTop = false;
-  constructor() {
+  letructor() {
     this.container.addChild(this.gunBarrel);
     this.container.addChild(this.gunMag);
     this.container.rotation = Math.PI * 0.5;
@@ -13046,8 +13046,8 @@ class pi {
     this.container.visible = e;
   }
   setType(e, t) {
-    const i = B[e];
-    const r = i.worldImg;
+    let i = B[e];
+    let r = i.worldImg;
     this.gunBarrel.texture = G.from(r.sprite);
     this.gunBarrel.anchor.set(0.5, 1);
     this.gunBarrel.position.set(0, 0);
@@ -13055,7 +13055,7 @@ class pi {
     this.gunBarrel.tint = r.tint;
     this.gunBarrel.visible = true;
     if (r.magImg) {
-      const l = r.magImg;
+      let l = r.magImg;
       this.gunMag.texture = G.from(l.sprite);
       this.gunMag.anchor.set(0.5, 0.5);
       this.gunMag.position.set(l.pos.x / t, l.pos.y / t);
@@ -13071,7 +13071,7 @@ class pi {
       this.gunMag.visible = false;
     }
     this.magTop = r.magImg?.top;
-    const a = i.isDual ? n.create(-5.95, 0) : n.create(-4.25, -1.75);
+    let a = i.isDual ? n.create(-5.95, 0) : n.create(-4.25, -1.75);
     if (r.gunOffset) {
       a.x += r.gunOffset.x;
       a.y += r.gunOffset.y;
@@ -13190,7 +13190,7 @@ class us {
   lastInsideObstacleTime;
   dead;
   gunSwitchCooldown;
-  constructor() {
+  letructor() {
     this.bodySprite.addChild(this.bodySubmergeSprite);
     this.handLSprite.addChild(this.handLSubmergeSprite);
     this.handRSprite.addChild(this.handRSubmergeSprite);
@@ -13223,7 +13223,7 @@ class us {
     this.container.addChild(this.nameText);
     this.auraContainer.addChild(this.auraCircle);
     this.initSubmergeSprites();
-    const e = Object.keys(Pe).length;
+    let e = Object.keys(Pe).length;
     for (let t = 0; t < e; t++) {
       this.bones.push(new I());
       this.anim.bones.push({
@@ -13367,7 +13367,7 @@ class us {
     }
   }
   wWgxC(e, t) {
-    const i = this.alkER.oupk;
+    let i = this.alkER.oupk;
     if (e.healthDirty) {
       this.alkER.vSiCK = e.health;
     }
@@ -13386,7 +13386,7 @@ class us {
     if (e.inventoryDirty) {
       this.alkER.oupk = e.scope;
       this.alkER.xSjUw = {};
-      for (const r in R.bagSizes) {
+      for (let r in R.bagSizes) {
         if (R.bagSizes.hasOwnProperty(r)) {
           this.alkER.xSjUw[r] = e.inventory[r];
         }
@@ -13396,7 +13396,7 @@ class us {
       this.alkER.rgEC = e.curWeapIdx;
       this.alkER.iomTK = [];
       for (let r = 0; r < R.WeaponSlot.Count; r++) {
-        const a = {
+        let a = {
           type: e.weapons[r].type,
           ammo: e.weapons[r].ammo
         };
@@ -13413,7 +13413,7 @@ class us {
   kEZUyv() {
     let e = this.alkER.HyIw;
     if (v.mobile) {
-      const t = hs.indexOf(e);
+      let t = hs.indexOf(e);
       if (t !== -1) {
         e = cs[t];
       }
@@ -13444,18 +13444,18 @@ class us {
     return this.alkER.iomTK[e].type !== "";
   }
   getMeleeCollider() {
-    const e = B[this.iDmhea.uhf];
-    const t = Math.atan2(this.WoDzy.y, this.WoDzy.x);
-    const i = n.add(e.attack.offset, n.mul(n.create(1, 0), this.iDmhea.jwSSb - 1));
-    const r = n.add(this.aznZwb, n.rotate(i, t));
-    const a = e.attack.rad;
+    let e = B[this.iDmhea.uhf];
+    let t = Math.atan2(this.WoDzy.y, this.WoDzy.x);
+    let i = n.add(e.attack.offset, n.mul(n.create(1, 0), this.iDmhea.jwSSb - 1));
+    let r = n.add(this.aznZwb, n.rotate(i, t));
+    let a = e.attack.rad;
     return X.createCircle(r, a, 0);
   }
   yjoLx() {
     return this.iDmhea.nVe || this.iDmhea.uhf == "pan" && this.currentAnim() != ne.Melee;
   }
   RLnsnZ() {
-    const e = this.iDmhea.nVe ? "unequipped" : "equipped";
+    let e = this.iDmhea.nVe ? "unequipped" : "equipped";
     return B.pan.reflectSurface?.[e];
   }
   canInteract(e) {
@@ -13468,22 +13468,22 @@ class us {
     if (this.perksDirty) {
       if (e && !t) {
         for (let a = 0; a < this.iDmhea.GVf.length; a++) {
-          const l = this.iDmhea.GVf[a];
+          let l = this.iDmhea.GVf[a];
           if (this.perks.findIndex(s => s.type == l.type) === -1) {
             i.addRareLootMessage(l.type);
           }
         }
         for (let a = 0; a < this.perks.length; a++) {
-          const l = this.perks[a];
+          let l = this.perks[a];
           if (this.iDmhea.GVf.findIndex(s => s.type == l.type) === -1) {
             i.removeRareLootMessage(l.type);
           }
         }
       }
-      const r = [];
+      let r = [];
       for (let a = 0; a < this.iDmhea.GVf.length; a++) {
-        const l = this.iDmhea.GVf[a];
-        const s = this.perks.findIndex(m => m.type == l.type) === -1;
+        let l = this.iDmhea.GVf[a];
+        let s = this.perks.findIndex(m => m.type == l.type) === -1;
         r.push({
           type: l.type,
           droppable: l.droppable,
@@ -13502,9 +13502,9 @@ class us {
     return this.perkTypes.includes(e);
   }
   PEHQLt(e, t, i, r, a, l, s, m, d, h, p, w, f) {
-    const S = B[this.iDmhea.uhf];
-    const x = this.__id == h;
-    const y = t.getPlayerById(h);
+    let S = B[this.iDmhea.uhf];
+    let x = this.__id == h;
+    let y = t.getPlayerById(h);
     this.RzFRjI = n.copy(this.aznZwb);
     this.PibIr = n.copy(this.WoDzy);
     this.aznZwb = n.copy(this.iDmhea.aznZwb);
@@ -13514,17 +13514,17 @@ class us {
     this.LnvK = this.iDmhea.jwSSb * R.player.radius;
     if (s.rTq) {
       this.posInterpTicker += e;
-      const O = z.clamp(this.posInterpTicker / s.UUHe, 0, 1);
+      let O = z.clamp(this.posInterpTicker / s.UUHe, 0, 1);
       this.Hxqi = n.lerp(O, this.DBiHo, this.aznZwb);
       this.dirInterpolationTicker += e;
-      const N = z.clamp(this.dirInterpolationTicker / s.UUHe, 0, 1);
+      let N = z.clamp(this.dirInterpolationTicker / s.UUHe, 0, 1);
       this.VliTq = n.lerp(N, this.ZYJh, this.WoDzy);
     } else {
       this.Hxqi = n.copy(this.aznZwb);
       this.VliTq = n.copy(this.WoDzy);
     }
     if (!z.eqAbs(this.LnvK, this.lpy)) {
-      const O = this.LnvK - this.lpy;
+      let O = this.LnvK - this.lpy;
       let N = Math.abs(O) > 0.0001 ? O * e * 6 : O;
       if (this.isNew) {
         N = O;
@@ -13533,49 +13533,49 @@ class us {
       this.visualsDirty = true;
     }
     if (x) {
-      const O = s.iCWER(n.create(s.LCRnPO, 0));
-      const N = n.sub(O, s.aznZwb);
+      let O = s.iCWER(n.create(s.LCRnPO, 0));
+      let N = n.sub(O, s.aznZwb);
       this.viewAabb.min = n.sub(s.aznZwb, N);
       this.viewAabb.max = n.add(s.aznZwb, N);
     }
     this.lCBJrJ(x, f, d);
-    const C = this.weapTypeOld != this.iDmhea.uhf;
+    let C = this.weapTypeOld != this.iDmhea.uhf;
     this.weapTypeOld = this.iDmhea.uhf;
     this.lastThrowablePickupSfxTicker -= e;
     this.noCeilingRevealTicker -= e;
-    const P = t.getPlayerInfo(h).groupId;
-    const k = t.getPlayerInfo(this.__id);
-    const b = k.groupId == P;
+    let P = t.getPlayerInfo(h).groupId;
+    let k = t.getPlayerInfo(this.__id);
+    let b = k.groupId == P;
     this.nameText.text = k.name;
     this.nameText.visible = !x && b;
     let M = null;
     let E = null;
-    const D = i.fBXVaI.idcTHu();
+    let D = i.fBXVaI.idcTHu();
     for (let O = 0; O < D.length; O++) {
-      const N = D[O];
+      let N = D[O];
       if (N.active && !N.dead && N.layer == this.iDmhea.Rpch) {
         if (N.isBush) {
-          const U = this.LnvK * 0.25;
+          let U = this.LnvK * 0.25;
           if (X.intersectCircle(N.collider, this.aznZwb, U)) {
             M = N;
           }
         } else if (N.isDoor) {
-          const U = this.LnvK + 0.25;
-          const te = n.sub(N.pos, this.aznZwb);
-          const ae = n.rotate(n.create(1, 0), N.rot);
+          let U = this.LnvK + 0.25;
+          let te = n.sub(N.pos, this.aznZwb);
+          let ae = n.rotate(n.create(1, 0), N.rot);
           if (X.intersectCircle(N.collider, this.aznZwb, U) && (N.door.locked || N.door.openOneWay && n.dot(te, ae) < 0)) {
             E = N;
           }
         }
       }
     }
-    const L = M != null;
+    let L = M != null;
     if (L) {
       this.insideObstacleType = M?.type;
     }
     this.lastInsideObstacleTime -= e;
     if (this.wasInsideObstacle != L && this.lastInsideObstacleTime < 0 && !this.isNew) {
-      const O = re[this.insideObstacleType];
+      let O = re[this.insideObstacleType];
       this.lastInsideObstacleTime = 0.2;
       r.playSound(O?.sound.enter, {
         channel: "sfx",
@@ -13584,21 +13584,21 @@ class us {
         layer: this.layer,
         filter: "muffled"
       });
-      const N = n.normalizeSafe(n.sub(this.RzFRjI, this.aznZwb), n.create(1, 0));
-      const U = L ? 1 : -1;
-      const te = Math.floor(g.random(3, 5));
+      let N = n.normalizeSafe(n.sub(this.RzFRjI, this.aznZwb), n.create(1, 0));
+      let U = L ? 1 : -1;
+      let te = Math.floor(g.random(3, 5));
       for (let ae = 0; ae < te; ae++) {
-        const ge = n.mul(n.rotate(n.mul(N, U), (Math.random() - 0.5) * Math.PI / 1.5), g.random(6, 8));
+        let ge = n.mul(n.rotate(n.mul(N, U), (Math.random() - 0.5) * Math.PI / 1.5), g.random(6, 8));
         a.addParticle(O.hitParticle, this.layer, this.aznZwb, ge);
       }
     }
     this.wasInsideObstacle = L;
-    const _ = this.isNearDoorError;
+    let _ = this.isNearDoorError;
     this.isNearDoorError = E != null;
     this.doorErrorTicker -= e;
     if (this.isNearDoorError && !_ && this.doorErrorTicker <= 0) {
       this.doorErrorTicker = 0.5;
-      const N = re[E?.type].door?.sound.error;
+      let N = re[E?.type].door?.sound.error;
       r.playSound(N, {
         channel: "sfx",
         soundPos: this.aznZwb,
@@ -13608,7 +13608,7 @@ class us {
       });
     }
     this.surface = i.getGroundSurface(this.aznZwb, this.layer);
-    const T = this.surface.type == "water";
+    let T = this.surface.type == "water";
     this.updateSubmersion(e, i);
     this.updateFrozenState(e);
     if (!this.iDmhea.XRQji) {
@@ -13636,7 +13636,7 @@ class us {
     this.bleedTicker -= e;
     if (!this.iDmhea.XRQji && (this.iDmhea.ZFRZY && this.KXvZTW.type == ie.None || this.EAO("trick_drain")) && this.bleedTicker < 0) {
       this.bleedTicker = this.EAO("trick_drain") ? R.player.bleedTickRate * 3 : R.player.bleedTickRate;
-      const O = n.rotate(n.mul(this.WoDzy, -1), (Math.random() - 0.5) * Math.PI / 3);
+      let O = n.rotate(n.mul(this.WoDzy, -1), (Math.random() - 0.5) * Math.PI / 3);
       O.y *= -1;
       if (!window.CrazyGames) {
         a.addParticle("bloodSplat", this.renderLayer, n.create(0, 0), n.mul(O, s.HrSNF), 1, Math.random() * Math.PI * 2, this.container, this.renderZOrd + 1);
@@ -13654,12 +13654,12 @@ class us {
     this.gunSwitchCooldown -= e;
     this.fireDelay -= e;
     if (x && (C || this.lastSwapIdx != this.alkER.rgEC)) {
-      const O = this.lastSwapIdx;
+      let O = this.lastSwapIdx;
       this.lastSwapIdx = this.alkER.rgEC;
-      const N = B[this.iDmhea.uhf];
+      let N = B[this.iDmhea.uhf];
       if (N.type == "melee" || N.type == "throwable") {
         if (N.type != "throwable" || this.lastThrowablePickupSfxTicker <= 0) {
-          const U = this.isLoadoutAvatar ? s.aznZwb : this.aznZwb;
+          let U = this.isLoadoutAvatar ? s.aznZwb : this.aznZwb;
           r.playSound(N.sound.deploy, {
             channel: "sfx",
             soundPos: U,
@@ -13670,7 +13670,7 @@ class us {
         let U = "gun_switch_01";
         let te = false;
         if ((O == 0 || O == 1) && (this.lastSwapIdx == 0 || this.lastSwapIdx == 1) && this.fireDelay > 0) {
-          const ae = B[this.alkER.iomTK[O].type];
+          let ae = B[this.alkER.iomTK[O].type];
           if (N && ae && N.deployGroup !== undefined && ae.deployGroup !== undefined && N.deployGroup == ae.deployGroup) {
             te = true;
           }
@@ -13712,7 +13712,7 @@ class us {
       this.KXvZTW.throttleTicker = 0.25;
     }
     if (this.iDmhea.jDoL && this.iDmhea.suDV != this.hasteSeq) {
-      const N = {
+      let N = {
         [Oe.None]: {
           particle: "",
           sound: ""
@@ -13769,12 +13769,12 @@ class us {
       this.passiveHealEmitter.zOrd = this.renderZOrd + 1;
     }
     if (x && !f) {
-      const O = this.alkER.rgEC;
-      const N = this.alkER.iomTK[O];
-      const U = B[N.type];
+      let O = this.alkER.rgEC;
+      let N = this.alkER.iomTK[O];
+      let U = B[N.type];
       if (!this.playedDryFire && this.oenro() == "gun" && (l.isBindPressed(A.Fire) || l.isBindDown(A.Fire) && U.fireMode == "auto") && this.KXvZTW.type == ie.None && !p && !U.ammoInfinite) {
-        const te = this.alkER.xSjUw[U.ammo] || 0;
-        const ae = N.ammo;
+        let te = this.alkER.xSjUw[U.ammo] || 0;
+        let ae = N.ammo;
         if (te == 0 && ae == 0) {
           r.playSound(U.sound.empty);
           this.playedDryFire = true;
@@ -13786,7 +13786,7 @@ class us {
     }
     this.gunRecoilL = z.max(0, this.gunRecoilL - this.gunRecoilL * e * 5 - e);
     this.gunRecoilR = z.max(0, this.gunRecoilR - this.gunRecoilR * e * 5 - e);
-    const V = {
+    let V = {
       playerBarn: t,
       map: i,
       audioManager: r,
@@ -13799,11 +13799,11 @@ class us {
     if ((this.currentAnim() == ne.Cook || this.currentAnim() == ne.Throw) && S.type != "throwable") {
       this.playAnim(ne.None, this.anim.seq);
     }
-    const j = this.selectIdlePose();
-    const q = ui[j];
+    let j = this.selectIdlePose();
+    let q = ui[j];
     for (let O = 0; O < this.bones.length; O++) {
-      const N = q[O] || I.identity;
-      const U = this.anim.bones[O];
+      let N = q[O] || I.identity;
+      let U = this.anim.bones[O];
       if (U.weight > 0) {
         this.bones[O].copy(I.lerp(U.weight, N, U.pose));
       } else {
@@ -13822,14 +13822,14 @@ class us {
     this.Zr();
     this.updateRenderLayer(x, y, i);
     m.addPIXIObj(this.auraContainer, this.renderLayer, this.renderZOrd - 1, this.renderZIdx);
-    const Z = y.layer & 2 || (y.layer & 1) == 1 || (this.layer & 1) == 0;
+    let Z = y.layer & 2 || (y.layer & 1) == 1 || (this.layer & 1) == 0;
     this.auraContainer.visible = !this.iDmhea.XRQji && !!Z;
     m.addPIXIObj(this.container, this.renderLayer, this.renderZOrd, this.renderZIdx);
     this.isNew = false;
   }
   render(e, t) {
-    const i = e.JDbtXa(this.Hxqi);
-    const r = e.Jjwns(1);
+    let i = e.JDbtXa(this.Hxqi);
+    let r = e.Jjwns(1);
     this.container.position.set(i.x, i.y);
     this.container.scale.set(r, r);
     this.container.visible = !this.iDmhea.XRQji;
@@ -13837,29 +13837,29 @@ class us {
     this.auraContainer.scale.set(r, r);
     if (v.debug && t.players) {
       me.addCircle(this.aznZwb, this.LnvK, 16711680, 0);
-      const a = B[this.iDmhea.uhf];
+      let a = B[this.iDmhea.uhf];
       if (a.type === "gun") {
         me.addRay(this.aznZwb, this.WoDzy, a.barrelLength, 16711680, 0);
       }
     }
   }
   updateRenderLayer(e, t, i) {
-    const r = X.createCircle(this.aznZwb, R.player.maxVisualRadius);
+    let r = X.createCircle(this.aznZwb, R.player.maxVisualRadius);
     let a = false;
     let l = false;
     let s = false;
-    const m = i.OYF.idcTHu();
+    let m = i.OYF.idcTHu();
     for (let w = 0; w < m.length; w++) {
-      const f = m[w];
+      let f = m[w];
       if (f.active) {
         for (let S = 0; S < f.stairs.length; S++) {
-          const x = f.stairs[S];
-          const y = X.intersect(x.collision, r);
+          let x = f.stairs[S];
+          let y = X.intersect(x.collision, r);
           if (y) {
             l = true;
-            const C = n.add(x.center, n.mul(x.downDir, -2.5));
+            let C = n.add(x.center, n.mul(x.downDir, -2.5));
             let P = n.sub(C, this.aznZwb);
-            const k = n.length(P);
+            let k = n.length(P);
             P = k > 0.0001 ? n.div(P, k) : n.create(1, 0);
             s = it.intersectSegmentDist(i.fBXVaI.idcTHu(), this.aznZwb, P, k, 0.5, this.layer, false) < k;
           }
@@ -13884,24 +13884,24 @@ class us {
       d |= 2;
       h += 100;
     }
-    const p = this.__id + (this.iDmhea.ZFRZY ? 0 : 262144) + (e ? 65536 : 0) + (this.LnvK > 1 ? 131072 : 0);
+    let p = this.__id + (this.iDmhea.ZFRZY ? 0 : 262144) + (e ? 65536 : 0) + (this.LnvK > 1 ? 131072 : 0);
     this.renderLayer = d;
     this.renderZOrd = h;
     this.renderZIdx = p;
   }
   updateVisuals(e, t) {
-    const i = B[this.iDmhea.EqeAzY];
-    const r = i.skinImg;
-    const a = this.lpy / R.player.radius;
+    let i = B[this.iDmhea.EqeAzY];
+    let r = i.skinImg;
+    let a = this.lpy / R.player.radius;
     this.bodySprite.texture = G.from(r.baseSprite);
     this.bodySprite.tint = i.ghillie ? t.getMapDef().biome.colors.playerGhillie : r.baseTint;
     this.bodySprite.scale.set(0.25, 0.25);
     this.bodySprite.visible = true;
     if (this.iDmhea.joaNG && this.updateFrozenImage) {
-      const p = t.getMapDef().biome.frozenSprites || [];
+      let p = t.getMapDef().biome.frozenSprites || [];
       if (p.length > 0) {
-        const w = p[Math.floor(Math.random() * p.length)];
-        const f = z.oriToRad(this.iDmhea.GJz) + Math.PI * 0.5 + (Math.random() - 0.5) * Math.PI * 0.25;
+        let w = p[Math.floor(Math.random() * p.length)];
+        let f = z.oriToRad(this.iDmhea.GJz) + Math.PI * 0.5 + (Math.random() - 0.5) * Math.PI * 0.25;
         this.bodyEffectSprite.texture = G.from(w);
         this.bodyEffectSprite.rotation = f;
         this.bodyEffectSprite.tint = 16777215;
@@ -13910,12 +13910,12 @@ class us {
       this.updateFrozenImage = false;
     }
     if (t.factionMode && !i.ghillie) {
-      const w = e.getPlayerInfo(this.__id).teamId;
-      const f = ["player-patch-01.img", "player-patch-02.img"];
-      const S = (w - 1) % f.length;
-      const x = f[S];
-      const y = R.teamColors[S];
-      const C = z.oriToRad(3) + Math.PI * 0.5;
+      let w = e.getPlayerInfo(this.__id).teamId;
+      let f = ["player-patch-01.img", "player-patch-02.img"];
+      let S = (w - 1) % f.length;
+      let x = f[S];
+      let y = R.teamColors[S];
+      let C = z.oriToRad(3) + Math.PI * 0.5;
       this.patchSprite.texture = G.from(x);
       this.patchSprite.rotation = C;
       this.patchSprite.tint = y;
@@ -13924,23 +13924,23 @@ class us {
     } else {
       this.patchSprite.visible = false;
     }
-    const l = function (p, w, f) {
+    let l = function (p, w, f) {
       p.texture = G.from(w);
       p.scale.set(0.175, 0.175);
       p.tint = f;
       p.visible = true;
     };
-    const s = i.ghillie ? t.getMapDef().biome.colors.playerGhillie : r.handTint;
+    let s = i.ghillie ? t.getMapDef().biome.colors.playerGhillie : r.handTint;
     l(this.handLSprite, r.handSprite, s);
     l(this.handRSprite, r.handSprite, s);
-    const m = function (p, w, f) {
+    let m = function (p, w, f) {
       p.texture = G.from("player-feet-01.img");
       p.scale.set(0.45, 0.45);
       p.rotation = Math.PI * 0.5;
       p.tint = w;
       p.visible = f;
     };
-    const d = i.ghillie ? t.getMapDef().biome.colors.playerGhillie : r.footTint;
+    let d = i.ghillie ? t.getMapDef().biome.colors.playerGhillie : r.footTint;
     m(this.footLSprite, d, this.downed);
     m(this.footRSprite, d, this.downed);
     if (this.EAO("flak_jacket") && !i.ghillie) {
@@ -13955,7 +13955,7 @@ class us {
     if (this.iDmhea.psCic == "" || i.ghillie) {
       this.chestSprite.visible = false;
     } else {
-      const w = B[this.iDmhea.psCic].skinImg;
+      let w = B[this.iDmhea.psCic].skinImg;
       this.chestSprite.texture = G.from(w.baseSprite);
       this.chestSprite.scale.set(0.25, 0.25);
       this.chestSprite.tint = w.baseTint;
@@ -13973,8 +13973,8 @@ class us {
     if (this.iDmhea.ODVGwj == "" || i.ghillie) {
       this.helmetSprite.visible = false;
     } else {
-      const w = B[this.iDmhea.ODVGwj].skinImg;
-      const f = (this.downed ? 1 : -1) * 3.33;
+      let w = B[this.iDmhea.ODVGwj].skinImg;
+      let f = (this.downed ? 1 : -1) * 3.33;
       this.helmetSprite.texture = G.from(w.baseSprite);
       this.helmetSprite.position.set(f, 0);
       if (w.spriteScale) {
@@ -13990,10 +13990,10 @@ class us {
       this.helmetSprite.visible = true;
     }
     if (this.zNli() > 0 && !i.ghillie && !this.downed) {
-      const p = [10.25, 11.5, 12.75];
-      const w = this.zNli();
-      const f = p[z.min(w - 1, p.length - 1)];
-      const S = (0.4 + w * 0.03) * 0.5;
+      let p = [10.25, 11.5, 12.75];
+      let w = this.zNli();
+      let f = p[z.min(w - 1, p.length - 1)];
+      let S = (0.4 + w * 0.03) * 0.5;
       this.backpackSprite.texture = G.from("player-circle-base-01.img");
       this.backpackSprite.position.set(-f, 0);
       this.backpackSprite.scale.set(S, S);
@@ -14007,7 +14007,7 @@ class us {
       this.backpackSprite.visible = false;
     }
     if (this.iDmhea.nVe) {
-      const p = B.pan.hipImg;
+      let p = B.pan.hipImg;
       this.hipSprite.texture = G.from(p.sprite);
       this.hipSprite.position.set(p.pos.x, p.pos.y);
       this.hipSprite.scale.set(p.scale.x, p.scale.y);
@@ -14017,7 +14017,7 @@ class us {
     } else {
       this.hipSprite.visible = false;
     }
-    const h = B[this.iDmhea.uhf];
+    let h = B[this.iDmhea.uhf];
     if (h.type == "gun") {
       this.gunRSprites.setType(this.iDmhea.uhf, a);
       this.gunRSprites.setVisible(true);
@@ -14027,8 +14027,8 @@ class us {
       } else {
         this.gunLSprites.setVisible(false);
       }
-      const p = this.bodyContainer.getChildIndex(this.handRContainer);
-      const w = this.bodyContainer.getChildIndex(this.handRContainer);
+      let p = this.bodyContainer.getChildIndex(this.handRContainer);
+      let w = this.bodyContainer.getChildIndex(this.handRContainer);
       let f = p + 1;
       if (this.gunRSprites.magTop || h.worldImg.handsBelow) {
         f = p - 1;
@@ -14037,8 +14037,8 @@ class us {
       if (w != f) {
         this.bodyContainer.addChildAt(this.handLContainer, f);
       }
-      const S = this.handRContainer.getChildIndex(this.gunRSprites.container);
-      const x = h.worldImg.handsBelow ? this.handRContainer.children.length : 0;
+      let S = this.handRContainer.getChildIndex(this.gunRSprites.container);
+      let x = h.worldImg.handsBelow ? this.handRContainer.children.length : 0;
       if (S != x) {
         this.handRContainer.addChildAt(this.gunRSprites.container, x);
       }
@@ -14049,7 +14049,7 @@ class us {
     if (this.downed != this.wasDowned) {
       this.wasDowned = this.downed;
       if (this.downed) {
-        const p = this.bodyContainer.getChildIndex(this.footLContainer);
+        let p = this.bodyContainer.getChildIndex(this.footLContainer);
         this.bodyContainer.addChildAt(this.handLContainer, p);
         this.bodyContainer.addChildAt(this.handRContainer, p);
       } else {
@@ -14058,20 +14058,20 @@ class us {
       }
     }
     if (h.type == "melee" && this.iDmhea.uhf != "fists") {
-      const p = h.worldImg;
+      let p = h.worldImg;
       this.meleeSprite.texture = G.from(p.sprite);
       this.meleeSprite.pivot.set(-p.pos.x, -p.pos.y);
       this.meleeSprite.scale.set(p.scale.x / a, p.scale.y / a);
       this.meleeSprite.rotation = p.rot;
       this.meleeSprite.tint = p.tint;
       this.meleeSprite.visible = true;
-      const w = this.handRContainer.getChildIndex(this.handRSprite);
-      const f = z.max(p.renderOnHand ? w + 1 : w - 1, 0);
+      let w = this.handRContainer.getChildIndex(this.handRSprite);
+      let f = z.max(p.renderOnHand ? w + 1 : w - 1, 0);
       if (this.handRContainer.getChildIndex(this.meleeSprite) != f) {
         this.handRContainer.addChildAt(this.meleeSprite, f);
       }
-      const S = this.bodyContainer.getChildIndex(this.handRContainer);
-      const x = z.max(p.leftHandOntop ? S + 1 : S - 1, 0);
+      let S = this.bodyContainer.getChildIndex(this.handRContainer);
+      let x = z.max(p.leftHandOntop ? S + 1 : S - 1, 0);
       if (this.bodyContainer.getChildIndex(this.handLContainer) != x) {
         this.bodyContainer.addChildAt(this.handLContainer, x);
       }
@@ -14079,7 +14079,7 @@ class us {
       this.meleeSprite.visible = false;
     }
     if (h.type == "throwable") {
-      const p = function (f, S) {
+      let p = function (f, S) {
         if (S.sprite && S.sprite != "none") {
           let x = S.sprite;
           if (t.mapDef.gameMode.spookyKillSounds) {
@@ -14094,7 +14094,7 @@ class us {
           f.visible = false;
         }
       };
-      const w = h.handImg?.[this.throwableState];
+      let w = h.handImg?.[this.throwableState];
       p(this.objectLSprite, w.left);
       p(this.objectRSprite, w.right);
     } else {
@@ -14116,10 +14116,10 @@ class us {
       this.auraPulseDir = 1;
       this.auraCircle.visible = false;
     } else {
-      const p = B[this.KXvZTW.item];
-      const w = p?.aura ? p.aura.sprite : "part-aura-circle-01.img";
-      const f = p?.aura ? p.aura.tint : 16711935;
-      const S = 0.125;
+      let p = B[this.KXvZTW.item];
+      let w = p?.aura ? p.aura.sprite : "part-aura-circle-01.img";
+      let f = p?.aura ? p.aura.tint : 16711935;
+      let S = 0.125;
       let x = p ? R.player.medicHealRange : R.player.medicReviveRange;
       x *= S;
       this.auraCircle.texture = G.from(w);
@@ -14128,9 +14128,9 @@ class us {
       this.auraCircle.visible = true;
     }
     if (t.perkMode && this.iDmhea.paYnn != "" && this.iDmhea.ODVGwj != "" && !i.ghillie) {
-      const w = B[this.iDmhea.paYnn].visorImg;
+      let w = B[this.iDmhea.paYnn].visorImg;
       if (w) {
-        const f = (this.downed ? 1 : -1) * 3.33;
+        let f = (this.downed ? 1 : -1) * 3.33;
         this.visorSprite.texture = G.from(w.baseSprite);
         this.visorSprite.position.set(f, 0);
       }
@@ -14153,7 +14153,7 @@ class us {
     this.auraViewFade = z.lerp(e * 6, this.auraViewFade, r ? 1 : 0);
     if (this.auraCircle.visible) {
       this.auraPulseTicker = z.clamp(this.auraPulseTicker + e * this.auraPulseDir * 1.5, 0, 1);
-      const a = z.easeOutExpo(this.auraPulseTicker) * 0.75 + 0.25;
+      let a = z.easeOutExpo(this.auraPulseTicker) * 0.75 + 0.25;
       if (this.auraPulseTicker >= 1 || this.auraPulseTicker <= 0) {
         this.auraPulseDir *= -1;
       }
@@ -14161,7 +14161,7 @@ class us {
     }
   }
   Zr() {
-    const e = function (i, r) {
+    let e = function (i, r) {
       i.position.set(r.pos.x, r.pos.y);
       i.pivot.set(-r.pivot.x, -r.pivot.y);
       i.rotation = r.rot;
@@ -14170,7 +14170,7 @@ class us {
     e(this.handRContainer, this.bones[Pe.HandR]);
     e(this.footLContainer, this.bones[Pe.FootL]);
     e(this.footRContainer, this.bones[Pe.FootR]);
-    const t = B[this.iDmhea.uhf];
+    let t = B[this.iDmhea.uhf];
     if (!this.downed && this.currentAnim() != ne.Revive && t.type == "gun" && t.worldImg.leftHandOffset) {
       this.handLContainer.position.x += t.worldImg.leftHandOffset.x;
       this.handLContainer.position.y += t.worldImg.leftHandOffset.y;
@@ -14185,7 +14185,7 @@ class us {
       case ie.Reload:
       case ie.ReloadAlt:
         {
-          const a = B[this.KXvZTW.item];
+          let a = B[this.KXvZTW.item];
           if (a) {
             r = {
               sound: this.KXvZTW.type == ie.ReloadAlt ? a.sound.reloadAlt : a.sound.reload,
@@ -14196,7 +14196,7 @@ class us {
         break;
       case ie.UseItem:
         {
-          const a = B[this.KXvZTW.item];
+          let a = B[this.KXvZTW.item];
           if (a) {
             r = {
               sound: a.sound.use,
@@ -14216,12 +14216,12 @@ class us {
       });
     }
     if (this.KXvZTW.type == ie.Reload || this.KXvZTW.type == ie.ReloadAlt) {
-      const a = B[this.KXvZTW.item];
+      let a = B[this.KXvZTW.item];
       if (a && a.caseTiming == "reload") {
         for (let l = 0; l < a.maxReload; l++) {
-          const s = l % 2 == 0 ? -1 : 1;
-          const m = Math.PI + Math.PI / 4 * s;
-          const d = a.maxReload <= 2 ? 1 : z.lerp(Math.random(), 0.8, 1.2);
+          let s = l % 2 == 0 ? -1 : 1;
+          let m = Math.PI + Math.PI / 4 * s;
+          let d = a.maxReload <= 2 ? 1 : z.lerp(Math.random(), 0.8, 1.2);
           tr(this.KXvZTW.item, m, d, this.aznZwb, this.WoDzy, this.renderLayer, this.renderZOrd + 1, t);
         }
       }
@@ -14229,12 +14229,12 @@ class us {
   }
   updateActionEffect(e, t, i, r) {
     let a = "";
-    const l = {};
+    let l = {};
     switch (this.KXvZTW.type) {
       case ie.UseItem:
         {
-          const s = B[this.KXvZTW.item];
-          const m = t.loadout;
+          let s = B[this.KXvZTW.item];
+          let m = t.loadout;
           if (s.type == "heal") {
             a = B[m.heal].emitter;
           } else if (s.type == "boost") {
@@ -14282,7 +14282,7 @@ class us {
     }
   }
   playItemPickupSound(e, t) {
-    const i = B[e];
+    let i = B[e];
     if (i) {
       t.playSound(i.sound?.pickup, {
         channel: "ui"
@@ -14293,7 +14293,7 @@ class us {
     }
   }
   selectIdlePose() {
-    const e = B[this.iDmhea.uhf];
+    let e = B[this.iDmhea.uhf];
     let t = "fists";
     if (this.downed) {
       t = "downed";
@@ -14321,7 +14321,7 @@ class us {
     }
   }
   selectAnim(e) {
-    const t = function (i, r) {
+    let t = function (i, r) {
       return {
         type: i,
         mirror: !!r && Math.random() < 0.5
@@ -14342,13 +14342,13 @@ class us {
         return t("crawl_backward", true);
       case ne.Melee:
         {
-          const i = B[this.iDmhea.uhf];
+          let i = B[this.iDmhea.uhf];
           if (!i.anim?.attackAnims) {
             return t("fists", true);
           }
-          const r = i.anim.attackAnims;
-          const a = Math.floor(Math.random() * r.length);
-          const l = r[a];
+          let r = i.anim.attackAnims;
+          let a = Math.floor(Math.random() * r.length);
+          let l = r[a];
           return t(l, l == "fists" && r.length == 1);
         }
       default:
@@ -14364,7 +14364,7 @@ class us {
     this.anim.seq = t;
     this.anim.ticker = 0;
     for (let i = 0; i < this.bones.length; i++) {
-      const r = this.anim.bones[i];
+      let r = this.anim.bones[i];
       r.weight = 0;
       r.pose.copy(this.bones[i]);
     }
@@ -14374,10 +14374,10 @@ class us {
       this.playAnim(ne.None, this.anim.seq);
     }
     if (this.currentAnim() != ne.None) {
-      const i = this.anim.ticker;
+      let i = this.anim.ticker;
       this.anim.ticker += e * 1;
-      const r = rs[this.anim.data.type];
-      const a = r.keyframes;
+      let r = rs[this.anim.data.type];
+      let a = r.keyframes;
       let l = -1;
       let s = 0;
       while (this.anim.ticker >= a[s].time && s < a.length - 1) {
@@ -14385,14 +14385,14 @@ class us {
         s++;
       }
       l = z.max(l, 0);
-      const m = a[l].time;
-      const d = a[s].time;
-      const h = z.min((this.anim.ticker - m) / (d - m), 1);
-      const p = a[l].bones;
-      const w = a[s].bones;
-      const f = this.anim.data.mirror;
+      let m = a[l].time;
+      let d = a[s].time;
+      let h = z.min((this.anim.ticker - m) / (d - m), 1);
+      let p = a[l].bones;
+      let w = a[s].bones;
+      let f = this.anim.data.mirror;
       for (let y = 0; y < this.anim.bones.length; y++) {
-        const C = this.anim.bones[y];
+        let C = this.anim.bones[y];
         let P = y;
         if (f) {
           P = y % 2 == 0 ? y + 1 : y - 1;
@@ -14407,13 +14407,13 @@ class us {
           }
         }
       }
-      const S = s == a.length - 1 && z.eqAbs(h, 1);
+      let S = s == a.length - 1 && z.eqAbs(h, 1);
       let x = this.anim.ticker;
       if (S) {
         x += 1;
       }
       for (let y = 0; y < r.effects.length; y++) {
-        const C = r.effects[y];
+        let C = r.effects[y];
         if (C.time >= i && C.time < x) {
           this[C.fn].apply(this, [t, C.args]);
         }
@@ -14424,7 +14424,7 @@ class us {
     }
   }
   animPlaySound(e, t) {
-    const r = B[this.iDmhea.uhf].sound[t.sound];
+    let r = B[this.iDmhea.uhf].sound[t.sound];
     if (r) {
       e.audioManager?.playSound(r, {
         channel: "sfx",
@@ -14440,34 +14440,34 @@ class us {
   }
   animThrowableParticles(e, t) {
     if (B[this.iDmhea.uhf].useThrowParticles) {
-      const i = n.rotate(n.create(0.75, 0.75), Math.atan2(this.WoDzy.y, this.WoDzy.x));
+      let i = n.rotate(n.create(0.75, 0.75), Math.atan2(this.WoDzy.y, this.WoDzy.x));
       e.particleBarn?.addParticle("fragPin", this.renderLayer, n.add(this.aznZwb, i), n.mul(n.rotate(this.WoDzy, Math.PI * 0.5), 4.5), 1, Math.random() * Math.PI * 2, null, this.renderZOrd + 1);
-      const r = n.rotate(n.create(0.75, -0.75), Math.atan2(this.WoDzy.y, this.WoDzy.x));
+      let r = n.rotate(n.create(0.75, -0.75), Math.atan2(this.WoDzy.y, this.WoDzy.x));
       e.particleBarn?.addParticle("fragLever", this.renderLayer, n.add(this.aznZwb, r), n.mul(n.rotate(this.WoDzy, -Math.PI * 0.25), 3.5), 1, Math.random() * Math.PI * 2, null, this.renderZOrd + 1);
     }
   }
   animMeleeCollision(e, t) {
-    const i = B[this.iDmhea.uhf];
+    let i = B[this.iDmhea.uhf];
     if (i && i.type == "melee") {
-      const r = this.getMeleeCollider();
-      const a = r.rad + n.length(n.sub(this.aznZwb, r.pos));
-      const l = [];
-      const s = e.map?.fBXVaI.idcTHu();
+      let r = this.getMeleeCollider();
+      let a = r.rad + n.length(n.sub(this.aznZwb, r.pos));
+      let l = [];
+      let s = e.map?.fBXVaI.idcTHu();
       for (let p = 0; p < s.length; p++) {
-        const w = s[p];
+        let w = s[p];
         if (w.active && !w.dead && !w.isSkin && w.height >= R.player.meleeHeight && g.sameLayer(w.layer, this.layer & 1)) {
           let f = X.intersectCircle(w.collider, r.pos, r.rad);
           if (i.cleave || i.wallCheck) {
-            const S = n.normalizeSafe(n.sub(w.pos, this.aznZwb), n.create(1, 0));
-            const x = it.intersectSegment(e.map?.fBXVaI.idcTHu(), this.aznZwb, S, a, R.player.meleeHeight, this.layer, false);
+            let S = n.normalizeSafe(n.sub(w.pos, this.aznZwb), n.create(1, 0));
+            let x = it.intersectSegment(e.map?.fBXVaI.idcTHu(), this.aznZwb, S, a, R.player.meleeHeight, this.layer, false);
             if (x && x.id !== w.__id) {
               f = null;
             }
           }
           if (f) {
-            const S = re[w.type];
-            const x = n.add(r.pos, n.mul(n.neg(f.dir), r.rad - f.pen));
-            const y = n.rotate(n.mul(f.dir, 7.5), (Math.random() - 0.5) * Math.PI / 3);
+            let S = re[w.type];
+            let x = n.add(r.pos, n.mul(n.neg(f.dir), r.rad - f.pen));
+            let y = n.rotate(n.mul(f.dir, 7.5), (Math.random() - 0.5) * Math.PI / 3);
             l.push({
               pen: f.pen,
               prio: 1,
@@ -14482,17 +14482,17 @@ class us {
           }
         }
       }
-      const m = e.playerBarn?.getPlayerInfo(this.__id).teamId;
-      const d = e.playerBarn?.playerPool.idcTHu();
+      let m = e.playerBarn?.getPlayerInfo(this.__id).teamId;
+      let d = e.playerBarn?.playerPool.idcTHu();
       for (let p = 0; p < d.length; p++) {
-        const w = d[p];
+        let w = d[p];
         if (w.active && w.__id != this.__id && !w.iDmhea.XRQji && g.sameLayer(w.layer, this.layer)) {
-          const f = n.normalizeSafe(n.sub(w.aznZwb, this.aznZwb), n.create(1, 0));
-          const S = xe.intersectCircleCircle(r.pos, r.rad, w.aznZwb, w.LnvK);
+          let f = n.normalizeSafe(n.sub(w.aznZwb, this.aznZwb), n.create(1, 0));
+          let S = xe.intersectCircleCircle(r.pos, r.rad, w.aznZwb, w.LnvK);
           if (S && z.eqAbs(a, it.intersectSegmentDist(e.map?.fBXVaI.idcTHu(), this.aznZwb, f, a, R.player.meleeHeight, this.layer, false))) {
-            const x = e.playerBarn?.getPlayerInfo(w.__id).teamId;
-            const y = n.rotate(f, (Math.random() - 0.5) * Math.PI / 3);
-            const C = i.sound[t.playerHit] || i.sound.playerHit;
+            let x = e.playerBarn?.getPlayerInfo(w.__id).teamId;
+            let y = n.rotate(f, (Math.random() - 0.5) * Math.PI / 3);
+            let C = i.sound[t.playerHit] || i.sound.playerHit;
             if (!window.CrazyGames) {
               l.push({
                 pen: S.pen,
@@ -14515,7 +14515,7 @@ class us {
         h = z.min(h, 1);
       }
       for (let p = 0; p < h; p++) {
-        const w = l[p];
+        let w = l[p];
         e.particleBarn?.addParticle(w.particle, w.layer, w.pos, w.vel, 1, Math.random() * Math.PI * 2, null, w.zOrd + 1);
         e.audioManager?.[w.soundFn](w.sound, {
           channel: "hits",
@@ -14527,7 +14527,7 @@ class us {
     }
   }
   initSubmergeSprites() {
-    const e = function (i, r) {
+    let e = function (i, r) {
       i.texture = G.from(r);
       i.anchor.set(0.5, 0.5);
       i.tint = 16777215;
@@ -14539,7 +14539,7 @@ class us {
     e(this.handRSubmergeSprite, "player-hands-01.img");
     e(this.footLSubmergeSprite, "player-feet-01.img");
     e(this.footRSubmergeSprite, "player-feet-01.img");
-    const t = new pe();
+    let t = new pe();
     t.beginFill(16711680, 0.5);
     t.drawCircle(0, 0, di * 76);
     t.position.set(0, 0);
@@ -14548,19 +14548,19 @@ class us {
     this.bodySubmergeSprite.scale.set(0.5, 0.5);
   }
   updateSubmersion(e, t) {
-    const i = this.surface?.type == "water";
+    let i = this.surface?.type == "water";
     let r = 0;
     if (i) {
-      const d = this.surface?.data.river;
-      const h = d && !t.isInOcean(this.aznZwb);
-      const p = h ? d.distanceToShore(this.aznZwb) : t.distanceToShore(this.aznZwb);
-      const w = h ? 12 : 16;
+      let d = this.surface?.data.river;
+      let h = d && !t.isInOcean(this.aznZwb);
+      let p = h ? d.distanceToShore(this.aznZwb) : t.distanceToShore(this.aznZwb);
+      let w = h ? 12 : 16;
       r = z.remap(p, 0, w, 0.6, 1);
     }
     this.submersion = z.lerp(e * 4, this.submersion, r);
-    const a = this.submersion * 0.8;
-    const l = (0.9 - this.submersion * 0.4) * 2;
-    const s = 1 / (l * di);
+    let a = this.submersion * 0.8;
+    let l = (0.9 - this.submersion * 0.4) * 2;
+    let s = 1 / (l * di);
     this.bodySubmergeSprite.scale.set(l, l);
     this.bodySubmergeSprite.mask.scale.set(s, s);
     this.bodySubmergeSprite.alpha = a;
@@ -14568,9 +14568,9 @@ class us {
     if (i) {
       this.bodySubmergeSprite.tint = this.surface?.data.waterColor;
     }
-    const m = [this.handLSubmergeSprite, this.handRSubmergeSprite, this.footLSubmergeSprite, this.footRSubmergeSprite];
+    let m = [this.handLSubmergeSprite, this.handRSubmergeSprite, this.footLSubmergeSprite, this.footRSubmergeSprite];
     for (let d = 0; d < m.length; d++) {
-      const h = m[d];
+      let h = m[d];
       h.alpha = this.downed ? a : 0;
       h.visible = h.alpha > 0.001;
       if (i) {
@@ -14600,11 +14600,11 @@ class us {
     if (this.layer != 1) {
       return false;
     }
-    const t = e.OYF.idcTHu();
+    let t = e.OYF.idcTHu();
     for (let i = 0; i < t.length; i++) {
-      const r = t[i];
+      let r = t[i];
       if (r.layers.length >= 2) {
-        const a = r.layers[1];
+        let a = r.layers[1];
         if (X.intersectCircle(a.collision, this.aznZwb, this.LnvK)) {
           return a.underground;
         }
@@ -14623,15 +14623,15 @@ class ir {
   anonPlayerNames = false;
   onMapLoad(e) {}
   PEHQLt(e, t, i, r, a, l, s, m, d, h, p, w, f) {
-    const S = this.playerPool.idcTHu();
+    let S = this.playerPool.idcTHu();
     for (let k = 0; k < S.length; k++) {
-      const b = S[k];
+      let b = S[k];
       if (b.active) {
         b.PEHQLt(e, this, s, d, a, m, l, r, h, t, p, w, f);
       }
     }
-    const x = this.getPlayerInfo(t);
-    const y = this.getPlayerById(t);
+    let x = this.getPlayerInfo(t);
+    let y = this.getPlayerById(t);
     this.setPlayerStatus(t, {
       pos: n.copy(y.iDmhea.aznZwb),
       health: y.alkER.vSiCK,
@@ -14641,13 +14641,13 @@ class ir {
       role: y.iDmhea.paYnn,
       visible: true
     });
-    const C = zr(s.factionMode);
-    const P = Object.keys(this.playerStatus);
+    let C = zr(s.factionMode);
+    let P = Object.keys(this.playerStatus);
     for (let k = 0; k < P.length; k++) {
-      const b = this.playerStatus[P[k]];
-      const M = b.playerId;
-      const E = this.getPlayerInfo(M);
-      const D = this.getPlayerById(M);
+      let b = this.playerStatus[P[k]];
+      let M = b.playerId;
+      let E = this.getPlayerInfo(M);
+      let D = this.getPlayerById(M);
       if (D) {
         b.posDelta = n.length(n.sub(D.iDmhea.aznZwb, b.pos));
         b.posTarget = n.copy(D.iDmhea.aznZwb);
@@ -14657,14 +14657,14 @@ class ir {
       } else {
         b.posInterp = e / C;
       }
-      const L = n.sub(b.posTarget, b.pos);
-      const _ = n.length(L);
-      const T = _ > 0.0001 ? n.div(L, _) : n.create(1, 0);
-      const V = z.min(_, b.posDelta * b.posInterp);
+      let L = n.sub(b.posTarget, b.pos);
+      let _ = n.length(L);
+      let T = _ > 0.0001 ? n.div(L, _) : n.create(1, 0);
+      let V = z.min(_, b.posDelta * b.posInterp);
       b.pos = n.add(b.pos, n.mul(T, V));
       b.timeSinceVisible += e;
       b.timeSinceUpdate += e;
-      const j = !b.dead || E.teamId != x.teamId && b.role != "leader" ? 0 : 0.6;
+      let j = !b.dead || E.teamId != x.teamId && b.role != "leader" ? 0 : 0.6;
       b.minimapAlpha = z.smoothstep(b.timeSinceVisible, 0, 0.1) * z.lerp(z.smoothstep(b.timeSinceUpdate, 2, 2.5), 1, j);
       if (!s.factionMode && E.teamId != x.teamId) {
         b.minimapAlpha = 0;
@@ -14673,18 +14673,18 @@ class ir {
     }
   }
   lXaw(e, t) {
-    const i = this.playerPool.idcTHu();
+    let i = this.playerPool.idcTHu();
     for (let r = 0; r < i.length; r++) {
-      const a = i[r];
+      let a = i[r];
       if (a.active) {
         a.render(e, t);
       }
     }
   }
   getPlayerById(e) {
-    const t = this.playerPool.idcTHu();
+    let t = this.playerPool.idcTHu();
     for (let i = 0; i < t.length; i++) {
-      const r = t[i];
+      let r = t[i];
       if (r.active && r.__id === e) {
         return r;
       }
@@ -14705,7 +14705,7 @@ class ir {
     this.playerIds.sort((t, i) => t - i);
   }
   deletePlayerInfo(e) {
-    const t = this.playerIds.indexOf(e);
+    let t = this.playerIds.indexOf(e);
     if (t !== -1) {
       this.playerIds.splice(t, 1);
     }
@@ -14726,28 +14726,28 @@ class ir {
   recomputeTeamData() {
     this.teamInfo = {};
     this.groupInfo = {};
-    const e = Object.keys(this.playerInfo);
+    let e = Object.keys(this.playerInfo);
     for (let r = 0; r < e.length; r++) {
-      const a = this.playerInfo[e[r]];
-      const l = a.playerId;
-      const s = a.teamId;
+      let a = this.playerInfo[e[r]];
+      let l = a.playerId;
+      let s = a.teamId;
       this.teamInfo[s] = this.teamInfo[s] || {
         teamId: s,
         playerIds: []
       };
       this.teamInfo[s].playerIds.push(l);
-      const m = a.groupId;
+      let m = a.groupId;
       this.groupInfo[m] = this.groupInfo[m] || {
         groupId: m,
         playerIds: []
       };
       this.groupInfo[m].playerIds.push(l);
     }
-    const t = Object.keys(this.teamInfo);
+    let t = Object.keys(this.teamInfo);
     for (let r = 0; r < t.length; r++) {
       this.teamInfo[t[r]].playerIds.sort((a, l) => a - l);
     }
-    const i = Object.keys(this.groupInfo);
+    let i = Object.keys(this.groupInfo);
     for (let r = 0; r < i.length; r++) {
       this.groupInfo[i[r]].playerIds.sort((a, l) => a - l);
     }
@@ -14759,22 +14759,22 @@ class ir {
     return this.groupInfo[e];
   }
   updatePlayerStatus(e, t, i) {
-    const r = this.getTeamInfo(e);
-    const a = i ? this.playerIds : r.playerIds;
+    let r = this.getTeamInfo(e);
+    let a = i ? this.playerIds : r.playerIds;
     if (a.length != t.players.length) {
       console.error(`PlayerIds and playerStatus.players out of sync. OurLen: ${a.length} MsgLen: ${t.players.length} FactionMode: ${i}`);
       return;
     }
     for (let l = 0; l < a.length; l++) {
-      const s = a[l];
-      const m = t.players[l];
+      let s = a[l];
+      let m = t.players[l];
       if (m.hasData) {
         this.setPlayerStatus(s, m);
       }
     }
   }
   setPlayerStatus(e, t) {
-    const i = this.playerStatus[e] || {
+    let i = this.playerStatus[e] || {
       playerId: e,
       pos: n.copy(t.pos),
       posTarget: n.copy(t.pos),
@@ -14818,15 +14818,15 @@ class ir {
     return this.playerStatus[e];
   }
   updateGroupStatus(e, t) {
-    const i = this.getGroupInfo(e);
+    let i = this.getGroupInfo(e);
     if (i.playerIds.length != t.players.length) {
       console.error("PlayerIds and groupStatus.players out of sync");
       return;
     }
     for (let r = 0; r < i.playerIds.length; r++) {
-      const a = i.playerIds[r];
-      const l = t.players[r];
-      const s = this.getPlayerStatus(a);
+      let a = i.playerIds[r];
+      let l = t.players[r];
+      let s = this.getPlayerStatus(a);
       if (s) {
         s.health = l.health;
         s.disconnected = l.disconnected;
@@ -14834,9 +14834,9 @@ class ir {
     }
   }
   getGroupColor(e) {
-    const t = this.getPlayerInfo(e);
-    const i = this.getGroupInfo(t.groupId);
-    const r = i ? i.playerIds.indexOf(e) : 0;
+    let t = this.getPlayerInfo(e);
+    let i = this.getGroupInfo(t.groupId);
+    let r = i ? i.playerIds.indexOf(e) : 0;
     if (r >= 0 && r < R.groupColors.length) {
       return R.groupColors[r];
     } else {
@@ -14844,7 +14844,7 @@ class ir {
     }
   }
   getTeamColor(e) {
-    const t = e - 1;
+    let t = e - 1;
     if (t >= 0 && t < R.teamColors.length) {
       return R.teamColors[t];
     } else {
@@ -14852,7 +14852,7 @@ class ir {
     }
   }
   getPlayerName(e, t, i) {
-    const r = this.getPlayerInfo(e);
+    let r = this.getPlayerInfo(e);
     if (!r) {
       return "";
     }
@@ -14866,8 +14866,8 @@ class ir {
     return a;
   }
   addDeathEffect(e, t, i, r, a) {
-    const l = this.getPlayerById(e);
-    const s = this.getPlayerById(t);
+    let l = this.getPlayerById(e);
+    let s = this.getPlayerById(t);
     if (l && s?.EAO("turkey_shoot")) {
       r.playGroup("cluck", {
         soundPos: l.aznZwb,
@@ -14880,9 +14880,9 @@ class ir {
         layer: l.layer,
         muffled: true
       });
-      const m = Math.floor(g.random(30, 35));
+      let m = Math.floor(g.random(30, 35));
       for (let d = 0; d < m; d++) {
-        const h = n.mul(n.randomUnit(), g.random(5, 15));
+        let h = n.mul(n.randomUnit(), g.random(5, 15));
         a.addParticle("turkeyFeathersDeath", l.layer, l.aznZwb, h);
       }
     }
@@ -14917,7 +14917,7 @@ class ds {
     this.YjhxEK.radTarget = this.LnvK;
   }
 }
-const fi = ["part-smoke-02.img", "part-smoke-03.img"];
+let fi = ["part-smoke-02.img", "part-smoke-03.img"];
 class ps {
   active = false;
   zIdx = 0;
@@ -14934,7 +14934,7 @@ class ps {
   tint;
   layer;
   interior;
-  constructor() {
+  letructor() {
     this.sprite.anchor = new Et(0.5, 0.5);
     this.sprite.visible = false;
   }
@@ -14978,7 +14978,7 @@ class rr {
   }
   PEHQLt(e, t, i, r, a) {
     for (let l = 0; l < this.nWpH.length; l++) {
-      const s = this.nWpH[l];
+      let s = this.nWpH[l];
       if (s.active) {
         s.rad = z.lerp(e * 3, s.rad, s.radTarget);
         s.pos = z.v2lerp(e * 3, s.pos, s.posTarget);
@@ -14986,15 +14986,15 @@ class rr {
         s.rot += s.rotVel * e;
         s.fadeTicker += s.fade ? e : 0;
         s.active = s.fadeTicker < s.fadeDuration;
-        const m = z.clamp(1 - s.fadeTicker / s.fadeDuration, 0, 1) * 0.9;
+        let m = z.clamp(1 - s.fadeTicker / s.fadeDuration, 0, 1) * 0.9;
         let d = s.layer;
         if ((g.sameLayer(s.layer, i.layer) || i.layer & 2) && (s.layer == 1 || !(i.layer & 2) || !r.insideStructureMask(X.createCircle(s.pos, 1)))) {
           d |= 2;
         }
-        const h = s.interior ? 500 : 1000;
+        let h = s.interior ? 500 : 1000;
         a.addPIXIObj(s.sprite, d, h, s.zIdx);
-        const p = t.JDbtXa(s.pos);
-        const w = t.Jjwns(s.rad * 2 / t.HrSNF);
+        let p = t.JDbtXa(s.pos);
+        let w = t.Jjwns(s.rad * 2 / t.HrSNF);
         s.sprite.position.set(p.x, p.y);
         s.sprite.scale.set(w, w);
         s.sprite.rotation = s.rot;
@@ -15006,8 +15006,8 @@ class rr {
   }
 }
 function wi(u, e, t) {
-  const i = e - u;
-  const r = i * t;
+  let i = e - u;
+  let r = i * t;
   if (Math.abs(r) < 0.01) {
     return i;
   } else {
@@ -15015,7 +15015,7 @@ function wi(u, e, t) {
   }
 }
 function fs() {
-  const u = new pe();
+  let u = new pe();
   u.position.set(0, 0);
   u.scale.set(1, 1);
   u.__zOrd = 0;
@@ -15031,7 +15031,7 @@ function gt(u, e, t, i, r) {
   u.closePath();
 }
 class ar {
-  constructor(e, t) {
+  letructor(e, t) {
     this.game = e;
     this.canvasMode = t;
     for (let i = 0; i < 4; i++) {
@@ -15056,8 +15056,8 @@ class ar {
   }
   addPIXIObj(e, t, i, r) {
     if (!e.transform) {
-      const s = new Error();
-      const m = JSON.stringify({
+      let s = new Error();
+      let m = JSON.stringify({
         type: "addChild",
         stack: s.stack,
         browser: navigator.userAgent,
@@ -15095,7 +15095,7 @@ class ar {
     this.underground = e;
   }
   resize(e, t) {
-    const i = e.mapLoaded ? e.getMapDef().biome.colors.underground : 1772803;
+    let i = e.mapLoaded ? e.getMapDef().biome.colors.underground : 1772803;
     this.ground.clear();
     this.ground.beginFill(i);
     this.ground.drawRect(0, 0, t.LCRnPO, t.gMqwV);
@@ -15103,22 +15103,22 @@ class ar {
     this.layerMaskDirty = true;
   }
   redrawLayerMask(e, t) {
-    const i = this.layerMask;
+    let i = this.layerMask;
     if (this.canvasMode) {
       i.clear();
       if (this.layerMaskActive) {
         i.beginFill(16777215, 1);
         i.drawRect(0, 0, e.LCRnPO, e.gMqwV);
-        const r = t.OYF.idcTHu();
+        let r = t.OYF.idcTHu();
         for (let a = 0; a < r.length; a++) {
-          const l = r[a];
+          let l = r[a];
           if (l.active) {
             for (let s = 0; s < l.mask.length; s++) {
-              const m = l.mask[s];
-              const d = n.mul(n.sub(m.max, m.min), 0.5);
-              const h = n.add(m.min, d);
-              const p = e.JDbtXa(n.sub(h, d));
-              const w = e.JDbtXa(n.add(h, d));
+              let m = l.mask[s];
+              let d = n.mul(n.sub(m.max, m.min), 0.5);
+              let h = n.add(m.min, d);
+              let p = e.JDbtXa(n.sub(h, d));
+              let w = e.JDbtXa(n.add(h, d));
               i.drawRect(p.x, p.y, w.x - p.x, w.y - p.y);
             }
           }
@@ -15131,18 +15131,18 @@ class ar {
         i.clear();
         i.beginFill(16777215, 1);
         gt(i, 0, 0, 1024, 1024);
-        const l = t.OYF.idcTHu();
+        let l = t.OYF.idcTHu();
         for (let s = 0; s < l.length; s++) {
-          const m = l[s];
+          let m = l[s];
           if (m.active) {
             for (let d = 0; d < m.mask.length; d++) {
-              const h = m.mask[d];
-              const p = n.mul(n.sub(h.max, h.min), 0.5);
-              const w = n.add(h.min, p);
-              const f = w.x - p.x;
-              const S = w.y - p.y;
-              const x = p.x * 2;
-              const y = p.y * 2;
+              let h = m.mask[d];
+              let p = n.mul(n.sub(h.max, h.min), 0.5);
+              let w = n.add(h.min, p);
+              let f = w.x - p.x;
+              let S = w.y - p.y;
+              let x = p.x * 2;
+              let y = p.y * 2;
               i.beginHole();
               gt(i, f, S, x, y);
               i.endHole();
@@ -15151,43 +15151,43 @@ class ar {
         }
         i.endFill();
       }
-      const r = e.JDbtXa(n.create(0, 0));
-      const a = e.iDeS(1);
+      let r = e.JDbtXa(n.create(0, 0));
+      let a = e.iDeS(1);
       i.position.set(r.x, r.y);
       i.scale.set(a, -a);
     }
   }
   redrawDebugLayerMask(e, t) {
-    const i = this.debugLayerMask;
+    let i = this.debugLayerMask;
     i.clear();
     i.beginFill(16711935, 1);
-    const r = t.OYF.idcTHu();
+    let r = t.OYF.idcTHu();
     for (let s = 0; s < r.length; s++) {
-      const m = r[s];
+      let m = r[s];
       if (m.active) {
         for (let d = 0; d < m.mask.length; d++) {
-          const h = m.mask[d];
-          const p = n.mul(n.sub(h.max, h.min), 0.5);
-          const w = n.add(h.min, p);
-          const f = w.x - p.x;
-          const S = w.y - p.y;
-          const x = p.x * 2;
-          const y = p.y * 2;
+          let h = m.mask[d];
+          let p = n.mul(n.sub(h.max, h.min), 0.5);
+          let w = n.add(h.min, p);
+          let f = w.x - p.x;
+          let S = w.y - p.y;
+          let x = p.x * 2;
+          let y = p.y * 2;
           gt(i, f, S, x, y);
         }
       }
     }
     i.endFill();
-    const a = e.JDbtXa(n.create(0, 0));
+    let a = e.JDbtXa(n.create(0, 0));
     e.JDbtXa(n.create(1, 0));
-    const l = e.iDeS(1);
+    let l = e.iDeS(1);
     i.position.set(a.x, a.y);
     i.scale.set(l, -l);
   }
   PEHQLt(e, t, i, r) {
-    const a = this.layer > 0 ? 1 : 0;
+    let a = this.layer > 0 ? 1 : 0;
     this.layerAlpha += wi(this.layerAlpha, a, e * 12);
-    const l = this.layer == 1 && this.underground ? 1 : 0;
+    let l = this.layer == 1 && this.underground ? 1 : 0;
     this.groundAlpha += wi(this.groundAlpha, l, e * 12);
     this.layers[0].alpha = 1;
     this.layers[1].alpha = this.layerAlpha;
@@ -15198,7 +15198,7 @@ class ar {
     this.layers[1].visible = this.layerAlpha > 0;
     this.ground.visible = this.groundAlpha > 0;
     this.redrawLayerMask(t, i);
-    const s = this.layer == 0;
+    let s = this.layer == 0;
     if (s && !this.layerMaskActive) {
       this.layers[2].mask = this.layerMask;
       this.layers[2].addChild(this.layerMask);
@@ -15214,7 +15214,7 @@ class ar {
   }
 }
 class ws extends Y {
-  constructor(e = "") {
+  letructor(e = "") {
     super();
     this.debugName = e;
   }
@@ -15233,14 +15233,14 @@ class ws extends Y {
     }
   }
 }
-const Ye = 2;
-const gi = 0.00001;
+let Ye = 2;
+let gi = 0.00001;
 class gs {
-  constructor(e, t) {
+  letructor(e, t) {
     this.input = e;
     this.config = t;
-    const i = function (m, d) {
-      const h = ee.from("pad.img");
+    let i = function (m, d) {
+      let h = ee.from("pad.img");
       h.anchor.set(0.5, 0.5);
       h.scale.set(1, 1);
       h.alpha = 0.2;
@@ -15249,7 +15249,7 @@ class gs {
       m.addChild(h);
       return h;
     };
-    const r = () => ({
+    let r = () => ({
       touched: false,
       centerPos: n.create(0, 0),
       touchPos: n.create(0, 0),
@@ -15257,15 +15257,15 @@ class gs {
       touchSprite: i(this.container, 16777215)
     });
     this.touchPads = [r(), r()];
-    const a = function (m) {
+    let a = function (m) {
       if (["locked", "anywhere"].includes(m)) {
         return m;
       } else {
         return "anywhere";
       }
     };
-    const l = a(t.get("touchMoveStyle"));
-    const s = a(t.get("touchAimStyle"));
+    let l = a(t.get("touchMoveStyle"));
+    let s = a(t.get("touchAimStyle"));
     this.setMoveStyle(l);
     this.setAimStyle(s);
     this.setTouchAimLine(!!t.get("touchAimLine"));
@@ -15318,7 +15318,7 @@ class gs {
     return this.getMovement(e);
   }
   getAimMovement(e, t) {
-    const i = e.alkER.rgEC == R.WeaponSlot.Throwable;
+    let i = e.alkER.rgEC == R.WeaponSlot.Throwable;
     return this.getAim(i, t);
   }
   setAimDir(e) {
@@ -15331,13 +15331,13 @@ class gs {
     let a;
     this.moveDetected = false;
     for (let s = 0; s < this.input.touches.length; s++) {
-      const m = this.input.touches[s];
+      let m = this.input.touches[s];
       if (!m.isDead && this.isLeftSideTouch(m.posDown.x, e)) {
-        const d = this.moveStyle == "anywhere" ? m.posDown : this.leftLockedPadCenter;
-        const h = n.sub(m.pos, d);
-        const p = n.length(h);
+        let d = this.moveStyle == "anywhere" ? m.posDown : this.leftLockedPadCenter;
+        let h = n.sub(m.pos, d);
+        let p = n.length(h);
         if (p > Ye) {
-          const w = (p - Ye) / (this.padPosRange / this.movePadDetectMult - Ye);
+          let w = (p - Ye) / (this.padPosRange / this.movePadDetectMult - Ye);
           a = w > gi ? n.div(h, w) : this.analogMovement.toMoveDir;
           this.analogMovement = {
             toMoveDir: n.create(a.x, a.y * -1),
@@ -15345,13 +15345,13 @@ class gs {
           };
           this.moveDetected = true;
         }
-        i = this.getConstrainedPos(d, m.pos, p);
+        i = this.getletrainedPos(d, m.pos, p);
         t = d;
         r = true;
         break;
       }
     }
-    const l = this.touchPads[0];
+    let l = this.touchPads[0];
     l.touched = r;
     if (r && this.moveStyle == "anywhere") {
       l.centerPos = n.copy(t);
@@ -15368,14 +15368,14 @@ class gs {
     let a = null;
     let l;
     for (let m = 0; m < this.input.touches.length; m++) {
-      const d = this.input.touches[m];
+      let d = this.input.touches[m];
       if (!d.isDead && !this.isLeftSideTouch(d.posDown.x, t)) {
-        const h = this.aimStyle == "anywhere" ? d.posDown : this.rightLockedPadCenter;
-        const p = n.sub(d.pos, h);
-        const w = n.length(p);
+        let h = this.aimStyle == "anywhere" ? d.posDown : this.rightLockedPadCenter;
+        let p = n.sub(d.pos, h);
+        let w = n.length(p);
         if (w > Ye) {
-          const f = n.sub(d.pos, h);
-          const S = n.length(f);
+          let f = n.sub(d.pos, h);
+          let S = n.length(f);
           l = S > gi ? n.div(f, S) : this.aimMovement.toAimDir;
           this.aimMovement = {
             toAimDir: n.create(l.x, l.y * -1),
@@ -15384,7 +15384,7 @@ class gs {
         } else {
           this.aimMovement.toAimLen = 0;
         }
-        a = this.getConstrainedPos(h, d.pos, w);
+        a = this.getletrainedPos(h, d.pos, w);
         r = h;
         i = true;
         break;
@@ -15396,7 +15396,7 @@ class gs {
     if (e && this.shotDetectedOld && i) {
       this.shotDetected = true;
     }
-    const s = this.touchPads[1];
+    let s = this.touchPads[1];
     s.touched = i;
     if (i && this.aimStyle == "anywhere") {
       s.centerPos = n.copy(r);
@@ -15412,7 +15412,7 @@ class gs {
   }
   PEHQLt(e, t, i, r, a) {
     for (let l = 0; l < this.touchPads.length; l++) {
-      const s = this.touchPads[l];
+      let s = this.touchPads[l];
       s.centerSprite.position.x = s.centerPos.x;
       s.centerSprite.position.y = s.centerPos.y;
       s.centerSprite.scale.x = this.padScaleBase * this.padScaleDown;
@@ -15429,17 +15429,17 @@ class gs {
   isLeftSideTouch(e, t) {
     return e < t.LCRnPO * 0.5;
   }
-  getConstrainedPos(e, t, i) {
+  getletrainedPos(e, t, i) {
     if (i <= this.padPosRange) {
       return t;
     }
-    const r = t.x - e.x;
-    const a = t.y - e.y;
-    const l = Math.atan2(a, r);
+    let r = t.x - e.x;
+    let a = t.y - e.y;
+    let l = Math.atan2(a, r);
     return n.create(Math.cos(l) * this.padPosRange + e.x, Math.sin(l) * this.padPosRange + e.y);
   }
-  getConstrainedPosDown(e, t, i) {
-    const r = n.normalizeSafe(t);
+  getletrainedPosDown(e, t, i) {
+    let r = n.normalizeSafe(t);
     return n.add(e, n.mul(r, Math.max(0, i - this.padPosRange)));
   }
   toggleMoveStyle() {
@@ -15448,7 +15448,7 @@ class gs {
   setMoveStyle(e) {
     this.moveStyle = e;
     this.config.set("touchMoveStyle", e);
-    const t = document.getElementById("btn-game-move-style");
+    let t = document.getElementById("btn-game-move-style");
     if (t) {
       if (this.moveStyle == "locked") {
         t.classList.remove("unlocked-on-icon");
@@ -15465,7 +15465,7 @@ class gs {
   setAimStyle(e) {
     this.aimStyle = e;
     this.config.set("touchAimStyle", e);
-    const t = document.getElementById("btn-game-aim-style");
+    let t = document.getElementById("btn-game-aim-style");
     if (this.aimStyle == "locked") {
       t.classList.remove("unlocked-on-icon");
       t.classList.add("locked-on-icon");
@@ -15480,7 +15480,7 @@ class gs {
   setTouchAimLine(e) {
     this.touchAimLine = e;
     this.config.set("touchAimLine", this.touchAimLine);
-    const t = document.getElementById("btn-game-aim-line");
+    let t = document.getElementById("btn-game-aim-line");
     if (this.touchAimLine) {
       t.classList.remove("aim-line-off-icon");
       t.classList.add("aim-line-on-icon");
@@ -15493,17 +15493,17 @@ class gs {
     this.resize();
   }
   resize() {
-    const e = v.isLandscape;
-    const t = this.lockedPadOffsetLandscape;
-    const i = this.lockedPadOffsetPortrait;
+    let e = v.isLandscape;
+    let t = this.lockedPadOffsetLandscape;
+    let i = this.lockedPadOffsetPortrait;
     if (v.tablet) {
       t.x = t.x * 1;
       i.x = i.x * 1.25;
     }
-    const r = n.create(t.x, t.y);
-    const a = n.create(i.x, i.y);
-    const l = n.create(v.screenWidth - t.x, t.y);
-    const s = n.create(v.screenWidth - i.x, i.y);
+    let r = n.create(t.x, t.y);
+    let a = n.create(i.x, i.y);
+    let l = n.create(v.screenWidth - t.x, t.y);
+    let s = n.create(v.screenWidth - i.x, i.y);
     if (v.os == "ios") {
       if (v.model == "iphonex") {
         r.x = r.x + 56;
@@ -15525,9 +15525,9 @@ class gs {
     }
     this.padScaleBase = e ? 1 : 0.8;
     this.padPosRange = this.padPosBase * this.padScaleBase;
-    const m = e ? r : a;
+    let m = e ? r : a;
     this.leftLockedPadCenter = n.create(m.x, v.screenHeight - m.y);
-    const d = e ? l : s;
+    let d = e ? l : s;
     this.rightLockedPadCenter = n.create(d.x, v.screenHeight - d.y);
     this.setMobileStyling(e);
   }
@@ -15586,8 +15586,8 @@ class gs {
     }
     if (v.os == "ios") {
       if (v.model == "iphonex") {
-        const t = v.isLandscape ? "99%" : "90%";
-        const i = v.isLandscape ? 0 : 32;
+        let t = v.isLandscape ? "99%" : "90%";
+        let i = v.isLandscape ? 0 : 32;
         c("#ui-game").css({
           height: t,
           top: i
@@ -15651,11 +15651,11 @@ class gs {
 class Ss {
   container = new Y();
   dots = [];
-  constructor() {
+  letructor() {
     this.container.visible = false;
   }
   createDot() {
-    const e = new ee();
+    let e = new ee();
     e.texture = G.from("dot.img");
     e.anchor.set(0.5, 0.5);
     e.position.set(0, 0);
@@ -15666,27 +15666,27 @@ class Ss {
     return e;
   }
   update(e, t, i, r, a) {
-    const l = v.touch && e.touchingAim && e.touchAimLine;
+    let l = v.touch && e.touchingAim && e.touchAimLine;
     if (l) {
-      const s = t.iDmhea.uhf;
-      const m = B[s];
+      let s = t.iDmhea.uhf;
+      let m = B[s];
       let d = 30;
       if (m.type == "gun") {
-        const E = nt[m.bulletType].distance;
+        let E = nt[m.bulletType].distance;
         d = m.barrelLength + E;
       }
-      const h = t.kEZUyv();
-      const p = Math.sqrt(h * 1.414 * h);
+      let h = t.kEZUyv();
+      let p = Math.sqrt(h * 1.414 * h);
       d = z.min(d, p);
-      const w = n.copy(t.aznZwb);
+      let w = n.copy(t.aznZwb);
       let f = n.add(w, n.mul(t.WoDzy, d));
-      const S = i.fBXVaI.idcTHu();
+      let S = i.fBXVaI.idcTHu();
       for (let E = 0; E < S.length; E++) {
-        const D = S[E];
+        let D = S[E];
         if (D.active && !D.dead && D.height >= R.bullet.height && D.collidable && !D.isWindow && g.sameLayer(t.layer, D.layer) && (m.type != "throwable" || D.height > R.projectile.maxHeight)) {
-          const L = X.intersectSegment(D.collider, w, f);
+          let L = X.intersectSegment(D.collider, w, f);
           if (L) {
-            const _ = n.length(n.sub(L.point, w));
+            let _ = n.length(n.sub(L.point, w));
             if (_ < d) {
               d = _;
               f = L.point;
@@ -15694,27 +15694,27 @@ class Ss {
           }
         }
       }
-      const x = 3.5;
-      const y = 1.5;
-      const C = n.length(n.sub(f, w));
-      const P = Math.max(Math.ceil((C - x) / y), 0);
+      let x = 3.5;
+      let y = 1.5;
+      let C = n.length(n.sub(f, w));
+      let P = Math.max(Math.ceil((C - x) / y), 0);
       while (this.dots.length < P) {
-        const E = this.createDot();
+        let E = this.createDot();
         this.container.addChild(E);
         this.dots.push(E);
       }
       for (let E = 0; E < this.dots.length; E++) {
-        const D = this.dots[E];
-        const L = x + E * y;
-        const _ = n.add(t.aznZwb, n.mul(t.WoDzy, L));
-        const T = 1 / 32 * 0.375;
+        let D = this.dots[E];
+        let L = x + E * y;
+        let _ = n.add(t.aznZwb, n.mul(t.WoDzy, L));
+        let T = 1 / 32 * 0.375;
         D.position.set(_.x, _.y);
         D.scale.set(T, T);
         D.visible = E < P;
       }
-      const k = r.JDbtXa(n.create(0, 0));
-      const b = r.JDbtXa(n.create(1, 1));
-      const M = n.sub(b, k);
+      let k = r.JDbtXa(n.create(0, 0));
+      let b = r.JDbtXa(n.create(1, 1));
+      let M = n.sub(b, k);
       this.container.position.set(k.x, k.y);
       this.container.scale.set(M.x, M.y);
       this.container.alpha = 0.3;
@@ -15724,14 +15724,14 @@ class Ss {
   }
 }
 class ys {
-  constructor(e) {
+  letructor(e) {
     this.mapSpriteBarn = e;
   }
   mapIndicators = [];
   idToMapIdicator = {};
   updateIndicatorData(e) {
     for (let t = 0; t < e.length; t++) {
-      const i = e[t];
+      let i = e[t];
       if (i.dead) {
         this.removeIndicator(i.id);
       } else {
@@ -15740,7 +15740,7 @@ class ys {
     }
   }
   addIndicator(e) {
-    const t = {
+    let t = {
       id: e.id,
       type: e.type,
       pos: n.copy(e.pos),
@@ -15760,7 +15760,7 @@ class ys {
   }
   removeIndicator(e) {
     for (let t = 0; t < this.mapIndicators.length; t++) {
-      const i = this.mapIndicators[t];
+      let i = this.mapIndicators[t];
       if (i.id == e) {
         i.mapSprite.free();
         i.pulseSprite.free();
@@ -15775,10 +15775,10 @@ class ys {
     t ||= this.addIndicator(e);
     t.pos = n.copy(e.pos);
     t.equipped = e.equipped;
-    const i = B[t.type];
-    const r = (v.uiLayout == v.UiLayout.Sm ? 0.15 : 0.2) * 1.25;
-    const a = t.equipped ? 655350 : 1;
-    const l = t.mapSprite;
+    let i = B[t.type];
+    let r = (v.uiLayout == v.UiLayout.Sm ? 0.15 : 0.2) * 1.25;
+    let a = t.equipped ? 655350 : 1;
+    let l = t.mapSprite;
     l.pos = n.copy(t.pos);
     l.scale = r;
     l.alpha = 1;
@@ -15787,7 +15787,7 @@ class ys {
     l.sprite.texture = G.from(i.mapIndicator?.sprite);
     l.sprite.tint = i.mapIndicator?.tint ?? 16777215;
     if (i.mapIndicator?.pulse) {
-      const s = t.pulseSprite;
+      let s = t.pulseSprite;
       s.pos = n.copy(t.pos);
       s.scale = 1;
       s.zOrder = a - 1;
@@ -15798,7 +15798,7 @@ class ys {
   }
   updateIndicatorPulses(e) {
     for (let t = 0; t < this.mapIndicators.length; t++) {
-      const i = this.mapIndicators[t];
+      let i = this.mapIndicators[t];
       i.pulseTicker = z.clamp(i.pulseTicker + e * i.pulseDir * i.pulseSpeed, i.pulseScaleMin, 1);
       i.pulseScale = i.pulseTicker * i.pulseScaleMax;
       if (i.pulseScale >= i.pulseScaleMax || i.pulseTicker <= i.pulseScaleMin) {
@@ -15811,7 +15811,7 @@ class ys {
 }
 class xs extends ee {
   __zOrder = -1;
-  constructor() {
+  letructor() {
     super();
   }
 }
@@ -15827,7 +15827,7 @@ class zs {
   lifetime = 0;
   ticker = 0;
   zOrder = 0;
-  constructor() {
+  letructor() {
     this.sprite.anchor.set(0.5, 0.5);
     this.sprite.scale.set(1, 1);
     this.sprite.visible = false;
@@ -15857,7 +15857,7 @@ class bs {
   mapSprites = [];
   free() {
     for (let e = 0; e < this.mapSprites.length; e++) {
-      const t = this.mapSprites[e].sprite;
+      let t = this.mapSprites[e].sprite;
       t.parent?.removeChild(t);
       t.destroy({
         children: true
@@ -15883,7 +15883,7 @@ class bs {
   update(e, t, i) {
     let r = false;
     for (let a = 0; a < this.mapSprites.length; a++) {
-      const l = this.mapSprites[a];
+      let l = this.mapSprites[a];
       if (l.active) {
         if (l.zOrder != l.sprite.__zOrder) {
           l.sprite.__zOrder = l.zOrder;
@@ -15893,9 +15893,9 @@ class bs {
         if (l.pulse) {
           l.scale += e / 2.5;
         }
-        const s = t.getMapPosFromWorldPos(l.pos, i);
-        const m = l.scale;
-        const d = z.smoothstep(l.ticker, 0, 0.1) * (1 - z.smoothstep(l.ticker, l.lifetime - 0.5, l.lifetime));
+        let s = t.getMapPosFromWorldPos(l.pos, i);
+        let m = l.scale;
+        let d = z.smoothstep(l.ticker, 0, 0.1) * (1 - z.smoothstep(l.ticker, l.lifetime - 0.5, l.lifetime));
         l.sprite.position.set(s.x, s.y);
         l.sprite.scale.set(m, m);
         l.sprite.alpha = l.alpha * d;
@@ -15910,7 +15910,7 @@ class bs {
     }
   }
 }
-const et = 24;
+let et = 24;
 class ks {
   container = new Y();
   timerBackground = ee.from("timer-background.img");
@@ -15923,7 +15923,7 @@ class ks {
   label = "";
   elapsed = 0;
   duration = 0;
-  constructor() {
+  letructor() {
     this.container.visible = false;
     this.timerBackground.anchor.set(0.5, 0.5);
     this.timerBackground.scale.set(1, 1);
@@ -15987,11 +15987,11 @@ class ks {
       return;
     }
     this.elapsed = z.min(this.elapsed + e, this.duration);
-    const i = 56 + this.label.length * et * 0.45;
-    const r = et * 1.5;
-    const a = 0 - i / 2;
-    const l = 87.5 - r / 2;
-    const s = z.min(this.elapsed / this.duration, 1) * Math.PI * 2 - Math.PI * 0.5;
+    let i = 56 + this.label.length * et * 0.45;
+    let r = et * 1.5;
+    let a = 0 - i / 2;
+    let l = 87.5 - r / 2;
+    let s = z.min(this.elapsed / this.duration, 1) * Math.PI * 2 - Math.PI * 0.5;
     this.gfx.clear();
     this.gfx.beginFill(0, 0.5);
     this.gfx.drawRoundedRect(a, l, i, r, 5);
@@ -16006,9 +16006,9 @@ class ks {
   }
 }
 function Si(u) {
-  const e = Math.floor(u / 3600);
-  const t = Math.floor(u / 60) % 60;
-  const i = Math.floor(u) % 60;
+  let e = Math.floor(u / 3600);
+  let t = Math.floor(u / 60) % 60;
+  let i = Math.floor(u) % 60;
   let r = "";
   if (e > 0) {
     r += `${e}h `;
@@ -16019,11 +16019,11 @@ function Si(u) {
   return r += `${i}s`;
 }
 function St(u, e, t, i) {
-  const r = u + (e - u) / t * i;
+  let r = u + (e - u) / t * i;
   return Math.floor(r);
 }
 class qe {
-  constructor(e, t, i) {
+  letructor(e, t, i) {
     this.r = e;
     this.g = t;
     this.b = i;
@@ -16037,7 +16037,7 @@ class qe {
   }
 }
 class vs {
-  constructor(e, t, i, r, a, l, s, m, d) {
+  letructor(e, t, i, r, a, l, s, m, d) {
     this.game = e;
     this.audioManager = t;
     this.particleBarn = i;
@@ -16185,7 +16185,7 @@ class vs {
     };
     if (!v.touch) {
       this.weapSwitches.on("mousedown", f => {
-        const S = f.currentTarget;
+        let S = f.currentTarget;
         if (f.button == 0) {
           this.weapDraggedDiv = c(S);
           this.weapDraggedId = c(S).data("slot");
@@ -16211,7 +16211,7 @@ class vs {
       c("#ui-game, #ui-weapon-id-1, #ui-weapon-id-2").on("mouseup", f => {
         if (f.button == 0 && this.weapDraggedDiv != null) {
           this.weapSwitches.each(() => {
-            const S = c(f.currentTarget).data("slot");
+            let S = c(f.currentTarget).data("slot");
             if (c(f.currentTarget).is(":hover") && this.weapDraggedId != S) {
               this.swapWeapSlots = true;
               this.weapDropped = true;
@@ -16243,11 +16243,11 @@ class vs {
     this.container.addChild(this.display.teammates);
     this.container.addChild(this.display.player);
     this.container.addChild(this.display.border);
-    const h = this.getMinimapMargin();
-    const p = this.getMinimapSize();
+    let h = this.getMinimapMargin();
+    let p = this.getMinimapSize();
     this.minimapPos = n.create(h + p / 2, e.sJNwq.gMqwV - p / 2 - h);
     this.muteButtonImage = this.muteButton.find("img");
-    const w = this.audioManager.mute;
+    let w = this.audioManager.mute;
     this.muteButtonImage.attr("src", w ? this.muteOffImg : this.muteOnImg);
     this.muteButton.on("mousedown", f => {
       f.stopPropagation();
@@ -16259,8 +16259,8 @@ class vs {
     });
     this.teamMemberHealthBarWidth = parseInt(c(".ui-team-member-health").find(".ui-bar-inner").css("width"));
     for (let f = 0; f < 4; f++) {
-      const S = this.topLeft;
-      const x = f;
+      let S = this.topLeft;
+      let x = f;
       this.teamSelectors.push({
         teamNameHtml: "",
         groupId: c(S).find(`[data-id=${x}]`),
@@ -16484,27 +16484,27 @@ class vs {
   }
   onMapLoad(e, t) {
     this.resize(e, t);
-    const i = e.getMapDef().gameMode.killLeaderEnabled;
+    let i = e.getMapDef().gameMode.killLeaderEnabled;
     c("#ui-kill-leader-container").css("display", i ? "block" : "none");
     if (!v.mobile) {
       c("#ui-killfeed-wrapper").css("top", i ? "60px" : "12px");
     }
   }
   PEHQLt(e, t, i, r, a, l, s, m, d) {
-    const h = t;
+    let h = t;
     if (this.weapsDirty) {
       this.resetWeapSlotStyling();
     }
     this.weapsDirty = false;
     this.mapIndicatorBarn.updateIndicatorPulses(e);
-    const p = z.max(Math.floor(r.duration * (1 - r.circleT)), 0);
-    const w = {
+    let p = z.max(Math.floor(r.duration * (1 - r.circleT)), 0);
+    let w = {
       mode: r.mode,
       time: p
     };
     if (this.gasState.mode != w.mode || this.gasState.time != w.time) {
       this.gasState = w;
-      const k = this.gasState.mode == dt.Moving;
+      let k = this.gasState.mode == dt.Moving;
       this.mapInfo.removeClass("icon-pulse");
       this.gasIcon.removeClass("gas-icon");
       this.gasIcon.removeClass("danger-icon");
@@ -16512,8 +16512,8 @@ class vs {
         this.mapInfo.addClass("icon-pulse");
       }
       this.gasIcon.addClass(k ? "danger-icon" : "gas-icon");
-      const b = Math.floor(this.gasState.time / 60);
-      const E = `0${this.gasState.time % 60}`.slice(-2);
+      let b = Math.floor(this.gasState.time / 60);
+      let E = `0${this.gasState.time % 60}`.slice(-2);
       this.gasTimer.html(`${b}:${E}`);
     }
     this.spectatorCount = t.alkER.roTo;
@@ -16544,7 +16544,7 @@ class vs {
           break;
         case ie.Revive:
           {
-            const E = l.getPlayerInfo(t.KXvZTW.targetId).name;
+            let E = l.getPlayerInfo(t.KXvZTW.targetId).name;
             b = this.localization.translate("game-reviving");
             M = h.downed ? "" : E;
             break;
@@ -16565,15 +16565,15 @@ class vs {
       this.mapSprite.x = this.minimapPos.x + this.mapSprite.width / 2 - t.Hxqi.x / i.width * this.mapSprite.width;
       this.mapSprite.y = this.minimapPos.y - this.mapSprite.height / 2 + t.Hxqi.y / i.height * this.mapSprite.height;
     }
-    const f = n.create(s.LCRnPO * 0.5 / s.fVAy(), s.gMqwV * 0.5 / s.fVAy());
-    const S = {
+    let f = n.create(s.LCRnPO * 0.5 / s.fVAy(), s.gMqwV * 0.5 / s.fVAy());
+    let S = {
       min: n.sub(s.aznZwb, f),
       max: n.add(s.aznZwb, f)
     };
-    const x = l.getPlayerInfo(t.__id).groupId;
-    const y = l.getGroupInfo(x);
+    let x = l.getPlayerInfo(t.__id).groupId;
+    let y = l.getGroupInfo(x);
     if (!y) {
-      const k = {
+      let k = {
         playerId: t.__id,
         groupId: x,
         spectating: this.spectating,
@@ -16582,14 +16582,14 @@ class vs {
       };
       console.error(`badTeamInfo_1: ${JSON.stringify(k)}`);
     }
-    const C = v.uiLayout == v.UiLayout.Sm;
-    const P = y.playerIds.length;
+    let C = v.uiLayout == v.UiLayout.Sm;
+    let P = y.playerIds.length;
     for (let k = 0; k < P; k++) {
-      const b = this.teamSelectors[k];
-      const M = y.playerIds[k];
-      const E = l.getPlayerInfo(M);
-      const D = M == h.__id;
-      const L = l.getPlayerStatus(M);
+      let b = this.teamSelectors[k];
+      let M = y.playerIds[k];
+      let E = l.getPlayerInfo(M);
+      let D = M == h.__id;
+      let L = l.getPlayerStatus(M);
       if (L && m > Se.Solo) {
         if (!b.groupIdDisplayed) {
           b.groupId.css("display", "block");
@@ -16601,18 +16601,18 @@ class vs {
           downed: L.downed,
           role: L.role
         }, E.playerId, E.teamId, l);
-        for (const _ in b.indicators) {
+        for (let _ in b.indicators) {
           if (b.indicators.hasOwnProperty(_)) {
-            const T = b.indicators[_];
-            const V = T.elem;
+            let T = b.indicators[_];
+            let V = T.elem;
             let j = true;
             if ((!D || T.displayAll) && !d) {
-              const q = L.pos;
-              const Z = n.normalizeSafe(n.sub(q, s.aznZwb), n.create(1, 0));
-              const O = xe.intersectRayAabb(s.aznZwb, Z, S.min, S.max);
-              const N = Math.atan2(Z.y, -Z.x) + Math.PI * 0.5;
-              const U = s.JDbtXa(O);
-              const te = xe.testCircleAabb(q, R.player.radius, S.min, S.max);
+              let q = L.pos;
+              let Z = n.normalizeSafe(n.sub(q, s.aznZwb), n.create(1, 0));
+              let O = xe.intersectRayAabb(s.aznZwb, Z, S.min, S.max);
+              let N = Math.atan2(Z.y, -Z.x) + Math.PI * 0.5;
+              let U = s.JDbtXa(O);
+              let te = xe.testCircleAabb(q, R.player.radius, S.min, S.max);
               if (!L.dead && !te) {
                 let ae = 32;
                 let ge = `translate(-50%, -50%) rotate(${N}rad)`;
@@ -16641,10 +16641,10 @@ class vs {
       }
     }
     for (let k = P; k < this.teamSelectors.length; k++) {
-      const b = this.teamSelectors[k];
-      for (const M in b.indicators) {
+      let b = this.teamSelectors[k];
+      for (let M in b.indicators) {
         if (b.indicators.hasOwnProperty(M)) {
-          const E = b.indicators[M];
+          let E = b.indicators[M];
           if (E.displayed) {
             E.elem.css("display", "none");
             E.displayed = false;
@@ -16657,10 +16657,10 @@ class vs {
       }
     }
     if (i.factionMode) {
-      const k = l.getPlayerInfo(h.__id);
+      let k = l.getPlayerInfo(h.__id);
       if (this.flairId != k.teamId) {
         this.flairId = k.teamId;
-        const b = this.flairId == 1 ? "red" : "blue";
+        let b = this.flairId == 1 ? "red" : "blue";
         this.flairElems.css({
           display: "block",
           "background-image": `url(../img/gui/player-patch-${b}.svg)`
@@ -16682,8 +16682,8 @@ class vs {
     this.DCc.update(e, s);
     if (this.roleMenuActive) {
       this.roleMenuTicker -= e;
-      const k = Math.ceil(this.roleMenuTicker);
-      const b = `${this.localization.translate("game-enter-game")} (${k})`;
+      let k = Math.ceil(this.roleMenuTicker);
+      let b = `${this.localization.translate("game-enter-game")} (${k})`;
       if (b != this.roleMenuFooterHtml) {
         this.roleMenuFooterEnterElem.html(b);
         this.roleMenuFooterHtml = b;
@@ -16700,14 +16700,14 @@ class vs {
     }
   }
   updatePlayerMapSprites(e, t, i, r) {
-    const a = i.getPlayerInfo(t.__id);
+    let a = i.getPlayerInfo(t.__id);
     let l = 0;
-    const s = (d, h, p, w, f, S, x) => {
+    let s = (d, h, p, w, f, S, x) => {
       if (l >= this.playerMapSprites.length) {
-        const C = this.mapSpriteBarn.addSprite();
+        let C = this.mapSpriteBarn.addSprite();
         this.playerMapSprites.push(C);
       }
-      const y = this.playerMapSprites[l++];
+      let y = this.playerMapSprites[l++];
       y.pos = n.copy(d);
       y.scale = h;
       y.alpha = p;
@@ -16716,18 +16716,18 @@ class vs {
       y.sprite.texture = G.from(S);
       y.sprite.tint = x;
     };
-    const m = Object.keys(i.playerStatus);
+    let m = Object.keys(i.playerStatus);
     for (let d = 0; d < m.length; d++) {
-      const h = i.playerStatus[m[d]];
-      const p = h.playerId;
-      const w = i.getPlayerInfo(p);
-      const f = w.groupId == a.groupId;
+      let h = i.playerStatus[m[d]];
+      let p = h.playerId;
+      let w = i.getPlayerInfo(p);
+      let f = w.groupId == a.groupId;
       let S = 65535 + p * 2;
       if (p == a.playerId) {
         S += 131070;
       }
-      const x = Oi[h.role];
-      const y = x?.mapIcon;
+      let x = Oi[h.role];
+      let y = x?.mapIcon;
       if (y) {
         S += 65535;
       }
@@ -16747,13 +16747,13 @@ class vs {
       if (r.factionMode && y) {
         P = i.getTeamColor(w.teamId);
       }
-      const k = v.uiLayout == v.UiLayout.Sm ? 0.15 : 0.2;
+      let k = v.uiLayout == v.UiLayout.Sm ? 0.15 : 0.2;
       let b = k;
       b = f ? h.dead ? k * 1.5 : y ? k * 1.25 : k * 1 : h.dead || h.downed || y ? k * 1.25 : k * 0.75;
       s(h.pos, b, h.minimapAlpha, h.minimapVisible, S, C, P);
       if (f) {
-        const M = v.uiLayout == v.UiLayout.Sm ? 0.25 : 0.3;
-        const E = h.minimapVisible && !y;
+        let M = v.uiLayout == v.UiLayout.Sm ? 0.25 : 0.3;
+        let E = h.minimapVisible && !y;
         s(h.pos, M, h.minimapAlpha, E, S - 1, "player-map-outer.img", 16777215);
       }
     }
@@ -16783,10 +16783,10 @@ class vs {
     }
   }
   createPing(e, t, i, r, a, l) {
-    const s = Fe[e];
+    let s = Fe[e];
     if (s) {
-      const m = (h, p) => {
-        const w = this.mapSpriteBarn.addSprite();
+      let m = (h, p) => {
+        let w = this.mapSpriteBarn.addSprite();
         w.pos = n.copy(t);
         w.scale = h;
         w.lifetime = s.mapLife;
@@ -16796,8 +16796,8 @@ class vs {
         w.sprite.tint = p;
         return w;
       };
-      const d = h => {
-        const p = this.mapSpriteBarn.addSprite();
+      let d = h => {
+        let p = this.mapSpriteBarn.addSprite();
         p.pos = n.copy(t);
         p.scale = 0;
         p.lifetime = s.pingLife;
@@ -16808,14 +16808,14 @@ class vs {
         return p;
       };
       if (s.mapEvent) {
-        const h = (v.uiLayout == v.UiLayout.Sm ? 0.15 : 0.2) * 1.5;
+        let h = (v.uiLayout == v.UiLayout.Sm ? 0.15 : 0.2) * 1.5;
         m(h, s.tint).release();
         d(s.tint).release();
       } else {
         let h = 16777215;
-        const p = a.getPlayerInfo(r);
-        const w = a.getPlayerInfo(i);
-        const f = a.getPlayerStatus(i);
+        let p = a.getPlayerInfo(r);
+        let w = a.getPlayerInfo(i);
+        let f = a.getPlayerStatus(i);
         if (p && w && f) {
           if (f.role == "leader") {
             h = 65280;
@@ -16826,13 +16826,13 @@ class vs {
           }
         }
         this.playerPingSprites[i] ||= [];
-        const S = this.playerPingSprites[i];
+        let S = this.playerPingSprites[i];
         for (let P = 0; P < S.length; P++) {
           S[P].free();
         }
-        const x = v.uiLayout == v.UiLayout.Sm ? 0.15 : 0.2;
-        const y = m(x, h);
-        const C = d(h);
+        let x = v.uiLayout == v.UiLayout.Sm ? 0.15 : 0.2;
+        let y = m(x, h);
+        let C = d(h);
         S.push(y);
         S.push(C);
       }
@@ -16862,29 +16862,29 @@ class vs {
     this.mapIndicatorBarn.updateIndicatorData(e);
   }
   getMapPosFromWorldPos(e, t) {
-    const i = this.mapSprite.x - this.mapSprite.width / 2 + e.x / t.width * this.mapSprite.width;
-    const r = this.mapSprite.y + this.mapSprite.height / 2 - e.y / t.height * this.mapSprite.height;
+    let i = this.mapSprite.x - this.mapSprite.width / 2 + e.x / t.width * this.mapSprite.width;
+    let r = this.mapSprite.y + this.mapSprite.height / 2 - e.y / t.height * this.mapSprite.height;
     return n.create(i, r);
   }
   getWorldPosFromMapPos(e, t, i) {
     let r = false;
     if (this.bigmapDisplayed) {
-      const a = (i.LCRnPO - this.mapSprite.width) / 2;
+      let a = (i.LCRnPO - this.mapSprite.width) / 2;
       let l = (i.gMqwV - this.mapSprite.height) / 2;
       if (v.uiLayout == v.UiLayout.Sm && !v.isLandscape) {
         l = 0;
       }
       r = e.x > a && e.x < i.LCRnPO - a && e.y > l && e.y < i.gMqwV - l;
     } else if (this.minimapDisplayed) {
-      const a = this.getMinimapSize();
-      const l = this.getMinimapMargin();
-      const m = (a * this.screenScaleFactor + l) * 0.5;
+      let a = this.getMinimapSize();
+      let l = this.getMinimapMargin();
+      let m = (a * this.screenScaleFactor + l) * 0.5;
       r = e.x > this.minimapPos.x - m && e.x < this.minimapPos.x + m && e.y > this.minimapPos.y - m && e.y < this.minimapPos.y + m;
     }
     if (r) {
-      const a = n.create(this.mapSprite.x - this.mapSprite.width / 2, this.mapSprite.y + this.mapSprite.height / 2);
-      const l = (e.x - a.x) / this.mapSprite.width * t.width;
-      const s = (a.y - e.y) / this.mapSprite.height * t.height;
+      let a = n.create(this.mapSprite.x - this.mapSprite.width / 2, this.mapSprite.y + this.mapSprite.height / 2);
+      let l = (e.x - a.x) / this.mapSprite.width * t.width;
+      let s = (a.y - e.y) / this.mapSprite.height * t.height;
       return n.create(l, s);
     }
     return false;
@@ -16905,9 +16905,9 @@ class vs {
       if (!window.aiptag) {
         return;
       }
-      const e = ["728x90", "300x250_2"];
+      let e = ["728x90", "300x250_2"];
       for (let t = 0; t < e.length; t++) {
-        const i = e[t];
+        let i = e[t];
         window.aiptag.cmd.display.push(() => {
           window.aipDisplayTag.destroy(`survev-io_${i}`);
         });
@@ -16915,17 +16915,17 @@ class vs {
     }
   }
   refreshMainPageAds() {
-    const e = ["728x90"];
+    let e = ["728x90"];
     if (window.CrazyGames) {
       for (let t = 0; t < e.length; t++) {
-        const i = e[t];
-        const r = i.split("x").map(Number);
+        let i = e[t];
+        let r = i.split("x").map(Number);
         It(`survev-io_${i}`, r[0], r[1]);
       }
     }
     if (window.aiptag) {
       for (let t = 0; t < e.length; t++) {
-        const i = e[t];
+        let i = e[t];
         window.aiptag.cmd.display.push(() => {
           window.aipDisplayTag.display(`survev-io_${i}`);
         });
@@ -16960,13 +16960,13 @@ class vs {
     this.statsContents.stop().hide();
   }
   teamModeToString(e) {
-    const t = {
+    let t = {
       unknown: "game-rank",
       [Se.Solo]: "game-solo-rank",
       [Se.Duo]: "game-duo-rank",
       [Se.Squad]: "game-squad-rank"
     };
-    const i = t[e] || t.unknown;
+    let i = t[e] || t.unknown;
     return this.localization.translate(i);
   }
   getTitleVictoryText(e, t) {
@@ -16990,8 +16990,8 @@ class vs {
   }
   getOverviewElems(e, t, i, r) {
     if (r) {
-      const a = this.localization.translate("game-red-team");
-      const l = this.localization.translate("game-blue-team");
+      let a = this.localization.translate("game-red-team");
+      let l = this.localization.translate("game-blue-team");
       return `<div class="ui-stats-header-right ui-stats-header-red-team"><span class="ui-stats-header-stat">${a} </span><span class="ui-stats-header-value">${this.playersAliveRedCounter}</span></div><div class="ui-stats-header-left ui-stats-header-blue-team"><span class="ui-stats-header-stat">${l} </span><span class="ui-stats-header-value">${this.playersAliveBlueCounter}</span></div>`;
     }
     if (e == Se.Solo) {
@@ -17023,17 +17023,17 @@ class vs {
       this.statsInfoBox.css({
         height: ""
       });
-      const S = l == r ? 1750 : 2500;
+      let S = l == r ? 1750 : 2500;
       this.setBannerAd(S, w);
-      const x = l == r || m && r == t;
-      const y = m && l != t;
-      const C = x ? this.getTitleVictoryText(y, p.getMapDef().gameMode) : this.getTitleDefeatText(s, y);
+      let x = l == r || m && r == t;
+      let y = m && l != t;
+      let C = x ? this.getTitleVictoryText(y, p.getMapDef().gameMode) : this.getTitleDefeatText(s, y);
       let P = 0;
       for (let q = 0; q < e.length; q++) {
         P += e[q].kills;
       }
-      const k = this.getOverviewElems(s, i, P, p.getMapDef().gameMode.factionMode);
-      const b = c("<div/>").append(c("<div/>", {
+      let k = this.getOverviewElems(s, i, P, p.getMapDef().gameMode.factionMode);
+      let b = c("<div/>").append(c("<div/>", {
         class: "ui-stats-header-title",
         html: C
       })).append(c("<div/>", {
@@ -17041,24 +17041,24 @@ class vs {
         html: k
       }));
       this.statsHeader.html(b);
-      const M = (q, Z) => c("<div/>", {
+      let M = (q, Z) => c("<div/>", {
         class: "ui-stats-info"
       }).append(c("<div/>", {
         html: q
       })).append(c("<div/>", {
         html: Z
       }));
-      const E = v.uiLayout != v.UiLayout.Sm || v.tablet ? 250 : 125;
+      let E = v.uiLayout != v.UiLayout.Sm || v.tablet ? 250 : 125;
       let D = 0;
       D -= (e.length - 1) * E / 2;
       D -= (e.length - 1) * 10;
       for (let q = 0; q < e.length; q++) {
-        const Z = e[q];
-        const O = d.getPlayerInfo(Z.playerId);
-        const N = Si(Z.timeAlive);
+        let Z = e[q];
+        let O = d.getPlayerInfo(Z.playerId);
+        let N = Si(Z.timeAlive);
         let U = "ui-stats-info-player";
         U += Z.dead ? " ui-stats-info-status" : "";
-        const te = (ae => c("<div/>", {
+        let te = (ae => c("<div/>", {
           class: ae
         }))(U);
         te.css("left", D);
@@ -17081,7 +17081,7 @@ class vs {
               break;
             case 3:
               {
-                const ae = O.teamId == 1 ? "ui-stats-info-player-red-ribbon" : "ui-stats-info-player-blue-ribbon";
+                let ae = O.teamId == 1 ? "ui-stats-info-player-red-ribbon" : "ui-stats-info-player-blue-ribbon";
                 te.append(c("<div/>", {
                   class: `ui-stats-info-player-badge ${ae}`
                 }));
@@ -17091,7 +17091,7 @@ class vs {
         this.statsInfoBox.append(te);
         D += 10;
       }
-      const L = c("<a/>", {
+      let L = c("<a/>", {
         class: "ui-stats-restart btn-green btn-darken menu-option",
         html: this.localization.translate("game-play-new-game")
       });
@@ -17107,7 +17107,7 @@ class vs {
         L.css({
           left: v.uiLayout != v.UiLayout.Sm || v.tablet ? -72 : -46
         });
-        const q = c("<a/>", {
+        let q = c("<a/>", {
           class: "btn-green btn-darken menu-option ui-stats-spectate",
           html: this.localization.translate("game-spectate")
         });
@@ -17115,11 +17115,11 @@ class vs {
         this.statsOptions.append(q);
       }
       let _ = 0;
-      const T = 500;
-      const V = 250 / z.max(1, e.length);
-      const j = 750 / z.max(1, e.length);
+      let T = 500;
+      let V = 250 / z.max(1, e.length);
+      let j = 750 / z.max(1, e.length);
       this.statsInfoBox.children().each((q, Z) => {
-        const O = c(Z);
+        let O = c(Z);
         O.css("opacity", 0);
         O.delay(S + j + (_ + q) * V).animate({
           opacity: 1
@@ -17137,9 +17137,9 @@ class vs {
         _++;
       });
       this.statsOptions.children().each((q, Z) => {
-        const O = c(Z);
+        let O = c(Z);
         O.hide();
-        const N = S + j + (_ + q) * V + 500;
+        let N = S + j + (_ + q) * V + 500;
         O.delay(N).fadeIn(T);
         _++;
       });
@@ -17203,7 +17203,7 @@ class vs {
     this.statsInfoBox.css({
       height: 0
     });
-    const i = c("<a/>", {
+    let i = c("<a/>", {
       class: "ui-stats-restart btn-green btn-darken menu-option",
       html: this.localization.translate("game-play-new-game")
     });
@@ -17214,7 +17214,7 @@ class vs {
     i.css({
       left: v.uiLayout != v.UiLayout.Sm || v.tablet ? -72 : -46
     });
-    const r = c("<a/>", {
+    let r = c("<a/>", {
       class: "btn-green btn-darken menu-option ui-stats-spectate",
       html: this.localization.translate("game-spectate")
     });
@@ -17222,9 +17222,9 @@ class vs {
     this.statsOptions.append(r);
     let a = 0;
     this.statsOptions.children().each((l, s) => {
-      const m = c(s);
+      let m = c(s);
       m.hide();
-      const d = 4100 + (a + l) * 300 + 300;
+      let d = 4100 + (a + l) * 300 + 300;
       m.delay(d).fadeIn(750);
       a++;
     });
@@ -17255,7 +17255,7 @@ class vs {
   setSpectateTarget(e, t, i, r) {
     if (e != this.spectatedPlayerId) {
       this.setSpectating(true, i);
-      const a = r.getPlayerName(e, t, false);
+      let a = r.getPlayerName(e, t, false);
       this.spectatedPlayerId = e;
       this.spectatedPlayerName = $.htmlEscape(a);
       this.spectatedPlayerText.find("#spectate-player").html(this.spectatedPlayerName);
@@ -17269,7 +17269,7 @@ class vs {
       if (this.spectating) {
         this.spectateMode.css("display", "block");
         c(".ui-zoom").removeClass("ui-zoom-hover");
-        const i = t == Se.Solo;
+        let i = t == Se.Solo;
         this.specPrevButton.css("display", i ? "none" : "block");
         this.specNextButton.css("display", i ? "none" : "block");
         this.hideStats();
@@ -17280,24 +17280,24 @@ class vs {
     }
   }
   setLocalStats(e) {
-    const t = {
+    let t = {
       kills: this.localization.translate("game-kills"),
       damageDealt: this.localization.translate("game-damage-dealt"),
       damageTaken: this.localization.translate("game-damage-taken"),
       timeAlive: this.localization.translate("game-survived")
     };
     this.spectateModeStatsData.empty();
-    for (const i in t) {
+    for (let i in t) {
       if (t.hasOwnProperty(i)) {
-        const r = t[i];
-        const a = i == "timeAlive" ? Si(e[i]) : e[i];
-        const l = `<tr><td class="ui-spectate-stats-category">${r}</td><td class="ui-spectate-stats-value">${a}</td></tr>`;
+        let r = t[i];
+        let a = i == "timeAlive" ? Si(e[i]) : e[i];
+        let l = `<tr><td class="ui-spectate-stats-category">${r}</td><td class="ui-spectate-stats-value">${a}</td></tr>`;
         this.spectateModeStatsData.append(l);
       }
     }
   }
   toggleLocalStats(e = false) {
-    const t = this.spectateModeStats.css("display") == "none" && !e;
+    let t = this.spectateModeStats.css("display") == "none" && !e;
     this.spectateModeStats.css("display", t ? "inline-block" : "none");
     this.specStatsButton.html(t ? this.localization.translate("game-hide-match-stats") : this.localization.translate("game-view-match-stats"));
   }
@@ -17323,8 +17323,8 @@ class vs {
     c("#ui-map-counter-faction").css("display", "inline-block");
   }
   updateKillLeader(e, t, i, r) {
-    const a = e != 0;
-    const l = r?.sniperMode ? this.localization.translate("game-waiting-for-hunted") : this.localization.translate("game-waiting-for-new-leader");
+    let a = e != 0;
+    let l = r?.sniperMode ? this.localization.translate("game-waiting-for-hunted") : this.localization.translate("game-waiting-for-new-leader");
     this.killLeaderName.html(a ? t : l);
     this.killLeaderCount.html(a ? i : 0);
   }
@@ -17343,7 +17343,7 @@ class vs {
     this.redraw(this.game.sJNwq);
   }
   updateSpectatorCountDisplay(e) {
-    const t = !this.bigmapDisplayed && this.spectatorCount > 0;
+    let t = !this.bigmapDisplayed && this.spectatorCount > 0;
     e = e || this.spectatorCount > 0 && !this.spectatorCounterDisplayed || this.spectatorCount == 0 && this.spectatorCounterDisplayed;
     if (this.spectatorCount != this.prevSpectatorCount) {
       this.spectatorCounter.html(this.spectatorCount);
@@ -17398,7 +17398,7 @@ class vs {
   }
   displayMiniMap() {
     if (!this.bigmapDisplayed) {
-      const e = v.uiLayout == v.UiLayout.Sm;
+      let e = v.uiLayout == v.UiLayout.Sm;
       this.minimapDisplayed = true;
       this.container.alpha = 1;
       this.mapInfo.css("bottom", this.mapInfoBottom);
@@ -17424,8 +17424,8 @@ class vs {
       case dt.Waiting:
         {
           i = this.localization.translate("game-red-zone-advances");
-          const r = Math.floor(t / 60);
-          const a = t - r * 60;
+          let r = Math.floor(t / 60);
+          let a = t - r * 60;
           i += r > 1 ? ` ${r} ${this.localization.translate("game-minutes")}` : "";
           i += r == 1 ? ` ${r} ${this.localization.translate("game-minute")}` : "";
           i += a > 0 ? ` ${Math.floor(a)} ${this.localization.translate("game-seconds")}` : "";
@@ -17442,30 +17442,30 @@ class vs {
     this.waitingText.css("display", e ? "block" : "none");
   }
   lXaw(e, t, i, r, a, l) {
-    const s = t.getCircle(1);
-    const m = this.getMapPosFromWorldPos(s.pos, r);
-    const d = this.getMapPosFromWorldPos(n.add(s.pos, n.create(s.rad, 0)), r);
-    const h = n.length(n.sub(d, m));
+    let s = t.getCircle(1);
+    let m = this.getMapPosFromWorldPos(s.pos, r);
+    let d = this.getMapPosFromWorldPos(n.add(s.pos, n.create(s.rad, 0)), r);
+    let h = n.length(n.sub(d, m));
     this.gasRenderer.render(m, h, t.isActive());
-    const p = t.circleNew;
-    const w = this.getMapPosFromWorldPos(p.pos, r);
-    const f = this.getMapPosFromWorldPos(n.add(p.pos, n.create(p.rad, 0)), r);
-    const S = n.length(n.sub(f, w));
-    const x = this.getMapPosFromWorldPos(e, r);
-    const y = t.isActive();
-    const C = t.isActive() && !this.bigmapDisplayed;
+    let p = t.circleNew;
+    let w = this.getMapPosFromWorldPos(p.pos, r);
+    let f = this.getMapPosFromWorldPos(n.add(p.pos, n.create(p.rad, 0)), r);
+    let S = n.length(n.sub(f, w));
+    let x = this.getMapPosFromWorldPos(e, r);
+    let y = t.isActive();
+    let C = t.isActive() && !this.bigmapDisplayed;
     this.gasSafeZoneRenderer.render(w, S, x, y, C);
     a.renderAirstrikeZones(this, r, l);
   }
   updateHealthBar(e, t, i, r) {
-    const a = e;
+    let a = e;
     let l = r.health * 0.01 * a;
     l = r.dead ? 0 : z.max(l, 1);
     t.css("width", l);
     if (l > 0) {
       i?.css("width", l);
     }
-    const s = r.health;
+    let s = r.health;
     let m = this.healthRed;
     let d = this.healthDarkpink;
     if (s > 25) {
@@ -17484,11 +17484,11 @@ class vs {
           m = this.healthDarkpink;
           d = this.healthLightpink;
         }
-        const h = m.getColors();
-        const p = d.getColors();
-        const w = St(h.r, p.r, 45, s);
-        const f = St(h.g, p.g, 45, s);
-        const S = St(h.b, p.b, 45, s);
+        let h = m.getColors();
+        let p = d.getColors();
+        let w = St(h.r, p.r, 45, s);
+        let f = St(h.g, p.g, 45, s);
+        let S = St(h.b, p.b, 45, s);
         t.css({
           backgroundColor: `rgba(${w},${f},${S},1)`
         });
@@ -17499,14 +17499,14 @@ class vs {
     }
   }
   updateTeam(e, t, i, r, a, l, s) {
-    const m = this.teamSelectors[e].groupId;
-    const d = this.teamSelectors[e].teamName;
-    const h = this.teamSelectors[e].prevHealth;
-    const p = this.teamSelectors[e].prevStatus;
-    const w = r.dead != p.dead || r.disconnected != p.disconnected || r.downed != p.downed || r.role != p.role;
+    let m = this.teamSelectors[e].groupId;
+    let d = this.teamSelectors[e].teamName;
+    let h = this.teamSelectors[e].prevHealth;
+    let p = this.teamSelectors[e].prevStatus;
+    let w = r.dead != p.dead || r.disconnected != p.disconnected || r.downed != p.downed || r.role != p.role;
     if (this.teamSelectors[e].playerId != a || i != h || w) {
-      const f = this.teamSelectors[e].teamStatus;
-      const S = this.teamSelectors[e].teamHealthInner;
+      let f = this.teamSelectors[e].teamStatus;
+      let S = this.teamSelectors[e].teamHealthInner;
       this.teamSelectors[e].playerId = a;
       this.teamSelectors[e].teamNameHtml = t;
       d.html(t);
@@ -17544,14 +17544,14 @@ class vs {
     this.DCc.resize(this.touch, this.screenScaleFactor);
     this.gasRenderer.resize();
     this.mapSprite.texture = e.getMapTexture();
-    const i = z.min(1, z.min(t.LCRnPO / 1200, t.gMqwV / 900));
+    let i = z.min(1, z.min(t.LCRnPO / 1200, t.gMqwV / 900));
     this.roleMenuElem.css("transform", `translateX(-50%) translateY(-50%) scale(${i})`);
     this.redraw(t);
   }
   redraw(e) {
-    const t = e.LCRnPO;
-    const i = e.gMqwV;
-    const r = this.getMinimapMargin();
+    let t = e.LCRnPO;
+    let i = e.gMqwV;
+    let r = this.getMinimapMargin();
     let a = 0;
     let l = 0;
     if (v.model == "iphonex") {
@@ -17561,13 +17561,13 @@ class vs {
         l += 32;
       }
     }
-    const s = this.getMinimapSize();
-    const m = this.getMinimapBorderWidth();
-    const d = v.uiLayout == v.UiLayout.Sm;
+    let s = this.getMinimapSize();
+    let m = this.getMinimapBorderWidth();
+    let d = v.uiLayout == v.UiLayout.Sm;
     this.display.border.clear();
     this.container.mask?.clear();
     if (this.bigmapDisplayed) {
-      const h = z.min(t, i);
+      let h = z.min(t, i);
       this.mapSprite.width = h;
       this.mapSprite.height = h;
       this.mapSprite.x = t / 2;
@@ -17583,8 +17583,8 @@ class vs {
         });
       }
     } else {
-      const h = this.screenScaleFactor * 1600 / 1.2;
-      const p = s * this.screenScaleFactor;
+      let h = this.screenScaleFactor * 1600 / 1.2;
+      let p = s * this.screenScaleFactor;
       this.mapSprite.width = h;
       this.mapSprite.height = h;
       this.mapSprite.alpha = 0.8;
@@ -17604,15 +17604,15 @@ class vs {
       }
       this.mapContainer.css(w);
       this.mapContainer.css("bottom", this.mapContainerBottom * this.screenScaleFactor);
-      const f = d ? p / 2 + r : i - p / 2 - r;
+      let f = d ? p / 2 + r : i - p / 2 - r;
       this.minimapPos.x = r + p / 2 + a;
       this.minimapPos.y = f + l;
       this.display.border.lineStyle(m, 0);
       this.display.border.beginFill(0, 0);
-      const S = d ? r + m / 2 : i - p - r + m / 2;
+      let S = d ? r + m / 2 : i - p - r + m / 2;
       this.display.border.drawRect(r + m / 2 + a, S + l, p - m, p - m);
       this.display.border.endFill();
-      const x = d ? r : i - p - r;
+      let x = d ? r : i - p - r;
       this.container.mask.beginFill(16777215, 1);
       this.container.mask.drawRect(r + a, x - 0.5 + l, p, p);
       this.container.mask.endFill();
@@ -17683,9 +17683,9 @@ class vs {
   setRoleMenuOptions(e, t) {
     c("#ui-role-header").html("");
     for (let r = 0; r < t.length; r++) {
-      const a = t[r];
-      const l = B[a];
-      const s = c("<div/>", {
+      let a = t[r];
+      let l = B[a];
+      let s = c("<div/>", {
         class: "ui-role-option",
         "data-role": a
       });
@@ -17696,7 +17696,7 @@ class vs {
     }
     c(".ui-role-option").on("click", r => {
       r.stopPropagation();
-      const a = c(r.currentTarget);
+      let a = c(r.currentTarget);
       this.setRoleMenuInfo(a.data("role"));
     });
     let i = t[0];
@@ -17706,7 +17706,7 @@ class vs {
     this.setRoleMenuInfo(i);
   }
   setRoleMenuInfo(e) {
-    const t = B[e];
+    let t = B[e];
     c(".ui-role-option").css({
       "background-size": 132,
       opacity: 0.5
@@ -17715,45 +17715,45 @@ class vs {
       "background-size": 164,
       opacity: 1
     });
-    const i = c("<div/>", {
+    let i = c("<div/>", {
       class: "ui-role-body-left"
     });
-    const r = c("<div/>", {
+    let r = c("<div/>", {
       class: "ui-role-body-name"
     });
-    const a = c("<div/>", {
+    let a = c("<div/>", {
       class: "ui-role-body-image"
     });
-    const l = this.localization.translate(`game-${e}`);
+    let l = this.localization.translate(`game-${e}`);
     r.html(l);
     a.css({
       "background-image": `url('${t.guiImg}')`
     });
-    const s = t.color ? $.colorToHexString(t.color) : "default";
+    let s = t.color ? $.colorToHexString(t.color) : "default";
     this.roleMenuElem.css("border-color", s);
     i.append(r).append(a);
-    const m = c("<div/>", {
+    let m = c("<div/>", {
       class: "ui-role-body-right"
     });
-    const d = t.perks;
+    let d = t.perks;
     for (let h = 0; h < d.length; h++) {
-      const p = d[h];
-      const w = c("<div/>", {
+      let p = d[h];
+      let w = c("<div/>", {
         class: "ui-role-body-perk"
       });
-      const f = c("<div/>", {
+      let f = c("<div/>", {
         class: "ui-role-body-perk-image-wrapper"
       }).append(c("<div/>", {
         class: "ui-role-body-perk-image-icon"
       }));
-      const S = c("<div/>", {
+      let S = c("<div/>", {
         class: "ui-role-body-perk-name"
       });
-      const x = $.getSvgFromGameType(p instanceof Function ? p() : p);
+      let x = $.getSvgFromGameType(p instanceof Function ? p() : p);
       f.find(".ui-role-body-perk-image-icon").css({
         "background-image": `url('${x}')`
       });
-      const y = this.localization.translate(`game-${p}`);
+      let y = this.localization.translate(`game-${p}`);
       S.html(y);
       w.append(f).append(S);
       m.append(w);
@@ -17762,10 +17762,10 @@ class vs {
     this.roleDisplayed = e;
   }
 }
-const sr = 6;
-const yi = 750;
-const or = 3;
-const _s = {
+let sr = 6;
+let yi = 750;
+let or = 3;
+let _s = {
   [R.WeaponSlot.Primary]: A.EquipPrimary,
   [R.WeaponSlot.Secondary]: A.EquipSecondary,
   [R.WeaponSlot.Melee]: A.EquipMelee,
@@ -17790,9 +17790,9 @@ function Lt(u, e, t) {
       Lt(u[i], t !== undefined ? e[t] : e, i);
     }
   } else if (u instanceof Object) {
-    const i = Object.keys(u);
+    let i = Object.keys(u);
     for (let r = 0; r < i.length; r++) {
-      const a = i[r];
+      let a = i[r];
       Lt(u[a], t !== undefined ? e[t] : e, a);
     }
   } else {
@@ -17801,17 +17801,17 @@ function Lt(u, e, t) {
 }
 function At(u, e, t) {
   if (e instanceof Array) {
-    const i = [];
+    let i = [];
     for (let r = 0; r < e.length; r++) {
       i[r] = At(u[r], e[r], t);
     }
     return i;
   }
   if (e instanceof Object) {
-    const i = {};
-    const r = Object.keys(e);
+    let i = {};
+    let r = Object.keys(e);
     for (let a = 0; a < r.length; a++) {
-      const l = r[a];
+      let l = r[a];
       i[l] = At(u[l], e[l], t);
     }
     return i;
@@ -17819,11 +17819,11 @@ function At(u, e, t) {
   return u != e || t;
 }
 function lr() {
-  const u = Object.keys(B);
-  const e = [];
+  let u = Object.keys(B);
+  let e = [];
   for (let t = 0; t < u.length; t++) {
-    const i = u[t];
-    const r = B[i];
+    let i = u[t];
+    let r = B[i];
     if (!r.hideUi && (r.type == "heal" || r.type == "boost" || r.type == "ammo")) {
       e.push(i);
     }
@@ -17923,18 +17923,18 @@ class bi {
   downed = false;
 }
 class Is {
-  constructor(e, t) {
+  letructor(e, t) {
     this.localization = e;
     this.inputBinds = t;
-    const i = this;
+    let i = this;
     for (let s = 0; s < sr; s++) {
-      const m = `ui-killfeed-${s}`;
+      let m = `ui-killfeed-${s}`;
       let d = J(m);
       if (!d) {
         d = document.createElement("div");
         d.id = m;
         d.classList.add("killfeed-div");
-        const h = document.createElement("div");
+        let h = document.createElement("div");
         h.classList.add("killfeed-text");
         d.appendChild(h);
         this.dom.killFeed.div.appendChild(d);
@@ -17945,8 +17945,8 @@ class Is {
       });
     }
     for (let s = 0; s < R.WeaponSlot.Count; s++) {
-      const m = J(`ui-weapon-id-${s + 1}`);
-      const d = {
+      let m = J(`ui-weapon-id-${s + 1}`);
+      let d = {
         div: m,
         type: m.getElementsByClassName("ui-weapon-name")[0],
         number: m.getElementsByClassName("ui-weapon-number")[0],
@@ -17956,18 +17956,18 @@ class Is {
       this.dom.weapons.push(d);
     }
     for (let s = 0; s < kt.length; s++) {
-      const m = kt[s];
-      const d = {
+      let m = kt[s];
+      let d = {
         scopeType: m,
         div: J(`ui-scope-${m}`)
       };
       this.dom.scopes.push(d);
     }
     for (let s = lr(), m = 0; m < s.length; m++) {
-      const d = s[m];
-      const h = J(`ui-loot-${d}`);
+      let d = s[m];
+      let h = J(`ui-loot-${d}`);
       if (h) {
-        const p = {
+        let p = {
           lootType: d,
           div: h,
           count: h.getElementsByClassName("ui-loot-count")[0],
@@ -17978,9 +17978,9 @@ class Is {
       }
     }
     for (let s = 0; s < vt.length; s++) {
-      const m = vt[s];
-      const d = J(`ui-armor-${m}`);
-      const h = {
+      let m = vt[s];
+      let d = J(`ui-armor-${m}`);
+      let h = {
         gearType: m,
         div: d,
         level: d.getElementsByClassName("ui-armor-level")[0],
@@ -17989,8 +17989,8 @@ class Is {
       this.dom.gear.push(h);
     }
     for (let s = 0; s < or; s++) {
-      const m = J(`ui-perk-${s}`);
-      const d = {
+      let m = J(`ui-perk-${s}`);
+      let d = {
         perkType: "",
         div: m,
         divTitle: m.getElementsByClassName("tooltip-title")[0],
@@ -17999,7 +17999,7 @@ class Is {
       };
       this.dom.perks.push(d);
     }
-    const r = (s, m, d) => {
+    let r = (s, m, d) => {
       this.eventListeners.push({
         event: s,
         elem: m,
@@ -18007,7 +18007,7 @@ class Is {
       });
       m.addEventListener(s, d);
     };
-    const a = (s, m, d, h) => {
+    let a = (s, m, d, h) => {
       this.itemActions.push({
         action: s,
         type: m,
@@ -18022,22 +18022,22 @@ class Is {
       a("drop", "weapon", s, this.dom.weapons[s].div);
     }
     for (let s = 0; s < this.dom.scopes.length; s++) {
-      const m = this.dom.scopes[s];
+      let m = this.dom.scopes[s];
       a("use", "scope", m.scopeType, m.div);
       if (m.scopeType != "1xscope") {
         a("drop", "loot", m.scopeType, m.div);
       }
     }
     for (let s = 0; s < this.dom.loot.length; s++) {
-      const m = this.dom.loot[s];
-      const d = B[m.lootType];
+      let m = this.dom.loot[s];
+      let d = B[m.lootType];
       if (d.type == "heal" || d.type == "boost") {
         a("use", "loot", m.lootType, m.div);
       }
       a("drop", "loot", m.lootType, m.div);
     }
     for (let s = 0; s < this.dom.gear.length; s++) {
-      const m = this.dom.gear[s];
+      let m = this.dom.gear[s];
       if (m.gearType != "backpack") {
         a("drop", "loot", m.gearType, m.div);
       }
@@ -18046,7 +18046,7 @@ class Is {
       a("drop", "perk", s, this.dom.perks[s].div);
     }
     for (let s = 0; s < this.itemActions.length; s++) {
-      const m = this.itemActions[s];
+      let m = this.itemActions[s];
       r("mousedown", m.div, d => {
         if (m.action == "use" && xi(d) || m.action == "drop" && zi(d)) {
           d.stopPropagation();
@@ -18078,7 +18078,7 @@ class Is {
         m.actionQueued = false;
       });
     }
-    const l = document.getElementById("cvs");
+    let l = document.getElementById("cvs");
     this.clearQueuedItemActions = () => {
       for (let s = 0; s < this.itemActions.length; s++) {
         this.itemActions[s].actionQueued = false;
@@ -18090,8 +18090,8 @@ class Is {
     window.addEventListener("mouseup", this.clearQueuedItemActions);
     window.addEventListener("focus", this.clearQueuedItemActions);
     this.onKeyUp = s => {
-      const m = s.which || s.keyCode;
-      const d = i.inputBinds.getBind(A.Fullscreen);
+      let m = s.which || s.keyCode;
+      let d = i.inputBinds.getBind(A.Fullscreen);
       if (d && m == d.code) {
         $.toggleFullScreen();
       }
@@ -18157,7 +18157,7 @@ class Is {
   itemActions = [];
   HJMxT() {
     for (let e = 0; e < this.eventListeners.length; e++) {
-      const t = this.eventListeners[e];
+      let t = this.eventListeners[e];
       t.elem.removeEventListener(t.event, t.fn);
     }
     window.removeEventListener("focus", this.clearQueuedItemActions);
@@ -18175,14 +18175,14 @@ class Is {
     this.uiEvents = [];
   }
   PEHQLt(e, t, i, r, a, l, s) {
-    const m = this.newState;
+    let m = this.newState;
     m.mobile = v.mobile;
     m.touch = v.touch;
     if (m.touch) {
       for (let L = 0; L < this.itemActions.length; L++) {
-        const _ = this.itemActions[L];
+        let _ = this.itemActions[L];
         if (_.actionQueued && _.action == "drop") {
-          const T = new Date().getTime();
+          let T = new Date().getTime();
           if (T - _.actionTime >= yi) {
             this.pushAction(_);
             _.actionTime = T;
@@ -18192,29 +18192,29 @@ class Is {
       }
     }
     if (m.rareLootMessage.ticker >= m.rareLootMessage.duration && this.rareLootMessageQueue.length > 0) {
-      const L = this.rareLootMessageQueue.shift();
+      let L = this.rareLootMessageQueue.shift();
       m.rareLootMessage.lootType = L;
       m.rareLootMessage.ticker = 0;
       m.rareLootMessage.duration = this.rareLootMessageQueue.length > 0 ? 2 : 4;
       m.rareLootMessage.opacity = 0;
     }
     m.rareLootMessage.ticker += e;
-    const d = m.rareLootMessage.ticker;
-    const h = m.rareLootMessage.duration;
+    let d = m.rareLootMessage.ticker;
+    let h = m.rareLootMessage.duration;
     m.rareLootMessage.opacity = 1 - z.smoothstep(d, h - 0.2, h);
     m.pickupMessage.ticker += e;
-    const p = m.pickupMessage.ticker;
-    const w = m.pickupMessage.duration;
+    let p = m.pickupMessage.ticker;
+    let w = m.pickupMessage.duration;
     m.pickupMessage.opacity = z.smoothstep(p, 0, 0.2) * (1 - z.smoothstep(p, w, w + 0.2)) * (1 - m.rareLootMessage.opacity);
     m.killMessage.ticker += e;
-    const f = m.killMessage.ticker;
-    const S = m.killMessage.duration;
+    let f = m.killMessage.ticker;
+    let S = m.killMessage.duration;
     m.killMessage.opacity = (1 - z.smoothstep(f, S - 0.2, S)) * (1 - m.rareLootMessage.opacity);
     let x = 0;
     for (let L = 0; L < m.killFeed.length; L++) {
-      const _ = m.killFeed[L];
+      let _ = m.killFeed[L];
       _.ticker += e;
-      const T = _.ticker;
+      let T = _.ticker;
       _.offset = x;
       _.opacity = z.smoothstep(T, 0, 0.25) * (1 - z.smoothstep(T, 6, 6.5));
       x += z.min(T / 0.25, 1);
@@ -18231,13 +18231,13 @@ class Is {
     if (t.canInteract(l)) {
       let L = null;
       let _ = 0;
-      const T = l.fBXVaI.idcTHu();
+      let T = l.fBXVaI.idcTHu();
       for (let q = 0; q < T.length; q++) {
-        const Z = T[q];
+        let Z = T[q];
         if (Z.active && !Z.dead && g.sameLayer(Z.layer, t.layer)) {
-          const O = Z.getInteraction();
+          let O = Z.getInteraction();
           if (O) {
-            const N = X.intersectCircle(Z.collider, t.iDmhea.aznZwb, O.rad + t.LnvK);
+            let N = X.intersectCircle(Z.collider, t.iDmhea.aznZwb, O.rad + t.LnvK);
             if (N && N.pen >= _) {
               L = Z;
               _ = N.pen;
@@ -18250,13 +18250,13 @@ class Is {
         C = L;
         P = true;
       }
-      const V = a.getClosestLoot();
+      let V = a.getClosestLoot();
       if (V && !t.iDmhea.ZFRZY) {
-        const q = B[V.type];
-        const Z = t.eBb(R.WeaponSlot.Primary);
-        const O = t.eBb(R.WeaponSlot.Secondary);
-        const N = Z && O;
-        const U = q.type != "gun" || !N || t.oenro() == "gun";
+        let q = B[V.type];
+        let Z = t.eBb(R.WeaponSlot.Primary);
+        let O = t.eBb(R.WeaponSlot.Secondary);
+        let N = Z && O;
+        let U = q.type != "gun" || !N || t.oenro() == "gun";
         let te = false;
         if (m.touch && q.type == "helmet" && t.imQkUx() == q.level && V.type != t.iDmhea.ODVGwj || q.type == "chest" && t.Fte() == q.level && V.type != t.iDmhea.psCic) {
           te = true;
@@ -18267,14 +18267,14 @@ class Is {
         }
         P = U && (!m.touch || q.type == "gun" || q.type == "melee" || q.type == "outfit" || q.type == "perk" || te);
       }
-      const j = t.EAO("self_revive");
+      let j = t.EAO("self_revive");
       if (t.KXvZTW.type == ie.None && (!t.iDmhea.ZFRZY || j)) {
-        const q = r.getPlayerInfo(t.__id).teamId;
-        const Z = r.playerPool.idcTHu();
+        let q = r.getPlayerInfo(t.__id).teamId;
+        let Z = r.playerPool.idcTHu();
         for (let O = 0; O < Z.length; O++) {
-          const N = Z[O];
+          let N = Z[O];
           if (N.active) {
-            const U = r.getPlayerInfo(N.__id).teamId;
+            let U = r.getPlayerInfo(N.__id).teamId;
             if ((N.__id != t.__id || j) && q == U && N.iDmhea.ZFRZY && !N.iDmhea.XRQji && N.KXvZTW.type != ie.Revive && n.length(n.sub(N.iDmhea.aznZwb, t.iDmhea.aznZwb)) < R.player.reviveRange && g.sameLayer(N.layer, t.layer)) {
               y = 3;
               C = N;
@@ -18299,19 +18299,19 @@ class Is {
     m.interaction.key = this.getInteractionKey(y);
     m.interaction.usable = P && !i;
     for (let L = 0; L < t.alkER.iomTK.length; L++) {
-      const _ = t.alkER.iomTK[L];
-      const T = m.weapons[L];
+      let _ = t.alkER.iomTK[L];
+      let T = m.weapons[L];
       T.type = _.type;
       T.ammo = _.ammo;
       if (L == R.WeaponSlot.Throwable) {
         T.ammo = t.alkER.xSjUw[_.type] || 0;
       }
-      const V = T.equipped;
+      let V = T.equipped;
       T.equipped = L == t.alkER.rgEC;
       T.selectable = (_.type != "" || L == 0 || L == 1) && !i;
-      const j = T.equipped ? 1 : 0.6;
-      const q = j - T.opacity;
-      const Z = z.min(q, z.sign(q) * e / 0.15);
+      let j = T.equipped ? 1 : 0.6;
+      let q = j - T.opacity;
+      let Z = z.min(q, z.sign(q) * e / 0.15);
       T.opacity = z.clamp(T.opacity + Z, 0, 1);
       if (v.mobile) {
         T.opacity = j;
@@ -18326,32 +18326,32 @@ class Is {
       if (this.frameCount < 2) {
         T.ticker = 1;
       }
-      const O = z.min(T.ticker / 0.09, Math.PI);
-      const N = Math.sin(O);
+      let O = z.min(T.ticker / 0.09, Math.PI);
+      let N = Math.sin(O);
       T.width = N < 0.001 ? 0 : N;
       if (v.mobile) {
         T.width = 0;
       }
-      const U = s.getBind(T.bind);
+      let U = s.getBind(T.bind);
       T.bindStr = U ? U.toString() : "";
     }
-    const k = m.weapons[t.alkER.rgEC];
-    const b = B[k.type];
-    const M = k.ammo;
-    const E = b.type == "gun" ? b.ammoInfinite || t.EAO("endless_ammo") && !b.ignoreEndlessAmmo ? Number.MAX_VALUE : t.alkER.xSjUw[b.ammo] : 0;
+    let k = m.weapons[t.alkER.rgEC];
+    let b = B[k.type];
+    let M = k.ammo;
+    let E = b.type == "gun" ? b.ammoInfinite || t.EAO("endless_ammo") && !b.ignoreEndlessAmmo ? Number.MAX_VALUE : t.alkER.xSjUw[b.ammo] : 0;
     m.ammo.current = M;
     m.ammo.remaining = E;
     m.ammo.displayCurrent = b.type != "melee";
     m.ammo.displayRemaining = E > 0;
     for (let L = 0; L < m.scopes.length; L++) {
-      const _ = m.scopes[L];
+      let _ = m.scopes[L];
       _.visible = t.alkER.xSjUw[_.type] > 0;
       _.equipped = _.visible && t.alkER.oupk == _.type;
       _.selectable = _.visible && !i;
     }
     for (let L = t.zNli(), _ = 0; _ < m.loot.length; _++) {
-      const T = m.loot[_];
-      const V = T.count;
+      let T = m.loot[_];
+      let V = T.count;
       T.count = t.alkER.xSjUw[T.type] || 0;
       T.maximum = R.bagSizes[T.type][L];
       T.selectable = T.count > 0 && !i;
@@ -18362,15 +18362,15 @@ class Is {
         T.ticker = 1;
       }
       T.ticker += e;
-      const j = z.min(T.ticker / 0.05, Math.PI);
-      const q = Math.sin(j);
+      let j = z.min(T.ticker / 0.05, Math.PI);
+      let q = Math.sin(j);
       T.width = q < 0.001 ? 0 : q;
       if (v.mobile) {
         T.width = 0;
       }
     }
     for (let L = 0; L < m.gear.length; L++) {
-      const _ = m.gear[L];
+      let _ = m.gear[L];
       let T = "";
       if (_.type == "chest") {
         T = t.iDmhea.psCic;
@@ -18379,7 +18379,7 @@ class Is {
       } else if (_.type == "backpack" && (T = t.iDmhea.QvFXYQ) == "backpack00") {
         T = "";
       }
-      const V = _.item;
+      let V = _.item;
       _.item = T;
       _.selectable = T != "" && !i;
       if (V != _.item) {
@@ -18389,17 +18389,17 @@ class Is {
         _.ticker = 1;
       }
       _.ticker += e;
-      const j = z.min(_.ticker / 0.05, Math.PI);
-      const q = Math.sin(j);
+      let j = z.min(_.ticker / 0.05, Math.PI);
+      let q = Math.sin(j);
       _.width = q < 0.001 ? 0 : q;
       if (v.mobile) {
         _.width = 0;
       }
     }
     for (let L = 0; L < m.perks.length; L++) {
-      const _ = m.perks[L];
+      let _ = m.perks[L];
       if (t.perks.length > L) {
-        const T = t.perks[L];
+        let T = t.perks[L];
         _.type = T.type;
         _.droppable = T.droppable;
         if (T.isNew) {
@@ -18409,8 +18409,8 @@ class Is {
           _.ticker = 1;
         }
         _.ticker += e;
-        const V = z.min(_.ticker / 0.05, Math.PI);
-        const j = Math.sin(V);
+        let V = z.min(_.ticker / 0.05, Math.PI);
+        let j = Math.sin(V);
         _.width = j < 0.001 ? 0 : j;
         if (v.mobile) {
           _.width = 0;
@@ -18420,12 +18420,12 @@ class Is {
         _.type = "";
       }
     }
-    const D = At(this.oldState, this.newState, this.frameCount++ == 0);
+    let D = At(this.oldState, this.newState, this.frameCount++ == 0);
     this.render(D, this.newState);
     Lt(this.newState, this.oldState);
   }
   render(e, t) {
-    const i = this.dom;
+    let i = this.dom;
     if (e.touch) {
       i.interaction.key.style.backgroundImage = t.touch ? "url('img/gui/tap.svg')" : "none";
       if (t.touch) {
@@ -18440,19 +18440,19 @@ class Is {
       }
     }
     if (e.rareLootMessage.lootType) {
-      const r = t.rareLootMessage.lootType;
-      const a = B[r];
+      let r = t.rareLootMessage.lootType;
+      let a = B[r];
       if (a && a.type == "xp") {
-        const d = this.localization.translate("game-xp-drop-desc");
+        let d = this.localization.translate("game-xp-drop-desc");
         i.rareLootMessage.desc.innerHTML = `+${a.xp} ${d}`;
       } else {
         i.rareLootMessage.desc.innerHTML = "";
       }
-      const l = a?.lootImg?.border ? `url(img/loot/${a.lootImg.border.slice(0, -4)}.svg)` : "none";
+      let l = a?.lootImg?.border ? `url(img/loot/${a.lootImg.border.slice(0, -4)}.svg)` : "none";
       i.rareLootMessage.imageWrapper.style.backgroundImage = l;
-      const s = $.getSvgFromGameType(r);
+      let s = $.getSvgFromGameType(r);
       i.rareLootMessage.icon.style.backgroundImage = s ? `url('${s}')` : "none";
-      const m = this.localization.translate(`game-${r}`);
+      let m = this.localization.translate(`game-${r}`);
       i.rareLootMessage.name.innerHTML = m;
     }
     if (e.rareLootMessage.opacity) {
@@ -18472,14 +18472,14 @@ class Is {
       i.killMessage.div.style.opacity = String(t.killMessage.opacity);
     }
     for (let r = 0; r < e.killFeed.length; r++) {
-      const a = e.killFeed[r];
-      const l = i.killFeed.lines[r];
-      const s = t.killFeed[r];
+      let a = e.killFeed[r];
+      let l = i.killFeed.lines[r];
+      let s = t.killFeed[r];
       if (a.text) {
         l.text.innerHTML = s.text;
       }
       if (a.offset) {
-        const m = v.uiLayout != v.UiLayout.Sm || v.tablet ? 35 : 15;
+        let m = v.uiLayout != v.UiLayout.Sm || v.tablet ? 35 : 15;
         l.line.style.top = `${Math.floor(s.offset * m)}px`;
       }
       if (a.color) {
@@ -18490,7 +18490,7 @@ class Is {
       }
     }
     if (e.health || e.downed) {
-      const r = [{
+      let r = [{
         health: 100,
         color: [179, 179, 179]
       }, {
@@ -18513,13 +18513,13 @@ class Is {
         color: [255, 0, 0]
       }];
       let a = 0;
-      const l = Math.ceil(t.health);
+      let l = Math.ceil(t.health);
       while (r[a].health > l && a < r.length - 1) {
         a++;
       }
-      const s = r[z.max(a - 1, 0)];
-      const m = r[a];
-      const d = z.delerp(t.health, s.health, m.health);
+      let s = r[z.max(a - 1, 0)];
+      let m = r[a];
+      let d = z.delerp(t.health, s.health, m.health);
       let h = [Math.floor(z.lerp(d, s.color[0], m.color[0])), Math.floor(z.lerp(d, s.color[1], m.color[1])), Math.floor(z.lerp(d, s.color[2], m.color[2]))];
       if (t.downed) {
         h = [255, 0, 0];
@@ -18535,14 +18535,14 @@ class Is {
       }
     }
     if (e.boost) {
-      const r = R.player.boostBreakpoints;
+      let r = R.player.boostBreakpoints;
       let a = 0;
       for (let l = 0; l < r.length; l++) {
         a += r[l];
       }
       for (let l = t.boost / 100, s = 0; s < i.boost.bars.length; s++) {
-        const m = r[s] / a;
-        const d = z.clamp(l / m, 0, 1);
+        let m = r[s] / a;
+        let d = z.clamp(l / m, 0, 1);
         l = z.max(l - m, 0);
         i.boost.bars[s].style.width = `${d * 100}%`;
       }
@@ -18562,13 +18562,13 @@ class Is {
       i.interaction.key.style.display = t.interaction.usable ? "block" : "none";
     }
     for (let r = 0; r < e.weapons.length; r++) {
-      const a = e.weapons[r];
-      const l = i.weapons[r];
-      const s = t.weapons[r];
+      let a = e.weapons[r];
+      let l = i.weapons[r];
+      let s = t.weapons[r];
       if (a.type) {
         let m = "";
         let d = "";
-        const h = B[s.type];
+        let h = B[s.type];
         if (h) {
           m = this.localization.translate(`game-hud-${s.type}`) || this.localization.translate(`game-${s.type}`);
           d = $.getCssTransformFromGameType(s.type);
@@ -18585,7 +18585,7 @@ class Is {
         l.div.style.pointerEvents = s.type != "" || s.selectable ? "auto" : "none";
       }
       if (a.width) {
-        const m = z.lerp(s.width, 83.33, 100);
+        let m = z.lerp(s.width, 83.33, 100);
         l.div.style.width = `${m}%`;
       }
       if (a.opacity) {
@@ -18600,12 +18600,12 @@ class Is {
       }
     }
     if (e.ammo.current) {
-      const r = t.ammo.current;
+      let r = t.ammo.current;
       i.ammo.current.innerHTML = String(r);
       i.ammo.current.style.color = r > 0 ? "white" : "red";
     }
     if (e.ammo.remaining) {
-      const r = t.ammo.remaining;
+      let r = t.ammo.remaining;
       i.ammo.remaining.innerHTML = String(r == Number.MAX_VALUE ? "&#8734;" : r);
       i.ammo.remaining.style.color = r != 0 ? "white" : "red";
     }
@@ -18617,9 +18617,9 @@ class Is {
       i.ammo.reloadButton.style.opacity = String(t.ammo.displayRemaining ? 1 : 0);
     }
     for (let r = 0; r < e.scopes.length; r++) {
-      const a = e.scopes[r];
-      const l = i.scopes[r];
-      const s = t.scopes[r];
+      let a = e.scopes[r];
+      let l = i.scopes[r];
+      let s = t.scopes[r];
       if (a.visible) {
         if (s.visible) {
           l.div.classList.remove("ui-hidden");
@@ -18641,9 +18641,9 @@ class Is {
       }
     }
     for (let r = 0; r < e.loot.length; r++) {
-      const a = e.loot[r];
-      const l = i.loot[r];
-      const s = t.loot[r];
+      let a = e.loot[r];
+      let l = i.loot[r];
+      let s = t.loot[r];
       if (a && l && s) {
         if (a.count || a.maximum) {
           l.count.innerHTML = String(s.count);
@@ -18651,8 +18651,8 @@ class Is {
           l.div.style.color = s.count == s.maximum ? "#ff9900" : "#ffffff";
         }
         if (a.width) {
-          const m = 1 + s.width * 0.33;
-          const d = `scale(${m}, ${m})`;
+          let m = 1 + s.width * 0.33;
+          let d = `scale(${m}, ${m})`;
           l.image.style.transform = d;
           if (l.overlay) {
             l.overlay.style.transform = d;
@@ -18664,12 +18664,12 @@ class Is {
       }
     }
     for (let r = 0; r < e.gear.length; r++) {
-      const a = e.gear[r];
-      const l = i.gear[r];
-      const s = t.gear[r];
+      let a = e.gear[r];
+      let l = i.gear[r];
+      let s = t.gear[r];
       if (a.item) {
-        const m = s.item ? B[s.item] : null;
-        const d = m ? m.level : 0;
+        let m = s.item ? B[s.item] : null;
+        let d = m ? m.level : 0;
         l.div.style.display = m ? "block" : "none";
         l.level.innerHTML = this.localization.translate(`game-level-${d}`);
         l.level.style.color = d >= 3 ? "#ff9900" : "#ffffff";
@@ -18679,9 +18679,9 @@ class Is {
         l.div.style.pointerEvents = s.selectable ? "auto" : "none";
       }
       if (a.width) {
-        const m = 1 + s.width * 0.33;
+        let m = 1 + s.width * 0.33;
         let d = `scale(${m}, ${m})`;
-        const h = B[s.item];
+        let h = B[s.item];
         if (h?.lootImg.rot !== undefined) {
           d += ` rotate(${h.lootImg.rot}rad)`;
         }
@@ -18689,9 +18689,9 @@ class Is {
       }
     }
     for (let r = 0; r < e.perks.length; r++) {
-      const a = e.perks[r];
-      const l = i.perks[r];
-      const s = t.perks[r];
+      let a = e.perks[r];
+      let l = i.perks[r];
+      let s = t.perks[r];
       if (a.type) {
         l.perkType = s.type;
         l.divTitle.innerHTML = this.localization.translate(`game-${s.type}`);
@@ -18716,19 +18716,19 @@ class Is {
         }
       }
       if (a.width) {
-        const m = 1 + s.width * 0.33;
+        let m = 1 + s.width * 0.33;
         l.image.style.transform = `scale(${m}, ${m})`;
       }
     }
   }
   displayPickupMessage(e) {
-    const t = this.newState.pickupMessage;
+    let t = this.newState.pickupMessage;
     t.message = this.getPickupMessageText(e);
     t.ticker = 0;
     t.duration = 3;
   }
   displayKillMessage(e, t) {
-    const i = this.newState.killMessage;
+    let i = this.newState.killMessage;
     i.text = e;
     i.count = t;
     i.ticker = 0;
@@ -18745,7 +18745,7 @@ class Is {
     this.rareLootMessageQueue.push(e);
   }
   removeRareLootMessage(e) {
-    const t = this.rareLootMessageQueue.indexOf(e);
+    let t = this.rareLootMessageQueue.indexOf(e);
     if (t >= 0) {
       this.rareLootMessageQueue.splice(t, 1);
     }
@@ -18761,8 +18761,8 @@ class Is {
     }
   }
   addKillFeedMessage(e, t) {
-    const i = this.newState.killFeed;
-    const r = i[i.length - 1];
+    let i = this.newState.killFeed;
+    let r = i[i.length - 1];
     r.text = e;
     r.color = t;
     r.ticker = 0;
@@ -18774,7 +18774,7 @@ class Is {
         return `${t} ${this.localization.translate(a ? "game-knocked-out" : "game-killed")} ${e} ${this.localization.translate("game-with")} ${this.localization.translate(`game-${i}`)}`;
       case Be.Bleeding:
         {
-          const l = this.localization.translate(t ? "game-finally-killed" : "game-finally-bled-out");
+          let l = this.localization.translate(t ? "game-finally-killed" : "game-finally-bled-out");
           if (t) {
             return `${t} ${l} ${e}`;
           } else {
@@ -18799,14 +18799,14 @@ class Is {
         }
       case Be.Airdrop:
         {
-          const l = re[i];
-          const s = this.localization.translate("game-the-air-drop");
-          const m = a ? this.localization.translate("game-knocked-out") : l && !l.airdropCrate ? this.localization.translate("game-killed") : this.localization.translate("game-crushed");
+          let l = re[i];
+          let s = this.localization.translate("game-the-air-drop");
+          let m = a ? this.localization.translate("game-knocked-out") : l && !l.airdropCrate ? this.localization.translate("game-killed") : this.localization.translate("game-crushed");
           return `${s} ${m} ${e}`;
         }
       case Be.Airstrike:
         {
-          const l = this.localization.translate(a ? "game-knocked-out" : "game-killed");
+          let l = this.localization.translate(a ? "game-knocked-out" : "game-killed");
           if (t) {
             return `${t} ${l} ${e} ${this.localization.translate("game-with")} ${this.localization.translate("game-an-air-strike")}`;
           } else {
@@ -18829,7 +18829,7 @@ class Is {
     }
   }
   getRoleKillFeedColor(e, t, i) {
-    const r = B[e];
+    let r = B[e];
     if (r?.killFeed?.color) {
       return r.killFeed.color;
     } else {
@@ -18847,11 +18847,11 @@ class Is {
     return `${this.localization.translate("game-youve-been-promoted-to")} ${this.getRoleTranslation(e, t)}!`;
   }
   getRoleAssignedKillFeedText(e, t, i) {
-    const r = this.getRoleTranslation(e, t);
+    let r = this.getRoleTranslation(e, t);
     return `${i} ${this.localization.translate("game-promoted-to")} ${r}!`;
   }
   getRoleKilledKillFeedText(e, t, i) {
-    const r = this.getRoleTranslation(e, t);
+    let r = this.getRoleTranslation(e, t);
     if (i) {
       return `${i} ${this.localization.translate("game-killed")} ${r}!`;
     } else {
@@ -18859,13 +18859,13 @@ class Is {
     }
   }
   getKillText(e, t, i, r, a, l, s, m, d) {
-    const h = r && !a;
-    const p = d ? e : this.localization.translate("game-you").toUpperCase();
-    const w = h ? "game-knocked-out" : i ? "game-killed" : "game-finally-killed";
-    const f = this.localization.translate(w);
-    const S = l ? d ? this.localization.translate("game-themselves") : this.localization.translate("game-yourself").toUpperCase() : t;
-    const x = this.localization.translate(m == R.DamageType.Airstrike ? "game-an-air-strike" : `game-${s}`);
-    const y = this.localization.translate("game-with");
+    let h = r && !a;
+    let p = d ? e : this.localization.translate("game-you").toUpperCase();
+    let w = h ? "game-knocked-out" : i ? "game-killed" : "game-finally-killed";
+    let f = this.localization.translate(w);
+    let S = l ? d ? this.localization.translate("game-themselves") : this.localization.translate("game-yourself").toUpperCase() : t;
+    let x = this.localization.translate(m == R.DamageType.Airstrike ? "game-an-air-strike" : `game-${s}`);
+    let y = this.localization.translate("game-with");
     if (x && (i || h)) {
       return `${p} ${f} ${S} ${y} ${x}`;
     } else {
@@ -18876,7 +18876,7 @@ class Is {
     return `${e} ${this.localization.translate(e != 1 ? "game-kills" : "game-kill")}`;
   }
   getDownedText(e, t, i, r, a) {
-    const l = a ? t : this.localization.translate("game-you").toUpperCase();
+    let l = a ? t : this.localization.translate("game-you").toUpperCase();
     let s = e;
     if (!s) {
       if (r == R.DamageType.Gas) {
@@ -18891,7 +18891,7 @@ class Is {
     if (e && r == R.DamageType.Airstrike) {
       m = this.localization.translate("game-an-air-strike");
     }
-    const d = this.localization.translate("game-with");
+    let d = this.localization.translate("game-with");
     if (m) {
       return `${s} knocked ${l} out ${d} ${m}`;
     } else {
@@ -18899,14 +18899,14 @@ class Is {
     }
   }
   getPickupMessageText(e) {
-    const t = {
+    let t = {
       [Me.Full]: "game-not-enough-space",
       [Me.AlreadyOwned]: "game-item-already-owned",
       [Me.AlreadyEquipped]: "game-item-already-equipped",
       [Me.BetterItemEquipped]: "game-better-item-equipped",
       [Me.GunCannotFire]: "game-gun-cannot-fire"
     };
-    const i = t[e] || t[Me.Full];
+    let i = t[e] || t[Me.Full];
     return this.localization.translate(i);
   }
   getInteractionText(e, t, i) {
@@ -18923,12 +18923,12 @@ class Is {
         }
       case 4:
         {
-          const r = t.getInteraction();
+          let r = t.getInteraction();
           return `${this.localization.translate(r.action)} ${this.localization.translate(r.object)}`;
         }
       case 2:
         {
-          const r = t;
+          let r = t;
           let a = this.localization.translate(`game-${r.type}`) || r.type;
           if (r.count > 1) {
             a += ` (${r.count})`;
@@ -18966,7 +18966,7 @@ class Is {
   }
 }
 function Ms() {
-  const u = {
+  let u = {
     "ui-loot-bandage": "img/loot/loot-medical-bandage.svg",
     "ui-loot-healthkit": "img/loot/loot-medical-healthkit.svg",
     "ui-loot-soda": "img/loot/loot-medical-soda.svg",
@@ -18980,14 +18980,14 @@ function Ms() {
     "ui-loot-flare": "img/loot/loot-ammo-box.svg",
     "ui-loot-45acp": "img/loot/loot-ammo-box.svg"
   };
-  for (const [e, t] of Object.entries(u)) {
+  for (let [e, t] of Object.entries(u)) {
     J(e).getElementsByClassName("ui-loot-image")[0].src = t;
   }
   J("mag-glass-white").src = "img/gui/mag-glass.svg";
   J("ui-minimize-img").src = "img/gui/minimize.svg";
 }
 class Ts {
-  constructor(e, t, i, r, a, l, s, m, d, h, p, w) {
+  letructor(e, t, i, r, a, l, s, m, d, h, p, w) {
     this.IGwOt = e;
     this.VXjd = t;
     this.VfIn = i;
@@ -19085,8 +19085,8 @@ class Ts {
         this.Tjk.onopen = () => {
           this.connecting = false;
           this.connected = true;
-          const l = this.Dgn.get("playerName");
-          const s = new br();
+          let l = this.Dgn.get("playerName");
+          let s = new br();
           s.protocol = R.protocolVersion;
           s.matchPriv = t;
           s.loadoutPriv = i;
@@ -19099,9 +19099,9 @@ class Ts {
           this.EIAjn(he.Join, s, 8192);
         };
         this.Tjk.onmessage = l => {
-          const s = new Ht(l.data);
+          let s = new Ht(l.data);
           while (true) {
-            const m = s.deserializeMsgType();
+            let m = s.deserializeMsgType();
             if (m == he.None) {
               break;
             }
@@ -19109,15 +19109,15 @@ class Ts {
           }
         };
         this.Tjk.onclose = () => {
-          const l = this.mBuo?.displayingStats;
-          const s = this.connecting;
-          const m = this.connected;
+          let l = this.mBuo?.displayingStats;
+          let s = this.connecting;
+          let m = this.connected;
           this.connecting = false;
           this.connected = false;
           if (s) {
             a();
           } else if (m && !this.men && !l) {
-            const d = this.RfKKmr || "index-host-closed";
+            let d = this.RfKKmr || "index-host-closed";
             this.onQuit(d);
           }
         };
@@ -19152,7 +19152,7 @@ class Ts {
     this.AYvJA = new Is(this.VfIn, this.nzyMgi);
     this.LpY = new ba(this.VXjd, this.mBuo, this.nQZXXa, this.sJNwq, this.osAxga);
     this.mOS = new ls();
-    const e = {
+    let e = {
       [ce.Player]: this.nQZXXa.playerPool,
       [ce.Obstacle]: this.osAxga.fBXVaI,
       [ce.Loot]: this.vcXWlZ.lootPool,
@@ -19165,15 +19165,15 @@ class Ts {
       [ce.Airdrop]: this.qNNLG.airdropPool
     };
     this.iKXqi = new Ui();
-    for (const i in e) {
+    for (let i in e) {
       if (e.hasOwnProperty(i)) {
         this.iKXqi.wpv(i, e[i]);
       }
     }
     this.nMzLZ = new pe();
-    const t = [this.osAxga.display.ground, this.tBNPz.layers[0], this.tBNPz.ground, this.tBNPz.layers[1], this.tBNPz.layers[2], this.tBNPz.layers[3], this.nMzLZ, this.WLV.gasRenderer.display, this.REmWU.container, this.LpY.container, this.mBuo.container, this.mBuo.DCc.container, this.LpY.indContainer];
+    let t = [this.osAxga.display.ground, this.tBNPz.layers[0], this.tBNPz.ground, this.tBNPz.layers[1], this.tBNPz.layers[2], this.tBNPz.layers[3], this.nMzLZ, this.WLV.gasRenderer.display, this.REmWU.container, this.LpY.container, this.mBuo.container, this.mBuo.DCc.container, this.LpY.indContainer];
     for (let i = 0; i < t.length; i++) {
-      const r = t[i];
+      let r = t[i];
       if (r) {
         r.interactiveChildren = false;
         this.IGwOt.stage.addChild(r);
@@ -19232,7 +19232,7 @@ class Ts {
       this.CNMLJ.HJMxT();
       this.VXjd.stopAll();
       while (this.IGwOt.stage.children.length > 0) {
-        const e = this.IGwOt.stage.children[0];
+        let e = this.IGwOt.stage.children[0];
         this.IGwOt.stage.removeChild(e);
         e.destroy({
           children: true
@@ -19244,8 +19244,8 @@ class Ts {
     return this.initialized && this.DjCbXw && !this.kDxZ && !this.mBuo.displayingStats;
   }
   update(e) {
-    const t = this.PkR.nWpH;
-    const i = {};
+    let t = this.PkR.nWpH;
+    let i = {};
     if (this.DjCbXw) {
       this.zLmmQ += e;
     }
@@ -19253,14 +19253,14 @@ class Ts {
     this.updateAmbience();
     this.sJNwq.aznZwb = n.copy(this.vZXKP.Hxqi);
     this.sJNwq.WYloD();
-    const r = this.vZXKP.kEZUyv();
-    const a = z.min(this.sJNwq.LCRnPO, this.sJNwq.gMqwV);
-    const l = z.max(this.sJNwq.LCRnPO, this.sJNwq.gMqwV);
-    const s = z.max(a * (16 / 9), l);
+    let r = this.vZXKP.kEZUyv();
+    let a = z.min(this.sJNwq.LCRnPO, this.sJNwq.gMqwV);
+    let l = z.max(this.sJNwq.LCRnPO, this.sJNwq.gMqwV);
+    let s = z.max(a * (16 / 9), l);
     this.sJNwq.chvM = s * 0.5 / (r * this.sJNwq.HrSNF);
-    const m = this.vZXKP.zoomFast ? 3 : 2;
-    const d = this.vZXKP.zoomFast ? 3 : 1.4;
-    const h = this.sJNwq.chvM > this.sJNwq.HyIw ? m : d;
+    let m = this.vZXKP.zoomFast ? 3 : 2;
+    let d = this.vZXKP.zoomFast ? 3 : 1.4;
+    let h = this.sJNwq.chvM > this.sJNwq.HyIw ? m : d;
     this.sJNwq.HyIw = z.lerp(e * h, this.sJNwq.HyIw, this.sJNwq.chvM);
     this.VXjd.cameraPos = n.copy(this.sJNwq.aznZwb);
     if (this.CNMLJ.keyPressed(W.Escape)) {
@@ -19275,26 +19275,26 @@ class Ts {
     if (this.nzyMgi.isBindPressed(A.HideUI) || this.CNMLJ.keyPressed(W.Escape) && !this.mBuo.hudVisible) {
       this.mBuo.cycleHud();
     }
-    const p = this.vZXKP.aznZwb;
-    const w = n.create(this.vZXKP.aznZwb.x + (this.CNMLJ.mousePos.x - this.sJNwq.LCRnPO * 0.5) / this.sJNwq.fVAy(), this.vZXKP.aznZwb.y + (this.sJNwq.gMqwV * 0.5 - this.CNMLJ.mousePos.y) / this.sJNwq.fVAy());
-    const f = n.sub(w, p);
+    let p = this.vZXKP.aznZwb;
+    let w = n.create(this.vZXKP.aznZwb.x + (this.CNMLJ.mousePos.x - this.sJNwq.LCRnPO * 0.5) / this.sJNwq.fVAy(), this.vZXKP.aznZwb.y + (this.sJNwq.gMqwV * 0.5 - this.CNMLJ.mousePos.y) / this.sJNwq.fVAy());
+    let f = n.sub(w, p);
     let S = n.length(f);
     let x = S > 0.00001 ? n.div(f, S) : n.create(1, 0);
     if (this.LpY.wheelDisplayed) {
       S = this.iIKhi.toMouseLen;
       x = this.iIKhi.toMouseDir;
     }
-    const y = new Gt();
+    let y = new Gt();
     y.seq = this.seq;
     if (!this.kDxZ) {
       if (v.touch) {
-        const _ = this.REmWU.getTouchMovement(this.sJNwq);
-        const T = this.REmWU.getAimMovement(this.vZXKP, this.sJNwq);
+        let _ = this.REmWU.getTouchMovement(this.sJNwq);
+        let T = this.REmWU.getAimMovement(this.vZXKP, this.sJNwq);
         let V = n.copy(T.aimMovement.toAimDir);
         this.REmWU.turnDirTicker -= e;
         if (this.REmWU.moveDetected && !T.touched) {
-          const Z = n.normalizeSafe(_.toMoveDir, n.create(1, 0));
-          const O = this.REmWU.turnDirTicker < 0 ? Z : T.aimMovement.toAimDir;
+          let Z = n.normalizeSafe(_.toMoveDir, n.create(1, 0));
+          let O = this.REmWU.turnDirTicker < 0 ? Z : T.aimMovement.toAimDir;
           this.REmWU.setAimDir(O);
           V = O;
         }
@@ -19308,8 +19308,8 @@ class Ts {
           y.touchMoveLen = 0;
         }
         y.touchMoveActive = true;
-        const j = T.aimMovement.toAimLen;
-        const q = z.clamp(j / this.REmWU.padPosRange, 0, 1) * R.player.throwableMaxMouseDist;
+        let j = T.aimMovement.toAimLen;
+        let q = z.clamp(j / this.REmWU.padPosRange, 0, 1) * R.player.throwableMaxMouseDist;
         y.toMouseLen = q;
         y.toMouseDir = V;
       } else {
@@ -19327,18 +19327,18 @@ class Ts {
       y.shootStart = this.nzyMgi.isBindPressed(A.Fire) || this.REmWU.shotDetected;
       y.shootHold = this.nzyMgi.isBindDown(A.Fire) || this.REmWU.shotDetected;
       y.portrait = this.sJNwq.LCRnPO < this.sJNwq.gMqwV;
-      const D = [A.Reload, A.Revive, A.Use, A.Loot, A.Cancel, A.EquipPrimary, A.EquipSecondary, A.EquipThrowable, A.EquipMelee, A.EquipNextWeap, A.EquipPrevWeap, A.EquipLastWeap, A.EquipOtherGun, A.EquipPrevScope, A.EquipNextScope, A.StowWeapons];
+      let D = [A.Reload, A.Revive, A.Use, A.Loot, A.Cancel, A.EquipPrimary, A.EquipSecondary, A.EquipThrowable, A.EquipMelee, A.EquipNextWeap, A.EquipPrevWeap, A.EquipLastWeap, A.EquipOtherGun, A.EquipPrevScope, A.EquipNextScope, A.StowWeapons];
       for (let _ = 0; _ < D.length; _++) {
-        const T = D[_];
+        let T = D[_];
         if (this.nzyMgi.isBindPressed(T)) {
           y.addInput(T);
         }
       }
       if (this.nzyMgi.isBindPressed(A.Interact)) {
-        const _ = [];
-        const T = [A.Revive, A.Use, A.Loot];
+        let _ = [];
+        let T = [A.Revive, A.Use, A.Loot];
         for (let V = 0; V < T.length; V++) {
-          const j = T[V];
+          let j = T[V];
           if (!this.nzyMgi.getBind(j)) {
             _.push(j);
           }
@@ -19363,10 +19363,10 @@ class Ts {
         y.addInput(A.Cancel);
       }
       for (let _ = 0; _ < this.AYvJA.uiEvents.length; _++) {
-        const T = this.AYvJA.uiEvents[_];
+        let T = this.AYvJA.uiEvents[_];
         if (T.action == "use") {
           if (T.type == "weapon") {
-            const j = {
+            let j = {
               [Qe.Primary]: A.EquipPrimary,
               [Qe.Secondary]: A.EquipSecondary,
               [Qe.Melee]: A.EquipMelee,
@@ -19391,23 +19391,23 @@ class Ts {
       }
       let L = false;
       for (let _ = 0; _ < this.AYvJA.uiEvents.length; _++) {
-        const T = this.AYvJA.uiEvents[_];
+        let T = this.AYvJA.uiEvents[_];
         if (T.action == "drop") {
-          const V = new kr();
+          let V = new kr();
           if (T.type == "weapon") {
-            const j = T.data;
-            const q = this.vZXKP.alkER.iomTK;
+            let j = T.data;
+            let q = this.vZXKP.alkER.iomTK;
             V.item = q[j].type;
             V.weapIdx = j;
           } else if (T.type == "perk") {
-            const j = T.data;
-            const q = this.vZXKP.iDmhea.GVf;
-            const Z = q.length > j ? q[j] : null;
+            let j = T.data;
+            let q = this.vZXKP.iDmhea.GVf;
+            let Z = q.length > j ? q[j] : null;
             if (Z?.droppable) {
               V.item = Z.type;
             }
           } else {
-            const j = T.data == "helmet" ? this.vZXKP.iDmhea.ODVGwj : T.data == "chest" ? this.vZXKP.iDmhea.psCic : T.data;
+            let j = T.data == "helmet" ? this.vZXKP.iDmhea.ODVGwj : T.data == "chest" ? this.vZXKP.iDmhea.psCic : T.data;
             V.item = j;
           }
           if (V.item != "") {
@@ -19424,18 +19424,18 @@ class Ts {
         });
       }
       if (this.mBuo.roleSelected) {
-        const _ = new vr();
+        let _ = new vr();
         _.role = this.mBuo.roleSelected;
         this.EIAjn(he.PerkModeRoleSelect, _, 128);
         this.Dgn.set("perkModeRole", _.role);
       }
     }
-    const C = this.mBuo.specBegin;
-    const P = this.mBuo.specNext || this.kDxZ && this.CNMLJ.keyPressed(W.Right);
-    const k = this.mBuo.specPrev || this.kDxZ && this.CNMLJ.keyPressed(W.Left);
-    const b = this.CNMLJ.keyPressed(W.Right) || this.CNMLJ.keyPressed(W.Left);
+    let C = this.mBuo.specBegin;
+    let P = this.mBuo.specNext || this.kDxZ && this.CNMLJ.keyPressed(W.Right);
+    let k = this.mBuo.specPrev || this.kDxZ && this.CNMLJ.keyPressed(W.Left);
+    let b = this.CNMLJ.keyPressed(W.Right) || this.CNMLJ.keyPressed(W.Left);
     if (C || this.kDxZ && P || k) {
-      const D = new _r();
+      let D = new _r();
       D.specBegin = C;
       D.specNext = P;
       D.specPrev = k;
@@ -19450,12 +19450,12 @@ class Ts {
     this.mBuo.swapWeapSlots = false;
     this.mBuo.roleSelected = "";
     let M = false;
-    for (const D in y) {
+    for (let D in y) {
       if (y.hasOwnProperty(D)) {
         if (D == "inputs") {
           M = y[D].length > 0;
         } else if (D == "toMouseDir" || D == "touchMoveDir") {
-          const L = z.clamp(n.dot(y[D], this.iIKhi[D]), -1, 1);
+          let L = z.clamp(n.dot(y[D], this.iIKhi[D]), -1, 1);
           M = z.rad2deg(Math.acos(L)) > 0.1;
         } else if (D == "toMouseLen") {
           M = Math.abs(this.iIKhi[D] - y[D]) > 0.5;
@@ -19501,8 +19501,8 @@ class Ts {
     this.REmWU.PEHQLt(e, this.vZXKP, this.osAxga, this.sJNwq, this.tBNPz);
     this.tBNPz.PEHQLt(e, this.sJNwq, this.osAxga, i);
     for (let D = 0; D < this.LpY.newPings.length; D++) {
-      const L = this.LpY.newPings[D];
-      const _ = new Ut();
+      let L = this.LpY.newPings[D];
+      let _ = new Ut();
       _.type = L.type;
       _.pos = L.pos;
       _.isPing = true;
@@ -19510,35 +19510,35 @@ class Ts {
     }
     this.LpY.newPings = [];
     for (let D = 0; D < this.LpY.newEmotes.length; D++) {
-      const L = this.LpY.newEmotes[D];
-      const _ = new Ut();
+      let L = this.LpY.newEmotes[D];
+      let _ = new Ut();
       _.type = L.type;
       _.pos = L.pos;
       _.isPing = false;
       this.EIAjn(he.Emote, _, 128);
     }
     this.LpY.newEmotes = [];
-    const E = Date.now();
+    let E = Date.now();
     if (E > this.debugPingTime) {
       let D = function (j, q) {
         return (" ".repeat(q) + j).slice(-7);
       };
       this.debugPingTime = E + 20000;
-      const L = this.pings.sort((j, q) => j - q);
-      const _ = L.length;
+      let L = this.pings.sort((j, q) => j - q);
+      let _ = L.length;
       if (_ > 0) {
-        const j = L[Math.floor(_ * 0.5)];
-        const q = L[Math.floor(_ * 0.95)];
-        const Z = L[_ - 1];
+        let j = L[Math.floor(_ * 0.5)];
+        let q = L[Math.floor(_ * 0.95)];
+        let Z = L[_ - 1];
         console.log("Ping     min:", D(L[0].toFixed(2), 7), "med:", D(j.toFixed(2), 7), "p95:", D(q.toFixed(2), 7), "max:", D(Z.toFixed(2), 7));
       }
       this.pings = [];
-      const T = this.updateIntervals.sort((j, q) => j - q);
-      const V = T.length;
+      let T = this.updateIntervals.sort((j, q) => j - q);
+      let V = T.length;
       if (V > 0) {
-        const j = T[Math.floor(V * 0.5)];
-        const q = T[Math.floor(V * 0.95)];
-        const Z = T[V - 1];
+        let j = T[Math.floor(V * 0.5)];
+        let q = T[Math.floor(V * 0.95)];
+        let Z = T[V - 1];
         console.log("Interval min:", D(T[0].toFixed(2), 7), "med:", D(j.toFixed(2), 7), "p95:", D(q.toFixed(2), 7), "max:", D(Z.toFixed(2), 7));
       }
       this.updateIntervals = [];
@@ -19546,7 +19546,7 @@ class Ts {
     this.lXaw(e, i);
   }
   lXaw(e, t) {
-    const i = this.osAxga.mapLoaded ? this.osAxga.getMapDef().biome.colors.grass : 8433481;
+    let i = this.osAxga.mapLoaded ? this.osAxga.getMapDef().biome.colors.grass : 8433481;
     this.IGwOt.renderer.background.color = i;
     this.nQZXXa.lXaw(this.sJNwq, t);
     this.sPHL.lXaw(this.sJNwq, t);
@@ -19562,7 +19562,7 @@ class Ts {
     me.flush();
   }
   updateAmbience() {
-    const e = this.vZXKP.aznZwb;
+    let e = this.vZXKP.aznZwb;
     let t = 0;
     let i = 0;
     let r = 1;
@@ -19571,17 +19571,17 @@ class Ts {
       i = 0;
       r = 0;
     } else {
-      const a = this.osAxga.distanceToShore(e);
+      let a = this.osAxga.distanceToShore(e);
       t = z.delerp(a, 50, 0);
       i = 0;
       for (let l = 0; l < this.osAxga.terrain.rivers.length; l++) {
-        const s = this.osAxga.terrain?.rivers[l];
-        const m = s.spline.getClosestTtoPoint(e);
-        const d = s.spline.getPos(m);
-        const h = n.length(n.sub(d, e));
-        const p = s.waterWidth + 2;
-        const w = z.delerp(h, 30 + p, p);
-        const f = z.clamp(s.waterWidth / 8, 0.25, 1);
+        let s = this.osAxga.terrain?.rivers[l];
+        let m = s.spline.getClosestTtoPoint(e);
+        let d = s.spline.getPos(m);
+        let h = n.length(n.sub(d, e));
+        let p = s.waterWidth + 2;
+        let w = z.delerp(h, 30 + p, p);
+        let f = z.clamp(s.waterWidth / 8, 0.25, 1);
         i = z.max(w * f, i);
       }
       if (this.vZXKP.layer == 1) {
@@ -19603,7 +19603,7 @@ class Ts {
     this.tBNPz.resize(this.osAxga, this.sJNwq);
   }
   xHwzsl(e) {
-    const t = {
+    let t = {
       audioManager: this.VXjd,
       renderer: this.tBNPz,
       particleBarn: this.vsiSQZ,
@@ -19618,29 +19618,29 @@ class Ts {
       this.nQZXXa.setPlayerInfo(e.playerInfos[a]);
     }
     for (let a = 0; a < e.deletedPlayerIds.length; a++) {
-      const l = e.deletedPlayerIds[a];
+      let l = e.deletedPlayerIds[a];
       this.nQZXXa.deletePlayerInfo(l);
     }
     if (e.playerInfos.length > 0 || e.deletedPlayerIds.length > 0) {
       this.nQZXXa.recomputeTeamData();
     }
     if (e.playerStatusDirty) {
-      const a = this.nQZXXa.getPlayerInfo(this.cdPu).teamId;
+      let a = this.nQZXXa.getPlayerInfo(this.cdPu).teamId;
       this.nQZXXa.updatePlayerStatus(a, e.playerStatus, this.osAxga.factionMode);
     }
     if (e.groupStatusDirty) {
-      const a = this.nQZXXa.getPlayerInfo(this.cdPu).groupId;
+      let a = this.nQZXXa.getPlayerInfo(this.cdPu).groupId;
       this.nQZXXa.updateGroupStatus(a, e.groupStatus);
     }
     for (let a = 0; a < e.delObjIds.length; a++) {
       this.iKXqi.keZ(e.delObjIds[a]);
     }
     for (let a = 0; a < e.fullObjects.length; a++) {
-      const l = e.fullObjects[a];
+      let l = e.fullObjects[a];
       this.iKXqi.Rgm(l.__type, l.__id, l, t);
     }
     for (let a = 0; a < e.partObjects.length; a++) {
-      const l = e.partObjects[a];
+      let l = e.partObjects[a];
       this.iKXqi.AXgHa(l.__id, l, t);
     }
     this.kDxZ = this.cdPu != this.efnLi;
@@ -19656,7 +19656,7 @@ class Ts {
     this.vZXKP.layer = this.vZXKP.iDmhea.Rpch;
     this.tBNPz.setActiveLayer(this.vZXKP.layer);
     this.VXjd.activeLayer = this.vZXKP.layer;
-    const i = this.vZXKP.isUnderground(this.osAxga);
+    let i = this.vZXKP.isUnderground(this.osAxga);
     this.tBNPz.setUnderground(i);
     this.VXjd.underground = i;
     if (e.gasDirty) {
@@ -19666,18 +19666,18 @@ class Ts {
       this.WLV.setProgress(e.gasT);
     }
     for (let a = 0; a < e.bullets.length; a++) {
-      const l = e.bullets[a];
+      let l = e.bullets[a];
       Ba(l, this.sPHL, this.aNJCxT, this.nQZXXa, this.tBNPz);
       if (l.shotFx) {
         this.mOS.addShot(l);
       }
     }
     for (let a = 0; a < e.explosions.length; a++) {
-      const l = e.explosions[a];
+      let l = e.explosions[a];
       this.ThkdV.addExplosion(l.type, l.pos, l.layer);
     }
     for (let a = 0; a < e.emotes.length; a++) {
-      const l = e.emotes[a];
+      let l = e.emotes[a];
       if (l.isPing) {
         this.LpY.addPing(l, this.osAxga.factionMode);
       } else {
@@ -19690,18 +19690,18 @@ class Ts {
     }
     this.mBuo.updateMapIndicators(e.mapIndicators);
     if (e.killLeaderDirty) {
-      const a = $.htmlEscape(this.nQZXXa.getPlayerName(e.killLeaderId, this.cdPu, true));
+      let a = $.htmlEscape(this.nQZXXa.getPlayerName(e.killLeaderId, this.cdPu, true));
       this.mBuo.updateKillLeader(e.killLeaderId, a, e.killLeaderKills, this.osAxga.getMapDef().gameMode);
     }
-    const r = Date.now();
+    let r = Date.now();
     this.RpDeXL++;
     if (e.ack == this.seq && this.seqInFlight) {
       this.seqInFlight = false;
-      const a = r - this.seqSendTime;
+      let a = r - this.seqSendTime;
       this.pings.push(a);
     }
     if (this.lastUpdateTime > 0) {
-      const a = r - this.lastUpdateTime;
+      let a = r - this.lastUpdateTime;
       this.sJNwq.UUHe = a / 1000;
       this.updateIntervals.push(a);
     }
@@ -19711,7 +19711,7 @@ class Ts {
     switch (e) {
       case he.Joined:
         {
-          const i = new Or();
+          let i = new Or();
           i.deserialize(t);
           this.onJoin();
           this.teamMode = i.teamMode;
@@ -19740,7 +19740,7 @@ class Ts {
         }
       case he.Map:
         {
-          const i = new Rr();
+          let i = new Rr();
           i.deserialize(t);
           this.osAxga.loadMap(i, this.sJNwq, this.ZFYgb, this.vsiSQZ);
           this.jLTvL.loadMapAssets(this.osAxga.mapName);
@@ -19750,7 +19750,7 @@ class Ts {
           this.vsiSQZ.onMapLoad(this.osAxga);
           this.mBuo.onMapLoad(this.osAxga, this.sJNwq);
           if (this.osAxga.perkMode) {
-            const r = this.Dgn.get("perkModeRole");
+            let r = this.Dgn.get("perkModeRole");
             this.mBuo.setRoleMenuOptions(r, this.osAxga.getMapDef().gameMode.perkModeRoles);
             this.mBuo.setRoleMenuActive(true);
           } else {
@@ -19760,7 +19760,7 @@ class Ts {
         }
       case he.Update:
         {
-          const i = new Er();
+          let i = new Er();
           i.deserialize(t, this.iKXqi);
           this.DjCbXw = true;
           this.xHwzsl(i);
@@ -19768,14 +19768,14 @@ class Ts {
         }
       case he.Kill:
         {
-          const i = new Ar();
+          let i = new Ar();
           i.deserialize(t);
-          const r = i.itemSourceType || i.mapSourceType;
-          const a = this.nQZXXa.getPlayerInfo(this.cdPu).teamId;
-          const l = i.downed && !i.killed || i.damageType == R.DamageType.Gas || i.damageType == R.DamageType.Bleeding || i.damageType == R.DamageType.Airdrop;
-          const s = this.nQZXXa.getPlayerInfo(i.targetId);
-          const m = this.nQZXXa.getPlayerInfo(i.killCreditId);
-          const d = l ? m : this.nQZXXa.getPlayerInfo(i.killerId);
+          let r = i.itemSourceType || i.mapSourceType;
+          let a = this.nQZXXa.getPlayerInfo(this.cdPu).teamId;
+          let l = i.downed && !i.killed || i.damageType == R.DamageType.Gas || i.damageType == R.DamageType.Bleeding || i.damageType == R.DamageType.Airdrop;
+          let s = this.nQZXXa.getPlayerInfo(i.targetId);
+          let m = this.nQZXXa.getPlayerInfo(i.killCreditId);
+          let d = l ? m : this.nQZXXa.getPlayerInfo(i.killerId);
           let h = this.nQZXXa.getPlayerName(s.playerId, this.cdPu, true);
           let p = this.nQZXXa.getPlayerName(m.playerId, this.cdPu, true);
           let w = this.nQZXXa.getPlayerName(d.playerId, this.cdPu, true);
@@ -19783,20 +19783,20 @@ class Ts {
           p = $.htmlEscape(p);
           w = $.htmlEscape(w);
           if (i.killCreditId == this.cdPu) {
-            const x = i.killerId == this.cdPu;
-            const y = i.killerId == i.targetId || i.killCreditId == i.targetId;
-            const C = this.AYvJA.getKillText(p, h, x, i.downed, i.killed, y, r, i.damageType, this.kDxZ);
-            const P = i.killed && !y ? this.AYvJA.getKillCountText(i.killerKills) : "";
+            let x = i.killerId == this.cdPu;
+            let y = i.killerId == i.targetId || i.killCreditId == i.targetId;
+            let C = this.AYvJA.getKillText(p, h, x, i.downed, i.killed, y, r, i.damageType, this.kDxZ);
+            let P = i.killed && !y ? this.AYvJA.getKillCountText(i.killerKills) : "";
             this.AYvJA.displayKillMessage(C, P);
           } else if (i.targetId == this.cdPu && i.downed && !i.killed) {
-            const x = this.AYvJA.getDownedText(p, h, r, i.damageType, this.kDxZ);
+            let x = this.AYvJA.getDownedText(p, h, r, i.damageType, this.kDxZ);
             this.AYvJA.displayKillMessage(x, "");
           }
           if (i.killCreditId == this.efnLi && i.killed) {
             this.mBuo.setLocalKills(i.killerKills);
           }
-          const f = this.AYvJA.getKillFeedText(h, d.teamId ? w : "", r, i.damageType, i.downed && !i.killed);
-          const S = this.AYvJA.getKillFeedColor(a, s.teamId, m.teamId, this.osAxga.factionMode);
+          let f = this.AYvJA.getKillFeedText(h, d.teamId ? w : "", r, i.damageType, i.downed && !i.killed);
+          let S = this.AYvJA.getKillFeedColor(a, s.teamId, m.teamId, this.osAxga.factionMode);
           this.AYvJA.addKillFeedMessage(f, S);
           if (i.killed) {
             this.nQZXXa.addDeathEffect(i.targetId, i.killerId, r, this.VXjd, this.vsiSQZ);
@@ -19808,14 +19808,14 @@ class Ts {
         }
       case he.RoleAnnouncement:
         {
-          const i = new Lr();
+          let i = new Lr();
           i.deserialize(t);
-          const r = Oi[i.role];
+          let r = Oi[i.role];
           if (!r) {
             break;
           }
-          const a = this.nQZXXa.getPlayerInfo(i.playerId);
-          const l = $.htmlEscape(this.nQZXXa.getPlayerName(i.playerId, this.cdPu, true));
+          let a = this.nQZXXa.getPlayerInfo(i.playerId);
+          let l = $.htmlEscape(this.nQZXXa.getPlayerName(i.playerId, this.cdPu, true));
           if (i.assigned) {
             if (r.sound?.assign) {
               if (i.role == "kill_leader" && this.osAxga.getMapDef().gameMode.spookyKillSounds) {
@@ -19832,12 +19832,12 @@ class Ts {
               this.mBuo.setRoleMenuActive(false);
             }
             if (r.killFeed?.assign) {
-              const s = this.AYvJA.getRoleAssignedKillFeedText(i.role, a.teamId, l);
-              const m = this.AYvJA.getRoleKillFeedColor(i.role, a.teamId, this.nQZXXa);
+              let s = this.AYvJA.getRoleAssignedKillFeedText(i.role, a.teamId, l);
+              let m = this.AYvJA.getRoleKillFeedColor(i.role, a.teamId, this.nQZXXa);
               this.AYvJA.addKillFeedMessage(s, m);
             }
             if (r.announce && this.efnLi == i.playerId) {
-              const s = this.AYvJA.getRoleAnnouncementText(i.role, a.teamId);
+              let s = this.AYvJA.getRoleAnnouncementText(i.role, a.teamId);
               this.mBuo.displayAnnouncement(s.toUpperCase());
             }
           } else if (i.killed) {
@@ -19846,8 +19846,8 @@ class Ts {
               if (i.playerId == i.killerId) {
                 s = "";
               }
-              const m = this.AYvJA.getRoleKilledKillFeedText(i.role, a.teamId, s);
-              const d = this.AYvJA.getRoleKillFeedColor(i.role, a.teamId, this.nQZXXa);
+              let m = this.AYvJA.getRoleKilledKillFeedText(i.role, a.teamId, s);
+              let d = this.AYvJA.getRoleKillFeedColor(i.role, a.teamId, this.nQZXXa);
               this.AYvJA.addKillFeedMessage(m, d);
             }
             if (r.sound?.dead) {
@@ -19866,7 +19866,7 @@ class Ts {
         }
       case he.PlayerStats:
         {
-          const i = new Dr();
+          let i = new Dr();
           i.deserialize(t);
           this.mBuo.setLocalStats(i.playerStats);
           this.mBuo.showTeamAd(i.playerStats, this.AYvJA);
@@ -19879,12 +19879,12 @@ class Ts {
         }
       case he.GameOver:
         {
-          const i = new Cr();
+          let i = new Cr();
           i.deserialize(t);
           this.men = i.gameOver;
-          const r = this.nQZXXa.getPlayerInfo(this.efnLi).teamId;
+          let r = this.nQZXXa.getPlayerInfo(this.efnLi).teamId;
           for (let a = 0; a < i.playerStats.length; a++) {
-            const l = i.playerStats[a];
+            let l = i.playerStats[a];
             if (l.playerId == this.efnLi) {
               this.mBuo.setLocalStats(l);
               break;
@@ -19903,11 +19903,11 @@ class Ts {
         }
       case he.Pickup:
         {
-          const i = new Pr();
+          let i = new Pr();
           i.deserialize(t);
           if (i.type == Me.Success && i.item) {
             this.vZXKP.playItemPickupSound(i.item, this.VXjd);
-            const r = B[i.item];
+            let r = B[i.item];
             if (r && r.type == "xp") {
               this.AYvJA.addRareLootMessage(i.item, true);
             }
@@ -19925,7 +19925,7 @@ class Ts {
         }
       case he.AliveCounts:
         {
-          const i = new Mr();
+          let i = new Mr();
           i.deserialize(t);
           if (i.teamAliveCounts.length == 1) {
             this.mBuo.updatePlayersAlive(i.teamAliveCounts[0]);
@@ -19937,15 +19937,15 @@ class Ts {
         }
       case he.Disconnect:
         {
-          const i = new Ir();
+          let i = new Ir();
           i.deserialize(t);
           this.RfKKmr = i.reason;
         }
     }
   }
   EIAjn(e, t, i) {
-    const r = i || 128;
-    const a = new Ht(new ArrayBuffer(r));
+    let r = i || 128;
+    let a = new Ht(new ArrayBuffer(r));
     a.serializeMsg(e, t);
     this.mjJBh(a);
   }
@@ -19960,11 +19960,11 @@ class Ts {
     }
   }
 }
-const Ps = [0, 49345, 49537, 320, 49921, 960, 640, 49729, 50689, 1728, 1920, 51009, 1280, 50625, 50305, 1088, 52225, 3264, 3456, 52545, 3840, 53185, 52865, 3648, 2560, 51905, 52097, 2880, 51457, 2496, 2176, 51265, 55297, 6336, 6528, 55617, 6912, 56257, 55937, 6720, 7680, 57025, 57217, 8000, 56577, 7616, 7296, 56385, 5120, 54465, 54657, 5440, 55041, 6080, 5760, 54849, 53761, 4800, 4992, 54081, 4352, 53697, 53377, 4160, 61441, 12480, 12672, 61761, 13056, 62401, 62081, 12864, 13824, 63169, 63361, 14144, 62721, 13760, 13440, 62529, 15360, 64705, 64897, 15680, 65281, 16320, 16000, 65089, 64001, 15040, 15232, 64321, 14592, 63937, 63617, 14400, 10240, 59585, 59777, 10560, 60161, 11200, 10880, 59969, 60929, 11968, 12160, 61249, 11520, 60865, 60545, 11328, 58369, 9408, 9600, 58689, 9984, 59329, 59009, 9792, 8704, 58049, 58241, 9024, 57601, 8640, 8320, 57409, 40961, 24768, 24960, 41281, 25344, 41921, 41601, 25152, 26112, 42689, 42881, 26432, 42241, 26048, 25728, 42049, 27648, 44225, 44417, 27968, 44801, 28608, 28288, 44609, 43521, 27328, 27520, 43841, 26880, 43457, 43137, 26688, 30720, 47297, 47489, 31040, 47873, 31680, 31360, 47681, 48641, 32448, 32640, 48961, 32000, 48577, 48257, 31808, 46081, 29888, 30080, 46401, 30464, 47041, 46721, 30272, 29184, 45761, 45953, 29504, 45313, 29120, 28800, 45121, 20480, 37057, 37249, 20800, 37633, 21440, 21120, 37441, 38401, 22208, 22400, 38721, 21760, 38337, 38017, 21568, 39937, 23744, 23936, 40257, 24320, 40897, 40577, 24128, 23040, 39617, 39809, 23360, 39169, 22976, 22656, 38977, 34817, 18624, 18816, 35137, 19200, 35777, 35457, 19008, 19968, 36545, 36737, 20288, 36097, 19904, 19584, 35905, 17408, 33985, 34177, 17728, 34561, 18368, 18048, 34369, 33281, 17088, 17280, 33601, 16640, 33217, 32897, 16448];
+let Ps = [0, 49345, 49537, 320, 49921, 960, 640, 49729, 50689, 1728, 1920, 51009, 1280, 50625, 50305, 1088, 52225, 3264, 3456, 52545, 3840, 53185, 52865, 3648, 2560, 51905, 52097, 2880, 51457, 2496, 2176, 51265, 55297, 6336, 6528, 55617, 6912, 56257, 55937, 6720, 7680, 57025, 57217, 8000, 56577, 7616, 7296, 56385, 5120, 54465, 54657, 5440, 55041, 6080, 5760, 54849, 53761, 4800, 4992, 54081, 4352, 53697, 53377, 4160, 61441, 12480, 12672, 61761, 13056, 62401, 62081, 12864, 13824, 63169, 63361, 14144, 62721, 13760, 13440, 62529, 15360, 64705, 64897, 15680, 65281, 16320, 16000, 65089, 64001, 15040, 15232, 64321, 14592, 63937, 63617, 14400, 10240, 59585, 59777, 10560, 60161, 11200, 10880, 59969, 60929, 11968, 12160, 61249, 11520, 60865, 60545, 11328, 58369, 9408, 9600, 58689, 9984, 59329, 59009, 9792, 8704, 58049, 58241, 9024, 57601, 8640, 8320, 57409, 40961, 24768, 24960, 41281, 25344, 41921, 41601, 25152, 26112, 42689, 42881, 26432, 42241, 26048, 25728, 42049, 27648, 44225, 44417, 27968, 44801, 28608, 28288, 44609, 43521, 27328, 27520, 43841, 26880, 43457, 43137, 26688, 30720, 47297, 47489, 31040, 47873, 31680, 31360, 47681, 48641, 32448, 32640, 48961, 32000, 48577, 48257, 31808, 46081, 29888, 30080, 46401, 30464, 47041, 46721, 30272, 29184, 45761, 45953, 29504, 45313, 29120, 28800, 45121, 20480, 37057, 37249, 20800, 37633, 21440, 21120, 37441, 38401, 22208, 22400, 38721, 21760, 38337, 38017, 21568, 39937, 23744, 23936, 40257, 24320, 40897, 40577, 24128, 23040, 39617, 39809, 23360, 39169, 22976, 22656, 38977, 34817, 18624, 18816, 35137, 19200, 35777, 35457, 19008, 19968, 36545, 36737, 20288, 36097, 19904, 19584, 35905, 17408, 33985, 34177, 17728, 34561, 18368, 18048, 34369, 33281, 17088, 17280, 33601, 16640, 33217, 32897, 16448];
 function ki(u) {
   let e = 0;
   for (let t = 0; t < u.length; t++) {
-    const i = u[t];
+    let i = u[t];
     e = (Ps[(e ^ i) & 255] ^ e >> 8) & 65535;
   }
   return e;
@@ -19984,7 +19984,7 @@ function vi(u) {
 function _i(u) {
   return new $e(ve.MouseWheel, u);
 }
-const Xe = {
+let Xe = {
   [A.MoveLeft]: K("Move Left", oe(W.A)),
   [A.MoveRight]: K("Move Right", oe(W.D)),
   [A.MoveUp]: K("Move Up", oe(W.W)),
@@ -20021,7 +20021,7 @@ const Xe = {
   [A.TeamPingSingle]: K("Team Ping Menu", null)
 };
 class Cs {
-  constructor(e, t) {
+  letructor(e, t) {
     this.input = e;
     this.config = t;
     this.input = e;
@@ -20032,19 +20032,19 @@ class Cs {
   boundKeys = {};
   menuHovered = false;
   toArray() {
-    const e = new ArrayBuffer(this.binds.length * 2 + 1);
-    const t = new Zt.BitStream(e);
+    let e = new ArrayBuffer(this.binds.length * 2 + 1);
+    let t = new Zt.BitStream(e);
     t.writeUint8(1);
     for (let l = 0; l < this.binds.length; l++) {
-      const s = this.binds[l];
-      const m = s ? s.type : 0;
-      const d = s ? s.code : 0;
+      let s = this.binds[l];
+      let m = s ? s.type : 0;
+      let d = s ? s.code : 0;
       t.writeBits(m & 3, 2);
       t.writeUint8(d & 255);
     }
-    const i = new Uint8Array(e, 0, t.byteIndex);
-    const r = ki(i);
-    const a = new Uint8Array(i.length + 2);
+    let i = new Uint8Array(e, 0, t.byteIndex);
+    let r = ki(i);
+    let a = new Uint8Array(i.length + 2);
     a.set(i);
     a[a.length - 2] = r >> 8 & 255;
     a[a.length - 1] = r & 255;
@@ -20055,23 +20055,23 @@ class Cs {
     if (!t || t.length < 3) {
       return false;
     }
-    const i = t[t.length - 2] << 8 | t[t.length - 1];
+    let i = t[t.length - 2] << 8 | t[t.length - 1];
     t = t.slice(0, t.length - 2);
     if (ki(t) != i) {
       return false;
     }
-    const r = new ArrayBuffer(t.length);
-    const a = new Uint8Array(r);
+    let r = new ArrayBuffer(t.length);
+    let a = new Uint8Array(r);
     for (let m = 0; m < t.length; m++) {
       a[m] = t[m];
     }
-    const l = new Zt.BitStream(r);
-    const s = l.readUint8();
+    let l = new Zt.BitStream(r);
+    let s = l.readUint8();
     this.clearAllBinds();
     for (let m = 0; l.length - l.index >= 10;) {
-      const d = m++;
-      const h = l.readBits(2);
-      const p = l.readUint8();
+      let d = m++;
+      let h = l.readBits(2);
+      let p = l.readUint8();
       if (d >= 0 && d < A.Count && h != ve.None) {
         this.setBind(d, h != 0 ? new $e(h, p) : null);
       }
@@ -20104,10 +20104,10 @@ class Cs {
     }
   }
   upgradeBinds(e) {
-    const t = [];
+    let t = [];
     for (let i = 0; i < t.length; i++) {
-      const r = t[i];
-      const a = Xe[r].defaultValue;
+      let r = t[i];
+      let a = Xe[r].defaultValue;
       for (let l = 0; l < this.binds.length && !this.binds[l]?.equals(a); l++);
       this.setBind(r, a);
     }
@@ -20126,7 +20126,7 @@ class Cs {
         }
       }
     }
-    const i = this.binds[e];
+    let i = this.binds[e];
     if (i && i.type == ve.Key) {
       this.boundKeys[i.code] = null;
     }
@@ -20145,29 +20145,29 @@ class Cs {
     return this.boundKeys[e];
   }
   isBindPressed(e) {
-    const t = this.binds[e];
+    let t = this.binds[e];
     return !this.preventMenuBind(t) && t && this.input.isInputValuePressed(t);
   }
   isBindReleased(e) {
-    const t = this.binds[e];
+    let t = this.binds[e];
     return !this.preventMenuBind(t) && t && this.input.isInputValueReleased(t);
   }
   isBindDown(e) {
-    const t = this.binds[e];
+    let t = this.binds[e];
     return !this.preventMenuBind(t) && t && this.input.isInputValueDown(t);
   }
   loadDefaultBinds() {
     this.clearAllBinds();
-    const e = Object.keys(Xe);
+    let e = Object.keys(Xe);
     for (let t = 0; t < e.length; t++) {
-      const i = e[t];
-      const r = Xe[i];
+      let i = e[t];
+      let r = Xe[i];
       this.setBind(parseInt(i), r.defaultValue);
     }
   }
 }
 class Ds {
-  constructor(e, t) {
+  letructor(e, t) {
     this.input = e;
     this.inputBinds = t;
     this.input = e;
@@ -20182,29 +20182,29 @@ class Ds {
     this.input.captureNextInput(null);
   }
   refresh() {
-    const e = Object.keys(Xe);
-    const t = this.inputBinds.binds;
-    const i = c(".js-keybind-list");
+    let e = Object.keys(Xe);
+    let t = this.inputBinds.binds;
+    let i = c(".js-keybind-list");
     i.empty();
     for (let r = 0; r < e.length; r++) {
-      const a = e[r];
-      const l = Xe[a];
-      const s = t[a];
-      const m = c("<a/>", {
+      let a = e[r];
+      let l = Xe[a];
+      let s = t[a];
+      let m = c("<a/>", {
         class: "btn-game-menu btn-darken btn-keybind-desc",
         text: l.name
       });
-      const d = c("<div/>", {
+      let d = c("<div/>", {
         class: "btn-keybind-display",
         text: s ? s.toString() : ""
       });
       m.on("click", h => {
-        const p = c(h.target);
+        let p = c(h.target);
         p.addClass("btn-keybind-desc-selected");
         this.input.captureNextInput((w, f) => {
           w.preventDefault();
           w.stopPropagation();
-          const S = [W.Control, W.Shift, W.Alt, W.Windows, W.ContextMenu, W.F1, W.F2, W.F3, W.F4, W.F5, W.F6, W.F7, W.F8, W.F9, W.F10, W.F11, W.F12];
+          let S = [W.Control, W.Shift, W.Alt, W.Windows, W.ContextMenu, W.F1, W.F2, W.F3, W.F4, W.F5, W.F6, W.F7, W.F8, W.F9, W.F10, W.F11, W.F12];
           if (f.type == ve.Key && S.includes(f.code)) {
             return false;
           }
@@ -20275,7 +20275,7 @@ class Ls {
     if ("WebSocket" in window) {
       let t = 0;
       for (let i = 0; i < this.tests.length; i++) {
-        const r = this.tests[i];
+        let r = this.tests[i];
         if (!r.active && !r.complete && e.includes(r.region)) {
           r.active = true;
           this.testsStarted++;
@@ -20288,12 +20288,12 @@ class Ls {
     }
   }
   update(e) {
-    const t = r => {
+    let t = r => {
       r.active = false;
       r.complete = true;
       this.testsCompleted++;
     };
-    const i = function (r) {
+    let i = function (r) {
       if (r.ws) {
         r.ws.close();
         r.ws = null;
@@ -20305,16 +20305,16 @@ class Ls {
       }
     };
     for (let r = 0; r < this.tests.length; r++) {
-      const a = this.tests[r];
+      let a = this.tests[r];
       if (!a.active) {
         return "continue";
       }
       if (!a.ws) {
-        const l = new WebSocket(`ws${a.https ? "s" : ""}://${a.url}/ptc`);
+        let l = new WebSocket(`ws${a.https ? "s" : ""}://${a.url}/ptc`);
         l.binaryType = "arraybuffer";
         l.onopen = function () {};
         l.onmessage = function (s) {
-          const m = (Date.now() - a.sendTime) / 1000;
+          let m = (Date.now() - a.sendTime) / 1000;
           a.ping = Math.min(a.ping, m);
           a.recvCount++;
           a.sendDelay = 0.125;
@@ -20348,11 +20348,11 @@ class Ls {
       }
     }
     if (this.printSummary && this.isComplete()) {
-      const r = this.tests.sort((a, l) => a.ping - l.ping);
+      let r = this.tests.sort((a, l) => a.ping - l.ping);
       console.log("Ping test results");
       console.log("----------------------------------------");
       for (let a = 0; a < r.length; a++) {
-        const l = r[a];
+        let l = r[a];
         console.log("region", l.region, "zone  ", l.zone, "ping  ", l.ping);
       }
       this.printSummary = false;
@@ -20362,9 +20362,9 @@ class Ls {
     return this.testsCompleted == this.testsStarted && this.testsStarted > 0;
   }
   getRegionList() {
-    const e = [];
+    let e = [];
     for (let t = 0; t < yt.length; t++) {
-      const i = yt[t].region;
+      let i = yt[t].region;
       if (!e.includes(i)) {
         e.push(i);
       }
@@ -20376,10 +20376,10 @@ class Ls {
     return this.tests[0].region;
   }
   getZones(e) {
-    const t = this.tests.sort((r, a) => r.ping - a.ping);
-    const i = [];
+    let t = this.tests.sort((r, a) => r.ping - a.ping);
+    let i = [];
     for (let r = 0; r < t.length; r++) {
-      const a = t[r];
+      let a = t[r];
       if (a.region == e) {
         i.push(a.zone);
       }
@@ -20387,7 +20387,7 @@ class Ls {
     return i;
   }
 }
-const As = [{
+let As = [{
   meta: {
     image: "loadout-0-100-71653988.png",
     size: {
@@ -32959,7 +32959,7 @@ const As = [{
     }
   }
 }];
-const Es = [{
+let Es = [{
   meta: {
     image: "shared-0-100-8b417e22.png",
     size: {
@@ -40833,7 +40833,7 @@ const Es = [{
     }
   }
 }];
-const Rs = [{
+let Rs = [{
   meta: {
     image: "halloween-0-100-cd0fab16.png",
     size: {
@@ -41345,7 +41345,7 @@ const Rs = [{
     }
   }
 }];
-const Os = [{
+let Os = [{
   meta: {
     image: "snow-0-100-23291c9e.png",
     size: {
@@ -42657,7 +42657,7 @@ const Os = [{
     }
   }
 }];
-const Bs = [{
+let Bs = [{
   meta: {
     image: "faction-0-100-99af9e64.png",
     size: {
@@ -43489,7 +43489,7 @@ const Bs = [{
     }
   }
 }];
-const Ns = [{
+let Ns = [{
   meta: {
     image: "desert-0-100-9f8523dd.png",
     size: {
@@ -44401,7 +44401,7 @@ const Ns = [{
     }
   }
 }];
-const js = [{
+let js = [{
   meta: {
     image: "gradient-0-100-51ab76b6.png",
     size: {
@@ -44633,7 +44633,7 @@ const js = [{
     }
   }
 }];
-const qs = [{
+let qs = [{
   meta: {
     image: "savannah-0-100-35753cd3.png",
     size: {
@@ -45125,7 +45125,7 @@ const qs = [{
     }
   }
 }];
-const Fs = [{
+let Fs = [{
   meta: {
     image: "main-0-100-075ad988.png",
     size: {
@@ -46237,7 +46237,7 @@ const Fs = [{
     }
   }
 }];
-const Vs = [{
+let Vs = [{
   meta: {
     image: "potato-0-100-9e6e65b1.png",
     size: {
@@ -47429,7 +47429,7 @@ const Vs = [{
     }
   }
 }];
-const Zs = [{
+let Zs = [{
   meta: {
     image: "woods-0-100-49fced28.png",
     size: {
@@ -48541,7 +48541,7 @@ const Zs = [{
     }
   }
 }];
-const Xs = [{
+let Xs = [{
   meta: {
     image: "cobalt-0-100-c45e6f2b.png",
     size: {
@@ -49773,7 +49773,7 @@ const Xs = [{
     }
   }
 }];
-const Ws = {
+let Ws = {
   loadout: As,
   shared: Es,
   halloween: Rs,
@@ -49787,7 +49787,7 @@ const Ws = {
   woods: Zs,
   cobalt: Xs
 };
-const Hs = [{
+let Hs = [{
   meta: {
     image: "loadout-0-50-c16c5245.png",
     size: {
@@ -62359,7 +62359,7 @@ const Hs = [{
     }
   }
 }];
-const Gs = [{
+let Gs = [{
   meta: {
     image: "shared-0-50-aa0212d5.png",
     size: {
@@ -70244,7 +70244,7 @@ const Gs = [{
     }
   }
 }];
-const Us = [{
+let Us = [{
   meta: {
     image: "halloween-0-50-f68b39c5.png",
     size: {
@@ -70756,7 +70756,7 @@ const Us = [{
     }
   }
 }];
-const $s = [{
+let $s = [{
   meta: {
     image: "snow-0-50-351b3383.png",
     size: {
@@ -72068,7 +72068,7 @@ const $s = [{
     }
   }
 }];
-const Js = [{
+let Js = [{
   meta: {
     image: "faction-0-50-b6447309.png",
     size: {
@@ -72900,7 +72900,7 @@ const Js = [{
     }
   }
 }];
-const Ks = [{
+let Ks = [{
   meta: {
     image: "desert-0-50-978893d6.png",
     size: {
@@ -73812,7 +73812,7 @@ const Ks = [{
     }
   }
 }];
-const Qs = [{
+let Qs = [{
   meta: {
     image: "gradient-0-50-6480bd5e.png",
     size: {
@@ -74044,7 +74044,7 @@ const Qs = [{
     }
   }
 }];
-const Ys = [{
+let Ys = [{
   meta: {
     image: "savannah-0-50-d5ec1868.png",
     size: {
@@ -74536,7 +74536,7 @@ const Ys = [{
     }
   }
 }];
-const eo = [{
+let eo = [{
   meta: {
     image: "main-0-50-ce7d0d26.png",
     size: {
@@ -75659,7 +75659,7 @@ const eo = [{
     }
   }
 }];
-const to = [{
+let to = [{
   meta: {
     image: "potato-0-50-85f694d4.png",
     size: {
@@ -76862,7 +76862,7 @@ const to = [{
     }
   }
 }];
-const io = [{
+let io = [{
   meta: {
     image: "woods-0-50-8fe970b8.png",
     size: {
@@ -77974,7 +77974,7 @@ const io = [{
     }
   }
 }];
-const ro = [{
+let ro = [{
   meta: {
     image: "cobalt-0-50-1bced975.png",
     size: {
@@ -79206,7 +79206,7 @@ const ro = [{
     }
   }
 }];
-const ao = {
+let ao = {
   loadout: Hs,
   shared: Gs,
   halloween: Us,
@@ -79220,12 +79220,12 @@ const ao = {
   woods: io,
   cobalt: ro
 };
-const xt = {
+let xt = {
   low: ao,
   high: Ws
 };
 function so(u, e) {
-  const i = G.from(e).baseTexture;
+  let i = G.from(e).baseTexture;
   let r = 0;
   if (!i.valid) {
     i.on("loaded", a => {
@@ -79247,8 +79247,8 @@ function so(u, e) {
   return i;
 }
 function oo(u, e) {
-  const t = so(u, `assets/${e.meta.image}`);
-  const i = new fr(t, e);
+  let t = so(u, `assets/${e.meta.image}`);
+  let i = new fr(t, e);
   i.resolution = t.resolution;
   i.parse();
   return i;
@@ -79258,13 +79258,13 @@ function lo(u, e) {
   let i = Math.max(window.screen.width, window.screen.height);
   t *= window.devicePixelRatio;
   i *= window.devicePixelRatio;
-  const r = i < 1366 && t < 768;
+  let r = i < 1366 && t < 768;
   let a = e.get("highResTex") ? "high" : "low";
   if (r || v.mobile && !v.tablet || u.type == ot.CANVAS) {
     a = "low";
   }
   if (u.type == ot.WEBGL) {
-    const l = u.gl;
+    let l = u.gl;
     if (l.getParameter(l.MAX_TEXTURE_SIZE) < 4096) {
       a = "low";
     }
@@ -79273,7 +79273,7 @@ function lo(u, e) {
   return a;
 }
 class mo {
-  constructor(e, t, i) {
+  letructor(e, t, i) {
     this.renderer = e;
     this.audioManager = t;
     this.config = i;
@@ -79293,7 +79293,7 @@ class mo {
     if (!this.isAtlasLoaded(e)) {
       return false;
     }
-    const t = this.atlases[e];
+    let t = this.atlases[e];
     for (let i = 0; i < t.spritesheets.length; i++) {
       if (!t.spritesheets[i].baseTexture.valid) {
         return false;
@@ -79314,9 +79314,9 @@ class mo {
     if (!Ge.main.assets.atlases.includes(e)) {
       t = xt.high;
     }
-    const i = t[e];
+    let i = t[e];
     for (let r = 0; r < i.length; r++) {
-      const a = oo(this.renderer, i[r]);
+      let a = oo(this.renderer, i[r]);
       this.atlases[e].spritesheets.push(a);
     }
     this.atlases[e].loaded = true;
@@ -79326,7 +79326,7 @@ class mo {
       return;
     }
     console.log("Unload atlas", e);
-    const t = this.atlases[e];
+    let t = this.atlases[e];
     for (let i = 0; i < t.spritesheets.length; i++) {
       t.spritesheets[i].destroy(true);
     }
@@ -79335,36 +79335,36 @@ class mo {
   }
   loadMapAssets(e) {
     console.log("Load map", e);
-    const t = Ge[e];
+    let t = Ge[e];
     if (!t) {
       throw new Error(`Failed loading mapDef ${this.mapName}`);
     }
-    const i = t.assets.atlases;
-    const r = Object.keys(this.atlases);
+    let i = t.assets.atlases;
+    let r = Object.keys(this.atlases);
     for (let a = 0; a < r.length; a++) {
-      const l = r[a];
+      let l = r[a];
       if (!i.includes(l)) {
         this.unloadAtlas(l);
       }
     }
     for (let a = 0; a < i.length; a++) {
-      const l = i[a];
+      let l = i[a];
       if (!this.isAtlasLoaded(l)) {
         this.loadAtlas(l);
       }
     }
     setTimeout(() => {
       this.audioManager.preloadSounds();
-      const a = t.assets.audio;
+      let a = t.assets.audio;
       for (let l = 0; l < a.length; l++) {
-        const s = a[l];
+        let s = a[l];
         let m = fe.Sounds[s.channel];
         if (!m) {
-          const p = fe.Channels[s.channel];
+          let p = fe.Channels[s.channel];
           m = fe.Sounds[p.list];
         }
-        const d = m[s.name];
-        const h = {
+        let d = m[s.name];
+        let h = {
           canCoalesce: d.canCoalesce,
           channels: d.maxInstances,
           volume: d.volume
@@ -79382,9 +79382,9 @@ class mo {
     if (!this.loaded) {
       this.loadTicker += e;
       let t = !this.preloadMap;
-      const i = Object.keys(this.atlases);
+      let i = Object.keys(this.atlases);
       for (let r = 0; r < i.length; r++) {
-        const a = i[r];
+        let a = i[r];
         if (!this.atlasTexturesLoaded(a)) {
           t = false;
         }
@@ -79422,7 +79422,7 @@ var Ii = {
   }
 };
 class no {
-  constructor(e, t) {
+  letructor(e, t) {
     this.config = e;
     this.localization = t;
     this.config = e;
@@ -79431,14 +79431,14 @@ class no {
   info = {};
   loaded = false;
   load() {
-    const e = this.localization.getLocale();
-    const t = Ue.resolveUrl(`/api/site_info?language=${e}`);
-    const i = c("#server-opts");
-    const r = c("#team-server-opts");
-    for (const a in Ii) {
-      const l = Ii[a];
-      const s = this.localization.translate(l.l10n);
-      const m = `<option value='${a}' data-l10n='${l.l10n}' data-label='${s}'>${s}</option>`;
+    let e = this.localization.getLocale();
+    let t = Ue.resolveUrl(`/api/site_info?language=${e}`);
+    let i = c("#server-opts");
+    let r = c("#team-server-opts");
+    for (let a in Ii) {
+      let l = Ii[a];
+      let s = this.localization.translate(l.l10n);
+      let m = `<option value='${a}' data-l10n='${l.l10n}' data-label='${s}'>${s}</option>`;
       i.append(m);
       r.append(m);
     }
@@ -79449,17 +79449,17 @@ class no {
     });
   }
   getGameModeStyles() {
-    const e = {
+    let e = {
       [Se.Solo]: "solo",
       [Se.Duo]: "duo",
       [Se.Squad]: "squad"
     };
-    const t = [];
-    const i = this.info.modes || [];
+    let t = [];
+    let i = this.info.modes || [];
     for (let r = 0; r < i.length; r++) {
-      const a = i[r];
-      const l = (Ge[a.mapName] || Ge.main).desc;
-      const s = l.buttonText ? l.buttonText : e[a.teamMode];
+      let a = i[r];
+      let l = (Ge[a.mapName] || Ge.main).desc;
+      let s = l.buttonText ? l.buttonText : e[a.teamMode];
       t.push({
         icon: l.icon,
         buttonCss: l.buttonCss,
@@ -79471,11 +79471,11 @@ class no {
   }
   updatePageFromInfo() {
     if (this.loaded) {
-      const e = this.getGameModeStyles();
+      let e = this.getGameModeStyles();
       for (let m = 0; m < e.length; m++) {
-        const d = e[m];
-        const h = `index-play-${d.buttonText}`;
-        const p = c(`#btn-start-mode-${m}`);
+        let d = e[m];
+        let h = `index-play-${d.buttonText}`;
+        let p = c(`#btn-start-mode-${m}`);
         p.data("l10n", h);
         p.html(this.localization.translate(h));
         if (d.icon || d.buttonCss) {
@@ -79489,9 +79489,9 @@ class no {
             "background-image": `url(${d.icon})`
           });
         }
-        const w = c(`#btn-team-queue-mode-${m}`);
+        let w = c(`#btn-team-queue-mode-${m}`);
         if (w.length) {
-          const f = `index-${d.buttonText}`;
+          let f = `index-${d.buttonText}`;
           w.data("l10n", f);
           w.html(this.localization.translate(f));
           if (d.icon) {
@@ -79505,28 +79505,28 @@ class no {
           p.addClass("btn-disabled-main");
         }
       }
-      const t = this.info.pops;
+      let t = this.info.pops;
       if (t) {
-        const m = Object.keys(t);
+        let m = Object.keys(t);
         for (let d = 0; d < m.length; d++) {
-          const h = m[d];
-          const p = t[h];
-          const w = c("#server-opts").children(`option[value="${h}"]`);
-          const f = this.localization.translate("index-players");
+          let h = m[d];
+          let p = t[h];
+          let w = c("#server-opts").children(`option[value="${h}"]`);
+          let f = this.localization.translate("index-players");
           w.text(`${w.data("label")} [${p.playerCount} ${f}]`);
         }
       }
       let i = false;
-      const r = c("#featured-streamers");
-      const a = c(".streamer-list");
+      let r = c("#featured-streamers");
+      let a = c(".streamer-list");
       if (!v.mobile && this.info.twitch) {
         a.empty();
         for (let m = 0; m < this.info.twitch.length; m++) {
-          const d = this.info.twitch[m];
-          const h = c("#featured-streamer-template").clone();
+          let d = this.info.twitch[m];
+          let h = c("#featured-streamer-template").clone();
           h.attr("class", "featured-streamer streamer-tooltip").attr("id", "");
-          const p = h.find("a");
-          const w = this.localization.translate(d.viewers == 1 ? "index-viewer" : "index-viewers");
+          let p = h.find("a");
+          let w = this.localization.translate(d.viewers == 1 ? "index-viewer" : "index-viewers");
           p.html(`${d.name} <span>${d.viewers} ${w}</span>`);
           p.css("background-image", `url(${d.img})`);
           p.attr("href", d.url);
@@ -79535,8 +79535,8 @@ class no {
         }
       }
       r.css("visibility", i ? "visible" : "hidden");
-      const l = c("#featured-youtuber");
-      const s = this.info.youtube;
+      let l = c("#featured-youtuber");
+      let s = this.info.youtube;
       if (s) {
         c(".btn-youtuber").attr("href", this.info.youtube.link).html(this.info.youtube.name);
       }
@@ -79545,7 +79545,7 @@ class no {
   }
 }
 function mr(u) {
-  const e = {
+  let e = {
     width: 64,
     height: 64
   };
@@ -79555,10 +79555,10 @@ function mr(u) {
   };
 }
 function nr(u) {
-  const e = _t[u.type];
-  const t = mr(u);
-  const i = g.rgbToHex(g.intToRgb(u.color));
-  const r = u.stroke;
+  let e = _t[u.type];
+  let t = mr(u);
+  let i = g.rgbToHex(g.intToRgb(u.color));
+  let r = u.stroke;
   let a = e.code.replace(/white/g, i);
   a = a.replace(/stroke-width=".5"/g, `stroke-width="${r}"`);
   a = a.replace(/width="64"/g, `width="${t.width}"`);
@@ -79566,16 +79566,16 @@ function nr(u) {
   return `url('data:image/svg+xml;utf8,${a = a.replace(/#/g, "%23")}')`;
 }
 function ho(u) {
-  const e = mr(u);
+  let e = mr(u);
   return `${nr(u)} ${e.width / 2} ${e.height / 2}, crosshair`;
 }
-const Ve = {
+let Ve = {
   getCursorURL: function (u) {
     return nr(u);
   },
   setElemCrosshair: function (u, e) {
     let t = "crosshair";
-    const i = _t[e.type];
+    let i = _t[e.type];
     if (i) {
       t = i.cursor ? i.cursor : ho(e);
     }
@@ -79585,15 +79585,15 @@ const Ve = {
   },
   setGameCrosshair: function (u) {
     Ve.setElemCrosshair(c("#game-area-wrapper"), u);
-    const e = _t[u.type];
-    const t = !e || e.cursor ? "pointer" : "inherit";
+    let e = _t[u.type];
+    let t = !e || e.cursor ? "pointer" : "inherit";
     c(".ui-zoom, .ui-medical, .ui-settings-button, .ui-weapon-switch").css({
       cursor: t
     });
   }
 };
 class de {
-  constructor(e) {
+  letructor(e) {
     this.selector = e;
     e.find(".close").click(t => {
       this.hide();
@@ -79645,7 +79645,7 @@ class de {
   }
 }
 function Mi(u) {
-  const e = {
+  let e = {
     [ue.Top]: "customize-emote-top",
     [ue.Right]: "customize-emote-right",
     [ue.Bottom]: "customize-emote-bottom",
@@ -79653,13 +79653,13 @@ function Mi(u) {
     [ue.Win]: "customize-emote-win",
     [ue.Death]: "customize-emote-death"
   };
-  const t = e[u] || e[ue.Top];
+  let t = e[u] || e[ue.Top];
   return c(`#${t}`);
 }
 function tt(u) {
   return function (e, t) {
-    const i = B[e.type].rarity || 0;
-    const r = B[t.type].rarity || 0;
+    let i = B[e.type].rarity || 0;
+    let r = B[t.type].rarity || 0;
     if (i == 0 && r == 0) {
       return ht(e, t);
     } else if (i == 0) {
@@ -79679,8 +79679,8 @@ function co(u, e) {
   }
 }
 function ht(u, e) {
-  const t = B[u.type];
-  const i = B[e.type];
+  let t = B[u.type];
+  let i = B[e.type];
   if (t.name < i.name) {
     return -1;
   } else if (t.name > i.name) {
@@ -79690,8 +79690,8 @@ function ht(u, e) {
   }
 }
 function uo(u, e) {
-  const t = B[u.type].rarity || 0;
-  const i = B[e.type].rarity || 0;
+  let t = B[u.type].rarity || 0;
+  let i = B[e.type].rarity || 0;
   if (t == i) {
     return ht(u, e);
   } else {
@@ -79699,22 +79699,22 @@ function uo(u, e) {
   }
 }
 function hr(u, e) {
-  const t = B[u.type];
-  const i = B[e.type];
+  let t = B[u.type];
+  let i = B[e.type];
   if (!t.category || !i.category || t.category == i.category) {
     return ht(u, e);
   } else {
     return t.category - i.category;
   }
 }
-const Ti = {
+let Ti = {
   newest: tt(co),
   alpha: tt(ht),
   rarity: tt(uo),
   subcat: tt(hr)
 };
 class po {
-  constructor(e, t) {
+  letructor(e, t) {
     this.account = e;
     this.localization = t;
     if (!v.touch) {
@@ -79742,10 +79742,10 @@ class po {
     this.modal.onHide(() => {
       this.onHide();
     });
-    const i = function () {
+    let i = function () {
       c("#modal-screen-block").fadeIn(200);
     };
-    const r = () => {
+    let r = () => {
       this.confirmNextItem();
     };
     this.confirmItemModal = new de(c("#modal-item-confirm"));
@@ -79816,7 +79816,7 @@ class po {
   init() {
     if (!this.initialized) {
       for (let r = 0; r < this.categories.length; r++) {
-        const a = c("<div/>", {
+        let a = c("<div/>", {
           class: "modal-customize-cat",
           "data-idx": r
         });
@@ -79841,7 +79841,7 @@ class po {
       this.selectableCatConnects = c(".modal-customize-cat-connect");
       this.selectableCatImages = c(".modal-customize-cat-image");
       this.selectableCats.on("mouseup", r => {
-        const l = c(r.currentTarget).data("idx");
+        let l = c(r.currentTarget).data("idx");
         if (this.selectedCatIdx != l) {
           this.selectCat(l);
         }
@@ -79851,7 +79851,7 @@ class po {
         this.sortItems(r.target.value);
       });
       this.modalCustomizeItemName.on("click", () => {
-        const r = document.getElementsByClassName("customize-list-item-selected");
+        let r = document.getElementsByClassName("customize-list-item-selected");
         if (r.length > 0) {
           r[0].scrollIntoView({
             behavior: "smooth",
@@ -79866,7 +79866,7 @@ class po {
       c("#crosshair-stroke").on("input", () => {
         this.updateLoadoutFromDOM();
       });
-      const e = document.getElementById("color-picker");
+      let e = document.getElementById("color-picker");
       this.picker = new window.CP(e, false, e);
       this.picker.self.classList.add("static");
       this.picker.on("change", r => {
@@ -79875,9 +79875,9 @@ class po {
           this.updateLoadoutFromDOM();
         }
       });
-      const t = document.querySelector("#color-picker-hex");
-      const i = () => {
-        const r = t.value;
+      let t = document.querySelector("#color-picker-hex");
+      let i = () => {
+        let r = t.value;
         if (r.length) {
           if (r.length == 6) {
             this.picker.set(`#${r}`);
@@ -79908,7 +79908,7 @@ class po {
     this.active = true;
     this.localAckItems = [];
     for (let e = 0; e < this.items.length; e++) {
-      const t = this.items[e];
+      let t = this.items[e];
       if (t.status < le.ItemStatus.Ackd) {
         this.localAckItems.push(t);
       }
@@ -79952,7 +79952,7 @@ class po {
   onItems(e) {
     this.items = le.getUserAvailableItems(e);
     for (let t = 0; t < this.items.length; t++) {
-      const i = this.items[t];
+      let i = this.items[t];
       if (i.status < le.ItemStatus.Confirmed && !this.localPendingConfirm.find(r => r.type == i.type) && !this.localConfirmed.find(r => r.type == i.type)) {
         this.localPendingConfirm.push(i);
       }
@@ -79971,11 +79971,11 @@ class po {
     }
   }
   onPass(e) {
-    const t = ["facebook", "instagram", "youtube", "twitter"];
+    let t = ["facebook", "instagram", "youtube", "twitter"];
     for (let i = 0; i < t.length; i++) {
-      const r = t[i];
-      const a = !!e.unlocks[r];
-      const l = c(`.customize-social-unlock[data-lock-reason='${r}']`);
+      let r = t[i];
+      let a = !!e.unlocks[r];
+      let l = c(`.customize-social-unlock[data-lock-reason='${r}']`);
       l.css({
         display: a ? "none" : "inline-block"
       });
@@ -79986,7 +79986,7 @@ class po {
   }
   getCategory(e) {
     for (let t = 0; t < this.categories.length; t++) {
-      const i = this.categories[t];
+      let i = this.categories[t];
       if (i.gameType == e) {
         return i;
       }
@@ -80000,9 +80000,9 @@ class po {
     this.confirmItemModal.hide();
   }
   setItemsConfirmed() {
-    const e = [];
+    let e = [];
     for (let t = 0; t < this.items.length; t++) {
-      const i = this.items[t];
+      let i = this.items[t];
       if (i.status < le.ItemStatus.Confirmed) {
         e.push(i.type);
       }
@@ -80012,11 +80012,11 @@ class po {
     }
   }
   setItemsAckd(e) {
-    const t = this.categories[e];
-    const i = [];
+    let t = this.categories[e];
+    let i = [];
     for (let r = 0; r < this.items.length; r++) {
-      const a = this.items[r];
-      const l = B[a.type];
+      let a = this.items[r];
+      let l = B[a.type];
       if (l && l.type == t.gameType && a?.status < le.ItemStatus.Ackd) {
         i.push(a.type);
       }
@@ -80033,18 +80033,18 @@ class po {
   }
   confirmNextItem() {
     this.setItemsConfirmed();
-    const e = this.localPendingConfirm.shift();
+    let e = this.localPendingConfirm.shift();
     if (e) {
       this.localConfirmed.push(e);
-      const t = B[e.type];
-      const i = {
+      let t = B[e.type];
+      let i = {
         type: e.type,
         rarity: t.rarity || 0,
         displayName: t.name,
         category: t.type
       };
-      const a = `url(${$.getSvgFromGameType(e.type)})`;
-      const l = $.getCssTransformFromGameType(e.type);
+      let a = `url(${$.getSvgFromGameType(e.type)})`;
+      let l = $.getCssTransformFromGameType(e.type);
       setTimeout(() => {
         c("#modal-item-confirm-name").html(i.displayName);
         c("#modal-item-confirm-image-inner").css({
@@ -80060,10 +80060,10 @@ class po {
   }
   sortItems(e) {
     this.selectedCatItems.sort(Ti[e]);
-    const t = this.categories[this.selectedCatIdx];
-    const i = c("<div/>");
+    let t = this.categories[this.selectedCatIdx];
+    let i = c("<div/>");
     for (let r = 0; r < this.selectedCatItems.length; r++) {
-      const a = this.selectedCatItems[r];
+      let a = this.selectedCatItems[r];
       a.outerDiv?.data("idx", r);
       i.append(a.outerDiv);
     }
@@ -80074,7 +80074,7 @@ class po {
   }
   setItemListeners(e) {
     this.selectableSlots.on("mouseup", t => {
-      const i = t.currentTarget;
+      let i = t.currentTarget;
       if (!c(i).hasClass("customize-list-item-locked")) {
         if (this.itemSelected && !c(i).hasClass("customize-list-item")) {
           this.itemSelected = false;
@@ -80089,7 +80089,7 @@ class po {
       if (!this.emotesLoaded) {
         this.setEmoteDraggable(this.droppableSlots, this);
         this.droppableSlots.on("mouseup", t => {
-          const i = t.currentTarget;
+          let i = t.currentTarget;
           if (!c(i).hasClass("customize-list-item-locked")) {
             if (this.itemSelected && !c(i).hasClass("customize-list-item")) {
               this.deselectItem();
@@ -80101,8 +80101,8 @@ class po {
         });
         this.droppableSlots.on("drop", t => {
           t.originalEvent?.preventDefault();
-          const i = t.currentTarget;
-          const r = c(i).parent();
+          let i = t.currentTarget;
+          let r = c(i).parent();
           this.updateSlot(r, this.selectedItem.img, this.selectedItem.type);
           this.updateLoadoutFromDOM();
           this.deselectItem();
@@ -80110,7 +80110,7 @@ class po {
         this.droppableSlots.on("mousedown", t => {
           if (this.itemSelected) {
             t.stopPropagation();
-            const i = c(t.currentTarget).parent();
+            let i = c(t.currentTarget).parent();
             this.updateSlot(i, this.selectedItem.img, this.selectedItem.type);
             this.updateLoadoutFromDOM();
           }
@@ -80128,15 +80128,15 @@ class po {
           this.deselectItem();
         });
         c(".ui-emote-auto-trash").click(t => {
-          const i = c(t.currentTarget).parent();
+          let i = c(t.currentTarget).parent();
           this.updateSlot(i, "", "");
           this.updateLoadoutFromDOM();
         });
         this.emotesLoaded = true;
       }
     } else if (e == "crosshair") {
-      const t = g.intToHex(this.loadout.crosshair.color);
-      const i = [t.slice(1)];
+      let t = g.intToHex(this.loadout.crosshair.color);
+      let i = [t.slice(1)];
       this.picker.set(t);
       c("#color-picker-hex").val(i);
       c("#crosshair-size").val(this.loadout.crosshair.size);
@@ -80144,11 +80144,11 @@ class po {
     }
   }
   updateLoadoutFromDOM() {
-    const e = this.categories[this.selectedCatIdx].loadoutType;
+    let e = this.categories[this.selectedCatIdx].loadoutType;
     if (e == "emote") {
       for (let t = 0; t < ue.Count; t++) {
-        const r = Mi(t).data("idx");
-        const a = this.equippedItems[r];
+        let r = Mi(t).data("idx");
+        let a = this.equippedItems[r];
         if (a?.type) {
           this.loadout.emotes[t] = a.type;
         } else {
@@ -80156,9 +80156,9 @@ class po {
         }
       }
     } else if (e == "crosshair") {
-      const t = parseFloat(c("#crosshair-size").val());
-      const i = c("#color-picker-hex").val();
-      const r = parseFloat(c("#crosshair-stroke").val());
+      let t = parseFloat(c("#crosshair-size").val());
+      let i = c("#color-picker-hex").val();
+      let r = parseFloat(c("#crosshair-stroke").val());
       this.loadout.crosshair = {
         type: this.selectedItem.type,
         color: g.hexToInt(i),
@@ -80177,11 +80177,11 @@ class po {
     }
   }
   selectItem(e, t = true) {
-    const i = e.hasClass("customize-list-item");
-    const r = i ? e : e.parent();
-    const a = r.find(".customize-item-image");
-    const l = r.data("idx");
-    const s = r.data("slot") ? this.equippedItems[l] : this.selectedCatItems[l];
+    let i = e.hasClass("customize-list-item");
+    let r = i ? e : e.parent();
+    let a = r.find(".customize-item-image");
+    let l = r.data("idx");
+    let s = r.data("slot") ? this.equippedItems[l] : this.selectedCatItems[l];
     if (!s) {
       this.itemSelected = false;
       this.selectedItem = {
@@ -80208,10 +80208,10 @@ class po {
       subcat: s.subcat
     };
     this.modalCustomizeItemName.html(this.selectedItem.displayName);
-    const m = this.localization.translate(`loadout-${s.displaySource}`) || this.localization.translate(`${s.displaySource}`) || this.selectedItem.displaySource;
-    const d = `${this.localization.translate("loadout-acquired")}: ${m}`;
+    let m = this.localization.translate(`loadout-${s.displaySource}`) || this.localization.translate(`${s.displaySource}`) || this.selectedItem.displaySource;
+    let d = `${this.localization.translate("loadout-acquired")}: ${m}`;
     this.modalCustomizeItemSource.html(d);
-    const h = {
+    let h = {
       [ke.Locked]: "Locked",
       [ke.Faces]: "Faces",
       [ke.Food]: "Food",
@@ -80221,11 +80221,11 @@ class po {
       [ke.Flags]: "Flags",
       [ke.Default]: "Default"
     };
-    const p = s.loadoutType == "emote" ? `${this.localization.translate("loadout-category")}: ${h[s.subcat]}` : this.selectedItem.displayLore;
+    let p = s.loadoutType == "emote" ? `${this.localization.translate("loadout-category")}: ${h[s.subcat]}` : this.selectedItem.displayLore;
     this.modalCustomizeItemLore.html(p);
-    const w = ["stock", "common", "uncommon", "rare", "epic", "mythic"];
-    const f = ["#c5c5c5", "#c5c5c5", "#12ff00", "#00deff", "#f600ff", "#d96100"];
-    const S = this.localization.translate(`loadout-${w[this.selectedItem.rarity]}`);
+    let w = ["stock", "common", "uncommon", "rare", "epic", "mythic"];
+    let f = ["#c5c5c5", "#c5c5c5", "#12ff00", "#00deff", "#f600ff", "#d96100"];
+    let S = this.localization.translate(`loadout-${w[this.selectedItem.rarity]}`);
     this.modalCustomizeItemRarity.html(S);
     this.modalCustomizeItemRarity.css({
       color: f[this.selectedItem.rarity]
@@ -80243,7 +80243,7 @@ class po {
       r.find(".ui-emote-hl").css("opacity", 1);
     }
     if (this.selectedItem.loadoutType == "crosshair") {
-      const y = B[this.selectedItem.type];
+      let y = B[this.selectedItem.type];
       if (y && y.type == "crosshair" && y.cursor) {
         c("#modal-content-right-crosshair").css("display", "none");
       } else {
@@ -80252,7 +80252,7 @@ class po {
         this.picker.enter();
       }
     }
-    const x = this.localAckItems.findIndex(y => y.type == this.selectedItem.type);
+    let x = this.localAckItems.findIndex(y => y.type == this.selectedItem.type);
     if (x !== -1) {
       e.find(".account-alert").removeClass("account-alert account-alert-cat");
       this.localAckItems.splice(x, 1);
@@ -80260,12 +80260,12 @@ class po {
     }
   }
   updateSlot(e, t, i) {
-    const r = this.selectedItem.prevSlot;
+    let r = this.selectedItem.prevSlot;
     this.selectedItem = {};
     if (r) {
-      const a = e.find(".customize-item-image");
-      const l = e.data("idx");
-      const s = this.equippedItems[l];
+      let a = e.find(".customize-item-image");
+      let l = e.data("idx");
+      let s = this.equippedItems[l];
       let m = "";
       if (s.type) {
         m = s.type;
@@ -80288,13 +80288,13 @@ class po {
     this.modalCustomizeItemRarity.html("");
   }
   updateSlotData(e, t, i) {
-    const r = e.find(".customize-emote-slot");
+    let r = e.find(".customize-emote-slot");
     r.css("background-image", t || "none");
     r.data("img", t || "none");
-    const a = B[i];
-    const l = e.data("idx");
+    let a = B[i];
+    let l = e.data("idx");
     if (a) {
-      const s = {
+      let s = {
         loadoutType: "emote",
         type: i,
         rarity: a.rarity || 0,
@@ -80308,24 +80308,24 @@ class po {
     }
   }
   selectCat(e) {
-    const t = this.selectedCatIdx;
+    let t = this.selectedCatIdx;
     this.selectedCatIdx = e;
     this.setItemsAckd(this.selectedCatIdx);
     if (t != this.selectedCatIdx) {
-      const x = this.categories[t];
+      let x = this.categories[t];
       for (let y = this.localAckItems.length - 1; y >= 0; y--) {
-        const C = this.localAckItems[y];
+        let C = this.localAckItems[y];
         if (B[C.type].type == x.gameType) {
           this.localAckItems.splice(y, 1);
         }
       }
     }
-    const i = this.categories[this.selectedCatIdx];
-    const r = this.items.filter(x => {
-      const y = B[x.type];
+    let i = this.categories[this.selectedCatIdx];
+    let r = this.items.filter(x => {
+      let y = B[x.type];
       return y && y.type == i.gameType;
     });
-    const a = i.loadoutType == "emote" || i.loadoutType == "player_icon";
+    let a = i.loadoutType == "emote" || i.loadoutType == "player_icon";
     c("#customize-sort-subcat").css("display", a ? "block" : "none");
     let l = this.itemSort.val();
     if (!a && l == "subcat") {
@@ -80333,18 +80333,18 @@ class po {
       this.itemSort.val(l);
     }
     r.sort(Ti[l]);
-    const s = i.loadoutType == "emote";
-    const m = i.loadoutType == "crosshair";
-    const d = i.loadoutType == "emote";
+    let s = i.loadoutType == "emote";
+    let m = i.loadoutType == "crosshair";
+    let d = i.loadoutType == "emote";
     this.loadoutDisplay?.setView(i.loadoutType);
-    const h = c(`.modal-customize-cat[data-idx='${this.selectedCatIdx}']`);
+    let h = c(`.modal-customize-cat[data-idx='${this.selectedCatIdx}']`);
     this.selectableCats.removeClass("modal-customize-cat-selected");
     this.selectableCatConnects.removeClass("modal-customize-cat-connect-selected");
     this.selectableCatImages.removeClass("modal-customize-cat-image-selected");
     h.addClass("modal-customize-cat-selected");
     h.find(".modal-customize-cat-connect").addClass("modal-customize-cat-connect-selected");
     h.find(".modal-customize-cat-image").addClass("modal-customize-cat-image-selected");
-    const p = this.localization.translate(`loadout-title-${i.loadoutType}`).toUpperCase();
+    let p = this.localization.translate(`loadout-title-${i.loadoutType}`).toUpperCase();
     c("#modal-customize-cat-title").html(p);
     c("#modal-content-right-crosshair").css("display", i.loadoutType == "crosshair" ? "block" : "none");
     c("#modal-content-right-emote").css("display", i.loadoutType == "emote" ? "block" : "none");
@@ -80354,8 +80354,8 @@ class po {
     this.modalCustomizeItemSource.html("");
     this.modalCustomizeItemLore.html("");
     this.modalCustomizeItemRarity.html("");
-    const w = function (x) {
-      const y = B[x];
+    let w = function (x) {
+      let y = B[x];
       if (y?.name) {
         return y.name;
       } else {
@@ -80364,11 +80364,11 @@ class po {
     };
     this.selectedCatItems = [];
     let f = "";
-    const S = c("<div/>");
+    let S = c("<div/>");
     for (let x = 0; x < r.length; x++) {
-      const y = r[x];
-      const C = B[y.type];
-      const P = {
+      let y = r[x];
+      let C = B[y.type];
+      let P = {
         loadoutType: i.loadoutType,
         type: y.type,
         rarity: C.rarity || 0,
@@ -80380,13 +80380,13 @@ class po {
         subcat: C.category,
         outerDiv: null
       };
-      const k = c("<div/>", {
+      let k = c("<div/>", {
         class: "customize-list-item customize-list-item-unlocked",
         "data-idx": x
       });
-      const b = $.getSvgFromGameType(y.type);
-      const M = $.getCssTransformFromGameType(y.type);
-      const E = c("<div/>", {
+      let b = $.getSvgFromGameType(y.type);
+      let M = $.getCssTransformFromGameType(y.type);
+      let E = c("<div/>", {
         class: "customize-item-image",
         css: {
           "background-image": `url(${b})`,
@@ -80397,7 +80397,7 @@ class po {
       });
       k.append(E);
       if (this.localAckItems.findIndex(D => D.type == y.type) !== -1) {
-        const D = c("<div/>", {
+        let D = c("<div/>", {
           class: "account-alert account-alert-cat",
           css: {
             display: "block"
@@ -80406,7 +80406,7 @@ class po {
         k.append(D);
       }
       if (i.gameType == "crosshair") {
-        const D = {
+        let D = {
           type: P.type,
           color: 16777215,
           size: 1,
@@ -80430,10 +80430,10 @@ class po {
       this.equippedItems = [];
       for (let x = 0; x < this.loadout.emotes.length; x++) {
         this.equippedItems.push({});
-        const y = this.loadout.emotes[x];
+        let y = this.loadout.emotes[x];
         if (B[y]) {
-          const P = `url(${$.getSvgFromGameType(y)})`;
-          const k = Mi(x);
+          let P = `url(${$.getSvgFromGameType(y)})`;
+          let k = Mi(x);
           this.updateSlotData(k, P, y);
         }
       }
@@ -80455,8 +80455,8 @@ class po {
     }
     if (v.browser == "edge") {
       if (i.loadoutType == "crosshair") {
-        const x = function (y, C) {
-          const P = y.height() + parseInt(y.css("padding-top")) + parseInt(y.css("padding-bottom"));
+        let x = function (y, C) {
+          let P = y.height() + parseInt(y.css("padding-top")) + parseInt(y.css("padding-bottom"));
           C.css("height", P);
         };
         x(c("#modal-customize-body"), c("#modal-content-left").find(".modal-disabled"));
@@ -80470,9 +80470,9 @@ class po {
   }
   setCategoryAlerts() {
     for (let e = 0; e < this.categories.length; e++) {
-      const t = this.categories[e];
-      const i = this.localAckItems.filter(r => {
-        const a = B[r.type];
+      let t = this.categories[e];
+      let i = this.localAckItems.filter(r => {
+        let a = B[r.type];
         return a && a.type == t.gameType;
       });
       c(`.modal-customize-cat[data-idx='${e}']`).find(".account-alert-cat").css("display", i.length > 0 ? "block" : "none");
@@ -80481,47 +80481,47 @@ class po {
   setEmoteDraggable(e, t) {
     e.on("dragstart", function (i) {
       if (!c(this).hasClass("customize-list-item-locked") && (t.selectItem(c(this), false), v.browser != "edge")) {
-        const r = document.createElement("img");
+        let r = document.createElement("img");
         r.src = t.selectedItem.img ? t.selectedItem.img.replace("url(", "").replace(")", "").replace(/\'/gi, "") : "";
         i.originalEvent?.dataTransfer?.setDragImage(r, 64, 64);
       }
     });
   }
   setSelectedCrosshair() {
-    const e = this.loadout.crosshair;
+    let e = this.loadout.crosshair;
     c("#customize-crosshair-selected").find(".customize-item-image").css({
       "background-image": Ve.getCursorURL(e)
     });
     Ve.setElemCrosshair(c("#customize-crosshair-selected"), e);
   }
 }
-const fo = "Survivr Pass 1";
-const wo = "Top 10 in solos";
-const go = "Top 8 in duos";
-const So = "Top 5 in squads";
-const yo = "Kill enemies";
-const xo = "Kill enemies";
-const zo = "Damage enemies";
-const bo = "Damage enemies";
-const ko = "Survived time";
-const vo = "9mm damage";
-const _o = "7.62mm damage";
-const Io = "5.56mm damage";
-const Mo = "12 gauge damage";
-const To = "Grenade damage";
-const Po = "Melee damage";
-const Co = "Use healing items";
-const Do = "Use adrenaline items";
-const Lo = "Unlock air drops";
-const Ao = "Destroy crates";
-const Eo = "Destroy toilets";
-const Ro = "Destroy furniture";
-const Oo = "Destroy barrels";
-const Bo = "Destroy lockers";
-const No = "Destroy pots";
-const jo = "Destroy soda machines";
-const qo = "Kill enemies at: club";
-const Fo = {
+let fo = "Survivr Pass 1";
+let wo = "Top 10 in solos";
+let go = "Top 8 in duos";
+let So = "Top 5 in squads";
+let yo = "Kill enemies";
+let xo = "Kill enemies";
+let zo = "Damage enemies";
+let bo = "Damage enemies";
+let ko = "Survived time";
+let vo = "9mm damage";
+let _o = "7.62mm damage";
+let Io = "5.56mm damage";
+let Mo = "12 gauge damage";
+let To = "Grenade damage";
+let Po = "Melee damage";
+let Co = "Use healing items";
+let Do = "Use adrenaline items";
+let Lo = "Unlock air drops";
+let Ao = "Destroy crates";
+let Eo = "Destroy toilets";
+let Ro = "Destroy furniture";
+let Oo = "Destroy barrels";
+let Bo = "Destroy lockers";
+let No = "Destroy pots";
+let jo = "Destroy soda machines";
+let qo = "Kill enemies at: club";
+let Fo = {
   "word-order": "svo",
   "index-create-account": "Create Account",
   "index-create-account-prompt-1": "Log in to access this feature!",
@@ -81221,7 +81221,7 @@ const Fo = {
   "game-xp_donut": "Cake Donut"
 };
 function Vo(u, e) {
-  const t = {
+  let t = {
     url: u,
     type: "GET"
   };
@@ -81231,7 +81231,7 @@ function Vo(u, e) {
     e(i);
   });
 }
-const Pi = {
+let Pi = {
   da: "Dansk",
   de: "Deutsch",
   en: "English",
@@ -81257,12 +81257,12 @@ class Zo {
     en: Fo
   };
   locale = "en";
-  constructor() {
+  letructor() {
     this.locale = "en";
   }
   detectLocale() {
     let e = (navigator.language || navigator.userLanguage).toLowerCase();
-    const t = ["pt", "de", "es", "fr", "ko", "ru", "en"];
+    let t = ["pt", "de", "es", "fr", "ko", "ru", "en"];
     for (let i = 0; i < t.length; i++) {
       if (e.includes(t[i])) {
         e = t[i];
@@ -81277,7 +81277,7 @@ class Zo {
     return "en";
   }
   setLocale(e) {
-    const t = this.acceptedLocales.includes(e) ? e : "en";
+    let t = this.acceptedLocales.includes(e) ? e : "en";
     if (t != this.locale) {
       if (this.translations[e] === undefined) {
         Vo(`/l10n/${e}.json`, (i, r) => {
@@ -81302,12 +81302,12 @@ class Zo {
   }
   localizeIndex() {
     c("*[data-l10n]").each((t, i) => {
-      const r = c(i);
+      let r = c(i);
       let a = r.attr("data-l10n");
       if (r.hasClass("help-control") && v.touch) {
         a += "-touch";
       }
-      const l = this.translate(a);
+      let l = this.translate(a);
       if (l) {
         if (r.attr("label")) {
           r.attr("label", l);
@@ -81321,11 +81321,11 @@ class Zo {
     });
   }
   populateLanguageSelect() {
-    const e = c(".language-select");
+    let e = c(".language-select");
     e.empty();
     for (let t = 0; t < this.acceptedLocales.length; t++) {
-      const i = this.acceptedLocales[t];
-      const r = Pi[i];
+      let i = this.acceptedLocales[t];
+      let r = Pi[i];
       e.append(c("<option>", {
         value: i,
         text: r
@@ -81334,7 +81334,7 @@ class Zo {
   }
 }
 function Ci(u, e, t, i) {
-  const r = c("<div/>", {
+  let r = c("<div/>", {
     class: "copy-toast",
     html: u
   });
@@ -81357,23 +81357,23 @@ function Ci(u, e, t, i) {
   });
 }
 function Xo(u, e) {
-  const t = c("#start-menu");
+  let t = c("#start-menu");
   c("#btn-help").click(() => {
-    const x = c("#start-help");
+    let x = c("#start-help");
     t.addClass("display-help");
-    const y = t.css("height");
+    let y = t.css("height");
     x.css("display", "block");
     t.animate({
       scrollTop: y
     }, 1000);
     return false;
   });
-  const i = c("#team-mobile-link");
-  const r = c("#team-mobile-link-desc");
-  const a = c("#team-mobile-link-warning");
-  const l = c("#team-link-input");
-  const s = c("#social-share-block");
-  const m = c("#news-block");
+  let i = c("#team-mobile-link");
+  let r = c("#team-mobile-link-desc");
+  let a = c("#team-mobile-link-warning");
+  let l = c("#team-link-input");
+  let s = c("#social-share-block");
+  let m = c("#news-block");
   c("#btn-join-team").click(() => {
     c("#server-warning").css("display", "none");
     l.val("");
@@ -81409,7 +81409,7 @@ function Xo(u, e) {
   if (v.mobile && v.os != "ios") {
     c("#player-name-input-solo").on("focus", function () {
       if (v.isLandscape) {
-        const y = v.screenHeight <= 282 ? 18 : 36;
+        let y = v.screenHeight <= 282 ? 18 : 36;
         document.body.scrollTop = c(this).offset().top - y;
       }
     });
@@ -81417,10 +81417,10 @@ function Xo(u, e) {
       document.body.scrollTop = 0;
     });
   }
-  const d = c("#start-bottom-right");
-  const h = c("#start-top-left");
-  const p = c("#start-top-right");
-  const w = new de(c("#ui-modal-keybind"));
+  let d = c("#start-bottom-right");
+  let h = c("#start-top-left");
+  let p = c("#start-top-right");
+  let w = new de(c("#ui-modal-keybind"));
   w.onShow(() => {
     d.fadeOut(200);
     p.fadeOut(200);
@@ -81450,13 +81450,13 @@ function Xo(u, e) {
   });
   c("#keybind-link, #keybind-copy").click(x => {
     Ci("Copied!", w.selector, c("#keybind-link"), x);
-    const y = c("#keybind-link").html();
+    let y = c("#keybind-link").html();
     $.copyTextToClipboard(y);
   });
   c("#btn-keybind-code-load").on("click", x => {
-    const y = c("#keybind-code-input").val();
+    let y = c("#keybind-code-input").val();
     c("#keybind-code-input").val("");
-    const C = u.fromBase64(String(y));
+    let C = u.fromBase64(String(y));
     c("#keybind-warning").css("display", C ? "none" : "block");
     if (C) {
       Ci("Loaded!", w.selector, c("#btn-keybind-code-load"), x);
@@ -81464,7 +81464,7 @@ function Xo(u, e) {
     }
     e.refresh();
   });
-  const f = new de(c("#modal-settings"));
+  let f = new de(c("#modal-settings"));
   f.onShow(() => {
     d.fadeOut(200);
     p.fadeOut(200);
@@ -81478,11 +81478,11 @@ function Xo(u, e) {
     return false;
   });
   c(".modal-settings-text").click(function (x) {
-    const y = c(this).siblings("input:checkbox");
+    let y = c(this).siblings("input:checkbox");
     y.prop("checked", !y.is(":checked"));
     y.trigger("change");
   });
-  const S = new de(c("#modal-hamburger"));
+  let S = new de(c("#modal-hamburger"));
   S.onShow(() => {
     h.fadeOut(200);
   });
@@ -81494,7 +81494,7 @@ function Xo(u, e) {
     return false;
   });
   c(".modal-body-text").click(function () {
-    const x = c(this).siblings("input:checkbox");
+    let x = c(this).siblings("input:checkbox");
     x.prop("checked", !x.is(":checked"));
     x.trigger("change");
   });
@@ -81539,13 +81539,13 @@ function Ho(u) {
     c("#start-bottom-middle").addClass("start-bottom-middle-tablet");
   }
 }
-const zt = {
+let zt = {
   setupModals: Xo,
   onResize: Wo,
   applyMobileBrowserStyling: Ho
 };
 class Go {
-  constructor(e, t, i, r, a) {
+  letructor(e, t, i, r, a) {
     this.pixi = e;
     this.audioManager = t;
     this.config = i;
@@ -81586,7 +81586,7 @@ class Go {
     this.map = new $i(this.decalBarn);
     this.playerBarn = new ir();
     this.smokeBarn = new rr();
-    const e = {
+    let e = {
       [ce.Player]: this.playerBarn.playerPool,
       [ce.Obstacle]: this.map.fBXVaI,
       [ce.Building]: this.map.fWZ,
@@ -81595,15 +81595,15 @@ class Go {
       [ce.Smoke]: this.smokeBarn.fEtbJP
     };
     this.objectCreator = new Ui();
-    for (const i in e) {
+    for (let i in e) {
       if (e.hasOwnProperty(i)) {
         this.objectCreator.wpv(i, e[i]);
       }
     }
     this.debugDisplay = new pe();
-    const t = [this.map.display.ground, this.renderer.layers[0], this.renderer.ground, this.renderer.layers[1], this.renderer.layers[2], this.renderer.layers[3], this.debugDisplay];
+    let t = [this.map.display.ground, this.renderer.layers[0], this.renderer.ground, this.renderer.layers[1], this.renderer.layers[2], this.renderer.layers[3], this.debugDisplay];
     for (let i = 0; i < t.length; i++) {
-      const r = t[i];
+      let r = t[i];
       if (r) {
         r.interactiveChildren = false;
         this.pixi.stage.addChild(r);
@@ -81672,7 +81672,7 @@ class Go {
       this.particleBarn.HJMxT();
       this.renderer.HJMxT();
       while (this.pixi.stage.children.length > 0) {
-        const e = this.pixi.stage.children[0];
+        let e = this.pixi.stage.children[0];
         this.pixi.stage.removeChild(e);
         e.destroy({
           children: true
@@ -81697,7 +81697,7 @@ class Go {
     this.view = e;
   }
   updateCharDisplay(e = {}) {
-    const t = {
+    let t = {
       audioManager: this.audioManager,
       renderer: this.renderer,
       particleBarn: this.particleBarn,
@@ -81710,7 +81710,7 @@ class Go {
       this.activePlayer.useItemEmitter = null;
       this.animIdleTicker = 0;
     }
-    const i = {
+    let i = {
       outfit: this.loadout.outfit,
       backpack: "backpack02",
       helmet: "helmet01",
@@ -81753,20 +81753,20 @@ class Go {
     return document.getElementById("modal-content-left").getBoundingClientRect().height / this.camera.gMqwV * 0.2 * this.camera.gMqwV * 0.5 / this.camera.HrSNF;
   }
   getCameraLoadoutOffset() {
-    const e = this.camera.HyIw;
-    const t = this.getCameraTargetZoom();
+    let e = this.camera.HyIw;
+    let t = this.getCameraTargetZoom();
     this.camera.HyIw = t;
-    const r = document.getElementById("modal-content-left").getBoundingClientRect();
-    const a = X.createAabb(this.camera.iCWER(n.create(r.left, r.top + r.height)), this.camera.iCWER(n.create(r.left + r.width, r.top)));
-    const l = n.mul(n.sub(a.max, a.min), 0.5);
-    const s = n.add(a.min, l);
-    const m = X.createAabb(this.camera.iCWER(n.create(0, this.camera.gMqwV)), this.camera.iCWER(n.create(this.camera.LCRnPO, 0)));
-    const d = n.mul(n.sub(m.max, m.min), 0.5);
-    const h = n.add(m.min, d);
-    const p = n.sub(s, h);
-    const w = d.x - p.x - l.x;
-    const f = z.clamp(w * 0.5, 2.5, 6);
-    const x = n.create(p.x + l.x + f, p.y + 0.33);
+    let r = document.getElementById("modal-content-left").getBoundingClientRect();
+    let a = X.createAabb(this.camera.iCWER(n.create(r.left, r.top + r.height)), this.camera.iCWER(n.create(r.left + r.width, r.top)));
+    let l = n.mul(n.sub(a.max, a.min), 0.5);
+    let s = n.add(a.min, l);
+    let m = X.createAabb(this.camera.iCWER(n.create(0, this.camera.gMqwV)), this.camera.iCWER(n.create(this.camera.LCRnPO, 0)));
+    let d = n.mul(n.sub(m.max, m.min), 0.5);
+    let h = n.add(m.min, d);
+    let p = n.sub(s, h);
+    let w = d.x - p.x - l.x;
+    let f = z.clamp(w * 0.5, 2.5, 6);
+    let x = n.create(p.x + l.x + f, p.y + 0.33);
     this.camera.HyIw = e;
     return x;
   }
@@ -81783,14 +81783,14 @@ class Go {
     }
   }
   update(e, t) {
-    const i = {};
+    let i = {};
     this.camera.aznZwb = n.sub(this.activePlayer.aznZwb, this.cameraOffset);
     this.camera.HyIw = z.lerp(e * 5, this.camera.HyIw, this.camera.chvM);
     this.audioManager.cameraPos = n.copy(this.camera.aznZwb);
     if (t && (this.view == this.viewOld || this.view != "heal" && this.view != "boost" || (this.animIdleTicker = 0), this.viewOld = this.view, this.animIdleTicker -= e, this.animIdleTicker < 0)) {
       if (this.view == "heal") {
         this.actionSeq = (this.actionSeq + 1) % 8;
-        const a = {
+        let a = {
           actionType: R.Action.UseItem,
           actionItem: "bandage",
           actionSeq: this.actionSeq
@@ -81799,7 +81799,7 @@ class Go {
         this.animIdleTicker = 2 + Math.random();
       } else if (this.view == "boost") {
         this.actionSeq = (this.actionSeq + 1) % 8;
-        const a = {
+        let a = {
           actionType: R.Action.UseItem,
           actionItem: "soda",
           actionSeq: this.actionSeq
@@ -81808,7 +81808,7 @@ class Go {
         this.animIdleTicker = 2 + Math.random();
       } else if (this.view != "emote" && this.view != "crosshair") {
         this.animSeq = (this.animSeq + 1) % 8;
-        const a = {
+        let a = {
           animType: R.Anim.Melee,
           animSeq: this.animSeq
         };
@@ -81816,10 +81816,10 @@ class Go {
         this.animIdleTicker = 1.5 + Math.random();
       }
     }
-    const r = this.loadout.outfit != this.outfitOld;
+    let r = this.loadout.outfit != this.outfitOld;
     this.outfitOld = this.loadout.outfit;
     if (t && r) {
-      const a = B[this.loadout.outfit];
+      let a = B[this.loadout.outfit];
       if (a) {
         this.audioManager.playSound(a.sound.pickup, {
           channel: "ui"
@@ -81835,7 +81835,7 @@ class Go {
     this.render(e, i);
   }
   render(e, t) {
-    const i = this.map.mapLoaded ? this.map.getMapDef().biome.colors.grass : 8433481;
+    let i = this.map.mapLoaded ? this.map.getMapDef().biome.colors.grass : 8433481;
     this.pixi.renderer.background.color = i;
     this.playerBarn.lXaw(this.camera, t);
     this.map.lXaw(this.camera);
@@ -81853,14 +81853,14 @@ class Go {
     }
   }
 }
-const Di = 99;
-const Ae = {
+let Di = 99;
+let Ae = {
   getPassMaxLevel: function () {
     return Di;
   },
   getPassLevelXp: function (u, e) {
-    const t = Rt[u];
-    const i = e - 1;
+    let t = Rt[u];
+    let i = e - 1;
     if (i < t.xp.length) {
       return t.xp[i];
     } else {
@@ -81871,7 +81871,7 @@ const Ae = {
     let t = e;
     let i = 1;
     while (i < Di) {
-      const r = Ae.getPassLevelXp(u, i);
+      let r = Ae.getPassLevelXp(u, i);
       if (t < r) {
         break;
       }
@@ -81897,8 +81897,8 @@ function Li(u, e) {
   return "";
 }
 function bt(u, e = false) {
-  const t = Math.floor(Math.ceil(u / 60) / 60);
-  const i = e ? Math.floor(u / 60) % 60 : Math.ceil(u / 60) % 60;
+  let t = Math.floor(Math.ceil(u / 60) / 60);
+  let i = e ? Math.floor(u / 60) % 60 : Math.ceil(u / 60) % 60;
   let r = "";
   if (t > 0) {
     r += `${t}h `;
@@ -81906,7 +81906,7 @@ function bt(u, e = false) {
   return r += `${i}m`;
 }
 class Uo {
-  constructor(e, t, i) {
+  letructor(e, t, i) {
     this.account = e;
     this.loadoutMenu = t;
     this.localization = i;
@@ -81939,12 +81939,12 @@ class Uo {
   updatePass = false;
   updatePassTicker = 0;
   onPass(e, t, i) {
-    const a = [];
+    let a = [];
     let l = 0;
     for (let f = 0; f < t.length; f++) {
       (S => {
-        const x = t[S];
-        const y = {
+        let x = t[S];
+        let y = {
           data: x,
           start: 0,
           current: 0,
@@ -81962,7 +81962,7 @@ class Uo {
             str: ""
           }
         };
-        const C = this.quests.find(D => D.data.idx == y.data.idx && D.data.type == y.data.type);
+        let C = this.quests.find(D => D.data.idx == y.data.idx && D.data.type == y.data.type);
         if (C) {
           y.start = C.current;
           y.current = C.current;
@@ -81974,7 +81974,7 @@ class Uo {
         if (y.data.progress > y.current) {
           l++;
         }
-        const P = c(`#pass-quest-${y.data.idx}`);
+        let P = c(`#pass-quest-${y.data.idx}`);
         y.elems = {
           main: P,
           xp: P.find(".pass-quest-xp"),
@@ -82003,9 +82003,9 @@ class Uo {
         y.elems.counter.stop().css({
           opacity: 1
         });
-        const k = $t[y.data.type];
-        const b = this.localization.translate(`${y.data.type}`) || y.data.type;
-        const M = y.current / y.data.target * 100;
+        let k = $t[y.data.type];
+        let b = this.localization.translate(`${y.data.type}`) || y.data.type;
+        let M = y.current / y.data.target * 100;
         y.elems.main.css("display", "block");
         y.elems.desc.html(b);
         y.elems.cur.html(Math.round(y.current));
@@ -82038,7 +82038,7 @@ class Uo {
     this.pass.currentXp = Math.round(this.pass.currentXp);
     this.pass.levelXp = Ae.getPassLevelXp(e.type, this.pass.currentLevel);
     if (!this.loaded) {
-      const f = Ae.getPassLevelXp(e.type, e.level);
+      let f = Ae.getPassLevelXp(e.type, e.level);
       this.pass.currentXp = 0;
       this.pass.currentLevel = e.level;
       this.pass.levelXp = f;
@@ -82048,7 +82048,7 @@ class Uo {
     let m = this.pass.currentXp;
     if (this.loaded) {
       while (s < e.level) {
-        const S = Ae.getPassLevelXp(e.type, s);
+        let S = Ae.getPassLevelXp(e.type, s);
         this.pass.animSteps.push({
           startXp: m,
           targetXp: S,
@@ -82058,10 +82058,10 @@ class Uo {
         s++;
         m = 0;
       }
-      const f = l > 0 ? 2 : 0;
+      let f = l > 0 ? 2 : 0;
       this.pass.ticker = -f;
     }
-    const d = Ae.getPassLevelXp(e.type, s);
+    let d = Ae.getPassLevelXp(e.type, s);
     this.pass.animSteps.push({
       startXp: m,
       targetXp: e.xp,
@@ -82071,14 +82071,14 @@ class Uo {
     c("#pass-block").css("z-index", "1");
     c("#pass-locked").css("display", "none");
     c("#pass-loading").css("display", "none");
-    const h = Li(this.pass.data.type, this.pass.currentLevel);
+    let h = Li(this.pass.data.type, this.pass.currentLevel);
     this.setPassUnlockImage(h);
-    const p = this.localization.translate(e.type).toUpperCase();
+    let p = this.localization.translate(e.type).toUpperCase();
     c("#pass-name-text").html(p);
     c("#pass-progress-level").html(this.pass.currentLevel);
     c("#pass-progress-xp-current").html(this.pass.currentXp);
     c("#pass-progress-xp-target").html(this.pass.levelXp);
-    const w = this.pass.currentXp / this.pass.levelXp * 100;
+    let w = this.pass.currentXp / this.pass.levelXp * 100;
     c("#pass-progress-bar-fill").css({
       width: `${w}%`
     });
@@ -82092,7 +82092,7 @@ class Uo {
     this.updatePassTicker = e;
   }
   setQuestRefreshEnabled(e) {
-    const t = !e.data.rerolled && !e.data.complete || e.refreshTime - Date.now() < 0;
+    let t = !e.data.rerolled && !e.data.complete || e.refreshTime - Date.now() < 0;
     if (t != e.refreshEnabled || !e.refreshSet) {
       e.refreshEnabled = t;
       e.refreshSet = true;
@@ -82120,9 +82120,9 @@ class Uo {
     }
   }
   setPassUnlockImage(e) {
-    const t = B[e];
-    const r = `url(${t ? $.getSvgFromGameType(e) : "img/emotes/surviv.svg"})`;
-    const a = $.getCssTransformFromGameType(e);
+    let t = B[e];
+    let r = `url(${t ? $.getSvgFromGameType(e) : "img/emotes/surviv.svg"})`;
+    let a = $.getCssTransformFromGameType(e);
     c("#pass-progress-unlock").css({
       opacity: t ? 1 : 0.15,
       transform: `translate(-50%, -50%) ${a}`
@@ -82130,12 +82130,12 @@ class Uo {
     c("#pass-progress-unlock-image").css({
       "background-image": r
     });
-    const l = t ? this.localization.translate(`loadout-title-${this.loadoutMenu.getCategory(t.type).loadoutType}`).toUpperCase() : "";
-    const s = c("#pass-unlock-tooltip");
+    let l = t ? this.localization.translate(`loadout-title-${this.loadoutMenu.getCategory(t.type).loadoutType}`).toUpperCase() : "";
+    let s = c("#pass-unlock-tooltip");
     s.css("opacity", t ? 1 : 0);
     s.find(".tooltip-pass-title").html(l);
     s.find(".tooltip-pass-desc").html(t ? t.name : "");
-    const m = t ? `url(${this.loadoutMenu.getCategory(t.type).categoryImage})` : "";
+    let m = t ? `url(${this.loadoutMenu.getCategory(t.type).categoryImage})` : "";
     c("#pass-progress-unlock-type-image").css({
       "background-image": m
     });
@@ -82144,11 +82144,11 @@ class Uo {
     });
   }
   animatePassLevelUp() {
-    const e = c("#pass-progress-bar-fill");
-    const t = c("#pass-progress-level");
-    const i = c("#pass-progress-unlock-wrapper");
-    const r = c("#pass-progress-unlock-image");
-    const a = c("#pass-progress-unlock-type-image");
+    let e = c("#pass-progress-bar-fill");
+    let t = c("#pass-progress-level");
+    let i = c("#pass-progress-unlock-wrapper");
+    let r = c("#pass-progress-unlock-image");
+    let a = c("#pass-progress-unlock-type-image");
     t.html(this.pass.currentLevel);
     e.queue(l => {
       i.addClass("pass-unlock-pulse");
@@ -82162,7 +82162,7 @@ class Uo {
       }, 250);
       c(l).dequeue();
     }).delay(250).queue(l => {
-      const s = Li(this.pass.data.type, this.pass.currentLevel);
+      let s = Li(this.pass.data.type, this.pass.currentLevel);
       this.setPassUnlockImage(s);
       i.removeClass("pass-unlock-pulse");
       r.animate({
@@ -82204,14 +82204,14 @@ class Uo {
       this.account.getPass(false);
     }
     for (let t = 0; t < this.quests.length; t++) {
-      const i = this.quests[t];
+      let i = this.quests[t];
       this.setQuestRefreshEnabled(i);
       i.ticker += e;
       if (!i.progressAnimFinished) {
-        const l = z.clamp((i.ticker - i.delay) / 1, 0, 1);
+        let l = z.clamp((i.ticker - i.delay) / 1, 0, 1);
         i.current = z.lerp(z.easeOutExpo(l), i.start, i.data.progress);
-        const s = i.current / i.data.target * 100;
-        const m = $t[i.data.type];
+        let s = i.current / i.data.target * 100;
+        let m = $t[i.data.type];
         let d = Math.round(i.current);
         if (m.timed) {
           d = bt(d, true);
@@ -82228,25 +82228,25 @@ class Uo {
         this.animateQuestComplete(i);
         i.completeAnimFinished = true;
       }
-      const r = !i.playCompleteAnim || i.completeAnimFinished && i.ticker - i.delay > 4.25;
+      let r = !i.playCompleteAnim || i.completeAnimFinished && i.ticker - i.delay > 4.25;
       if (i.data.complete && r && i.refreshEnabled && i.shouldRequestRefresh) {
         i.shouldRequestRefresh = false;
         this.account.refreshQuest(i.data.idx);
       }
-      const a = i.data.complete && r;
+      let a = i.data.complete && r;
       if (a != i.timer.displayed) {
         i.timer.displayed = a;
         i.elems.main.removeClass("pass-bg-pulse");
         i.elems.main.stop().animate({
           opacity: 1
         }, 250);
-        const l = i.elems.refreshPrompt.css("display") == "block";
+        let l = i.elems.refreshPrompt.css("display") == "block";
         i.elems.info.css("display", a || l ? "none" : "block");
         i.elems.timer.css("display", a ? "block" : "none");
       }
       if (a) {
-        const l = Math.max(i.refreshTime - Date.now(), 0);
-        const s = bt(l / 1000);
+        let l = Math.max(i.refreshTime - Date.now(), 0);
+        let s = bt(l / 1000);
         if (s != i.timer.str) {
           i.timer.str = s;
           i.elems.timer.html(s);
@@ -82255,11 +82255,11 @@ class Uo {
     }
     this.pass.ticker += e;
     if (this.pass.animSteps.length > 0 && this.pass.ticker >= 0) {
-      const t = this.pass.animSteps[0];
-      const i = z.clamp(this.pass.ticker / 1.5, 0, 1);
+      let t = this.pass.animSteps[0];
+      let i = z.clamp(this.pass.ticker / 1.5, 0, 1);
       this.pass.currentXp = z.lerp(z.easeOutExpo(i), t.startXp, t.targetXp);
       this.pass.levelXp = t.levelXp;
-      const r = this.pass.currentXp / t.levelXp * 100;
+      let r = this.pass.currentXp / t.levelXp * 100;
       c("#pass-progress-xp-current").html(Math.round(this.pass.currentXp));
       c("#pass-progress-xp-target").html(this.pass.levelXp);
       c("#pass-progress-bar-fill").css({
@@ -82283,8 +82283,8 @@ class Uo {
   }
   onResize() {}
   loadPlaceholders() {
-    const e = Rt.pass_survivr1;
-    const t = this.localization.translate("pass_survivr1").toUpperCase();
+    let e = Rt.pass_survivr1;
+    let t = this.localization.translate("pass_survivr1").toUpperCase();
     c("#pass-name-text").html(t);
     c("#pass-progress-level").html(1);
     c("#pass-progress-xp-current").html(0);
@@ -82293,7 +82293,7 @@ class Uo {
   }
 }
 function $o(u, e, t, i) {
-  const r = u.find(".login-options-content");
+  let r = u.find(".login-options-content");
   r.empty();
   if (e) {
     r.append(c("<div/>", {
@@ -82302,12 +82302,12 @@ function $o(u, e, t, i) {
       html: i.translate("index-link-account-to")
     })));
   }
-  const a = c("<div/>", {
+  let a = c("<div/>", {
     class: "account-buttons"
   });
   r.append(a);
-  const l = function (s, m, d) {
-    const h = c("<div/>", {
+  let l = function (s, m, d) {
+    let h = c("<div/>", {
       class: `menu-option btn-darken btn-standard btn-login-${s}`
     });
     h.append(c("<span/>", {
@@ -82335,7 +82335,7 @@ function $o(u, e, t, i) {
   });
 }
 class Jo {
-  constructor(e, t, i, r) {
+  letructor(e, t, i, r) {
     this.account = e;
     this.localization = t;
     this.loadoutMenu = i;
@@ -82361,7 +82361,7 @@ class Jo {
   loginOptionsModalMobile;
   modalMobileAccount;
   initUi() {
-    const e = function () {
+    let e = function () {
       c("#modal-body-warning").css("display", "none");
       c("#modal-account-name-input").val("");
     };
@@ -82370,16 +82370,16 @@ class Jo {
     this.setNameModal.onHide(e);
     c("#modal-account-name-finish").click(t => {
       t.stopPropagation();
-      const i = c("#modal-account-name-input").val();
+      let i = c("#modal-account-name-input").val();
       this.account.setUsername(i, r => {
         if (r) {
-          const a = {
+          let a = {
             failed: "Failed setting username.",
             invalid: "Invalid username.",
             taken: "Name already taken!",
             change_time_not_expired: "Username has already been set recently."
           };
-          const l = a[r] || a.failed;
+          let l = a[r] || a.failed;
           c("#modal-body-warning").hide();
           c("#modal-body-warning").html(l);
           c("#modal-body-warning").fadeIn();
@@ -82476,7 +82476,7 @@ class Jo {
       this.waitOnLogin(() => {
         if (this.account.loggedIn) {
           if (this.account.profile.usernameSet) {
-            const t = this.account.profile.slug || "";
+            let t = this.account.profile.slug || "";
             window.open(`/stats/${t}`, "_blank");
           } else {
             this.setNameModal.show(true);
@@ -82560,7 +82560,7 @@ class Jo {
     });
   }
   onError(e, t) {
-    const r = {
+    let r = {
       server_error: "Operation failed, please try again later.",
       facebook_account_in_use: "Failed linking Facebook account.<br/>Account already in use!",
       google_account_in_use: "Failed linking Google account.<br/>Account already in use!",
@@ -82589,7 +82589,7 @@ class Jo {
     let t = 0;
     let i = 0;
     for (let a = 0; a < e.length; a++) {
-      const l = e[a];
+      let l = e[a];
       if (l.status < le.ItemStatus.Confirmed) {
         t++;
       }
@@ -82599,14 +82599,14 @@ class Jo {
     }
     e.filter(a => a.status < le.ItemStatus.Confirmed);
     e.filter(a => a.status < le.ItemStatus.Ackd);
-    const r = t > 0 || i > 0;
+    let r = t > 0 || i > 0;
     c("#loadout-alert-main").css({
       display: r ? "block" : "none"
     });
   }
   waitOnLogin(e) {
     if (this.account.loggingIn && !this.account.loggedIn) {
-      const t = () => {
+      let t = () => {
         e();
         this.account.removeEventListener("requestsComplete", t);
       };
@@ -82620,16 +82620,16 @@ class Jo {
       modal: false,
       link: false
     }, e);
-    const t = e.modal ? this.createAccountModal : v.mobile ? this.loginOptionsModalMobile : this.loginOptionsModal;
+    let t = e.modal ? this.createAccountModal : v.mobile ? this.loginOptionsModalMobile : this.loginOptionsModal;
     $o(t.selector, e.link, this.account, this.localization);
     t.show();
   }
   updateUserIcon() {
-    const e = $.getSvgFromGameType(this.account.loadout.player_icon) || "img/gui/player-gui.svg";
+    let e = $.getSvgFromGameType(this.account.loadout.player_icon) || "img/gui/player-gui.svg";
     c(".account-details-user .account-avatar").css("background-image", `url(${e})`);
   }
   render() {
-    const e = this.account.requestsInFlight > 0;
+    let e = this.account.requestsInFlight > 0;
     c(".account-loading").css("opacity", e ? 1 : 0);
     let t = $.htmlEscape(this.account.profile.username || "");
     if (!this.account.loggedIn) {
@@ -82647,7 +82647,7 @@ class Jo {
   }
 }
 function Ai(u, e) {
-  const t = {
+  let t = {
     join_full: e.translate("index-team-is-full"),
     join_not_found: e.translate("index-failed-joining-team"),
     create_failed: e.translate("index-failed-creating-team"),
@@ -82662,7 +82662,7 @@ function Ai(u, e) {
   return t[u] || t.lost_conn;
 }
 class Ko {
-  constructor(e, t, i, r, a, l, s) {
+  letructor(e, t, i, r, a, l, s) {
     this.config = e;
     this.pingTest = t;
     this.siteInfo = i;
@@ -82671,7 +82671,7 @@ class Ko {
     this.joinGameCb = l;
     this.leaveCb = s;
     this.serverSelect.change(() => {
-      const m = this.serverSelect.find(":selected").val();
+      let m = this.serverSelect.find(":selected").val();
       this.pingTest.start([m]);
       this.setRoomProperty("region", m);
     });
@@ -82705,7 +82705,7 @@ class Ko {
       }
     });
     c("#team-copy-url, #team-desc-text").click(m => {
-      const d = c("<div/>", {
+      let d = c("<div/>", {
         class: "copy-toast",
         html: "Copied!"
       });
@@ -82738,7 +82738,7 @@ class Ko {
     if (!v.mobile) {
       this.hideUrl = false;
       c("#team-hide-url").click(m => {
-        const d = m.currentTarget;
+        let d = m.currentTarget;
         this.hideUrl = !this.hideUrl;
         c("#team-desc-text, #team-code-text").css({
           opacity: this.hideUrl ? 0 : 1
@@ -82786,8 +82786,8 @@ class Ko {
   }
   connect(e, t) {
     if (!this.active || t !== this.roomData.roomUrl) {
-      const i = Ue.resolveRoomHost();
-      const r = `w${window.location.protocol === "https:" ? "ss" : "s"}://${i}/team_v2`;
+      let i = Ue.resolveRoomHost();
+      let r = `w${window.location.protocol === "https:" ? "ss" : "s"}://${i}/team_v2`;
       this.active = true;
       this.joined = false;
       this.create = e;
@@ -82853,7 +82853,7 @@ class Ko {
         };
         this.ws.onmessage = a => {
           if (this.active) {
-            const l = JSON.parse(a.data);
+            let l = JSON.parse(a.data);
             this.onMessage(l.type, l.data);
           }
         };
@@ -82897,7 +82897,7 @@ class Ko {
         {
           let i = t;
           this.joined = true;
-          const r = this.roomData;
+          let r = this.roomData;
           this.roomData = i.room;
           this.players = i.players;
           this.localPlayerId = i.localPlayerId;
@@ -82930,7 +82930,7 @@ class Ko {
   sendMessage(e, t) {
     if (this.ws) {
       if (this.ws.readyState === this.ws.OPEN) {
-        const i = JSON.stringify({
+        let i = JSON.stringify({
           type: e,
           data: t
         });
@@ -82948,18 +82948,18 @@ class Ko {
   }
   tryStartGame() {
     if (this.isLeader && !this.roomData.findingGame) {
-      const e = R.protocolVersion;
+      let e = R.protocolVersion;
       let t = this.roomData.region;
-      const i = $.getParameterByName("region");
+      let i = $.getParameterByName("region");
       if (i !== undefined && i.length > 0) {
         t = i;
       }
       let r = this.pingTest.getZones(t);
-      const a = $.getParameterByName("zone");
+      let a = $.getParameterByName("zone");
       if (a !== undefined && a.length > 0) {
         r = [a];
       }
-      const l = {
+      let l = {
         version: e,
         region: t,
         zones: r
@@ -82986,7 +82986,7 @@ class Ko {
     }
   }
   refreshUi() {
-    const e = function (r, a, l) {
+    let e = function (r, a, l) {
       r.removeClass("btn-darken btn-disabled btn-opaque btn-hollow-selected");
       if (l) {
         r.addClass("btn-darken");
@@ -83005,8 +83005,8 @@ class Ko {
     c("#start-menu").css("display", this.active ? "none" : "block");
     c("#right-column").css("display", this.active ? "none" : "block");
     c("#social-share-block").css("display", this.active ? "none" : "block");
-    const t = this.roomData.lastError != "";
-    const i = Ai(this.roomData.lastError, this.localization);
+    let t = this.roomData.lastError != "";
+    let i = Ai(this.roomData.lastError, this.localization);
     this.serverWarning.css("opacity", t ? 1 : 0);
     this.serverWarning.html(i);
     if (this.roomData.lastError == "find_game_invalid_protocol" && !this.displayedInvalidProtocolModal) {
@@ -83021,13 +83021,13 @@ class Ko {
       c("#btn-team-leave").css("display", this.joined ? "block" : "none");
     }
     if (this.joined) {
-      const r = this.siteInfo.info.pops || {};
-      const a = Object.keys(r);
+      let r = this.siteInfo.info.pops || {};
+      let a = Object.keys(r);
       for (let f = 0; f < a.length; f++) {
-        const S = a[f];
-        const x = r[S].playerCount;
-        const y = this.localization.translate("index-players");
-        const C = c("#team-server-opts").children(`option[value="${S}"]`);
+        let S = a[f];
+        let x = r[S].playerCount;
+        let y = this.localization.translate("index-players");
+        let C = c("#team-server-opts").children(`option[value="${S}"]`);
         C.html(`${C.attr("data-label")} [${x} ${y}]`);
       }
       this.serverSelect.find("option").each((f, S) => {
@@ -83039,14 +83039,14 @@ class Ko {
       e(this.fillNone, !this.roomData.autoFill, this.isLeader);
       this.serverSelect.prop("disabled", !this.isLeader);
       if (this.roomData.roomUrl) {
-        const f = this.roomData.roomUrl.substring(1);
+        let f = this.roomData.roomUrl.substring(1);
         if (this.config.get("ENV") === "CrazyGames") {
-          const S = window.CrazyGames.SDK.game.inviteLink({
+          let S = window.CrazyGames.SDK.game.inviteLink({
             roomID: f
           });
           c("#team-url").html(S);
         } else {
-          const S = `${window.location.href.replace(window.location.hash, "")}${this.roomData.roomUrl}`;
+          let S = `${window.location.href.replace(window.location.hash, "")}${this.roomData.roomUrl}`;
           c("#team-url").html(S);
           if (window.history) {
             window.history.replaceState("", "", this.roomData.roomUrl);
@@ -83055,11 +83055,11 @@ class Ko {
         c("#team-code").html(f);
       }
       this.playBtn.html(this.roomData.findingGame || this.joiningGame ? "<div class=\"ui-spinner\"></div>" : this.playBtn.attr("data-label"));
-      const l = this.siteInfo.getGameModeStyles();
+      let l = this.siteInfo.getGameModeStyles();
       for (let f = 0; f < l.length; f++) {
         this.playBtn.removeClass(l[f].buttonCss);
       }
-      const s = l[this.roomData.gameModeIdx];
+      let s = l[this.roomData.gameModeIdx];
       if (s) {
         this.playBtn.addClass("btn-custom-mode-no-indent");
         this.playBtn.addClass(s.buttonCss);
@@ -83075,10 +83075,10 @@ class Ko {
       for (let f = 0; f < this.players.length; f++) {
         m = m || this.players[f].inGame;
       }
-      const d = c("#msg-wait-reason");
+      let d = c("#msg-wait-reason");
       if (this.isLeader) {
         d.html(`${this.localization.translate("index-game-in-progress")}<span> ...</span>`);
-        const f = m && !this.joiningGame;
+        let f = m && !this.joiningGame;
         d.css("display", f ? "block" : "none");
         this.playBtn.css("display", f ? "none" : "block");
       } else {
@@ -83092,7 +83092,7 @@ class Ko {
         d.css("display", "block");
         this.playBtn.css("display", "none");
       }
-      const h = c("#team-menu-member-list");
+      let h = c("#team-menu-member-list");
       h.empty();
       for (let f = 0; f < this.roomData.maxPlayers; f++) {
         let S = {
@@ -83103,7 +83103,7 @@ class Ko {
           self: false
         };
         if (f < this.players.length) {
-          const k = this.players[f];
+          let k = this.players[f];
           S = {
             name: k.name,
             playerId: k.playerId,
@@ -83112,7 +83112,7 @@ class Ko {
             self: k.playerId == this.localPlayerId
           };
         }
-        const x = c("<div/>", {
+        let x = c("<div/>", {
           class: "team-menu-member"
         });
         let y = "";
@@ -83135,8 +83135,8 @@ class Ko {
             maxLength: He.PlayerNameMaxLen
           });
           C.val(S.name);
-          const k = () => {
-            const M = $.sanitizeNameInput(C?.val());
+          let k = () => {
+            let M = $.sanitizeNameInput(C?.val());
             S.name = M;
             this.config.set("playerName", M);
             this.sendMessage("changeName", {
@@ -83145,7 +83145,7 @@ class Ko {
             this.editingName = false;
             this.refreshUi();
           };
-          const b = () => {
+          let b = () => {
             this.editingName = false;
             this.refreshUi();
           };
@@ -83173,7 +83173,7 @@ class Ko {
           if (S.inGame) {
             k += " name-in-game";
           }
-          const b = c("<div/>", {
+          let b = c("<div/>", {
             class: `name menu-option ${k}`,
             html: $.htmlEscape(S.name)
           });
@@ -83196,13 +83196,13 @@ class Ko {
         C?.focus();
       }
       c(".icon-kick", h).click(f => {
-        const S = Number(c(f.currentTarget).attr("data-playerid"));
+        let S = Number(c(f.currentTarget).attr("data-playerid"));
         this.sendMessage("kick", {
           playerId: S
         });
       });
-      const p = this.players.find(f => f.playerId == this.localPlayerId);
-      const w = p && !p.inGame;
+      let p = this.players.find(f => f.playerId == this.localPlayerId);
+      let w = p && !p.inGame;
       if (!document.hasFocus() && this.prevPlayerCount < this.players.length && this.players.length > 1 && w) {
         this.audioManager.playSound("notification_join_01", {
           channel: "ui"
@@ -83267,14 +83267,14 @@ class Qo {
   hasFocus = true;
   newsDisplayed = true;
   respawns = [];
-  constructor() {
+  letructor() {
     this.account = new $r(this.config);
     this.loadoutMenu = new po(this.account, this.localization);
     this.pass = new Uo(this.account, this.loadoutMenu, this.localization);
     this.profileUi = new Jo(this.account, this.localization, this.loadoutMenu, this.errorModal);
     this.siteInfo = new no(this.config, this.localization);
     this.teamMenu = new Ko(this.config, this.pingTest, this.siteInfo, this.localization, this.audioManager, this.onTeamMenuJoinGame.bind(this), this.onTeamMenuLeave.bind(this));
-    const e = () => {
+    let e = () => {
       this.config.load(() => {
         this.configLoaded = true;
         this.tryLoad();
@@ -83291,7 +83291,7 @@ class Qo {
       if (v.mobile) {
         zt.applyMobileBrowserStyling(v.tablet);
       }
-      const e = this.config.get("language") || this.localization.detectLocale();
+      let e = this.config.get("language") || this.localization.detectLocale();
       this.config.set("language", e);
       this.localization.setLocale(e);
       this.localization.populateLanguageSelect();
@@ -83352,7 +83352,7 @@ class Qo {
         }
       });
       this.serverSelect.change(() => {
-        const p = this.serverSelect.find(":selected").val();
+        let p = this.serverSelect.find(":selected").val();
         this.config.set("region", p);
       });
       this.nameInput.on("blur", p => {
@@ -83374,33 +83374,33 @@ class Qo {
         p.stopPropagation();
       });
       this.masterSliders.on("input", p => {
-        const w = Number(c(p.target).val()) / 100;
+        let w = Number(c(p.target).val()) / 100;
         this.audioManager.setMasterVolume(w);
         this.config.set("masterVolume", w);
       });
       this.soundSliders.on("input", p => {
-        const w = Number(c(p.target).val()) / 100;
+        let w = Number(c(p.target).val()) / 100;
         this.audioManager.setSoundVolume(w);
         this.config.set("soundVolume", w);
       });
       this.musicSliders.on("input", p => {
-        const w = Number(c(p.target).val()) / 100;
+        let w = Number(c(p.target).val()) / 100;
         this.audioManager.setMusicVolume(w);
         this.config.set("musicVolume", w);
       });
       c(".modal-settings-item").children("input").each((p, w) => {
-        const f = c(w);
+        let f = c(w);
         f.prop("checked", this.config.get(f.prop("id")));
       });
       c(".modal-settings-item > input:checkbox").change(p => {
-        const w = c(p.target);
+        let w = c(p.target);
         this.config.set(w.prop("id"), w.is(":checked"));
       });
       c(".btn-fullscreen-toggle").on("click", () => {
         $.toggleFullScreen();
       });
       this.languageSelect.on("change", p => {
-        const w = p.target.value;
+        let w = p.target.value;
         if (w) {
           this.config.set("language", w);
         }
@@ -83410,7 +83410,7 @@ class Qo {
       });
       c("#btn-team-mobile-link-join").on("click", () => {
         let p = c("#team-link-input").val()?.trim();
-        const w = p.indexOf("#");
+        let w = p.indexOf("#");
         if (w >= 0) {
           p = p.slice(w + 1);
         }
@@ -83430,8 +83430,8 @@ class Qo {
         this.game?.free();
         this.teamMenu.leave();
       });
-      const t = c("#news-current").data("date");
-      const i = new Date(t).getTime();
+      let t = c("#news-current").data("date");
+      let i = new Date(t).getTime();
       c(".right-column-toggle").on("click", () => {
         if (this.newsDisplayed) {
           c("#news-wrapper").fadeOut(250);
@@ -83444,18 +83444,18 @@ class Qo {
         }
         this.newsDisplayed = !this.newsDisplayed;
       });
-      const r = this.config.get("lastNewsTimestamp");
+      let r = this.config.get("lastNewsTimestamp");
       if (i > r) {
         c(".news-toggle").find(".account-alert").css("display", "block");
       }
       this.setDOMFromConfig();
       this.setAppActive(true);
-      const a = document.querySelector("#cvs");
-      const l = window.devicePixelRatio > 1 ? 2 : 1;
+      let a = document.querySelector("#cvs");
+      let l = window.devicePixelRatio > 1 ? 2 : 1;
       if (v.os == "ios") {
         gr.PRECISION_FRAGMENT = wr.HIGH;
       }
-      const s = p => new Sr({
+      let s = p => new Sr({
         width: window.innerWidth,
         height: window.innerHeight,
         view: a,
@@ -83479,14 +83479,14 @@ class Qo {
       this.input = new Ia(document.getElementById("game-touch-area"));
       this.inputBinds = new Cs(this.input, this.config);
       this.inputBindUi = new Ds(this.input, this.inputBinds);
-      const d = () => {
+      let d = () => {
         this.loadoutDisplay.free();
         this.game.init();
         this.onResize();
         this.findGameAttempts = 0;
         this.ambience.onGameStart();
       };
-      const h = p => {
+      let h = p => {
         if (this.game.gxunU) {
           this.pass.scheduleUpdatePass(this.game.jRakkk);
         }
@@ -83533,7 +83533,7 @@ class Qo {
     this.refreshUi();
   }
   startPingTest() {
-    const e = this.config.get("regionSelected") ? [this.config.get("region")] : this.pingTest.getRegionList();
+    let e = this.config.get("regionSelected") ? [this.config.get("region")] : this.pingTest.getRegionList();
     this.pingTest.start(e);
   }
   setAppActive(e) {
@@ -83545,7 +83545,7 @@ class Qo {
     }
   }
   setPlayLockout(e) {
-    const t = e ? 0 : 1000;
+    let t = e ? 0 : 1000;
     this.playButtons.stop().delay(t).animate({
       opacity: e ? 0.5 : 1
     }, 250);
@@ -83574,16 +83574,16 @@ class Qo {
     this.refreshUi();
   }
   setConfigFromDOM() {
-    const e = $.sanitizeNameInput(this.nameInput.val());
+    let e = $.sanitizeNameInput(this.nameInput.val());
     this.config.set("playerName", e);
-    const t = this.serverSelect.find(":selected").val();
+    let t = this.serverSelect.find(":selected").val();
     this.config.set("region", t);
   }
   async setDOMFromConfig() {
     if (!this.config.get("playerName") && this.config.get("ENV") === "CrazyGames" && window.CrazyGames.SDK.user.isUserAccountAvailable) {
-      const e = await window.CrazyGames.SDK.user.getUser();
+      let e = await window.CrazyGames.SDK.user.getUser();
       if (e) {
-        const t = e.username;
+        let t = e.username;
         this.config.set("playerName", t);
       }
     }
@@ -83594,23 +83594,23 @@ class Qo {
     this.languageSelect.val(this.config.get("language"));
   }
   onConfigModified(e) {
-    const t = this.config.get("muteAudio");
+    let t = this.config.get("muteAudio");
     if (t != this.audioManager.mute) {
       this.muteBtns.removeClass(t ? "audio-on-icon" : "audio-off-icon");
       this.muteBtns.addClass(t ? "audio-off-icon" : "audio-on-icon");
       this.audioManager.setMute(t);
     }
-    const i = this.config.get("masterVolume");
+    let i = this.config.get("masterVolume");
     this.masterSliders.val(i * 100);
     this.audioManager.setMasterVolume(i);
-    const r = this.config.get("soundVolume");
+    let r = this.config.get("soundVolume");
     this.soundSliders.val(r * 100);
     this.audioManager.setSoundVolume(r);
-    const a = this.config.get("musicVolume");
+    let a = this.config.get("musicVolume");
     this.musicSliders.val(a * 100);
     this.audioManager.setMusicVolume(a);
     if (e == "language") {
-      const l = this.config.get("language");
+      let l = this.config.get("language");
       this.localization.setLocale(l);
     }
     if (e == "region") {
@@ -83636,13 +83636,13 @@ class Qo {
       document.addEventListener("contextmenu", this.contextListener);
     }
     c("#ad-block-left").css("display", !v.isLandscape && this.teamMenu.active ? "none" : "block");
-    const e = this.active && this.errorMessage != "";
+    let e = this.active && this.errorMessage != "";
     this.serverWarning.css({
       display: "block",
       opacity: e ? 1 : 0
     });
     this.serverWarning.html(this.errorMessage);
-    const t = (i, r) => {
+    let t = (i, r) => {
       i.html(this.quickPlayPendingModeIdx === r ? "<div class=\"ui-spinner\"></div>" : this.localization.translate(i.data("l10n")));
     };
     t(this.playMode0Btn, 0);
@@ -83653,10 +83653,10 @@ class Qo {
     if (this.account.requestsInFlight == 0) {
       e();
     } else {
-      const t = setTimeout(() => {
+      let t = setTimeout(() => {
         i();
       }, 2500);
-      const i = () => {
+      let i = () => {
         e();
         clearTimeout(t);
         this.account.removeEventListener("requestsComplete", i);
@@ -83668,7 +83668,7 @@ class Qo {
     if (this.active && this.quickPlayPendingModeIdx === -1) {
       let i = t || window.location.hash.slice(1);
       if (this.config.get("ENV") === "CrazyGames") {
-        const r = window.CrazyGames.SDK.game.getInviteParam("roomID");
+        let r = window.CrazyGames.SDK.game.getInviteParam("roomID");
         if (r) {
           i = r;
           e = false;
@@ -83697,18 +83697,18 @@ class Qo {
       }
       this.findGameTime = Date.now();
       this.findGameAttempts++;
-      const i = R.protocolVersion;
+      let i = R.protocolVersion;
       let r = this.config.get("region");
-      const a = $.getParameterByName("region");
+      let a = $.getParameterByName("region");
       if (a !== undefined && a.length > 0) {
         r = a;
       }
       let l = this.pingTest.getZones(r);
-      const s = $.getParameterByName("zone");
+      let s = $.getParameterByName("zone");
       if (s !== undefined && s.length > 0) {
         l = [s];
       }
-      const m = {
+      let m = {
         version: i,
         region: r,
         zones: l,
@@ -83716,7 +83716,7 @@ class Qo {
         autoFill: true,
         gameModeIdx: e
       };
-      const d = () => {
+      let d = () => {
         this.waitOnAccount(() => {
           this.findGame(m, (h, p) => {
             if (h) {
@@ -83737,12 +83737,12 @@ class Qo {
     }
   }
   findGame(e, t) {
-    const i = (r, a) => {
+    let i = (r, a) => {
       if (r >= a) {
         t("full");
         return;
       }
-      const l = function () {
+      let l = function () {
         setTimeout(() => {
           i(r + 1, a);
         }, 500);
@@ -83762,7 +83762,7 @@ class Qo {
               t(d.err);
               return;
             }
-            const h = d?.res ? d.res[0] : null;
+            let h = d?.res ? d.res[0] : null;
             if (h?.hosts && h.addrs) {
               t(null, h);
             } else {
@@ -83796,18 +83796,18 @@ class Qo {
       }, 250);
       return;
     }
-    const t = e.hosts || [];
-    const i = [];
+    let t = e.hosts || [];
+    let i = [];
     for (let a = 0; a < t.length; a++) {
       i.push(`ws${e.useHttps ? "s" : ""}://${t[a]}/play?gameId=${e.gameId}`);
     }
-    const r = (a, l) => {
-      const s = a.shift();
+    let r = (a, l) => {
+      let s = a.shift();
       if (!s) {
         this.onJoinGameError("join_game_failed");
         return;
       }
-      const m = function () {
+      let m = function () {
         r(a, l);
       };
       this.game.tryJoinGame(s, l.data, this.account.loadoutPriv, this.account.questPriv, m);
@@ -83815,7 +83815,7 @@ class Qo {
     r(i, e);
   }
   onJoinGameError(e) {
-    const t = {
+    let t = {
       full: this.localization.translate("index-failed-finding-game"),
       invalid_protocol: this.localization.translate("index-invalid-protocol"),
       join_game_failed: this.localization.translate("index-failed-joining-game")
@@ -83832,11 +83832,11 @@ class Qo {
     this.refreshModal.show(true);
   }
   update() {
-    const e = z.clamp(this.pixi.ticker.elapsedMS / 1000, 0.001, 0.125);
+    let e = z.clamp(this.pixi.ticker.elapsedMS / 1000, 0.001, 0.125);
     this.pingTest.update(e);
     if (!this.checkedPingTest && this.pingTest.isComplete()) {
       if (!this.config.get("regionSelected")) {
-        const t = this.pingTest.getRegion();
+        let t = this.pingTest.getRegion();
         if (t) {
           this.config.set("region", t);
           this.setDOMFromConfig();
@@ -83875,7 +83875,7 @@ class Qo {
     this.input.flush();
   }
 }
-const ze = new Qo();
+let ze = new Qo();
 function cr() {
   ze.domContentLoaded = true;
   ze.tryLoad();
@@ -83900,7 +83900,7 @@ window.addEventListener("hashchange", () => {
 });
 window.addEventListener("beforeunload", u => {
   if (ze.game?.warnPageReload()) {
-    const e = "Do you want to reload the game?";
+    let e = "Do you want to reload the game?";
     u.returnValue = e;
     return e;
   }
@@ -83911,11 +83911,11 @@ window.addEventListener("onfocus", () => {
 window.addEventListener("onblur", () => {
   ze.hasFocus = false;
 });
-const Ei = [];
+let Ei = [];
 window.onerror = function (u, e, t, i, r) {
   u = u || "undefined_error_msg";
-  const a = r ? r.stack : "";
-  const l = {
+  let a = r ? r.stack : "";
+  let l = {
     msg: u,
     id: ze.sessionId,
     url: e,
@@ -83927,14 +83927,14 @@ window.onerror = function (u, e, t, i, r) {
     clientGitVersion: "6fdc91d0eba7549bd7215c0e86e5e8a3fa9b44f3",
     serverGitVersion: ze.siteInfo.info.gitRevision
   };
-  const s = JSON.stringify(l);
+  let s = JSON.stringify(l);
   if (!Ei.includes(s)) {
     Ei.push(s);
     console.error("windowOnError", s);
   }
 };
 navigator.serviceWorker?.getRegistrations().then(u => {
-  for (const e of u) {
+  for (let e of u) {
     e.unregister();
   }
 });
